@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.mapper.GroupsMapper" >
+
+    <!-- 根据用户唯一ID删除用户信息 -->
+    <delete id="deleteGroupsByPrimaryKey" parameterType="java.lang.Integer">
+        delete from groups
+        where group_id = #{groupId,jdbcType=INTEGER}
+    </delete>
+
+    <!--根据用户唯一ID批量删除用户信息-->
+    <delete id="deleteGroupsByPrimaryKeyArray" parameterType="java.lang.Integer">
+        delete from groups where group_id IN
+        <foreach collection="groups_idArray" item="groups" open="(" separator="," close=")">
+            #{groups}
+        </foreach>
+    </delete>
+
+    <!--插入分组信息-->
+    <insert id="insertGroups" parameterType="com.coding.pojo.Groups">
+        insert into groups (group_name, group_jurisdiction,is_start)
+        values (#{groupName,jdbcType=VARCHAR}, #{groupJurisdiction,jdbcType=VARCHAR}, #{isStart,jdbcType=INTEGER})
+    </insert>
+
+
+    <!--封装 Groups 类-->
+    <resultMap id="BaseResultMap" type="com.coding.pojo.Groups" >
+        <id column="group_id" property="groupId" jdbcType="INTEGER" />
+        <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+        <result column="group_jurisdiction" property="groupJurisdiction" jdbcType="VARCHAR" />
+        <result column="is_start" property="isStart" jdbcType="INTEGER"/>
+    </resultMap>
+    <!--Group表字段-->
+    <sql id="Base_Column_List">
+        group_id, group_name, group_jurisdiction,is_start
+    </sql>
+    <!--根据用户唯一ID查询用户信息-->
+    <select id="selectGroupsByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <if test="groupId!=null and groupId!=0">
+            select
+            <include refid="Base_Column_List" />
+            from groups
+            where group_id = #{groupId,jdbcType=INTEGER}
+        </if>
+        <if test="groupId==null or groupId==0">
+            select group10 from groups order by group_id DESC limit 1
+        </if>
+
+    </select>
+
+    <!--根据 用户唯一ID 更新用户信息-->
+    <update id="updateGroupsByPrimaryKey" parameterType="com.coding.pojo.Groups">
+        update groups
+        set group_name = #{groupName,jdbcType=VARCHAR},
+      group_jurisdiction = #{groupJurisdiction,jdbcType=VARCHAR},
+        is_start = #{isStart,jdbcType=INTEGER}
+      <!--,
+      group1 = #{group1,jdbcType=VARCHAR},
+      group2 = #{group2,jdbcType=VARCHAR},
+      group3 = #{group3,jdbcType=VARCHAR},
+      group4 = #{group4,jdbcType=VARCHAR},
+      group5 = #{group5,jdbcType=VARCHAR},
+      group6 = #{group6,jdbcType=VARCHAR},
+      group7 = #{group7,jdbcType=VARCHAR},
+      group8 = #{group8,jdbcType=VARCHAR},
+      group9 = #{group9,jdbcType=VARCHAR},
+      group10 = #{group10,jdbcType=VARCHAR}-->
+    where group_id = #{groupId,jdbcType=INTEGER}
+    </update>
+
+    <!--查询所有用户信息 封装到 pojo中的 Group类中以集合形式返回-->
+    <select id="selectGroupsAll" resultMap="BaseResultMap ">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  groups
+    </select>
+
+    <!--用户组查询功能模块-->
+    <select id="selectGroups" parameterType="com.coding.paging.PagingCustomGroups" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  groups
+        <where>
+            <!--根据用户组基本信息查询-->
+            <if test="groups != null">
+                <!--主键查询-->
+                <if test="groups.groupId != null and groups.groupId != 0">
+                    and group_id = #{groups.groupId}
+                </if>
+                <!--权限查询（例如：需要查询包含了功能ID为delete的所有用户组）-->
+                <if test="groups.groupJurisdiction != null and groups.groupJurisdiction != ''">
+                    and group_jurisdiction REGEXP #{groups.groupJurisdiction}
+                </if>
+                <!--查询开启状态的用户组-->
+                <if test="groups.isStart != null">
+                    and is_start = #{groups.isStart}
+                </if>
+                <!--根据组别名查询用户组-->
+                <if test="groups.groupName != null and groups.groupName != ''">
+                    and group_name = #{groups.groupName}
+                </if>
+            </if>
+        </where>
+        <!--排序规则-->
+        <if test="sortByColumn != null and sortByColumn !=''">
+            <if test="sortRule != null and sortRule != ''">
+                order by ${sortByColumn} ${sortRule}
+            </if>
+        </if>
+        <!--分页-->
+        <if test="indexNumber != null">
+            <if test="pageNumber != null and pageNumber != 0">
+                limit #{indexNumber},#{pageNumber}
+            </if>
+        </if>
+        <if test="indexNumber == null">
+            <if test="pageNumber != null and pageNumber != 0">
+                limit 0,#{pageNumber}
+            </if>
+        </if>
+    </select>
+
+    <!--查询分组别中一共有多少条数据-->
+    <select id="selectGroupsCount" resultType="java.lang.Integer">
+        select count(*) from groups
+    </select>
+</mapper>
