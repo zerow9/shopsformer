@@ -12,3 +12,4 @@ src/main/resource/mybatis/db.properties
 /src/test/
 
 .gitignore
+shopsformer.iml
