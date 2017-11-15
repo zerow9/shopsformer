@@ -7,7 +7,7 @@
 
     <title>个人资料</title>
 
-    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
+    <link rel="icon" href="../common/picture.ico"/>
     <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 

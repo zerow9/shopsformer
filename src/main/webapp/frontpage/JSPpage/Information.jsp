@@ -15,7 +15,7 @@
 
     <link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
+    <link rel="icon" href="../images/picture.ico"/>
     <link href="../css/personal.css" rel="stylesheet" type="text/css">
     <link href="../css/infstyle.css" rel="stylesheet" type="text/css">
     <script src="../AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
