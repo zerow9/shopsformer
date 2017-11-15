@@ -34,4 +34,5 @@ public class UserInfoController {
         adminService.updateUserByPrimaryKey(user);
         return "forward:getUserInfo.action?uuid="+user.getUserUuid();
     }
+
 }
