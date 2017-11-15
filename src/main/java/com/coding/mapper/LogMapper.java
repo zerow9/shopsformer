@@ -2,8 +2,9 @@ package com.coding.mapper;
 
 import com.coding.paging.PagingCustomLog;
 import com.coding.pojo.Log;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface LogMapper {
     /**
@@ -36,7 +37,7 @@ public interface LogMapper {
      * @return
      * @throws Exception
      */
-    public int insertLogSelective(Log log) throws Exception;
+    public int insertLogSelective (Log log) throws Exception;
 
     /**
      * 按需修改日志信息
@@ -44,7 +45,7 @@ public interface LogMapper {
      * @return
      * @throws Exception
      */
-    public int updateLogByPrimaryKeySelective(Log log)throws Exception;
+    public int updateLogByPrimaryKeySelective (Log log)throws Exception;
 
     /**
      * 日志表综合查询
@@ -52,7 +53,7 @@ public interface LogMapper {
      * @return
      * @throws Exception
      */
-    public List<Log> selectLog(PagingCustomLog pagingCustomLog)throws Exception;
+    public List<Log> selectLog (PagingCustomLog pagingCustomLog)throws Exception;
 
     /**
      * 日志信息综合查询

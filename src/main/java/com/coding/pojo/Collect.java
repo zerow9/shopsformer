@@ -1,8 +1,8 @@
 package com.coding.pojo;
-
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+
 @Component
 public class Collect {
     private Integer collectId;
