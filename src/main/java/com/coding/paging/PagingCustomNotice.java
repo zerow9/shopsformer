@@ -1,6 +1,7 @@
 package com.coding.paging;
 
 import com.coding.pojo.Notice;
+
 public class PagingCustomNotice extends Paging {
     private Notice notice;
 

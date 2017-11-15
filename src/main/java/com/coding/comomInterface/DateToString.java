@@ -16,6 +16,10 @@ public class DateToString {
         return DateTime.parse(date, DateTimeFormat.forPattern(pattern)).toDate();
     }
 
+    public static String birthday(Date date){
+       return new DateTime(date.getTime()).toString("yyyy");
+    }
+
     public static void main(String[] args) throws Exception {
     }
 

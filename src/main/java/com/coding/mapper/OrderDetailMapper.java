@@ -1,10 +1,10 @@
 package com.coding.mapper;
 
-import com.coding.pojo.OrderDetail;
-import java.util.List;
-
 import com.coding.paging.PagingCustomOrderDetail;
+import com.coding.pojo.OrderDetail;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface OrderDetailMapper {
 
@@ -54,7 +54,7 @@ public interface OrderDetailMapper {
      * @return
      * @throws Exception
      */
-    public List<OrderDetail> selectOrderDetail(PagingCustomOrderDetail pagingCustomOrderDetail)throws Exception;
+    public List<OrderDetail> selectOrderDetail (PagingCustomOrderDetail pagingCustomOrderDetail)throws Exception;
 
     /**
      * 查询订单详情中有多少条数据

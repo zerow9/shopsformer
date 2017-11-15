@@ -37,7 +37,7 @@ public interface NoticeMapper {
      * @return
      * @throws Exception
      */
-    public int insertNoticeSelective(Notice notice)throws Exception;
+    public int insertNoticeSelective (Notice notice)throws Exception;
 
     /**
      * 按需修改公告信息
@@ -45,7 +45,7 @@ public interface NoticeMapper {
      * @return
      * @throws Exception
      */
-    public int updateNoticeByPrimaryKeySelective(Notice notice)throws Exception;
+    public int updateNoticeByPrimaryKeySelective (Notice notice)throws Exception;
 
     /**
      * 公告表综合查询
@@ -53,7 +53,7 @@ public interface NoticeMapper {
      * @return
      * @throws Exception
      */
-    public List<Notice> selectNotice(PagingCustomNotice pagingCustomNotice)throws Exception;
+    public List<Notice> selectNotice (PagingCustomNotice pagingCustomNotice)throws Exception;
 
     /**
      * 查询公告信息总数

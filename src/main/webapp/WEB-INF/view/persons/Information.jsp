@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: TongZhou
-  Date: 2017/11/15
-  Time: 14:51
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -32,7 +26,9 @@
             <div class="user-info">
                 <!--标题 -->
                 <div class="am-cf am-padding">
-                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> / <small>Personal&nbsp;information</small></div>
+                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> /
+                        <small>Personal&nbsp;information</small>
+                    </div>
                 </div>
                 <hr/>
 
@@ -41,42 +37,40 @@
 
                     <div class="filePic">
                         <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-                        <img class="am-circle am-img-thumbnail" src="../../../frontpage/images/getAvatar.do.jpg" alt="" />
+                        <img class="am-circle am-img-thumbnail" src="../../../frontpage/images/getAvatar.do.jpg"
+                             alt="" readonly=""/>
                     </div>
 
                     <div class="info-m">
-                        <div><b>用户名：<i>小叮当</i></b></div>
+                        <div><b>用户名：<i>${user.userNickname}</i></b></div>
                         <div class="u-level">
 									<span class="rank r2">
 							             <s class="vip1"></s><a class="classes" href="#">铜牌会员</a>
 						            </span>
                         </div>
                         <div class="u-safety">
-                            <a href="../../../frontpage/person/safety.html">
-                                账户安全
-                                <span class="u-profile"><i class="bc_ee0000" style="width: 60px;" width="0">60分</i></span>
-                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!--个人信息 -->
                 <div class="info-main">
-                    <form class="am-form am-form-horizontal">
-
+                    <form class="am-form am-form-horizontal" action="updateUser.action" method="post">
+                        <div hidden>
+                            <input type="hidden" name="userUuid" value="${user.userUuid}">
+                            <input type="hidden" name="userPassword" value="${user.userPassword}">
+                        </div>
                         <div class="am-form-group">
-                            <label for="user-name2" class="am-form-label">昵称</label>
+                            <label class="am-form-label">昵称</label>
                             <div class="am-form-content">
-                                <input type="text" id="user-name2" placeholder="nickname">
-
+                                <input type="text" value="${user.userNickname}" name="userNickname">
                             </div>
                         </div>
 
                         <div class="am-form-group">
-                            <label for="user-name" class="am-form-label">姓名</label>
+                            <label class="am-form-label">姓名</label>
                             <div class="am-form-content">
-                                <input type="text" id="user-name2" placeholder="name">
-
+                                <input type="text" value="${user.userName}" name="userName">
                             </div>
                         </div>
 
@@ -84,97 +78,94 @@
                             <label class="am-form-label">性别</label>
                             <div class="am-form-content sex">
                                 <label class="am-radio-inline">
-                                    <input type="radio" name="radio10" value="male" data-am-ucheck> 男
+                                    <input type="radio" id="nan" name="userSex" value="男" data-am-ucheck> 男
                                 </label>
                                 <label class="am-radio-inline">
-                                    <input type="radio" name="radio10" value="female" data-am-ucheck> 女
+                                    <input type="radio" id="girl" name="userSex" value="女" data-am-ucheck> 女
                                 </label>
                                 <label class="am-radio-inline">
-                                    <input type="radio" name="radio10" value="secret" data-am-ucheck> 保密
+                                    <input type="radio" id="sex" name="userSex" value="" data-am-ucheck> 保密
                                 </label>
                             </div>
                         </div>
 
                         <div class="am-form-group">
-                            <label for="user-birth" class="am-form-label">生日</label>
-                            <div class="am-form-content birth">
-                                <div class="birth-select">
-                                    <select data-am-selected>
-                                        <option value="a">2015</option>
-                                        <option value="b">1987</option>
-                                    </select>
-                                    <em>年</em>
-                                </div>
-                                <div class="birth-select2">
-                                    <select data-am-selected>
-                                        <option value="a">12</option>
-                                        <option value="b">8</option>
-                                    </select>
-                                    <em>月</em></div>
-                                <div class="birth-select2">
-                                    <select data-am-selected>
-                                        <option value="a">21</option>
-                                        <option value="b">23</option>
-                                    </select>
-                                    <em>日</em></div>
-                            </div>
-
-                        </div>
-                        <div class="am-form-group">
-                            <label for="user-phone" class="am-form-label">电话</label>
+                            <label class="am-form-label">积分</label>
                             <div class="am-form-content">
-                                <input id="user-phone" placeholder="telephonenumber" type="tel">
-
+                                <input type="text" value="${user.userScore}" name="userScore" readonly>
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="user-email" class="am-form-label">电子邮件</label>
+
+                        <div class="am-form-group" hidden>
+                            <label class="am-form-label">生日</label>
                             <div class="am-form-content">
-                                <input id="user-email" placeholder="Email" type="email">
-
+                                <input value="${user.userAge}" type="text" name="userAge" readonly>
                             </div>
                         </div>
-                        <div class="am-form-group address">
-                            <label for="user-address" class="am-form-label">收货地址</label>
-                            <div class="am-form-content address">
-                                <a href="../../../frontpage/person/address.html">
-                                    <p class="new-mu_l2cw">
-                                        <span class="province">湖北</span>省
-                                        <span class="city">武汉</span>市
-                                        <span class="dist">洪山</span>区
-                                        <span class="street">雄楚大道666号(中南财经政法大学)</span>
-                                        <span class="am-icon-angle-right"></span>
-                                    </p>
-                                </a>
 
+                        <div class="am-form-group">
+                            <label class="am-form-label">电话</label>
+                            <div class="am-form-content">
+                                <input value="${user.userPhone}" type="tel" name="userPhone" readonly>
                             </div>
                         </div>
+
+                        <div class="am-form-group">
+                            <label class="am-form-label">电子邮件</label>
+                            <div class="am-form-content">
+                                <input value="${user.userEmail}" name="userEmail" type="email">
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label class="am-form-label">注册日期</label>
+                            <div class="am-form-content">
+                                <input value="${user.userRegisterDateTimeToString}" name="userRegisterDateTime" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="am-form-group" hidden="hidden">
+                            <label class="am-form-label">用户组</label>
+                            <div class="am-form-content">
+                                <input value="用户"  type="text" readonly>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label class="am-form-label">登陆次数</label>
+                            <div class="am-form-content">
+                                <input value="${user.userLandNumber}" name="userLandNumber" type="text" readonly>
+                            </div>
+                        </div>
+
                         <div class="am-form-group safety">
-                            <label for="user-safety" class="am-form-label">账号安全</label>
+                            <label class="am-form-label">账号安全</label>
                             <div class="am-form-content safety">
                                 <a href="../../../frontpage/person/safety.html">
-
                                     <span class="am-icon-angle-right"></span>
-
                                 </a>
-
                             </div>
                         </div>
                         <div class="info-btn">
-                            <div class="am-btn am-btn-danger">保存修改</div>
+                            <input type="submit" class=" am-btn am-btn-danger" value="点击更新"/>
                         </div>
-
                     </form>
                 </div>
 
             </div>
-
         </div>
-        <!--底部-->
         <jsp:include page="../common/tail.jsp"></jsp:include>
     </div>
-
     <jsp:include page="../common/InfoMenu.jsp"></jsp:include>
 </div>
+<script type="text/javascript">
+    var sex = '${user.userSex}';
+    if (sex === '男') {
+        document.getElementById('nan').setAttribute('checked', 'checked');
+    } else if (sex === '女') {
+        document.getElementById('girl').setAttribute('checked', 'checked');
+    } else {
+        document.getElementById('sex').setAttribute('checked', 'checked');
+    }
+</script>
 </body>
 </html>

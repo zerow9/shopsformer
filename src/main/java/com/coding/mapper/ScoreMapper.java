@@ -1,11 +1,10 @@
 package com.coding.mapper;
 
-import com.coding.paging.Paging;
 import com.coding.paging.PagingCustomScore;
-import com.coding.paging.PagingCustomShop;
 import com.coding.pojo.Score;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ScoreMapper {
 
@@ -56,7 +55,7 @@ public interface ScoreMapper {
      * @return
      * @throws Exception
      */
-    public List<Score> selectScore(PagingCustomScore pagingCustomScore)throws Exception;
+    public List<Score> selectScore (PagingCustomScore pagingCustomScore)throws Exception;
 
     /**
      * 用于查找当前用户最近的一次积分明细信息
@@ -64,7 +63,7 @@ public interface ScoreMapper {
      * @return
      * @throws Exception
      */
-    public List<Score> selectScoreRecentChange(Score score)throws Exception;
+    public List<Score> selectScoreRecentChange (Score score)throws Exception;
     /**
      * 查询积分明细总数
      * @return

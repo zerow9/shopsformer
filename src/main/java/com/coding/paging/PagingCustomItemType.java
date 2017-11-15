@@ -1,6 +1,7 @@
 package com.coding.paging;
 
 import com.coding.pojo.ItemType;
+
 public class PagingCustomItemType extends Paging {
     private ItemType itemType;
 
