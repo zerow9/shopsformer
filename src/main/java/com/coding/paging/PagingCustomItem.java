@@ -1,6 +1,7 @@
 package com.coding.paging;
 
 import com.coding.pojo.Item;
+
 public class PagingCustomItem extends Paging {
     private Double formerItemMarketPrice;//一些功能需要价格范围内查询，这是左侧较小值
 

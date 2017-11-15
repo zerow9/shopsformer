@@ -2,8 +2,9 @@ package com.coding.mapper;
 
 import com.coding.paging.PagingCustomShop;
 import com.coding.pojo.Shop;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ShopMapper {
     /**
@@ -36,7 +37,7 @@ public interface ShopMapper {
      * @return
      * @throws Exception
      */
-    public int insertShopSelective(Shop shop)throws Exception;
+    public int insertShopSelective (Shop shop)throws Exception;
 
     /**
      * 按需修改商店信息
@@ -44,7 +45,7 @@ public interface ShopMapper {
      * @return
      * @throws Exception
      */
-    public int updateShopByPrimaryKeySelective(Shop shop)throws Exception;
+    public int updateShopByPrimaryKeySelective (Shop shop)throws Exception;
 
     /**
      * 商店表综合查询
@@ -53,7 +54,7 @@ public interface ShopMapper {
      * @return
      * @throws Exception
      */
-    public List<Shop> selectShop(PagingCustomShop pagingCustomShop)throws Exception;
+    public List<Shop> selectShop (PagingCustomShop pagingCustomShop)throws Exception;
 
     /**
      * 商店综合查询

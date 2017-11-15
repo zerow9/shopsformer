@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
 @Component
 public interface CartMapper {
     /**
@@ -46,7 +47,7 @@ public interface CartMapper {
      * @return 封装了满足查询条件的购物车 Cart 类对象
      * @throws Exception
      */
-    public  Cart selectCartByPrimaryKey(Integer cartId)throws Exception;
+    public Cart selectCartByPrimaryKey(Integer cartId)throws Exception;
 
     /**
      * 查询购物车表中一共有多少条信息
