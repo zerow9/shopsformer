@@ -8,19 +8,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0 ,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>结算页面</title>
-    <link rel="icon" href="../images/picture.ico" />
-    <link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="/images/picture.ico"/>
+    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
 
-    <link href="../basic/css/demo.css" rel="stylesheet" type="text/css" />
-    <link href="../css/cartstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../../frontpage/basic/css/demo.css" rel="stylesheet" type="text/css"/>
+    <link href="../../frontpage/css/cartstyle.css" rel="stylesheet" type="text/css"/>
 
-    <link href="../css/jsstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../../frontpage/css/jsstyle.css" rel="stylesheet" type="text/css"/>
 
-    <script type="text/javascript" src="../js/address.js"></script>
+    <script type="text/javascript" src="../../frontpage/js/address.js"></script>
 
 </head>
 
@@ -31,32 +32,36 @@
     <ul class="message-l">
         <div class="topMessage">
             <div class="menu-hd">
-                <a href="login.html" target="_top" class="h">亲，请登录</a>
-                <a href="register.html" target="_top">免费注册</a>
+                <a href="login.jsp" target="_top" class="h">亲，请登录</a>
+                <a href="register.jsp" target="_top">免费注册</a>
             </div>
         </div>
     </ul>
     <ul class="message-r">
         <div class="topMessage home">
-            <div class="menu-hd"><a href="home.html" target="_top" class="h">商城首页</a></div>
+            <div class="menu-hd"><a href="home.jsp" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="../frame.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+            <div class="menu-hd MyShangcheng"><a href="../frame.html" target="_top"><i
+                    class="am-icon-user am-icon-fw"></i>个人中心</a></div>
         </div>
         <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="shopcart.html" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+            <div class="menu-hd"><a id="mc-menu-hd" href="shopcart.jsp" target="_top"><i
+                    class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
+                                                                                          class="h">0</strong></a></div>
         </div>
         <div class="topMessage favorite">
-            <div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+            <div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
+            </div>
     </ul>
 </div>
 
 <!--悬浮搜索框-->
 
 <div class="nav white">
-    <div class="logo"><img src="../images/logo.png" /></div>
+    <div class="logo"><img src="/images/logo.png"/></div>
     <div class="logoBig">
-        <li><img src="../images/logobig.png" /></li>
+        <li><img src="/images/logobig.png"/></li>
     </div>
 
     <div class="search-bar pr">
@@ -98,13 +103,11 @@
 										<span class="dist">洪山</span>区
 										<span class="street">雄楚大道666号(中南财经政法大学)</span>
 										</span>
-
-                            </span>
                         </div>
                         <ins class="deftip">默认地址</ins>
                     </div>
                     <div class="address-right">
-                        <a href="../person/address.html">
+                        <a href="/view/person/address.jsp">
                             <span class="am-icon-angle-right am-icon-lg"></span></a>
                     </div>
                     <div class="clear"></div>
@@ -122,7 +125,6 @@
                 <li class="user-addresslist">
                     <div class="address-left">
                         <div class="user DefaultAddr">
-
 										<span class="buy-address-detail">
                    <span class="buy-user">艾迪 </span>
 										<span class="buy-phone">15871145629</span>
@@ -137,7 +139,6 @@
 										<span class="street">东湖路75号众环大厦2栋9层902</span>
 										</span>
 
-                            </span>
                         </div>
                         <ins class="deftip hidden">默认地址</ins>
                     </div>
@@ -151,7 +152,7 @@
                         <span class="new-addr-bar">|</span>
                         <a href="#">编辑</a>
                         <span class="new-addr-bar">|</span>
-                        <a href="javascript:void(0);"  onclick="delClick(this);">删除</a>
+                        <a href="javascript:void(0);" onclick="delClick(this);">删除</a>
                     </div>
 
                 </li>
@@ -164,11 +165,21 @@
         <div class="logistics">
             <h3>选择物流方式</h3>
             <ul class="op_express_delivery_hot">
-                <li data-value="yuantong" class="OP_LOG_BTN  "><i class="c-gap-right" style="background-position:0px -468px"></i>圆通<span></span></li>
-                <li data-value="shentong" class="OP_LOG_BTN  "><i class="c-gap-right" style="background-position:0px -1008px"></i>申通<span></span></li>
-                <li data-value="yunda" class="OP_LOG_BTN  "><i class="c-gap-right" style="background-position:0px -576px"></i>韵达<span></span></li>
-                <li data-value="zhongtong" class="OP_LOG_BTN op_express_delivery_hot_last "><i class="c-gap-right" style="background-position:0px -324px"></i>中通<span></span></li>
-                <li data-value="shunfeng" class="OP_LOG_BTN  op_express_delivery_hot_bottom"><i class="c-gap-right" style="background-position:0px -180px"></i>顺丰<span></span></li>
+                <li data-value="yuantong" class="OP_LOG_BTN  "><i class="c-gap-right"
+                                                                  style="background-position:0px -468px"></i>圆通<span></span>
+                </li>
+                <li data-value="shentong" class="OP_LOG_BTN  "><i class="c-gap-right"
+                                                                  style="background-position:0px -1008px"></i>申通<span></span>
+                </li>
+                <li data-value="yunda" class="OP_LOG_BTN  "><i class="c-gap-right"
+                                                               style="background-position:0px -576px"></i>韵达<span></span>
+                </li>
+                <li data-value="zhongtong" class="OP_LOG_BTN op_express_delivery_hot_last "><i class="c-gap-right"
+                                                                                               style="background-position:0px -324px"></i>中通<span></span>
+                </li>
+                <li data-value="shunfeng" class="OP_LOG_BTN  op_express_delivery_hot_bottom"><i class="c-gap-right"
+                                                                                                style="background-position:0px -180px"></i>顺丰<span></span>
+                </li>
             </ul>
         </div>
         <div class="clear"></div>
@@ -177,9 +188,9 @@
         <div class="logistics">
             <h3>选择支付方式</h3>
             <ul class="pay-list">
-                <li class="pay card"><img src="../images/wangyin.jpg" />银联<span></span></li>
-                <li class="pay qq"><img src="../images/weizhifu.jpg" />微信<span></span></li>
-                <li class="pay taobao"><img src="../images/zhifubao.jpg" />支付宝<span></span></li>
+                <li class="pay card"><img src="/images/wangyin.jpg"/>银联<span></span></li>
+                <li class="pay qq"><img src="/images/weizhifu.jpg"/>微信<span></span></li>
+                <li class="pay taobao"><img src="/images/zhifubao.jpg"/>支付宝<span></span></li>
             </ul>
         </div>
         <div class="clear"></div>
@@ -220,11 +231,13 @@
                                     <li class="td td-item">
                                         <div class="item-pic">
                                             <a href="#" class="J_MakePoint">
-                                                <img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
+                                                <img src="/images/kouhong.jpg_80x80.jpg"
+                                                     class="itempic J_ItemImg"></a>
                                         </div>
                                         <div class="item-info">
                                             <div class="item-basic-info">
-                                                <a href="#" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</a>
+                                                <a href="#" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏
+                                                    持久保湿滋润防水不掉色</a>
                                             </div>
                                         </div>
                                     </li>
@@ -247,9 +260,10 @@
                                         <div class="item-amount ">
                                             <span class="phone-title">购买数量</span>
                                             <div class="sl">
-                                                <input class="min am-btn" name="" type="button" value="-" />
-                                                <input class="text_box" name="" type="text" value="3" style="width:30px;" />
-                                                <input class="add am-btn" name="" type="button" value="+" />
+                                                <input class="min am-btn" name="" type="button" value="-"/>
+                                                <input class="text_box" name="" type="text" value="3"
+                                                       style="width:30px;"/>
+                                                <input class="add am-btn" name="" type="button" value="+"/>
                                             </div>
                                         </div>
                                     </div>
@@ -284,11 +298,13 @@
                                 <li class="td td-item">
                                     <div class="item-pic">
                                         <a href="#" class="J_MakePoint">
-                                            <img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
+                                            <img src="/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
                                     </div>
                                     <div class="item-info">
                                         <div class="item-basic-info">
-                                            <a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</a>
+                                            <a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色"
+                                               class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏
+                                                持久保湿滋润防水不掉色</a>
                                         </div>
                                     </div>
                                 </li>
@@ -312,9 +328,9 @@
                                     <div class="item-amount ">
                                         <span class="phone-title">购买数量</span>
                                         <div class="sl">
-                                            <input class="min am-btn" name="" type="button" value="-" />
-                                            <input class="text_box" name="" type="text" value="3" style="width:30px;" />
-                                            <input class="add am-btn" name="" type="button" value="+" />
+                                            <input class="min am-btn" name="" type="button" value="-"/>
+                                            <input class="text_box" name="" type="text" value="3" style="width:30px;"/>
+                                            <input class="add am-btn" name="" type="button" value="+"/>
                                         </div>
                                     </div>
                                 </div>
@@ -346,7 +362,8 @@
                 <div class="order-user-info">
                     <div id="holyshit257" class="memo">
                         <label>买家留言：</label>
-                        <input type="text" title="选填,对本次交易的说明（建议填写已经和卖家达成一致的说明）" placeholder="选填,建议填写和卖家达成一致的说明" class="memo-input J_MakePoint c2c-text-default memo-close">
+                        <input type="text" title="选填,对本次交易的说明（建议填写已经和卖家达成一致的说明）" placeholder="选填,建议填写和卖家达成一致的说明"
+                               class="memo-input J_MakePoint c2c-text-default memo-close">
                         <div class="msg hidden J-msg">
                             <p class="error">最多输入500个字符</p>
                         </div>
@@ -447,7 +464,7 @@
 
                 <div id="holyshit269" class="submitOrder">
                     <div class="go-btn-wrap">
-                        <a id="J_Go" href="success.html" class="btn-go" tabindex="0" title="点击此按钮，提交订单">提交订单</a>
+                        <a id="J_Go" href="success.jsp" class="btn-go" tabindex="0" title="点击此按钮，提交订单">提交订单</a>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -481,7 +498,9 @@
 
     <!--标题 -->
     <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">新增地址</strong> / <small>Add address</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">新增地址</strong> /
+            <small>Add address</small>
+        </div>
     </div>
     <hr/>
 

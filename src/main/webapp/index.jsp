@@ -6,12 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>孝和商城</title>
-</head>
-<body>
-<%--深刻而不深沉，简约而不简单的首页--%>
+
+<%-- 深刻而不深沉，简约而不简单的首页 --%>
+
+<%-- 加载home页面作为首页 --%>
 <jsp:include page="view/homes/home.jsp" flush="true"/>
-</body>
-</html>

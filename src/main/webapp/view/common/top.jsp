@@ -6,10 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-</head>
-<body>
 
 <%--begin：顶部--%>
 <div class="hmtop">
@@ -18,25 +14,25 @@
         <ul class="message-l">
             <div class="topMessage">
                 <div class="menu-hd">
-                    <a href="../homes/login.jsp" target="_top" class="h">亲，请登录</a>
-                    <a href="../homes/register.jsp" target="_top">免费注册</a>
+                    <a href="/view/homes/login.jsp" target="_top" class="h">亲，请登录</a>
+                    <a href="/view/homes/register.jsp" target="_top">免费注册</a>
                 </div>
             </div>
         </ul>
         <ul class="message-r">
             <div class="topMessage home">
                 <div class="menu-hd">
-                    <a href="../homes/home.jsp" target="_top" class="h">孝和商城</a>
+                    <a href="/view/homes/home.jsp" target="_top" class="h">孝和商城</a>
                 </div>
             </div>
             <div class="topMessage my-shangcheng">
                 <div class="menu-hd MyShangcheng">
-                    <a href="../persons/index.jsp" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
+                    <a href="/view/persons/index.jsp" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
                 </div>
             </div>
             <div class="topMessage mini-cart">
                 <div class="menu-hd">
-                    <a id="mc-menu-hd" href="../homes/shopcart.jsp" target="_top"><i
+                    <a id="mc-menu-hd" href="/view/homes/shopcart.jsp" target="_top"><i
                             class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
                                                                                                   class="h">0</strong></a>
                 </div>
@@ -50,7 +46,6 @@
     </div>
 
     <!--悬浮搜索框-->
-
     <div class="nav white">
         <div class="logo"><img src="../../images/logo.png"/></div>
         <div class="logoBig">
@@ -70,5 +65,3 @@
 </div>
 <%--end：顶部--%>
 
-</body>
-</html>

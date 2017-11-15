@@ -13,19 +13,19 @@
 
     <title>商品页面</title>
 
-    <link rel="icon" href="../images/picture.ico" />
-    <link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
-    <link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-    <link href="../basic/css/demo.css" rel="stylesheet" type="text/css" />
-    <link type="text/css" href="../css/optstyle.css" rel="stylesheet" />
-    <link type="text/css" href="../css/style.css" rel="stylesheet" />
-    <script type="text/javascript" src="../basic/js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="../basic/js/quick_links.js"></script>
+    <link rel="icon" href="/images/picture.ico" />
+    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+    <link href="../../frontpage/basic/css/demo.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="../../frontpage/css/optstyle.css" rel="stylesheet" />
+    <link type="text/css" href="../../frontpage/css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../frontpage/basic/js/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="../../frontpage/basic/js/quick_links.js"></script>
 
-    <script type="text/javascript" src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-    <script type="text/javascript" src="../js/jquery.imagezoom.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.flexslider.js"></script>
-    <script type="text/javascript" src="../js/list.js"></script>
+    <script type="text/javascript" src="../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+    <script type="text/javascript" src="../../frontpage/js/jquery.imagezoom.min.js"></script>
+    <script type="text/javascript" src="../../frontpage/js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="../../frontpage/js/list.js"></script>
 
 </head>
 <body>

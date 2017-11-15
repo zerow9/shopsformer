@@ -8,66 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <%@include file="/view/common/head.html" %>
 
     <title>购物车页面</title>
 
-    <link rel="icon" href="../images/picture.ico" />
-    <link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-    <link href="../basic/css/demo.css" rel="stylesheet" type="text/css" />
-    <link href="../css/cartstyle.css" rel="stylesheet" type="text/css" />
-    <link href="../css/optstyle.css" rel="stylesheet" type="text/css" />
-
-    <script type="text/javascript" src="../js/jquery.js"></script>
-
+    <link href="../../frontpage/basic/css/demo.css" rel="stylesheet"/>
+    <link href="../../frontpage/css/cartstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../../frontpage/css/optstyle.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-<!--顶部导航条 -->
-<div class="am-container header">
-    <ul class="message-l">
-        <div class="topMessage">
-            <div class="menu-hd">
-                <a href="login.html" target="_top" class="h">亲，请登录</a>
-                <a href="register.html" target="_top">免费注册</a>
-            </div>
-        </div>
-    </ul>
-    <ul class="message-r">
-        <div class="topMessage home">
-            <div class="menu-hd"><a href="home.html" target="_top" class="h">商城首页</a></div>
-        </div>
-        <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="../frame.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
-        </div>
-        <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="shopcart.html" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
-        </div>
-        <div class="topMessage favorite">
-            <div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
-    </ul>
-</div>
-
-<!--悬浮搜索框-->
-
-<div class="nav white">
-    <div class="logo"><img src="../images/logo.png" /></div>
-    <div class="logoBig">
-        <li><img src="../images/logobig.png" /></li>
-    </div>
-
-    <div class="search-bar pr">
-        <a name="index_none_header_sysc" href="search.html"></a>
-        <form>
-            <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
-            <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
-        </form>
-    </div>
-</div>
-
-<div class="clear"></div>
+<%--顶部--%>
+<jsp:include page="../common/top.jsp" flush="true"/>
 
 <!--购物车 -->
 <div class="concent">
@@ -76,7 +29,6 @@
             <div class="wp">
                 <div class="th th-chk">
                     <div id="J_SelectAll1" class="select-all J_SelectAll">
-
                     </div>
                 </div>
                 <div class="th th-item">
@@ -121,7 +73,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
+                                    <img src="/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">
@@ -175,9 +127,6 @@
                         </li>
                     </ul>
 
-
-
-
                     <ul class="item-content clearfix">
                         <li class="td td-chk">
                             <div class="cart-checkbox ">
@@ -188,7 +137,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
+                                    <img src="/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">
@@ -273,7 +222,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
+                                    <img src="/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">
@@ -365,30 +314,14 @@
 
     </div>
 
-    <div class="footer">
-        <div class="footer-hd">
-            <p>
-                <a href="#">商城首页</a>
-                <b>|</b>
-                <a href="#">支付宝</a>
-                <b>|</b>
-                <a href="#">物流</a>
-            </p>
-        </div>
-        <div class="footer-bd">
-            <p>
-                <a>Yang Coding</a>
-                <em>© 2017-2020 YangCoding.com 版权所有</em>
-            </p>
-        </div>
-    </div>
+    <%--底部--%>
+    <jsp:include page="../common/footer.jsp" flush="true"/>
 
 </div>
 
-<!--操作页面-->
-
 <div class="theme-popover-mask"></div>
 
+<!--操作页面-->
 <div class="theme-popover">
     <div class="theme-span"></div>
     <div class="theme-poptit h-title">
@@ -432,7 +365,7 @@
             </div>
             <div class="theme-signin-right">
                 <div class="img-info">
-                    <img src="../images/kouhong.jpg_80x80.jpg" />
+                    <img src="/images/kouhong.jpg_80x80.jpg" />
                 </div>
                 <div class="text-info">
                     <span class="J_Price price-now">¥39.00</span>
@@ -443,12 +376,10 @@
         </form>
     </div>
 </div>
-<!--引导 -->
-<div class="navCir">
-    <li><a href="home.html"><i class="am-icon-home "></i>首页</a></li>
-    <li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
-    <li class="active"><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>
-    <li><a href="../person/index.html"><i class="am-icon-user"></i>我的</a></li>
-</div>
+
+<%--begin：引导--%>
+<jsp:include page="../common/navCir.jsp" flush="true"/>
+<%--end：引导--%>
+
 </body>
 </html>
