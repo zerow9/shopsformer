@@ -1,1 +1,2 @@
 # shopsformer
+/.idea/
