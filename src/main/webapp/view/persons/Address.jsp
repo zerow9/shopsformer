@@ -24,7 +24,7 @@
 
 </head>
 <body>
-<jsp:include page="../common/head.jsp"></jsp:include>
+<jsp:include page="../common/top.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -187,7 +187,7 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="../common/tail.jsp"></jsp:include>
+        <jsp:include page="../common/footer.jsp"/>
     </div>
 
     <jsp:include page="../common/InfoMenu.jsp"></jsp:include>

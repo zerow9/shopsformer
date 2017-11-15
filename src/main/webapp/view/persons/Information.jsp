@@ -24,7 +24,7 @@
 
 </head>
 <body>
-<jsp:include page="../common/head.jsp"></jsp:include>
+<jsp:include page="../common/top.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -32,7 +32,9 @@
             <div class="user-info">
                 <!--标题 -->
                 <div class="am-cf am-padding">
-                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> / <small>Personal&nbsp;information</small></div>
+                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> /
+                        <small>Personal&nbsp;information</small>
+                    </div>
                 </div>
                 <hr/>
 
@@ -41,7 +43,7 @@
 
                     <div class="filePic">
                         <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-                        <img class="am-circle am-img-thumbnail" src="../../frontpage/images/getAvatar.do.jpg" alt="" />
+                        <img class="am-circle am-img-thumbnail" src="../../frontpage/images/getAvatar.do.jpg" alt=""/>
                     </div>
 
                     <div class="info-m">
@@ -54,7 +56,8 @@
                         <div class="u-safety">
                             <a href="../../frontpage/person/safety.html">
                                 账户安全
-                                <span class="u-profile"><i class="bc_ee0000" style="width: 60px;" width="0">60分</i></span>
+                                <span class="u-profile"><i class="bc_ee0000" style="width: 60px;"
+                                                           width="0">60分</i></span>
                             </a>
                         </div>
                     </div>
@@ -171,7 +174,7 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="../common/tail.jsp"></jsp:include>
+        <jsp:include page="../common/footer.jsp"/>
     </div>
 
     <jsp:include page="../common/InfoMenu.jsp"></jsp:include>
