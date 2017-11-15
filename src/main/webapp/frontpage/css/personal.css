@@ -180,6 +180,7 @@ aside ul li.active a{color: #F69}
 li.person{border-bottom:1px solid #F5F8FA ;padding-bottom:10px;padding-top: 10px;}
 .person ul{padding-left:6px; border:none; padding-top:0px; padding-bottom:0px; margin:0px auto;font-size:12px;}
 .person ul li a{color: #666;}
+	.person ul li a:hover{color: #F69;}
 /*主题*/
 .col-main {float:left;width:100%;min-height: 1px;background: none;padding-bottom: 0px;}
 .main-wrap {position: relative; margin-left:150px;overflow: hidden;min-height:585px;background-color:#fff;}
