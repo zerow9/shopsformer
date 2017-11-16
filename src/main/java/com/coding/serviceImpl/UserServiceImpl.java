@@ -91,6 +91,15 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return null;
     }
 
+    public Boolean registerUserPasswordByPhone(String userPhone) throws Exception {
+        if (userPhone != null && !userPhone.equals("")) {
+            User user= userMapper.selectUserByPhone(userPhone);
+            if(user!=null)
+                return false;
+        }
+        return true;
+    }
+
     /*------------------------------------------收获地址表------------------------------------------------------------------*/
     @Transactional(rollbackFor =Exception.class )
     public void deleteAddressByPrimaryKey(Integer addressId) throws Exception{

@@ -45,6 +45,15 @@ public interface IUserService {
      * @throws Exception  无效sql、sql异常
      */
     public List<String> selectUserPassword(String userPhone)throws Exception;
+
+    /**
+     * 注册检验
+     *
+     * @param userPhone 电话号码
+     * @return 封装了符合查找条件的 User 类对象
+     * @throws Exception 无效sql、sql异常
+     */
+    public Boolean registerUserPasswordByPhone( String userPhone) throws Exception;
     /*------------------------------------------收获地址表------------------------------------------------------------------*/
     /**
      * 根据 addressId 删除地址信息
