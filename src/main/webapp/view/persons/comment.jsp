@@ -13,7 +13,9 @@
 <jsp:include page="/view/common/top.jsp" flush="true"/>
 
 <%--导航栏--%>
-<jsp:include page="/view/common/navigation.jsp" flush="true"/>
+<div class="nav-table">
+    <jsp:include page="/view/common/navigation.jsp" flush="true"/>
+</div>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">

@@ -17,7 +17,7 @@
         <li class="person">
             <a href="#">个人资料</a>
             <ul>
-                <li><a href="/view/persons/information.jsp">个人信息</a></li>
+                <li><a href="/user/getUserInfo">个人信息</a></li>
                 <li><a href="/view/persons/safety.jsp">安全设置</a></li>
                 <li><a href="/view/persons/address.jsp">收货地址</a></li>
             </ul>
