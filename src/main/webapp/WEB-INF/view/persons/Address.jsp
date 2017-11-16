@@ -43,7 +43,7 @@
                     <c:forEach items="${addresses}" var="address">
                         <c:if test="${address.isDefaultAddress==1}">
                             <li class="user-addresslist defaultAddr">
-                                <span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
+                                <span class="new-option-r" ><i class="am-icon-check-circle"></i>默认地址</span>
                                 <p class="new-tit new-p-re">
                                     <span class="new-txt">${address.takeGoodsName}</span>
                                     <span class="new-txt-rd2">${address.addresseePhone}</span>
@@ -65,7 +65,7 @@
                         <c:if test="${address.isDefaultAddress==0}">
                             <li class="user-addresslist">
                                 <span class="new-option-r"
-                                      onclick="updateDefaultAddress(${address.addressId},${address.userUuid})"><i
+                                      onclick="updateDefaultAddress(${address.userUuid},${address.addressId})"><i
                                         class="am-icon-check-circle" id="updateDefaultAddress"></i>默认地址</span>
                                 <p class="new-tit new-p-re">
                                     <span class="new-txt">${address.takeGoodsName}</span>

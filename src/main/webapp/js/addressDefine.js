@@ -1,9 +1,10 @@
-function updateDefaultAddress(addressId,userUuid){
+function updateDefaultAddress(userUuid,addressId){
     var data = JSON.stringify({"addressId":addressId,"userUuid":userUuid});
     $.ajax({
-        url:"/user/address/updateDefaultAddress.action",
-        data:data,
+        url:"/user/address/updateDefaultAddress.action?userUuid="+userUuid+"&addressId="+addressId,
+        // data:'address='+data,
         success:function () {
+            window.location.reload();
         }
     })
 }
