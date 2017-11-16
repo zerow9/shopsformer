@@ -198,11 +198,9 @@
             <div class="clear"></div>
 
         </div>
-        <!--底部-->
-        <jsp:include page="../common/tail.jsp"></jsp:include>
+        <jsp:include page="/view/common/footer.jsp" />
     </div>
-
-    <jsp:include page="../common/InfoMenu.jsp"></jsp:include>
+    <jsp:include page="/view/persons/index/personalMenu.jsp" flush="true"/>
 </div>
 <script src="/frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="/frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
