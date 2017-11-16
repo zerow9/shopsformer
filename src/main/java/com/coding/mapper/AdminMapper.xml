@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.coding.com.coding.mapper.AdminMapper" >
+<mapper namespace="com.coding.mapper.AdminMapper" >
 
     <!-- 根据管理员ID删除管理员信息 -->
     <delete id="deleteAdminByPrimaryKey" parameterType="java.lang.Integer" >

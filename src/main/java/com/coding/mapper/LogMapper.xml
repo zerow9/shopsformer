@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.coding.com.coding.mapper.LogMapper" >
+<mapper namespace="com.coding.mapper.LogMapper" >
   <resultMap id="BaseResultMap" type="com.coding.pojo.Log" >
     <id column="log_id" property="logId" jdbcType="INTEGER" />
     <result column="user_uuid" property="userUuid" jdbcType="VARCHAR" />

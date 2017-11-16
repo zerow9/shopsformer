@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.coding.com.coding.mapper.CartMapper" >
+<mapper namespace="com.coding.mapper.CartMapper" >
   <!--封装了 Cart 的基本信息-->
   <resultMap id="BaseResultMap" type="com.coding.pojo.Cart" >
     <id column="cart_id" property="cartId" jdbcType="INTEGER" />
