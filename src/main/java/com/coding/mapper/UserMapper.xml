@@ -209,6 +209,10 @@
                 <if test="user.userSex != null and user.userSex != ''">
                     and user_sex = #{user.userSex}
                 </if>
+                <!--邮箱查询-->
+                <if test="user.userEmail != null and user.userEmail != ''">
+                    and user_email = #{user.userEmail}
+                </if>
                 <!--组别查询-->
                 <if test="user.userGroup != null and user.userGroup != 0">
                     and user_group = #{user.userGroup}
