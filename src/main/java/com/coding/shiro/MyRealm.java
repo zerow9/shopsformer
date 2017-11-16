@@ -41,7 +41,7 @@ public class MyRealm extends AuthorizingRealm {
             System.out.println(code);
         } catch (Exception e) {
         }
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo("user", code, this.getName());
+        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(email, code, this.getName());
         return info;
     }
 
