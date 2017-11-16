@@ -1,6 +1,7 @@
 package com.coding.controller;
 
 import com.coding.Iservice.IAdminService;
+import com.coding.paging.PagingCustomUser;
 import com.coding.pojo.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -20,11 +21,6 @@ public class LoginController {
     @Autowired
     private IAdminService adminService;
 
-    @RequestMapping("login")
-    public String login() {
-        return "homes/login";
-    }
-
     @RequestMapping("register")
     public String register() {
         return "homes/register";
@@ -33,12 +29,16 @@ public class LoginController {
     @RequestMapping("first")
     public String first(HttpSession session) throws Exception {
         String photo = (String) SecurityUtils.getSubject().getPrincipal();
-        User user = adminService.selectUserByPhone(photo);
+        PagingCustomUser pagingCustomUser=new PagingCustomUser();
+        User use=new User();
+        use.setUserEmail(photo);
+        pagingCustomUser.setUser(use);
+        User user = adminService.selectUser(pagingCustomUser).get(0);
         session.setAttribute("user",user);
         return "homes/index";
     }
 
-    @RequestMapping("loginInfo")
+    @RequestMapping("login")
     public String login(HttpServletRequest request) throws Exception {
         String exceptionClassName = (String) request.getAttribute("shiroLoginFailure");
         if (exceptionClassName != null) {

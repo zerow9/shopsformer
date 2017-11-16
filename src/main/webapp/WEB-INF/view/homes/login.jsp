@@ -39,10 +39,10 @@
             <div class="clear"></div>
 
             <div class="login-form">
-                <form action="/user/loginInfo" method="post" id="add">
+                <form action="/user/login" method="post" id="add">
                     <div class="user-name">
                         <label for="user"><i class="am-icon-user"></i></label>
-                        <input type="text" name="username" id="user" placeholder="邮箱/手机/用户名">
+                        <input type="text" name="username" id="user" placeholder="输入邮箱">
                     </div>
                     <div class="user-pass">
                         <label for="password"><i class="am-icon-lock"></i></label>
@@ -94,7 +94,7 @@
     function add() {
         var obj = document.getElementById("add");
         if (rememberMe) {
-            obj.action = "/user/loginInfo?rememberMe=" + rememberMe;
+            obj.action = "/user/login?rememberMe=" + rememberMe;
             obj.submit();
         } else
             obj.submit();
