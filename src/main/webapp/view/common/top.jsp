@@ -55,7 +55,7 @@
     <div class="nav white">
         <%--<div class="logo"><img src="../../../view/images/logo.png"/></div>--%>
         <div class="logoBig">
-            <li><img src="../../../view/images/logobig.png"/></li>
+            <li><img src="/view/images/logobig.png"/></li>
         </div>
 
         <div class="search-bar pr">
