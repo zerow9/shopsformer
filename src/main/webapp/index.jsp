@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%-- 深刻而不深沉，简约而不简单的首页 --%>
+ <h1>深刻而不深沉，简约而不简单的首页</h1>
 
 <%-- 加载home页面作为首页 --%>
 <jsp:include page="view/homes/home.jsp" flush="true"/>

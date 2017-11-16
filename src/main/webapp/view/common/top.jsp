@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 63465
@@ -14,8 +15,13 @@
         <ul class="message-l">
             <div class="topMessage">
                 <div class="menu-hd">
-                    <a href="/view/homes/login.jsp" target="_top" class="h">亲，请登录</a>
+                    <c:if test="${empty user}">
+                    <a href="/view/homes/.jsp" target="_top" class="h">亲，请登录</a>
                     <a href="/view/homes/register.jsp" target="_top">免费注册</a>
+                    </c:if>
+                    <c:if test="${!empty user}">
+                        <a href="/view/homes/.jsp" target="_top" class="h">欢迎：${user.userNickname}登陆</a>
+                    </c:if>
                 </div>
             </div>
         </ul>
@@ -47,9 +53,9 @@
 
     <!--悬浮搜索框-->
     <div class="nav white">
-        <div class="logo"><img src="../../view/images/logo.png"/></div>
+        <%--<div class="logo"><img src="../../../view/images/logo.png"/></div>--%>
         <div class="logoBig">
-            <li><img src="../../view/images/logobig.png"/></li>
+            <li><img src="/view/images/logobig.png"/></li>
         </div>
 
         <div class="search-bar pr">

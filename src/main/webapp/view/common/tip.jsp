@@ -1,13 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 63465
-  Date: 2017/11/15 0015
-  Time: 20:55
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--begin：侧边悬浮快速链接--%>
-<div class=tip>
+<div class="tip">
     <div id="sidebar">
         <div id="wrap">
             <div id="prof" class="item">
@@ -19,10 +13,10 @@
                 <div class="ibar_login_box status_login">
                     <div class="avatar_box">
                         <p class="avatar_imgbox">
-                            <img src="/images/no-img_mid_.jpg "/>
+                            <img src="../../../view/images/no-img_mid_.jpg "/>
                         </p>
                         <ul class="user_info ">
-                            <li>用户名sl1903</li>
+                            <li>用户名&nbsp:${user.userNickname}</li>
                             <li>级&nbsp;别普通会员</li>
                         </ul>
                     </div>
@@ -66,7 +60,7 @@
 
             <div id="brand " class="item ">
                 <a href="# ">
-                    <span class="wdsc "><img src="/images/wdsc.png "/></span>
+                    <span class="wdsc "><img src="../../../view/images/wdsc.png "/></span>
                 </a>
                 <div class="mp_tooltip ">
                     我的收藏
@@ -76,7 +70,7 @@
 
             <div id="broadcast " class="item ">
                 <a href="# ">
-                    <span class="chongzhi "><img src="/images/chongzhi.png "/></span>
+                    <span class="chongzhi "><img src="../../../view/images/chongzhi.png "/></span>
                 </a>
                 <div class="mp_tooltip ">
                     我要充值
@@ -92,7 +86,7 @@
                 <!--二维码 -->
                 <li class="qtitem ">
                     <a href="#none"><span class="mpbtn_qrcode "></span></a>
-                    <div class="mp_qrcode " style="display:none; "><img src="/images/weixin_code_145.png "/><i
+                    <div class="mp_qrcode " style="display:none; "><img src="../../../view/images/weixin_code_145.png "/><i
                             class="icon_arrow_white "></i></div>
                 </li>
                 <li class="qtitem ">
@@ -175,7 +169,7 @@
 
 <%--检查jQuery（如果jQuery没有被引入，则引入)--%>
 <script>
-    window.jQuery || document.write('<script src="basic/js/jquery.min.js "><\/script>');
+    window.jQuery || document.write('<script src="/frontpage/basic/js/jquery-1.9.min.js "><\/script>');
 </script>
 
 <%--侧边悬浮快速链接js--%>
