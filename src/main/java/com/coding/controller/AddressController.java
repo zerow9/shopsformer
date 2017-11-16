@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -20,14 +21,13 @@ public class AddressController {
 
     /**
      * 跳转到地址页面
-     * @param uuid 用户ID
+     * @param userUuid 用户ID
      * @return 地址页面
      */
     @RequestMapping("/address")
-    public String addressInfomation(String uuid, Model model)throws Exception{
-        List <Address> addresses = userService.selectAddressByUserID(uuid);
+    public String addressInfomation(String userUuid, Model model)throws Exception{
+        List <Address> addresses = userService.selectAddressByUserID(userUuid);
         model.addAttribute("addresses",addresses);
-        System.out.println(addresses);
         return "persons/Address";
     }
 
@@ -49,7 +49,6 @@ public class AddressController {
     public String selectAddress(Integer addressId,Model model)throws Exception{
         Address address = userService.selectAddressByPrimaryKey(addressId);
         model.addAttribute("address",address);
-        System.out.println(123);
         return "persons/updateAddress";
     }
 
@@ -61,9 +60,9 @@ public class AddressController {
     @RequestMapping("updateAddress")
     public String updateAddress(Address address)throws Exception{
         userService.updateAddressByPrimaryKey(address);
-        String uuid = address.getUserUuid();
+        String userUuid = address.getUserUuid();
         System.out.println(address);
-        return "forward:/user/address/address.action?uuid="+uuid;
+        return "redirect:/user/address/address.action?userUuid="+userUuid;
     }
 
     /**
@@ -72,14 +71,21 @@ public class AddressController {
      */
     @RequestMapping("insertAddress")
     public String insertAddress(Address address)throws Exception{
-        System.out.println(address);
         userService.insertAddress(address);
-        String uuid = address.getUserUuid();
-        return "forward:/user/address/address.action?uuid="+uuid;
+        String userUuid = address.getUserUuid();
+        return "redirect:/user/address/address.action?userUuid="+userUuid;
     }
 
-    @RequestMapping("111")
-    public String zz(){
-        return "index";
+    /**
+     * 设置默认地址
+     * @return 原页面
+     */
+    @RequestMapping("updateDefaultAddress")
+    public String updateDefaultAddress(String userUuid,Integer addressId)throws Exception{
+        Address address = new Address();
+        address.setUserUuid(userUuid);
+        address.setAddressId(addressId);
+        userService.updateAddressUserDefaultAddress(address);
+        return "persons/Address";
     }
 }
