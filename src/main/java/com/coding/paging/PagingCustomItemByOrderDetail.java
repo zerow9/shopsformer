@@ -9,6 +9,17 @@ public class PagingCustomItemByOrderDetail {
 
     private Integer ordersId;
 
+    private String orderCompletionTime;
+
+    public void setOrderCompletionTime(String orderCompletionTime) {
+        this.orderCompletionTime = orderCompletionTime;
+    }
+
+    public String getOrderCompletionTime() {
+
+        return orderCompletionTime;
+    }
+
     public void setOrdersId(Integer ordersId) {
         this.ordersId = ordersId;
     }
@@ -24,6 +35,7 @@ public class PagingCustomItemByOrderDetail {
                 "itmeNum=" + itmeNum +
                 ", item=" + item +
                 ", ordersId=" + ordersId +
+                ", orderCompletionTime='" + orderCompletionTime + '\'' +
                 '}';
     }
 
