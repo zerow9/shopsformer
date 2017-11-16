@@ -23,7 +23,7 @@
             <div class="icon-sale one "></div>
             <h4>秒杀</h4>
             <div class="activityMain ">
-                <img src="/images/activity1.jpg "/>
+                <img src="/view/images/activity1.jpg "/>
             </div>
             <div class="info ">
                 <h3>春节送礼优选</h3>
@@ -34,7 +34,7 @@
             <div class="icon-sale two "></div>
             <h4>特惠</h4>
             <div class="activityMain ">
-                <img src="/images/activity2.jpg ">
+                <img src="/view/images/activity2.jpg ">
             </div>
             <div class="info ">
                 <h3>春节送礼优选</h3>
@@ -45,7 +45,7 @@
             <div class="icon-sale three "></div>
             <h4>团购</h4>
             <div class="activityMain ">
-                <img src="/images/activity3.jpg ">
+                <img src="/view/images/activity3.jpg ">
             </div>
             <div class="info ">
                 <h3>春节送礼优选</h3>
@@ -56,7 +56,7 @@
             <div class="icon-sale "></div>
             <h4>超值</h4>
             <div class="activityMain ">
-                <img src="/images/activity.jpg ">
+                <img src="/view/images/activity.jpg ">
             </div>
             <div class="info ">
                 <h3>春节送礼优选</h3>

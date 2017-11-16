@@ -16,11 +16,11 @@
             <div class="topMessage">
                 <div class="menu-hd">
                     <c:if test="${empty user}">
-                    <a href="/view/homes/.jsp" target="_top" class="h">亲，请登录</a>
-                    <a href="/view/homes/register.jsp" target="_top">免费注册</a>
+                    <a href="/user/login.action" target="_top" class="h">亲，请登录</a>
+                    <a href="/user/register.action" target="_top">免费注册</a>
                     </c:if>
                     <c:if test="${!empty user}">
-                        <a href="/view/homes/.jsp" target="_top" class="h">欢迎：${user.userNickname}登陆</a>
+                        <a href="/index.jsp" target="_top" class="h">欢迎：${user.userNickname}登陆</a>
                     </c:if>
                 </div>
             </div>

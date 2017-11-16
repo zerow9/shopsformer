@@ -13,18 +13,18 @@
 
     <title>注册</title>
 
-    <link href="../../../frontpage/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <link href="/frontpage/css/dlstyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
 <div class="login-boxtitle">
-    <a href="#"><img alt="" src="/images/logobig.png"/></a>
+    <a href="#"><img alt="" src="/view/images/logobig.png"/></a>
 </div>
 
 <div class="res-banner">
     <div class="res-main">
-        <div class="login-banner-bg"><span></span><img src="/images/big.jpg"/></div>
+        <div class="login-banner-bg"><span></span><img src="/view/images/big.jpg"/></div>
         <div class="login-box">
 
             <div class="am-tabs" id="doc-my-tabs">
