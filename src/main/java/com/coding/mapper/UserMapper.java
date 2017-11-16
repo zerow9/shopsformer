@@ -108,7 +108,6 @@ public interface UserMapper {
      * @throws Exception
      */
     public List<User> selectUser(PagingCustomUser paging) throws Exception;
-
     /**
      * 查询用户表中一共有多少数据
      * @return 封装了用户信息的 User 类对象集合

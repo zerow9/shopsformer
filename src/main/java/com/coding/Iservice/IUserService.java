@@ -1,6 +1,7 @@
 package com.coding.Iservice;
 
 
+import com.coding.CustomVo.CustomVoItemsByOrderId;
 import com.coding.paging.*;
 import com.coding.pojo.*;
 import org.apache.ibatis.annotations.Param;
@@ -267,6 +268,14 @@ public interface IUserService {
      * @throws Exception 无效sql、sql异常
      */
     public List<Orders> selectOrder(PagingCustomOrder pagingCustomOrder)throws Exception;
+
+    /**
+     * 根据用户ID获取用户订单商品各种详细信息，存入自定义Custom类中
+     * @param userUuid  用户唯一ID
+     * @return  自定义扩展类
+     * @throws Exception  SQL异常
+     */
+    public List<CustomVoItemsByOrderId> selectItemsByOrderId(String userUuid)throws Exception;
 
      /*------------------------------------------订单详情表------------------------------------------------------------------*/
     /**
