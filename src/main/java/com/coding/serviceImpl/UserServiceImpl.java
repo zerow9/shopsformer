@@ -1,5 +1,7 @@
 package com.coding.serviceImpl;
 
+import com.coding.CustomVo.CustomVoItemsByOrderDetailId;
+import com.coding.CustomVo.CustomVoItemsByOrderId;
 import com.coding.Iservice.IUserService;
 import com.coding.comomInterface.ErrorExc;
 import com.coding.mapper.*;
@@ -376,6 +378,42 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
                 throw new Exception("参数查询订单列表出错，请检查参数");
             throw e;
         }
+    }
+
+    public List<CustomVoItemsByOrderId> selectItemsByOrderId(String userUuid) throws Exception {
+        //初始化返回类
+        List<CustomVoItemsByOrderId> customVoItemsByOrderIds = new ArrayList<>();
+        //初始化订单查询
+        PagingCustomOrder pagingCustomOrder = new PagingCustomOrder();
+        Orders orders = new Orders();
+
+        //初始化订单详情查询
+        PagingCustomOrderDetail pagingCustomOrderDetail = new PagingCustomOrderDetail();
+        OrderDetail orderDetail = new OrderDetail();
+
+        orders.setUserUuid(userUuid);
+        pagingCustomOrder.setOrder(orders);
+        List<Orders> orders1 = ordersMapper.selectOrder(pagingCustomOrder);
+        for (Orders ord:orders1) {
+            List<CustomVoItemsByOrderDetailId> customVoItemsByOrderDetailIds = new ArrayList<>();
+            CustomVoItemsByOrderId customVoItemsByOrderId = new CustomVoItemsByOrderId();
+            customVoItemsByOrderId.setOrdersId(ord.getOrderId());
+            customVoItemsByOrderId.setOrderPaid(ord.getOrderPaid());
+            customVoItemsByOrderId.setOrderCompletionTime(ord.getOrderCompletionTimeToString());
+            customVoItemsByOrderId.setOrderFreight(ord.getOrderFreight());
+            orderDetail.setOrderId(ord.getOrderId());
+            pagingCustomOrderDetail.setOrderDetail(orderDetail);
+            List<OrderDetail> orderDetails = orderDetailMapper.selectOrderDetail(pagingCustomOrderDetail);
+            for (OrderDetail orderdet: orderDetails) {
+                CustomVoItemsByOrderDetailId customVoItemsByOrderDetailId = new CustomVoItemsByOrderDetailId();
+                customVoItemsByOrderDetailId.setItemNum(orderdet.getItemNumber());
+                customVoItemsByOrderDetailId.setItem(itemMapper.selectItemByPrimaryKey(orderdet.getItemId()));
+                customVoItemsByOrderDetailIds.add(customVoItemsByOrderDetailId);
+            }
+            customVoItemsByOrderId.setCustomVoItemsByOrderDetailIds(customVoItemsByOrderDetailIds);
+            customVoItemsByOrderIds.add(customVoItemsByOrderId);
+        }
+        return customVoItemsByOrderIds;
     }
 
     /*------------------------------------------订单详情表------------------------------------------------------------------*/
