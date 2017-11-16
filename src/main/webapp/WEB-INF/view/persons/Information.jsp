@@ -7,18 +7,18 @@
 
     <title>个人资料</title>
 
-    <link rel="icon" href="../common/picture.ico"/>
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/view/images/picture.ico"/>
+    <link href="/frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/infstyle.css" rel="stylesheet" type="text/css">
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+    <link href="/frontpage/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/frontpage/css/infstyle.css" rel="stylesheet" type="text/css">
+    <script src="/frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/frontpage/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
 
 </head>
 <body>
-<jsp:include page="../common/head.jsp"></jsp:include>
+<jsp:include page="../../../view/common/top.jsp"></jsp:include>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -37,8 +37,7 @@
 
                     <div class="filePic">
                         <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-                        <img class="am-circle am-img-thumbnail" src="../../../frontpage/images/getAvatar.do.jpg"
-                             alt="" readonly=""/>
+                        <img class="am-circle am-img-thumbnail" src="/frontpage/images/getAvatar.do.jpg" readonly/>
                     </div>
 
                     <div class="info-m">
@@ -153,9 +152,9 @@
 
             </div>
         </div>
-        <jsp:include page="../common/tail.jsp"></jsp:include>
+        <jsp:include page="/view/common/footer.jsp" />
     </div>
-    <jsp:include page="../common/InfoMenu.jsp"></jsp:include>
+    <jsp:include page="/view/common/InfoMenu.jsp"/>
 </div>
 <script type="text/javascript">
     var sex = '${user.userSex}';
