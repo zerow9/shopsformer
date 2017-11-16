@@ -8,23 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-
+    <%@include file="/view/common/head.html" %>
     <title>订单管理</title>
-
     <link href="../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
     <link href="../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
     <link href="../../frontpage/css/orstyle.css" rel="stylesheet" type="text/css">
-
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-
 </head>
 <body>
-<jsp:include page="../common2/head.jsp"></jsp:include>
+<%--顶部--%>
+<jsp:include page="/view/common/top.jsp" flush="true"/>
+
+<%--导航栏--%>
+<jsp:include page="/view/common/navigation.jsp" flush="true"/>
+
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -33,7 +29,9 @@
 
                 <!--标题 -->
                 <div class="am-cf am-padding">
-                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">订单管理</strong> / <small>Order</small></div>
+                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">订单管理</strong> /
+                        <small>Order</small>
+                    </div>
                 </div>
                 <hr/>
 
@@ -89,7 +87,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -123,7 +122,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -157,7 +157,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -198,19 +199,23 @@
                                                     <li class="td td-status">
                                                         <div class="item-status">
                                                             <p class="Mystatus">交易成功</p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a></p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/logistics.html">查看物流</a></p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a>
+                                                            </p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/logistics.html">查看物流</a>
+                                                            </p>
                                                         </div>
                                                     </li>
                                                     <li class="td td-change">
                                                         <div class="am-btn am-btn-danger anniu">
-                                                            删除订单</div>
+                                                            删除订单
+                                                        </div>
                                                     </li>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
 
 
                                     <!--交易失败-->
@@ -226,7 +231,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -260,7 +266,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -294,7 +301,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -339,7 +347,8 @@
                                                     </li>
                                                     <li class="td td-change">
                                                         <div class="am-btn am-btn-danger anniu">
-                                                            删除订单</div>
+                                                            删除订单
+                                                        </div>
                                                     </li>
                                                 </div>
                                             </div>
@@ -359,7 +368,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -393,7 +403,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -427,7 +438,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -468,12 +480,15 @@
                                                     <li class="td td-status">
                                                         <div class="item-status">
                                                             <p class="Mystatus">买家已付款</p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a></p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a>
+                                                            </p>
                                                         </div>
                                                     </li>
                                                     <li class="td td-change">
                                                         <div class="am-btn am-btn-danger anniu">
-                                                            提醒发货</div>
+                                                            提醒发货
+                                                        </div>
                                                     </li>
                                                 </div>
                                             </div>
@@ -493,7 +508,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -527,7 +543,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -569,14 +586,19 @@
                                                     <li class="td td-status">
                                                         <div class="item-status">
                                                             <p class="Mystatus">卖家已发货</p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a></p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/logistics.html">查看物流</a></p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a>
+                                                            </p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/logistics.html">查看物流</a>
+                                                            </p>
                                                             <p class="order-info"><a href="#">延长收货</a></p>
                                                         </div>
                                                     </li>
                                                     <li class="td td-change">
                                                         <div class="am-btn am-btn-danger anniu">
-                                                            确认收货</div>
+                                                            确认收货
+                                                        </div>
                                                     </li>
                                                 </div>
                                             </div>
@@ -629,7 +651,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -663,7 +686,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -697,7 +721,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -745,7 +770,9 @@
                                                     <li class="td td-change">
                                                         <a href="pay.html">
                                                             <div class="am-btn am-btn-danger anniu">
-                                                                一键支付</div></a>
+                                                                一键支付
+                                                            </div>
+                                                        </a>
                                                     </li>
                                                 </div>
                                             </div>
@@ -795,7 +822,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -829,7 +857,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -863,7 +892,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -904,12 +934,15 @@
                                                     <li class="td td-status">
                                                         <div class="item-status">
                                                             <p class="Mystatus">买家已付款</p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a></p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a>
+                                                            </p>
                                                         </div>
                                                     </li>
                                                     <li class="td td-change">
                                                         <div class="am-btn am-btn-danger anniu">
-                                                            提醒发货</div>
+                                                            提醒发货
+                                                        </div>
                                                     </li>
                                                 </div>
                                             </div>
@@ -957,7 +990,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -991,7 +1025,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -1033,14 +1068,19 @@
                                                     <li class="td td-status">
                                                         <div class="item-status">
                                                             <p class="Mystatus">卖家已发货</p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a></p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/logistics.html">查看物流</a></p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a>
+                                                            </p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/logistics.html">查看物流</a>
+                                                            </p>
                                                             <p class="order-info"><a href="#">延长收货</a></p>
                                                         </div>
                                                     </li>
                                                     <li class="td td-change">
                                                         <div class="am-btn am-btn-danger anniu">
-                                                            确认收货</div>
+                                                            确认收货
+                                                        </div>
                                                     </li>
                                                 </div>
                                             </div>
@@ -1090,7 +1130,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -1132,14 +1173,19 @@
                                                     <li class="td td-status">
                                                         <div class="item-status">
                                                             <p class="Mystatus">交易成功</p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a></p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/logistics.html">查看物流</a></p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a>
+                                                            </p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/logistics.html">查看物流</a>
+                                                            </p>
                                                         </div>
                                                     </li>
                                                     <li class="td td-change">
                                                         <a href="../../../frontpage/person/commentlist.html">
                                                             <div class="am-btn am-btn-danger anniu">
-                                                                评价商品</div>
+                                                                评价商品
+                                                            </div>
                                                         </a>
                                                     </li>
                                                 </div>
@@ -1160,7 +1206,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -1194,7 +1241,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/62988.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -1228,7 +1276,8 @@
                                                     <li class="td td-item">
                                                         <div class="item-pic">
                                                             <a href="#" class="J_MakePoint">
-                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                                                <img src="../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                                     class="itempic J_ItemImg">
                                                             </a>
                                                         </div>
                                                         <div class="item-info">
@@ -1271,14 +1320,19 @@
                                                     <li class="td td-status">
                                                         <div class="item-status">
                                                             <p class="Mystatus">交易成功</p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a></p>
-                                                            <p class="order-info"><a href="../../../frontpage/JSPpage/logistics.html">查看物流</a></p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/orderinfo.html">订单详情</a>
+                                                            </p>
+                                                            <p class="order-info"><a
+                                                                    href="../../../frontpage/JSPpage/logistics.html">查看物流</a>
+                                                            </p>
                                                         </div>
                                                     </li>
                                                     <li class="td td-change">
                                                         <a href="../../../frontpage/person/commentlist.html">
                                                             <div class="am-btn am-btn-danger anniu">
-                                                                评价商品</div>
+                                                                评价商品
+                                                            </div>
                                                         </a>
                                                     </li>
                                                 </div>
@@ -1297,10 +1351,12 @@
                 </div>
             </div>
         </div>
-        <!--底部-->
-      <jsp:include page="../common2/tail.jsp"></jsp:include>
+        <%--底部--%>
+        <jsp:include page="/view/common/footer.jsp" flush="true"/>
     </div>
-   <jsp:include page="../common2/InfoMenu.jsp"></jsp:include>
+    <%--begin：个人中心菜单--%>
+    <jsp:include page="/view/persons/index/personalMenu.jsp" flush="true"/>
+    <%--end：个人中心菜单--%>
 </div>
 </body>
 </html>
