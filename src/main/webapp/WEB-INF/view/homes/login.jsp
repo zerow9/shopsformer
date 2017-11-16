@@ -19,14 +19,14 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="icon" href="/view/images/favicon.ico"/>
-    <link rel="stylesheet" href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css"/>
-    <link href="../../../frontpage/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/frontpage/AmazeUI-2.4.2/assets/css/amazeui.css"/>
+    <link rel="stylesheet" href="/frontpage/css/dlstyle.css">
 </head>
 
 <body>
 
 <div class="login-boxtitle">
-    <a href="home.jsp"><img alt="logo" src="/view/images/logobig.png"/></a>
+    <a href="/view/homes/home.jsp"><img alt="logo" src="/view/images/logobig.png"/></a>
 </div>
 
 <div class="login-banner">
@@ -39,25 +39,27 @@
             <div class="clear"></div>
 
             <div class="login-form">
-                <form action="" method="post">
+                <form action="/user/loginInfo" method="post" id="add">
                     <div class="user-name">
                         <label for="user"><i class="am-icon-user"></i></label>
-                        <input type="text" name="userPhone" id="user" placeholder="邮箱/手机/用户名">
+                        <input type="text" name="username" id="user" placeholder="邮箱/手机/用户名">
                     </div>
                     <div class="user-pass">
                         <label for="password"><i class="am-icon-lock"></i></label>
-                        <input type="password" name="userPassword" id="password" placeholder="请输入密码">
+                        <input type="password" name="password" id="password" placeholder="请输入密码">
                     </div>
                 </form>
             </div>
+
             <div class="login-links">
-                <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
+                <label for="remember-me"><input id="remember-me" name="rememberMe" type="checkbox" onclick="remember()">记住密码</label>
                 <a href="#" class="am-fr">忘记密码</a>
-                <a href="/user/register.action" class="zcnext am-fr am-btn-default">注册</a>
+                <a href="/user/register" class="zcnext am-fr am-btn-default">注册</a>
                 <br/>
             </div>
+
             <div class="am-cf">
-                <input type="submit" id="add" value="登 录" class="am-btn am-btn-primary am-btn-sm" onclick="add()">
+                <input type="submit" value="登 录" class="am-btn am-btn-primary am-btn-sm" onclick="add()">
             </div>
             <div class="partner">
                 <h3>合作账号</h3>
@@ -81,10 +83,21 @@
 </div>
 
 <%--底部--%>
-<jsp:include page="../../../view/common/footer.jsp" flush="true"/>
+<jsp:include page="/view/common/footer.jsp" flush="true"/>
 <script type="text/javascript">
+    var rememberMe = false;
+
+    function remember() {
+        rememberMe = !rememberMe;
+    }
+
     function add() {
-        
+        var obj = document.getElementById("add");
+        if (rememberMe) {
+            obj.action = "/user/loginInfo?rememberMe=" + rememberMe;
+            obj.submit();
+        } else
+            obj.submit();
     }
 </script>
 </body>
