@@ -59,7 +59,7 @@
                                             <span class="street">${address.address}</span></p>
                                     </div>
                                     <div class="new-addr-btn">
-                                        <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i
+                                        <a href="/user/address/selectAddress?addressId=${address.addressId}"><i
                                                 class="am-icon-edit"></i>编辑</a>
                                     </div>
                                 </li>
@@ -68,7 +68,7 @@
                             <c:if test="${address.isDefaultAddress==0}">
                                 <li class="user-addresslist">
                                 <span class="new-option-r"
-                                      onclick="updateDefaultAddress(${address.userUuid},${address.addressId})"><i
+                                      onclick="updateDefaultAddress(${address.addressId})"><i
                                         class="am-icon-check-circle" id="updateDefaultAddress"></i>默认地址</span>
                                     <p class="new-tit new-p-re">
                                         <span class="new-txt">${address.takeGoodsName}</span>
@@ -83,11 +83,11 @@
                                             <span class="street">${address.address}</span></p>
                                     </div>
                                     <div class="new-addr-btn">
-                                        <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i
+                                        <a href="/user/address/selectAddress?addressId=${address.addressId}"><i
                                                 class="am-icon-edit" id="updateEdit"></i>编辑</a>
                                         <span class="new-addr-bar">|</span>
                                         <a href="javascript:void(0);"
-                                           onclick="deleteAddress(${address.addressId},${address.userUuid})"><i
+                                           onclick="deleteAddress(${address.addressId})"><i
                                                 class="am-icon-trash" id="deleteAddrss"></i>删除</a>
                                     </div>
                                 </li>
@@ -112,7 +112,7 @@
                         <hr/>
 
                         <div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-                            <form class="am-form am-form-horizontal" action="/user/address/insertAddress.action"
+                            <form class="am-form am-form-horizontal" action="/user/address/insertAddress"
                                   method="post">
                                 <input type="hidden" name="userUuid" value="${addresses[0].userUuid}">
                                 <input type="hidden" name="isDefaultAddress" value="0">
@@ -204,12 +204,12 @@
 
     <jsp:include page="../common/InfoMenu.jsp"></jsp:include>
 </div>
-<script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-<script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-<script src="../../../js/addressDefine.js"></script>
-<script src="../../../frontpage/js/jquery-1.7.2.min.js"></script>
-<script src="../../../js/address/distpicker.data.js"></script>
-<script src="../../..//js/address/distpicker.js"></script>
-<script src="../../..//js/address/main.js"></script>
+<script src="/frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="/frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+<script src="/view/js/addressDefine.js"></script>
+<script src="/frontpage/js/jquery-1.7.2.min.js"></script>
+<script src="/view/js/address/distpicker.data.js"></script>
+<script src="/view/js/address/distpicker.js"></script>
+<script src="/view/js/address/main.js"></script>
 </body>
 </html>

@@ -1,18 +1,15 @@
-function updateDefaultAddress(userUuid,addressId){
-    var data = JSON.stringify({"addressId":addressId,"userUuid":userUuid});
+function updateDefaultAddress(addressId){
     $.ajax({
-        url:"/user/address/updateDefaultAddress.action?userUuid="+userUuid+"&addressId="+addressId,
-        // data:'address='+data,
+        url:"/user/address/updateDefaultAddress?addressId="+addressId,
         success:function () {
             window.location.reload();
         }
     })
 }
 
-function deleteAddress(addressId,userUuid) {
-    var data = JSON.stringify({"addressId":addressId,"userUuid":userUuid});
+function deleteAddress(addressId) {
     $.ajax({
-        url:"/user/address/deleteAddress.action?addressId="+addressId,
+        url:"/user/address/deleteAddress?addressId="+addressId,
         success:function () {
             window.location.reload();
         }

@@ -34,6 +34,7 @@ public class LoginController {
         use.setUserEmail(photo);
         pagingCustomUser.setUser(use);
         User user = adminService.selectUser(pagingCustomUser).get(0);
+        session.setAttribute("uuid",user.getUserUuid());
         session.setAttribute("user",user);
         return "homes/index";
     }

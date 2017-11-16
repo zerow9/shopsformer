@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -21,12 +22,12 @@ public class AddressController {
 
     /**
      * 跳转到地址页面
-     * @param userUuid 用户ID
      * @return 地址页面
      */
     @RequestMapping("/address")
-    public String addressInfomation(String userUuid, Model model)throws Exception{
-        List <Address> addresses = userService.selectAddressByUserID(userUuid);
+    public String addressInfomation(HttpSession session,Model model)throws Exception{
+        String uuid=(String) session.getAttribute("uuid");
+        List <Address> addresses = userService.selectAddressByUserID(uuid);
         model.addAttribute("addresses",addresses);
         return "persons/Address";
     }
@@ -62,7 +63,7 @@ public class AddressController {
         userService.updateAddressByPrimaryKey(address);
         String userUuid = address.getUserUuid();
         System.out.println(address);
-        return "redirect:/user/address/address.action?userUuid="+userUuid;
+        return "redirect:/user/address/address";
     }
 
     /**
@@ -73,7 +74,7 @@ public class AddressController {
     public String insertAddress(Address address)throws Exception{
         userService.insertAddress(address);
         String userUuid = address.getUserUuid();
-        return "redirect:/user/address/address.action?userUuid="+userUuid;
+        return "redirect:/user/address/address";
     }
 
     /**
@@ -81,9 +82,10 @@ public class AddressController {
      * @return 原页面
      */
     @RequestMapping("updateDefaultAddress")
-    public String updateDefaultAddress(String userUuid,Integer addressId)throws Exception{
+    public String updateDefaultAddress(HttpSession session,Integer addressId)throws Exception{
+        String uuid=(String) session.getAttribute("uuid");
         Address address = new Address();
-        address.setUserUuid(userUuid);
+        address.setUserUuid(uuid);
         address.setAddressId(addressId);
         userService.updateAddressUserDefaultAddress(address);
         return "persons/Address";
