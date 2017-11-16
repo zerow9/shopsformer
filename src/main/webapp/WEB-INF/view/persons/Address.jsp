@@ -32,64 +32,69 @@
 
             <div class="user-address">
                 <!--标题 -->
-                <div class="am-cf am-padding">
-                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">地址管理</strong> /
-                        <small>Address&nbsp;list</small>
+
+                <c:if test="${!empty addresses}">
+                    <div class="am-cf am-padding">
+                        <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">地址管理</strong> /
+                            <small>Address&nbsp;list</small>
+                        </div>
                     </div>
-                </div>
-                <hr/>
-                <ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
+                    <hr/>
+                    <ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
 
-                    <c:forEach items="${addresses}" var="address">
-                        <c:if test="${address.isDefaultAddress==1}">
-                            <li class="user-addresslist defaultAddr">
-                                <span class="new-option-r" ><i class="am-icon-check-circle"></i>默认地址</span>
-                                <p class="new-tit new-p-re">
-                                    <span class="new-txt">${address.takeGoodsName}</span>
-                                    <span class="new-txt-rd2">${address.addresseePhone}</span>
-                                </p>
-                                <div class="new-mu_l2a new-p-re">
-                                    <p class="new-mu_l2cw">
-                                        <span class="title">地址：</span>
-                                        <span class="province">${address.takeGoodsProvince}</span>
-                                        <span class="city">${address.takeGoodsCity}</span>
-                                        <span class="dist">${address.takeGoodsCounty}</span>
-                                        <span class="street">${address.address}</span></p>
-                                </div>
-                                <div class="new-addr-btn">
-                                    <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i class="am-icon-edit"></i>编辑</a>
-                                </div>
-                            </li>
-                        </c:if>
+                        <c:forEach items="${addresses}" var="address">
+                            <c:if test="${address.isDefaultAddress==1}">
+                                <li class="user-addresslist defaultAddr">
+                                    <span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
+                                    <p class="new-tit new-p-re">
+                                        <span class="new-txt">${address.takeGoodsName}</span>
+                                        <span class="new-txt-rd2">${address.addresseePhone}</span>
+                                    </p>
+                                    <div class="new-mu_l2a new-p-re">
+                                        <p class="new-mu_l2cw">
+                                            <span class="title">地址：</span>
+                                            <span class="province">${address.takeGoodsProvince}</span>
+                                            <span class="city">${address.takeGoodsCity}</span>
+                                            <span class="dist">${address.takeGoodsCounty}</span>
+                                            <span class="street">${address.address}</span></p>
+                                    </div>
+                                    <div class="new-addr-btn">
+                                        <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i
+                                                class="am-icon-edit"></i>编辑</a>
+                                    </div>
+                                </li>
+                            </c:if>
 
-                        <c:if test="${address.isDefaultAddress==0}">
-                            <li class="user-addresslist">
+                            <c:if test="${address.isDefaultAddress==0}">
+                                <li class="user-addresslist">
                                 <span class="new-option-r"
                                       onclick="updateDefaultAddress(${address.userUuid},${address.addressId})"><i
                                         class="am-icon-check-circle" id="updateDefaultAddress"></i>默认地址</span>
-                                <p class="new-tit new-p-re">
-                                    <span class="new-txt">${address.takeGoodsName}</span>
-                                    <span class="new-txt-rd2">${address.addresseePhone}</span>
-                                </p>
-                                <div class="new-mu_l2a new-p-re">
-                                    <p class="new-mu_l2cw">
-                                        <span class="title">地址：</span>
-                                        <span class="province">${address.takeGoodsProvince}</span>
-                                        <span class="city">${address.takeGoodsCity}</span>
-                                        <span class="dist">${address.takeGoodsCounty}</span>
-                                        <span class="street">${address.address}</span></p>
-                                </div>
-                                <div class="new-addr-btn">
-                                    <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i class="am-icon-edit" id="updateEdit"></i>编辑</a>
-                                    <span class="new-addr-bar">|</span>
-                                    <a href="javascript:void(0);"
-                                       onclick="deleteAddress(${address.addressId},${address.userUuid})"><i
-                                            class="am-icon-trash" id="deleteAddrss"></i>删除</a>
-                                </div>
-                            </li>
-                        </c:if>
-                    </c:forEach>
-                </ul>
+                                    <p class="new-tit new-p-re">
+                                        <span class="new-txt">${address.takeGoodsName}</span>
+                                        <span class="new-txt-rd2">${address.addresseePhone}</span>
+                                    </p>
+                                    <div class="new-mu_l2a new-p-re">
+                                        <p class="new-mu_l2cw">
+                                            <span class="title">地址：</span>
+                                            <span class="province">${address.takeGoodsProvince}</span>
+                                            <span class="city">${address.takeGoodsCity}</span>
+                                            <span class="dist">${address.takeGoodsCounty}</span>
+                                            <span class="street">${address.address}</span></p>
+                                    </div>
+                                    <div class="new-addr-btn">
+                                        <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i
+                                                class="am-icon-edit" id="updateEdit"></i>编辑</a>
+                                        <span class="new-addr-bar">|</span>
+                                        <a href="javascript:void(0);"
+                                           onclick="deleteAddress(${address.addressId},${address.userUuid})"><i
+                                                class="am-icon-trash" id="deleteAddrss"></i>删除</a>
+                                    </div>
+                                </li>
+                            </c:if>
+                        </c:forEach>
+                    </ul>
+                </c:if>
 
                 <div class="clear"></div>
                 <a class="new-abtn-type" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0}">添加新地址</a>
@@ -107,7 +112,8 @@
                         <hr/>
 
                         <div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-                            <form class="am-form am-form-horizontal" action="/user/address/insertAddress.action" method="post">
+                            <form class="am-form am-form-horizontal" action="/user/address/insertAddress.action"
+                                  method="post">
                                 <input type="hidden" name="userUuid" value="${addresses[0].userUuid}">
                                 <input type="hidden" name="isDefaultAddress" value="0">
 
@@ -126,19 +132,25 @@
                                 </div>
                                 <div class="am-form-group">
                                     <label class="am-form-label" style="margin-right: 5px">所在地</label>
-                                    <div class="form-inline" >
+                                    <div class="form-inline">
                                         <div data-toggle="distpicker">
                                             <div class="form-group">
-                                                <select class="form-control" id="province2" style="-webkit-border-radius:4px;"
-                                                        name="takeGoodsProvince" data-province="---- 选择省 ----" value = "${address.takeGoodsProvince}"></select>
+                                                <select class="form-control" id="province2"
+                                                        style="-webkit-border-radius:4px;"
+                                                        name="takeGoodsProvince" data-province="---- 选择省 ----"
+                                                        value="${address.takeGoodsProvince}"></select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" id="city2" style="-webkit-border-radius:4px;"
-                                                        name="takeGoodsCity" data-city="---- 选择市 ----">${address.takeGoodsCity}</select>
+                                                <select class="form-control" id="city2"
+                                                        style="-webkit-border-radius:4px;"
+                                                        name="takeGoodsCity"
+                                                        data-city="---- 选择市 ----">${address.takeGoodsCity}</select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" id="district2" style="-webkit-border-radius:4px;"
-                                                        name="takeGoodsCounty"  data-district="---- 选择区 ----">${address.takeGoodsCounty}</select>
+                                                <select class="form-control" id="district2"
+                                                        style="-webkit-border-radius:4px;"
+                                                        name="takeGoodsCounty"
+                                                        data-district="---- 选择区 ----">${address.takeGoodsCounty}</select>
                                             </div>
                                         </div>
                                     </div>
@@ -147,7 +159,8 @@
                                 <div class="am-form-group">
                                     <label for="user-intro" class="am-form-label">详细地址</label>
                                     <div class="am-form-content">
-                                        <textarea class="" rows="3" name="address" id="user-intro" placeholder="输入详细地址"></textarea>
+                                        <textarea class="" rows="3" name="address" id="user-intro"
+                                                  placeholder="输入详细地址"></textarea>
                                         <small>100字以内写出你的详细地址...</small>
                                     </div>
                                 </div>
