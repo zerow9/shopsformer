@@ -301,6 +301,7 @@ public interface IUserService {
 
     /**
      * 订单详情综合大查询
+     * 实现：订单详情ID，订单ID，商品ID，用户ID，订单详情总价范围，排序规则，分页功能
      * @param pagingCustomOrderDetail paging
      * @return list pojo
      * @throws Exception 无效sql、sql异常
