@@ -13,9 +13,9 @@
 
     <title>个人中心</title>
 
-    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../frontpage/css/systyle.css" rel="stylesheet" type="text/css">
+    <link href="/frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/frontpage/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/frontpage/css/systyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -51,7 +51,7 @@
                             <div class="m-baseinfo">
                                 <%--头像--%>
                                 <a href="information.jsp">
-                                    <img src="../../frontpage/images/getAvatar.do.jpg">
+                                    <img src="/frontpage/images/getAvatar.do.jpg">
                                 </a>
                                 <%--昵称--%>
                                 <em class="s-name">(小太阳)<span class="vip1"></span></em>
@@ -82,16 +82,16 @@
                             </div>
 
                             <p class="m-bonus">
-                                <a href="../../frontpage/JSPpage/bonus.jsp">
-                                    <i><img src="../../frontpage/images/bonus.png"/></i>
+                                <a href="/frontpage/JSPpage/bonus.jsp">
+                                    <i><img src="/frontpage/images/bonus.png"/></i>
                                     <span class="m-title">红包</span>
                                     <em class="m-num">2</em>
                                 </a>
                             </p>
 
                             <p class="m-coupon">
-                                <a href="../../view/persons/coupon.jsp">
-                                    <i><img src="../../frontpage/images/coupon.png"/></i>
+                                <a href="/view/persons/coupon.jsp">
+                                    <i><img src="/frontpage/images/coupon.png"/></i>
                                     <span class="m-title">优惠券</span>
                                     <em class="m-num">2</em>
                                 </a>
@@ -99,7 +99,7 @@
 
                             <p class="m-bill">
                                 <a href="bill.jsp">
-                                    <i><img src="../../frontpage/images/wallet.png"/></i>
+                                    <i><img src="/frontpage/images/wallet.png"/></i>
                                     <span class="m-title">钱包</span>
                                     <em class="m-num">2</em>
                                 </a>
@@ -107,14 +107,14 @@
 
                             <p class="m-big">
                                 <a href="#">
-                                    <i><img src="../../frontpage/images/day-to.png"/></i>
+                                    <i><img src="/frontpage/images/day-to.png"/></i>
                                     <span class="m-title">签到有礼</span>
                                 </a>
                             </p>
 
                             <p class="m-big">
                                 <a href="#">
-                                    <i><img src="../../frontpage/images/72h.png"/></i>
+                                    <i><img src="/frontpage/images/72h.png"/></i>
                                     <span class="m-title">72小时发货</span>
                                 </a>
                             </p>
@@ -130,22 +130,22 @@
 
                         <div class="s-bar">
                             <i class="s-icon"></i>我的订单
-                            <a class="i-load-more-item-shadow" href="../../view/persons/order.jsp">全部订单</a>
+                            <a class="i-load-more-item-shadow" href="/view/persons/order.jsp">全部订单</a>
                         </div>
 
                         <ul>
-                            <li><a href="../../view/persons/order.jsp"><i><img
-                                    src="../../frontpage/images/pay.png"/></i><span>待付款</span></a></li>
-                            <li><a href="../../view/persons/order.jsp"><i><img
-                                    src="../../frontpage/images/send.png"/></i><span>待发货<em class="m-num">1</em></span></a>
+                            <li><a href="/view/persons/order.jsp"><i><img
+                                    src="/frontpage/images/pay.png"/></i><span>待付款</span></a></li>
+                            <li><a href="/view/persons/order.jsp"><i><img
+                                    src="/frontpage/images/send.png"/></i><span>待发货<em class="m-num">1</em></span></a>
                             </li>
-                            <li><a href="../../view/persons/order.jsp"><i><img
-                                    src="../../frontpage/images/receive.png"/></i><span>待收货</span></a></li>
-                            <li><a href="../../view/persons/order.jsp"><i><img
-                                    src="../../frontpage/images/comment.png"/></i><span>待评价<em
+                            <li><a href="/view/persons/order.jsp"><i><img
+                                    src="/frontpage/images/receive.png"/></i><span>待收货</span></a></li>
+                            <li><a href="/view/persons/order.jsp"><i><img
+                                    src="/frontpage/images/comment.png"/></i><span>待评价<em
                                     class="m-num">3</em></span></a></li>
-                            <li><a href="../../view/persons/change.jsp"><i><img
-                                    src="../../frontpage/images/refund.png"/></i><span>退换货</span></a></li>
+                            <li><a href="/view/persons/change.jsp"><i><img
+                                    src="/frontpage/images/refund.png"/></i><span>退换货</span></a></li>
                         </ul>
                     </div>
 
@@ -159,8 +159,8 @@
                         <ul>
                             <li class="am-u-sm-4">
                                 <i class="am-icon-shopping-basket am-icon-md">
-                                    <img src="../../frontpage/images/iconbig.png"/>
-                                    <a href="../../view/homes/shopcart.jsp">
+                                    <img src="/frontpage/images/iconbig.png"/>
+                                    <a href="/view/homes/shopcart.jsp">
                                         <p>购物车</p>
                                     </a>
                                 </i>
@@ -168,34 +168,34 @@
 
                             <li class="am-u-sm-4">
                                 <i class="am-icon-heart am-icon-md">
-                                    <a href="../../view/persons/collection.jsp">
-                                        <img src="../../frontpage/images/iconsmall1.png"/>
+                                    <a href="/view/persons/collection.jsp">
+                                        <img src="/frontpage/images/iconsmall1.png"/>
                                         <p>我的收藏</p>
                                     </a>
                                 </i>
                             </li>
 
                             <li class="am-u-sm-4">
-                                <a href="../../view/homes/home.jsp">
+                                <a href="/view/homes/home.jsp">
                                     <i class="am-icon-gift am-icon-md"></i>
-                                    <img src="../../frontpage/images/iconsmall0.png"/>
+                                    <img src="/frontpage/images/iconsmall0.png"/>
                                     <p>为你推荐</p>
                                 </a>
                             </li>
 
                             <li class="am-u-sm-4">
-                                <a href="../../view/persons/comment.jsp">
+                                <a href="/view/persons/comment.jsp">
                                     <i class="am-icon-pencil am-icon-md"></i>
-                                    <img src="../../frontpage/images/iconsmall3.png"/>
+                                    <img src="/frontpage/images/iconsmall3.png"/>
                                     <p>好评宝贝</p>
                                 </a>
                             </li>
 
                             <li class="am-u-sm-4">
-                                <a href="../../view/persons/foot.jsp">
+                                <a href="/view/persons/foot.jsp">
                                     <i class="am-icon-clock-o am-icon-md"></i>
                                     <img
-                                            src="../../frontpage/images/iconsmall2.png"/>
+                                            src="/frontpage/images/iconsmall2.png"/>
                                     <p>我的足迹</p>
                                 </a>
                             </li>
@@ -219,7 +219,7 @@
                                     <%--商品图示--%>
                                     <div class="item-info">
                                         <a href="#">
-                                            <img src="../../frontpage/images/65.jpg_120x120xz.jpg"
+                                            <img src="/frontpage/images/65.jpg_120x120xz.jpg"
                                                  alt="抗严寒冬天保暖隔凉羊毛毡底鞋垫超薄0.35厘米厚吸汗排湿气舒适">
                                         </a>
                                     </div>
@@ -230,7 +230,7 @@
                                         <time>2015-12-20 17:58:05</time>
                                         <div class="lg-detail-wrap">
                                             <a class="lg-detail i-tip-trigger"
-                                               href="../../view/persons/logistics.jsp">查看物流明细</a>
+                                               href="/view/persons/logistics.jsp">查看物流明细</a>
                                             <div class="J_TipsCon hide">
                                                 <div class="s-tip-bar">中通快递&nbsp;&nbsp;&nbsp;&nbsp;运单号：373269427686
                                                 </div>
@@ -260,7 +260,7 @@
                                 <li class="lg-item">
                                     <div class="item-info">
                                         <a href="#">
-                                            <img src="../../frontpage/images/88.jpg_120x120xz.jpg"
+                                            <img src="/frontpage/images/88.jpg_120x120xz.jpg"
                                                  alt="礼盒袜子女秋冬 纯棉袜加厚 女式中筒袜子 韩国可爱 女袜 女棉袜">
                                         </a>
 
@@ -272,7 +272,7 @@
 
                                         <div class="lg-detail-wrap">
                                             <a class="lg-detail i-tip-trigger"
-                                               href="../../view/persons/logistics.jsp">查看物流明细</a>
+                                               href="/view/persons/logistics.jsp">查看物流明细</a>
                                             <div class="J_TipsCon hide">
                                                 <div class="s-tip-bar">天天快递&nbsp;&nbsp;&nbsp;&nbsp;运单号：666287461069
                                                 </div>
@@ -323,7 +323,7 @@
 
                                     <div class="s-pic">
                                         <a href="#" class="s-pic-link">
-                                            <img src="../../frontpage/images/0-item_pic.jpg_220x220.jpg"
+                                            <img src="/frontpage/images/0-item_pic.jpg_220x220.jpg"
                                                  alt="包邮s925纯银项链女吊坠短款锁骨链颈链日韩猫咪银饰简约夏配饰"
                                                  title="包邮s925纯银项链女吊坠短款锁骨链颈链日韩猫咪银饰简约夏配饰"
                                                  class="s-pic-img s-guess-item-img">
@@ -352,7 +352,7 @@
 
                                     <div class="s-pic">
                                         <a href="#" class="s-pic-link">
-                                            <img src="../../frontpage/images/1-item_pic.jpg_220x220.jpg"
+                                            <img src="/frontpage/images/1-item_pic.jpg_220x220.jpg"
                                                  alt="s925纯银千纸鹤锁骨链短款简约时尚韩版素银项链小清新秋款女配饰"
                                                  title="s925纯银千纸鹤锁骨链短款简约时尚韩版素银项链小清新秋款女配饰"
                                                  class="s-pic-img s-guess-item-img">
@@ -380,7 +380,7 @@
 
                                     <div class="s-pic">
                                         <a href="#" class="s-pic-link">
-                                            <img src="../../frontpage/images/-0-saturn_solar.jpg_220x220.jpg"
+                                            <img src="/frontpage/images/-0-saturn_solar.jpg_220x220.jpg"
                                                  alt="4折抢购!十二生肖925银女戒指,时尚开口女戒" title="4折抢购!十二生肖925银女戒指,时尚开口女戒"
                                                  class="s-pic-img s-guess-item-img">
                                         </a>
@@ -407,7 +407,7 @@
 
                                     <div class="s-pic">
                                         <a href="#" class="s-pic-link">
-                                            <img src="../../frontpage/images/0-item_pic.jpg_220x220.jpg"
+                                            <img src="/frontpage/images/0-item_pic.jpg_220x220.jpg"
                                                  alt="包邮s925纯银项链女吊坠短款锁骨链颈链日韩猫咪银饰简约夏配饰"
                                                  title="包邮s925纯银项链女吊坠短款锁骨链颈链日韩猫咪银饰简约夏配饰"
                                                  class="s-pic-img s-guess-item-img">
@@ -435,7 +435,7 @@
 
                                     <div class="s-pic">
                                         <a href="#" class="s-pic-link">
-                                            <img src="../../frontpage/images/1-item_pic.jpg_220x220.jpg"
+                                            <img src="/frontpage/images/1-item_pic.jpg_220x220.jpg"
                                                  alt="s925纯银千纸鹤锁骨链短款简约时尚韩版素银项链小清新秋款女配饰"
                                                  title="s925纯银千纸鹤锁骨链短款简约时尚韩版素银项链小清新秋款女配饰"
                                                  class="s-pic-img s-guess-item-img">
@@ -463,7 +463,7 @@
 
                                     <div class="s-pic">
                                         <a href="#" class="s-pic-link">
-                                            <img src="../../frontpage/images/-0-saturn_solar.jpg_220x220.jpg"
+                                            <img src="/frontpage/images/-0-saturn_solar.jpg_220x220.jpg"
                                                  alt="4折抢购!十二生肖925银女戒指,时尚开口女戒" title="4折抢购!十二生肖925银女戒指,时尚开口女戒"
                                                  class="s-pic-img s-guess-item-img">
                                         </a>
@@ -523,7 +523,7 @@
                     <div class="new-goods-info">
                         <a class="shop-info" href="#" target="_blank">
                             <div class="face-img-panel">
-                                <img src="../../frontpage/images/imgsearch1.jpg" alt="">
+                                <img src="/frontpage/images/imgsearch1.jpg" alt="">
                             </div>
                             <span class="new-goods-num ">4</span>
                             <span class="shop-title">剥壳松子</span>
@@ -540,7 +540,7 @@
                     <div class="new-goods-info">
                         <a class="shop-info" href="#" target="_blank">
                             <div>
-                                <img src="../../frontpage/images/imgsearch1.jpg" alt="">
+                                <img src="/frontpage/images/imgsearch1.jpg" alt="">
                             </div>
                             <span class="one-hot-goods">￥9.20</span>
                         </a>
