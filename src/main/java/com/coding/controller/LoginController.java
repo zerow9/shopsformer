@@ -52,9 +52,6 @@ public class LoginController {
                 throw new Exception("其他错误" + exceptionClassName);
             }
         }
-        String photo = (String) SecurityUtils.getSubject().getPrincipal();
-        User user = adminService.selectUserByPhone(photo);
-        request.getSession().setAttribute("user",user);
         return "homes/login";
     }
 }
