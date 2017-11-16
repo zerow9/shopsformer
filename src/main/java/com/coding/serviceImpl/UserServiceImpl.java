@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("userService")
@@ -431,6 +432,18 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
                 throw new Exception("参数查询商品详情列表出错，请检查参数");
             throw e;
         }
+    }
+
+    public List<PagingCustomOrdersList> selectItemByOdersDetialId(List<Integer> orderDetailsId) throws Exception {
+        List<PagingCustomOrdersList> pagingCustomOrdersLists = new ArrayList<PagingCustomOrdersList>();
+        for (Integer orderDetailId: orderDetailsId) {
+            PagingCustomOrdersList pagingCustomOrdersList = new PagingCustomOrdersList();
+            OrderDetail orderDetail = orderDetailMapper.selectOrderDetailByPrimaryKey(orderDetailId);
+            pagingCustomOrdersList.setItmeNum(orderDetail.getItemNumber());
+            pagingCustomOrdersList.setItem(itemMapper.selectItemByPrimaryKey(orderDetail.getItemId()));
+            pagingCustomOrdersLists.add(pagingCustomOrdersList);
+        }
+        return pagingCustomOrdersLists;
     }
 
     /*------------------------------------------公告表------------------------------------------------------------------*/

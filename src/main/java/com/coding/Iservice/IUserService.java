@@ -307,6 +307,13 @@ public interface IUserService {
      * @throws Exception 无效sql、sql异常
      */
     public List<OrderDetail> selectOrderDetail (PagingCustomOrderDetail pagingCustomOrderDetail)throws Exception;
+
+    /**
+     * 根据订单详情ID数组返回商品列表
+     * @return 返回商品表中共有多少数据
+     * @throws Exception 无效sql、sql异常
+     */
+    public List<PagingCustomOrdersList> selectItemByOdersDetialId(List<Integer> orderDetailsId) throws Exception;
     /*------------------------------------------公告表------------------------------------------------------------------*/
 
     /**
