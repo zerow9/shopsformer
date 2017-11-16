@@ -47,8 +47,8 @@
                             </div>
                             <div class="user-pass">
                                 <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-                                <input type="passwordSurn" name="userPassword" placeholder="确认密码">
-                            </div>
+                                <input type="password" name="otherUserPassword" placeholder="确认密码">
+                            </div>A
                         </form>
                         <div class="login-links">
                             <label for="reader-me">
