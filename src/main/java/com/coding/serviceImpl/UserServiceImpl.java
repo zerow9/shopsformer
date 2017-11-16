@@ -434,12 +434,13 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         }
     }
 
-    public List<PagingCustomOrdersList> selectItemByOderDetailId(List<Integer> orderDetailsId) throws Exception {
-        List<PagingCustomOrdersList> pagingCustomOrdersLists = new ArrayList<PagingCustomOrdersList>();
+    public List<PagingCustomItemByOrderDetail> selectItemByOderDetailId(List<Integer> orderDetailsId) throws Exception {
+        List<PagingCustomItemByOrderDetail> pagingCustomOrdersLists = new ArrayList<PagingCustomItemByOrderDetail>();
         for (Integer orderDetailId: orderDetailsId) {
-            PagingCustomOrdersList pagingCustomOrdersList = new PagingCustomOrdersList();
+            PagingCustomItemByOrderDetail pagingCustomOrdersList = new PagingCustomItemByOrderDetail();
             OrderDetail orderDetail = orderDetailMapper.selectOrderDetailByPrimaryKey(orderDetailId);
             pagingCustomOrdersList.setItmeNum(orderDetail.getItemNumber());
+            pagingCustomOrdersList.setOrdersId(orderDetail.getOrderId());
             pagingCustomOrdersList.setItem(itemMapper.selectItemByPrimaryKey(orderDetail.getItemId()));
             pagingCustomOrdersLists.add(pagingCustomOrdersList);
         }
