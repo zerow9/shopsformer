@@ -28,7 +28,6 @@ public class AddressController {
     public String addressInfomation(String userUuid, Model model)throws Exception{
         List <Address> addresses = userService.selectAddressByUserID(userUuid);
         model.addAttribute("addresses",addresses);
-        System.out.println(userUuid);
         return "persons/Address";
     }
 
@@ -50,7 +49,6 @@ public class AddressController {
     public String selectAddress(Integer addressId,Model model)throws Exception{
         Address address = userService.selectAddressByPrimaryKey(addressId);
         model.addAttribute("address",address);
-        System.out.println(123);
         return "persons/updateAddress";
     }
 
@@ -64,7 +62,7 @@ public class AddressController {
         userService.updateAddressByPrimaryKey(address);
         String userUuid = address.getUserUuid();
         System.out.println(address);
-        return "forward:/user/address/address.action?userUuid="+userUuid;
+        return "redirect:/user/address/address.action?userUuid="+userUuid;
     }
 
     /**
@@ -73,7 +71,6 @@ public class AddressController {
      */
     @RequestMapping("insertAddress")
     public String insertAddress(Address address)throws Exception{
-        System.out.println(address);
         userService.insertAddress(address);
         String userUuid = address.getUserUuid();
         return "redirect:/user/address/address.action?userUuid="+userUuid;
