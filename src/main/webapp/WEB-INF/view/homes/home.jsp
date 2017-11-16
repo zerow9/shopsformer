@@ -18,6 +18,7 @@
 <%--顶部--%>
 <jsp:include page="../../../view/common/top.jsp" flush="true"/>
 
+
 <%--begin：首页横幅--%>
 <jsp:include page="home/banner.jsp" flush="true"/>
 <%--end：首页横幅--%>
