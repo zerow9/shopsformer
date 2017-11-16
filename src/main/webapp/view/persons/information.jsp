@@ -3,7 +3,7 @@
 <html>
 <head>
     <%@include file="/view/common/head.html" %>
-    <title>个人资料</title>
+    <title>个人信息</title>
     <link href="../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
     <link href="../../frontpage/css/infstyle.css" rel="stylesheet" type="text/css">
@@ -13,7 +13,9 @@
 <jsp:include page="/view/common/top.jsp" flush="true"/>
 
 <%--导航栏--%>
-<jsp:include page="/view/common/navigation.jsp" flush="true"/>
+<div class="nav-table">
+    <jsp:include page="/view/common/navigation.jsp" flush="true"/>
+</div>
 
 <div class="center">
     <div class="col-main">
