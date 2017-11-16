@@ -313,7 +313,7 @@ public interface IUserService {
      * @return 返回商品表中共有多少数据
      * @throws Exception 无效sql、sql异常
      */
-    public List<PagingCustomOrdersList> selectItemByOdersDetialId(List<Integer> orderDetailsId) throws Exception;
+    public List<PagingCustomOrdersList> selectItemByOderDetailId(List<Integer> orderDetailsId) throws Exception;
     /*------------------------------------------公告表------------------------------------------------------------------*/
 
     /**

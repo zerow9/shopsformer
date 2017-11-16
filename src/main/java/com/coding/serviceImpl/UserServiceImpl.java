@@ -434,7 +434,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         }
     }
 
-    public List<PagingCustomOrdersList> selectItemByOdersDetialId(List<Integer> orderDetailsId) throws Exception {
+    public List<PagingCustomOrdersList> selectItemByOderDetailId(List<Integer> orderDetailsId) throws Exception {
         List<PagingCustomOrdersList> pagingCustomOrdersLists = new ArrayList<PagingCustomOrdersList>();
         for (Integer orderDetailId: orderDetailsId) {
             PagingCustomOrdersList pagingCustomOrdersList = new PagingCustomOrdersList();
