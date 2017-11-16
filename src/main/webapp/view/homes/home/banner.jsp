@@ -13,17 +13,17 @@
         <ul class="am-slides">
             <li class="banner1">
                 <a href="/view/homes/introduction.jsp">
-                    <img src="../../../images/ad1.jpg"/>
+                    <img src="/view/images/ad1.jpg"/>
                 </a>
             </li>
             <li class="banner2">
-                <a><img src="../../../images/ad2.jpg"/></a>
+                <a><img src="/view/images/ad2.jpg"/></a>
             </li>
             <li class="banner3">
-                <a><img src="../../../images/ad3.jpg"/></a>
+                <a><img src="/view/images/ad3.jpg"/></a>
             </li>
             <li class="banner4">
-                <a><img src="../../../images/ad4.jpg"/></a>
+                <a><img src="/view/images/ad4.jpg"/></a>
             </li>
         </ul>
     </div>

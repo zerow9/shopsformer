@@ -13,7 +13,7 @@ public class ExceptionResolver implements HandlerExceptionResolver {
         String message = ex.getMessage();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("message", message);
-        modelAndView.setViewName("error");
+        modelAndView.setViewName("error/error");
         return modelAndView;
     }
 }

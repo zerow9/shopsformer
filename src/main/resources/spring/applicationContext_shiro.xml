@@ -5,9 +5,8 @@
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login.action"/>
-        <property name="successUrl" value="/first.action"/>
-        <property name="unauthorizedUrl" value="/error.jsp"/>
+        <property name="loginUrl" value="/user/loginInfo"/>
+        <property name="successUrl" value="/user/first"/>
         <property name="filters">
             <map>
                 <entry key="authc" value-ref="myFilter"/>
@@ -15,6 +14,9 @@
         </property>
         <property name="filterChainDefinitions">
             <value>
+                /logout=logout
+                /user/login=authc
+                /user/loginInfo=authc
                 /**=anon
             </value>
         </property>
@@ -29,9 +31,7 @@
         <property name="rememberMeManager" ref="rememberMeManager"/>
     </bean>
 
-    <bean id="ehCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
-        <!--<property name="cacheManagerConfigFile" value="classpath:ehcache/shiro_ehcache.xml"/>-->
-    </bean>
+    <bean id="ehCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager" />
 
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="globalSessionTimeout" value="600000"/>

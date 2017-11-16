@@ -19,11 +19,7 @@ public class UserInfoController {
     private IAdminService adminService;
 
     @RequestMapping("getUserInfo")
-    public String getUserMessage(String uuid, HttpServletRequest request) throws Exception {
-        User user = adminService.selectUserByPrimaryKey(uuid);
-        user.setUserUuid(uuid);
-        user.setUserRegisterDateTimeToString(DateToString.date(user.getUserRegisterDateTime()));
-        request.setAttribute("user", user);
+    public String getUserMessage() throws Exception {
         return "persons/Information";
     }
     @RequestMapping("updateUser")

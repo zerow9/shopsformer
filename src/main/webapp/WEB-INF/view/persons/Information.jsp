@@ -7,18 +7,18 @@
 
     <title>个人资料</title>
 
-    <link rel="icon" href="../common/picture.ico"/>
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/view/images/picture.ico"/>
+    <link href="/frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/infstyle.css" rel="stylesheet" type="text/css">
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+    <link href="/frontpage/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/frontpage/css/infstyle.css" rel="stylesheet" type="text/css">
+    <script src="/frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/frontpage/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
 
 </head>
 <body>
-<jsp:include page="../common/head.jsp"></jsp:include>
+<jsp:include page="/view/common/top.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -37,8 +37,7 @@
 
                     <div class="filePic">
                         <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-                        <img class="am-circle am-img-thumbnail" src="../../../frontpage/images/getAvatar.do.jpg"
-                             alt="" readonly=""/>
+                        <img class="am-circle am-img-thumbnail" src="/frontpage/images/getAvatar.do.jpg" readonly/>
                     </div>
 
                     <div class="info-m">
@@ -55,7 +54,7 @@
 
                 <!--个人信息 -->
                 <div class="info-main">
-                    <form class="am-form am-form-horizontal" action="updateUser.action" method="post">
+                    <form class="am-form am-form-horizontal" action="updateUser" method="post">
                         <div hidden>
                             <input type="hidden" name="userUuid" value="${user.userUuid}">
                             <input type="hidden" name="userPassword" value="${user.userPassword}">
@@ -120,13 +119,14 @@
                         <div class="am-form-group">
                             <label class="am-form-label">注册日期</label>
                             <div class="am-form-content">
-                                <input value="${user.userRegisterDateTimeToString}" name="userRegisterDateTime" type="text" readonly>
+                                <input value="${user.userRegisterDateTimeToString}" name="userRegisterDateTime"
+                                       type="text" readonly>
                             </div>
                         </div>
                         <div class="am-form-group" hidden="hidden">
                             <label class="am-form-label">用户组</label>
                             <div class="am-form-content">
-                                <input value="用户"  type="text" readonly>
+                                <input value="用户" type="text" readonly>
                             </div>
                         </div>
 
@@ -153,9 +153,9 @@
 
             </div>
         </div>
-        <jsp:include page="../common/tail.jsp"></jsp:include>
+        <jsp:include page="/view/common/footer.jsp"/>
     </div>
-    <jsp:include page="../common/InfoMenu.jsp"></jsp:include>
+    <jsp:include page="/view/common/InfoMenu.jsp"/>
 </div>
 <script type="text/javascript">
     var sex = '${user.userSex}';

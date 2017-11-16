@@ -21,7 +21,7 @@
                         <ul class="category-list" id="js_climit_li">
                             <li class="appliance js_toggle relative first">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/cake.png"></i><a
                                             class="ml-22" title="点心">点心/蛋糕</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -128,7 +128,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/cookies.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/cookies.png"></i><a
                                             class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -260,7 +260,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/meat.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/meat.png"></i><a
                                             class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -373,7 +373,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/bamboo.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/bamboo.png"></i><a
                                             class="ml-22" title="素食、卤味">素食/卤味</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -471,7 +471,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/nut.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/nut.png"></i><a
                                             class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -585,7 +585,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/candy.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/candy.png"></i><a
                                             class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -691,7 +691,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/chocolate.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/chocolate.png"></i><a
                                             class="ml-22" title="巧克力">巧克力</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -806,7 +806,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/fish.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/fish.png"></i><a
                                             class="ml-22" title="海味、河鲜">海味/河鲜</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -936,7 +936,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/tea.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/tea.png"></i><a
                                             class="ml-22" title="花茶、果茶">花茶/果茶</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -1038,7 +1038,7 @@
                             </li>
                             <li class="appliance js_toggle relative last">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/images/package.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/view/images/package.png"></i><a
                                             class="ml-22" title="品牌、礼包">品牌/礼包</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -1161,22 +1161,22 @@
         <!--小导航 -->
         <div class="am-g am-g-fixed smallnav">
             <div class="am-u-sm-3">
-                <a href="sort.html"><img src="/images/navsmall.jpg"/>
+                <a href="sort.html"><img src="/view/images/navsmall.jpg"/>
                     <div class="title">商品分类</div>
                 </a>
             </div>
             <div class="am-u-sm-3">
-                <a href="#"><img src="/images/huismall.jpg"/>
+                <a href="#"><img src="/view/images/huismall.jpg"/>
                     <div class="title">大聚惠</div>
                 </a>
             </div>
             <div class="am-u-sm-3">
-                <a href="#"><img src="/images/mansmall.jpg"/>
+                <a href="#"><img src="/view/images/mansmall.jpg"/>
                     <div class="title">个人中心</div>
                 </a>
             </div>
             <div class="am-u-sm-3">
-                <a href="#"><img src="/images/moneysmall.jpg"/>
+                <a href="#"><img src="/view/images/moneysmall.jpg"/>
                     <div class="title">投资理财</div>
                 </a>
             </div>
@@ -1190,14 +1190,14 @@
                 <ul>
                     <li class="title-first">
                         <a target="_blank" href="#">
-                            <img src="/images/TJ2.jpg"></img>
+                            <img src="/view/images/TJ2.jpg"></img>
                             <span>[特惠]</span>商城爆品1分秒
                         </a>
                     </li>
                     <li class="title-first">
                         <a target="_blank" href="#">
                             <span>[公告]</span>商城与广州市签署战略合作协议
-                            <img src="/images/TJ.jpg"></img>
+                            <img src="/view/images/TJ.jpg"></img>
                             <p>XXXXXXXXXXXXXXXXXX</p>
                         </a>
                     </li>
@@ -1205,7 +1205,7 @@
                     <div class="mod-vip">
                         <div class="m-baseinfo">
                             <a href="/person/index.html">
-                                <img src="/images/getAvatar.do.jpg">
+                                <img src="/view/images/getAvatar.do.jpg">
                             </a>
                             <em>
                                 Hi,<span class="s-name">小叮当</span>
@@ -1236,7 +1236,7 @@
                     </li>
 
                 </ul>
-                <div class="advTip"><img src="/images/advTip.jpg"/></div>
+                <div class="advTip"><img src="/view/images/advTip.jpg"/></div>
             </div>
         </div>
         <div class="clear"></div>

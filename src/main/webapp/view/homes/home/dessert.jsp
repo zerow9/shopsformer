@@ -45,7 +45,7 @@
                     零食大礼包
                 </div>
             </div>
-            <img src="/images/act1.png "/>
+            <img src="/view/images/act1.png "/>
         </a>
         <div class="triangle-topright "></div>
     </div>
@@ -60,7 +60,7 @@
             </div>
             <i class="am-icon-shopping-basket am-icon-md seprate "></i>
         </div>
-        <a href="# "><img src="/images/2.jpg "/></a>
+        <a href="# "><img src="/view/images/2.jpg "/></a>
     </div>
 
     <div class="am-u-sm-7 am-u-md-4 text-two ">
@@ -73,7 +73,7 @@
             </div>
             <i class="am-icon-shopping-basket am-icon-md seprate "></i>
         </div>
-        <a href="# "><img src="/images/1.jpg "/></a>
+        <a href="# "><img src="/view/images/1.jpg "/></a>
     </div>
 
 
@@ -87,7 +87,7 @@
             </div>
             <i class="am-icon-shopping-basket am-icon-md seprate "></i>
         </div>
-        <a href="# "><img src="/images/5.jpg "/></a>
+        <a href="# "><img src="/view/images/5.jpg "/></a>
     </div>
 
     <div class="am-u-sm-3 am-u-md-2 text-three sug ">
@@ -100,7 +100,7 @@
             </div>
             <i class="am-icon-shopping-basket am-icon-md seprate "></i>
         </div>
-        <a href="# "><img src="/images/3.jpg "/></a>
+        <a href="# "><img src="/view/images/3.jpg "/></a>
     </div>
 
     <div class="am-u-sm-3 am-u-md-2 text-three ">
@@ -113,7 +113,7 @@
             </div>
             <i class="am-icon-shopping-basket am-icon-md seprate "></i>
         </div>
-        <a href="# "><img src="/images/4.jpg "/></a>
+        <a href="# "><img src="/view/images/4.jpg "/></a>
     </div>
 
     <div class="am-u-sm-3 am-u-md-2 text-three last big ">
@@ -126,7 +126,7 @@
             </div>
             <i class="am-icon-shopping-basket am-icon-md seprate "></i>
         </div>
-        <a href="# "><img src="/images/5.jpg "/></a>
+        <a href="# "><img src="/view/images/5.jpg "/></a>
     </div>
 
 </div>

@@ -12,7 +12,7 @@
 
     <%--今日推荐标题--%>
     <div class="clock am-u-sm-3">
-        <img src="/images/2016.png"/>
+        <img src="/view/images/2016.png"/>
         <p>今日<br>推荐</p>
     </div>
 
@@ -23,7 +23,7 @@
         </div>
         <div class="recommendationMain one ">
             <a href="/view/homes/introduction.jsp">
-                <img src="/images/tj.png "/>
+                <img src="/view/images/tj.png "/>
             </a>
         </div>
     </div>
@@ -34,7 +34,7 @@
             <h4>让爱早回家</h4>
         </div>
         <div class="recommendationMain two ">
-            <img src="/images/tj1.png "/>
+            <img src="/view/images/tj1.png "/>
         </div>
     </div>
 
@@ -44,7 +44,7 @@
             <h4>甜甜蜜蜜</h4>
         </div>
         <div class="recommendationMain three ">
-            <img src="/images/tj2.png "/>
+            <img src="/view/images/tj2.png "/>
         </div>
     </div>
 

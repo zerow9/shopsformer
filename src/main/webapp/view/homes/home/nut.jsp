@@ -37,7 +37,7 @@
             <a class="outer " href="#"><span class="inner "><b class="text ">核桃</b></span></a>
         </div>
         <a href="#">
-            <img src="/images/act1.png"/>
+            <img src="/view/images/act1.png"/>
             <div class="outer-con">
                 <div class="title">
                     雪之恋和风大福
@@ -49,7 +49,7 @@
 
     <div class="am-u-sm-4 text-four ">
         <a href="#">
-            <img src="/images/6.jpg "/>
+            <img src="/view/images/6.jpg "/>
             <div class="outer-con ">
                 <div class="title ">
                     雪之恋和风大福
@@ -64,7 +64,7 @@
 
     <div class="am-u-sm-4 text-four sug ">
         <a href="#">
-            <img src="/images/7.jpg "/>
+            <img src="/view/images/7.jpg "/>
             <div class="outer-con ">
                 <div class="title ">
                     雪之恋和风大福
@@ -79,7 +79,7 @@
 
     <div class="am-u-sm-6 am-u-md-3 text-five big ">
         <a href="# ">
-            <img src="/images/10.jpg "/>
+            <img src="/view/images/10.jpg "/>
             <div class="outer-con ">
                 <div class="title ">
                     雪之恋和风大福
@@ -94,7 +94,7 @@
 
     <div class="am-u-sm-6 am-u-md-3 text-five ">
         <a href="# ">
-            <img src="/images/8.jpg "/>
+            <img src="/view/images/8.jpg "/>
             <div class="outer-con ">
                 <div class="title ">
                     雪之恋和风大福
@@ -109,7 +109,7 @@
 
     <div class="am-u-sm-6 am-u-md-3 text-five sug ">
         <a href="# ">
-            <img src="/images/9.jpg "/>
+            <img src="/view/images/9.jpg "/>
             <div class="outer-con ">
                 <div class="title ">
                     雪之恋和风大福
@@ -124,7 +124,7 @@
 
     <div class="am-u-sm-6 am-u-md-3 text-five big ">
         <a href="# ">
-            <img src="/images/10.jpg"/>
+            <img src="/view/images/10.jpg"/>
             <div class="outer-con ">
                 <div class="title ">
                     雪之恋和风大福
