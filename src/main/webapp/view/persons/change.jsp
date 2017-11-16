@@ -8,23 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-
+    <%@include file="/view/common/head.html" %>
     <title>退换货管理</title>
-
     <link href="../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
     <link href="../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
     <link href="../../frontpage/css/orstyle.css" rel="stylesheet" type="text/css">
-
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-
 </head>
 <body>
-<jsp:include page="../common2/head.jsp"></jsp:include>
+<%--顶部--%>
+<jsp:include page="/view/common/top.jsp" flush="true"/>
+
+<%--导航栏--%>
+<div class="nav-table">
+    <jsp:include page="/view/common/navigation.jsp" flush="true"/>
+</div>
+
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -218,11 +216,14 @@
             </div>
 
         </div>
-        <!--底部-->
-       <jsp:include page="../common2/tail.jsp"></jsp:include>
+        <%--底部--%>
+        <jsp:include page="/view/common/footer.jsp" flush="true"/>
     </div>
 
-<jsp:include page="../common2/InfoMenu.jsp"></jsp:include>
+    <%--begin：个人中心菜单--%>
+    <jsp:include page="/view/persons/index/personalMenu.jsp" flush="true"/>
+    <%--end：个人中心菜单--%>
+
 </div>
 </body>
 </html>

@@ -22,9 +22,9 @@
 <jsp:include page="/view/homes/home/banner.jsp" flush="true"/>
 <%--end：首页横幅--%>
 
-<%--begin：导航栏--%>
+<%--begin：分类--%>
 <jsp:include page="/view/homes/home/shopNav.jsp" flush="true"/>
-<%--end：导航栏--%>
+<%--end：分类--%>
 
 <%--begin：首页板块--%>
 <div class="shopMainbg">

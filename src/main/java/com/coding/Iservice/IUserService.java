@@ -301,11 +301,19 @@ public interface IUserService {
 
     /**
      * 订单详情综合大查询
+     * 实现：订单详情ID，订单ID，商品ID，用户ID，订单详情总价范围，排序规则，分页功能
      * @param pagingCustomOrderDetail paging
      * @return list pojo
      * @throws Exception 无效sql、sql异常
      */
     public List<OrderDetail> selectOrderDetail (PagingCustomOrderDetail pagingCustomOrderDetail)throws Exception;
+
+    /**
+     * 根据订单详情ID数组返回商品列表
+     * @return 返回商品表中共有多少数据
+     * @throws Exception 无效sql、sql异常
+     */
+    public List<PagingCustomItemByOrderDetail> selectItemByOderDetailId(List<Integer> orderDetailsId) throws Exception;
     /*------------------------------------------公告表------------------------------------------------------------------*/
 
     /**

@@ -13,7 +13,7 @@
 <div class="nav-cont">
     <ul>
         <li class="index">
-            <a href="home.html">首页</a>
+            <a href="/index.jsp">首页</a>
         </li>
         <li class="qc">
             <a href="#">闪购</a>

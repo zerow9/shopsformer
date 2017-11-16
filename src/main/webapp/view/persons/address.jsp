@@ -9,23 +9,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-
+    <%@include file="/view/common/head.html" %>
     <title>地址管理</title>
-
-    <link rel="icon" href="../../frontpage/images/picture.ico"/>
     <link href="../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
     <link href="../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
     <link href="../../frontpage/css/addstyle.css" rel="stylesheet" type="text/css">
     <link href="../../frontpage/css/bootstrap.css" rel="stylesheet">
-
-
 </head>
 <body>
-<jsp:include page="../common2/head.jsp"></jsp:include>
+<%--顶部--%>
+<jsp:include page="/view/common/top.jsp" flush="true"/>
+
+<%--导航栏--%>
+<div class="nav-table">
+    <jsp:include page="/view/common/navigation.jsp" flush="true"/>
+</div>
+
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -57,7 +56,8 @@
                                         <span class="street">${address.address}</span></p>
                                 </div>
                                 <div class="new-addr-btn">
-                                    <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i class="am-icon-edit"></i>编辑</a>
+                                    <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i
+                                            class="am-icon-edit"></i>编辑</a>
                                 </div>
                             </li>
                         </c:if>
@@ -80,7 +80,8 @@
                                         <span class="street">${address.address}</span></p>
                                 </div>
                                 <div class="new-addr-btn">
-                                    <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i class="am-icon-edit" id="updateEdit"></i>编辑</a>
+                                    <a href="/user/address/selectAddress.action?addressId=${address.addressId}"><i
+                                            class="am-icon-edit" id="updateEdit"></i>编辑</a>
                                     <span class="new-addr-bar">|</span>
                                     <a href="javascript:void(0);"
                                        onclick="deleteAddress(${address.addressId},${address.userUuid})"><i
@@ -107,7 +108,8 @@
                         <hr/>
 
                         <div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-                            <form class="am-form am-form-horizontal" action="/user/address/insertAddress.action" method="post">
+                            <form class="am-form am-form-horizontal" action="/user/address/insertAddress.action"
+                                  method="post">
                                 <input type="hidden" name="userUuid" value="${addresses[0].userUuid}">
                                 <input type="hidden" name="isDefaultAddress" value="0">
 
@@ -126,19 +128,25 @@
                                 </div>
                                 <div class="am-form-group">
                                     <label class="am-form-label" style="margin-right: 5px">所在地</label>
-                                    <div class="form-inline" >
+                                    <div class="form-inline">
                                         <div data-toggle="distpicker">
                                             <div class="form-group">
-                                                <select class="form-control" id="province2" style="-webkit-border-radius:4px;"
-                                                        name="takeGoodsProvince" data-province="---- 选择省 ----" value = "${address.takeGoodsProvince}"></select>
+                                                <select class="form-control" id="province2"
+                                                        style="-webkit-border-radius:4px;"
+                                                        name="takeGoodsProvince" data-province="---- 选择省 ----"
+                                                        value="${address.takeGoodsProvince}"></select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" id="city2" style="-webkit-border-radius:4px;"
-                                                        name="takeGoodsCity" data-city="---- 选择市 ----">${address.takeGoodsCity}</select>
+                                                <select class="form-control" id="city2"
+                                                        style="-webkit-border-radius:4px;"
+                                                        name="takeGoodsCity"
+                                                        data-city="---- 选择市 ----">${address.takeGoodsCity}</select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" id="district2" style="-webkit-border-radius:4px;"
-                                                        name="takeGoodsCounty"  data-district="---- 选择区 ----">${address.takeGoodsCounty}</select>
+                                                <select class="form-control" id="district2"
+                                                        style="-webkit-border-radius:4px;"
+                                                        name="takeGoodsCounty"
+                                                        data-district="---- 选择区 ----">${address.takeGoodsCounty}</select>
                                             </div>
                                         </div>
                                     </div>
@@ -147,7 +155,8 @@
                                 <div class="am-form-group">
                                     <label for="user-intro" class="am-form-label">详细地址</label>
                                     <div class="am-form-content">
-                                        <textarea class="" rows="3" name="address" id="user-intro" placeholder="输入详细地址"></textarea>
+                                        <textarea class="" rows="3" name="address" id="user-intro"
+                                                  placeholder="输入详细地址"></textarea>
                                         <small>100字以内写出你的详细地址...</small>
                                     </div>
                                 </div>
@@ -185,18 +194,19 @@
             <div class="clear"></div>
 
         </div>
-        <!--底部-->
-        <jsp:include page="../common2/tail.jsp"></jsp:include>
+        <%--底部--%>
+        <jsp:include page="/view/common/footer.jsp" flush="true"/>
     </div>
 
-    <jsp:include page="../common2/InfoMenu.jsp"></jsp:include>
+    <%--begin：个人中心菜单--%>
+    <jsp:include page="/view/persons/index/personalMenu.jsp" flush="true"/>
+    <%--end：个人中心菜单--%>
 </div>
-<script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-<script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-<script src="../../../js/addressDefine.js"></script>
-<script src="../../../frontpage/js/jquery-1.7.2.min.js"></script>
-<script src="../../../js/address/distpicker.data.js"></script>
-<script src="../../..//js/address/distpicker.js"></script>
-<script src="../../..//js/address/main.js"></script>
+
+<script src="/js/addressDefine.js"></script>
+<script src="/js/address/distpicker.data.js"></script>
+<script src="/js/address/distpicker.js"></script>
+<script src="/js/address/main.js"></script>
+
 </body>
 </html>
