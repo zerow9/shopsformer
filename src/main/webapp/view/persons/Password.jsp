@@ -20,7 +20,7 @@
 
 	<body>
 		<!--头 -->
-		<jsp:include page="../../WEB-INF/view/common/head.jsp"></jsp:include>
+		<jsp:include page="../common2/head.jsp"></jsp:include>
 		<div class="center">
 			<div class="col-main">
 				<div class="main-wrap">
@@ -75,10 +75,10 @@
 
 				</div>
 				<!--底部-->
-				<jsp:include page="../../WEB-INF/view/common/tail.jsp"></jsp:include>
+				<jsp:include page="../common2/tail.jsp"></jsp:include>
 			</div>
 
-			<jsp:include page="../../WEB-INF/view/common/InfoMenu.jsp"></jsp:include>
+			<jsp:include page="../common2/InfoMenu.jsp"></jsp:include>
 		</div>
 
 	</body>
