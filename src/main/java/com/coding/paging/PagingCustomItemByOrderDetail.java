@@ -2,16 +2,28 @@ package com.coding.paging;
 
 import com.coding.pojo.Item;
 
-public class PagingCustomOrdersList {
+public class PagingCustomItemByOrderDetail {
     private Integer itmeNum;
 
     private Item item;
 
+    private Integer ordersId;
+
+    public void setOrdersId(Integer ordersId) {
+        this.ordersId = ordersId;
+    }
+
+    public Integer getOrdersId() {
+
+        return ordersId;
+    }
+
     @Override
     public String toString() {
-        return "PagingCustomOrdersList{" +
+        return "PagingCustomItemByOrderDetail{" +
                 "itmeNum=" + itmeNum +
                 ", item=" + item +
+                ", ordersId=" + ordersId +
                 '}';
     }
 
