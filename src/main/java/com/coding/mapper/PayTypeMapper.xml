@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.coding.com.coding.mapper.PayTypeMapper" >
+<mapper namespace="com.coding.mapper.PayTypeMapper" >
   <!--封装了 PayType 的属性-->
   <resultMap id="BaseResultMap" type="com.coding.pojo.PayType" >
     <id column="pay_type_id" property="payTypeId" jdbcType="INTEGER" />

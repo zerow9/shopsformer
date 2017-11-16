@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.coding.com.coding.mapper.UserMapper">
+<mapper namespace="com.coding.mapper.UserMapper">
 
     <!--根据用户ID 删除用户信息-->
     <delete id="deleteUserByPrimaryKey" parameterType="java.lang.String">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.coding.com.coding.mapper.OrderDetailMapper" >
+<mapper namespace="com.coding.mapper.OrderDetailMapper" >
   <!--分装订单详情表-->
   <resultMap id="BaseResultMap" type="com.coding.pojo.OrderDetail" >
     <id column="order_detail_id" property="orderDetailId" jdbcType="INTEGER" />

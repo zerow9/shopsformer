@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.coding.com.coding.mapper.DiscussMapper" >
+<mapper namespace="com.coding.mapper.DiscussMapper" >
   <!--封装了 Discuss 属性-->
   <resultMap id="BaseResultMap" type="com.coding.pojo.Discuss" >
     <id column="discuss_id" property="discussId" jdbcType="INTEGER" />
