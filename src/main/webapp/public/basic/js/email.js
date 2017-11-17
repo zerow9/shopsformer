@@ -30,3 +30,4 @@ function SetRemainTime() {
 function sub() {
     document.getElementById("update").submit();
 }
+

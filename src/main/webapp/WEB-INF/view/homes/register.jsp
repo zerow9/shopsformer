@@ -26,13 +26,13 @@
                         <a href="">手机号注册</a>
                     </li>
                 </ul>
-
                 <div class="am-tabs-bd">
                     <div class="am-tab-panel am-active">
-                        <form method="post" action="/user/addUser" id="update">
-                            <div class="user-email">
+                        <form method="post" class="form-horizontal" action="/user/addUser" id="update">
+                            <div class="user-email form-group" id="userEmail">
                                 <label for="email"><i class="am-icon-envelope-o"></i></label>
-                                <input type="email" name="userEmail" id="email" placeholder="请输入邮箱账号">
+                                <input type="text" class="form-control" name="userEmail" id="email"
+                                       placeholder="请输入邮箱账号">
                             </div>
                             <div class="verification">
                                 <label for="code"><i class="am-icon-code-fork"></i></label>
@@ -86,13 +86,6 @@
                         </div>
                         <hr>
                     </div>
-
-                    <script>
-                        $(function () {
-                            $('#doc-my-tabs').tabs();
-                        })
-                    </script>
-
                 </div>
             </div>
 
