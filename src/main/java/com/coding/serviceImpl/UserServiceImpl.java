@@ -391,8 +391,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     }
 
     public List<CustomVoItemsByOrderId> selectItemsByOrderId(String userUuid) throws Exception {
+        if (userUuid != null && !userUuid.equals("")) {
         //初始化返回类
-        List<CustomVoItemsByOrderId> customVoItemsByOrderIds = new ArrayList<>();
+        List<CustomVoItemsByOrderId> customVoItemsByOrderIds = new ArrayList<CustomVoItemsByOrderId>();
         //初始化订单查询
         PagingCustomOrder pagingCustomOrder = new PagingCustomOrder();
         Orders orders = new Orders();
@@ -404,8 +405,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         orders.setUserUuid(userUuid);
         pagingCustomOrder.setOrder(orders);
         List<Orders> orders1 = ordersMapper.selectOrder(pagingCustomOrder);
+        if (!orders1.isEmpty()){
         for (Orders ord:orders1) {
-            List<CustomVoItemsByOrderDetailId> customVoItemsByOrderDetailIds = new ArrayList<>();
+            List<CustomVoItemsByOrderDetailId> customVoItemsByOrderDetailIds = new ArrayList<CustomVoItemsByOrderDetailId>();
             CustomVoItemsByOrderId customVoItemsByOrderId = new CustomVoItemsByOrderId();
             customVoItemsByOrderId.setOrdersId(ord.getOrderId());
             customVoItemsByOrderId.setOrderPaid(ord.getOrderPaid());
@@ -414,20 +416,25 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             orderDetail.setOrderId(ord.getOrderId());
             pagingCustomOrderDetail.setOrderDetail(orderDetail);
             List<OrderDetail> orderDetails = orderDetailMapper.selectOrderDetail(pagingCustomOrderDetail);
+            if(!orderDetails.isEmpty()){
             for (OrderDetail orderdet: orderDetails) {
                 CustomVoItemsByOrderDetailId customVoItemsByOrderDetailId = new CustomVoItemsByOrderDetailId();
                 customVoItemsByOrderDetailId.setItemNum(orderdet.getItemNumber());
                 customVoItemsByOrderDetailId.setItem(itemMapper.selectItemByPrimaryKey(orderdet.getItemId()));
                 customVoItemsByOrderDetailIds.add(customVoItemsByOrderDetailId);
-            }
+            }}
             customVoItemsByOrderId.setCustomVoItemsByOrderDetailIds(customVoItemsByOrderDetailIds);
             customVoItemsByOrderIds.add(customVoItemsByOrderId);
+         }
         }
         return customVoItemsByOrderIds;
+
+        }
+        return null;
     }
 
     public CustomVoAddressDetail queryAddressDetail(Integer orderId) throws Exception {
-
+        if (orderId != null && orderId != 0){
         CustomVoAddressDetail customVoAddressDetail = new CustomVoAddressDetail();
         List<CustomVoItemsByOrderDetailId> customVoItemsByOrderDetailIds = new ArrayList<CustomVoItemsByOrderDetailId>();
 
@@ -451,9 +458,10 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             customVoItemsByOrderDetailIds.add(customVoItemsByOrderDetailId);
         }
         customVoAddressDetail.setCustomVoItemsByOrderDetailIds(customVoItemsByOrderDetailIds);
+        }
         return customVoAddressDetail;
         }
-        return  null;
+        return null;
     }
 
     /*------------------------------------------订单详情表------------------------------------------------------------------*/
