@@ -7,18 +7,18 @@
 
     <title>个人资料</title>
 
-    <link rel="icon" href="/view/images/picture.ico"/>
-    <link href="/frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="/frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="/frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="/frontpage/css/infstyle.css" rel="stylesheet" type="text/css">
-    <script src="/frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="/frontpage/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/infstyle.css" rel="stylesheet" type="text/css">
+    <script src="/public/amazeUI/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/public/amazeUI/assets/js/amazeui.js" type="text/javascript"></script>
 
 </head>
 <body>
-<jsp:include page="/WEB-INF/view/common/top.jsp" />
+<jsp:include page="/public/common/top.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -37,7 +37,7 @@
 
                     <div class="filePic">
                         <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-                        <img class="am-circle am-img-thumbnail" src="/frontpage/images/getAvatar.do.jpg" readonly/>
+                        <img class="am-circle am-img-thumbnail" src="/public/images/getAvatar.do.jpg" readonly/>
                     </div>
 
                     <div class="info-m">
@@ -119,13 +119,14 @@
                         <div class="am-form-group">
                             <label class="am-form-label">注册日期</label>
                             <div class="am-form-content">
-                                <input value="${user.userRegisterDateTimeToString}" name="userRegisterDateTime" type="text" readonly>
+                                <input value="${user.userRegisterDateTimeToString}" name="userRegisterDateTime"
+                                       type="text" readonly>
                             </div>
                         </div>
                         <div class="am-form-group" hidden="hidden">
                             <label class="am-form-label">用户组</label>
                             <div class="am-form-content">
-                                <input value="用户"  type="text" readonly>
+                                <input value="用户" type="text" readonly>
                             </div>
                         </div>
 
@@ -139,7 +140,7 @@
                         <div class="am-form-group safety">
                             <label class="am-form-label">账号安全</label>
                             <div class="am-form-content safety">
-                                <a href="../../../frontpage/person/safety.html">
+                                <a href="../../../public/person/safety.html">
                                     <span class="am-icon-angle-right"></span>
                                 </a>
                             </div>
@@ -152,9 +153,9 @@
 
             </div>
         </div>
-        <jsp:include page="/WEB-INF/view/common/footer.jsp" />
+        <jsp:include page="/public/common/footer.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/personalMenu.jsp" flush="true"/>
+    <jsp:include page="/public/common/personalMenu.jsp" flush="true"/>
 </div>
 <script type="text/javascript">
     var sex = '${user.userSex}';
