@@ -1,5 +1,6 @@
 package com.coding.serviceImpl;
 
+import com.coding.CustomVo.CustomVoAddressDetail;
 import com.coding.CustomVo.CustomVoItemsByOrderDetailId;
 import com.coding.CustomVo.CustomVoItemsByOrderId;
 import com.coding.Iservice.IUserService;
@@ -423,6 +424,36 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             customVoItemsByOrderIds.add(customVoItemsByOrderId);
         }
         return customVoItemsByOrderIds;
+    }
+
+    public CustomVoAddressDetail queryAddressDetail(Integer orderId) throws Exception {
+
+        CustomVoAddressDetail customVoAddressDetail = new CustomVoAddressDetail();
+        List<CustomVoItemsByOrderDetailId> customVoItemsByOrderDetailIds = new ArrayList<CustomVoItemsByOrderDetailId>();
+
+        Orders orders = ordersMapper.selectOrderByPrimaryKey(orderId);
+        customVoAddressDetail.setOrders(orders);  //set orders
+        Address address = addressMapper.selectAddressByPrimaryKey(orders.getAddressId());
+        customVoAddressDetail.setAddress(address); // set address
+
+        //初始化订单详情查询
+        PagingCustomOrderDetail pagingCustomOrderDetail = new PagingCustomOrderDetail();
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.setOrderId(orders.getOrderId());
+        pagingCustomOrderDetail.setOrderDetail(orderDetail);
+        List<OrderDetail> orderDetails = orderDetailMapper.selectOrderDetail(pagingCustomOrderDetail);
+
+        if(!orderDetails.isEmpty()){
+        for (OrderDetail orderdet: orderDetails) {
+            CustomVoItemsByOrderDetailId customVoItemsByOrderDetailId = new CustomVoItemsByOrderDetailId();
+            customVoItemsByOrderDetailId.setItemNum(orderdet.getItemNumber());  //set itemNum
+            customVoItemsByOrderDetailId.setItem(itemMapper.selectItemByPrimaryKey(orderdet.getItemId()));  //set item
+            customVoItemsByOrderDetailIds.add(customVoItemsByOrderDetailId);
+        }
+        customVoAddressDetail.setCustomVoItemsByOrderDetailIds(customVoItemsByOrderDetailIds);
+        return customVoAddressDetail;
+        }
+        return  null;
     }
 
     /*------------------------------------------订单详情表------------------------------------------------------------------*/
