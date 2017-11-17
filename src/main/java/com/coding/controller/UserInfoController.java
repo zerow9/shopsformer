@@ -3,7 +3,10 @@ package com.coding.controller;
 import com.coding.Iservice.IAdminService;
 import com.coding.comomInterface.DateToString;
 import com.coding.comomInterface.MessageTools;
+import com.coding.comomInterface.MyUUID;
+import com.coding.paging.PagingCustomUser;
 import com.coding.pojo.User;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,13 +28,23 @@ public class UserInfoController {
     public String getUserMessage() throws Exception {
         return "persons/Information";
     }
+
+    @RequestMapping("userInfo")
+    public String first(HttpServletRequest request ) throws Exception {
+        String uuid = (String)request.getSession().getAttribute("uuid");
+        User user = adminService.selectUserByPrimaryKey(uuid);
+        user.setUserRegisterDateTimeToString(DateToString.date(user.getUserRegisterDateTime()));
+        request.setAttribute("user",user);
+        return "persons/Information";
+    }
+
     @RequestMapping("updateUser")
     public String updateUser(User user) throws  Exception{
         user.setUserGroup(2);
         user.setUserCurrentTime(new Date());
         user.setUserLandIp(InetAddress.getLocalHost().getHostAddress());
         adminService.updateUserByPrimaryKey(user);
-        return "forward:getUserInfo.action?uuid="+user.getUserUuid();
+        return "forward:userInfo";
     }
 
     @RequestMapping("addUser")
@@ -39,11 +52,14 @@ public class UserInfoController {
         Integer emailCode=(Integer) session.getAttribute("emailCode");
         String email=""+emailId;
         if(emailCode!=null&&email.equals(emailId)) {
+            user.setUserUuid(MyUUID.randomUUID());
             user.setUserGroup(2);
+            user.setUserRegisterDateTime(new Date());
             user.setUserCurrentTime(new Date());
             user.setUserLandNumber(1);
+            user.setUserScore(0);
             user.setUserLandIp(InetAddress.getLocalHost().getHostAddress());
-            adminService.insertUser(user);
+            adminService.insertUserSelective(user);
             return "homes/index";
         }
         return "homes/register";
