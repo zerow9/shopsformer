@@ -1,6 +1,7 @@
 package com.coding.controller;
 
 import com.coding.Iservice.IAdminService;
+import com.coding.comomInterface.DateToString;
 import com.coding.paging.PagingCustomUser;
 import com.coding.pojo.User;
 import org.apache.shiro.SecurityUtils;
@@ -35,6 +36,7 @@ public class LoginController {
         pagingCustomUser.setUser(use);
         User user = adminService.selectUser(pagingCustomUser).get(0);
         session.setAttribute("uuid",user.getUserUuid());
+        user.setUserRegisterDateTimeToString(DateToString.date(user.getUserRegisterDateTime()));
         session.setAttribute("user",user);
         return "homes/index";
     }

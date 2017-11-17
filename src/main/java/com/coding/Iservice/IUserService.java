@@ -18,6 +18,13 @@ public interface IUserService {
     public void insertUser(User user) throws Exception;
 
     /**
+     * 按需插入用户信息
+     * @param user 封装了用户信息的 User 对象
+     * @throws Exception 无效sql、sql异常
+     */
+    public void insertUserSelective(User user)throws Exception;
+
+    /**
      * 通过用户唯一 ID 查询用户信息、用户登录、用户验证
      * @param userUuid user唯一主键
      * @return pojo

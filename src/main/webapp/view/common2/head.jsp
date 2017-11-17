@@ -6,23 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-
-    <title>地址管理</title>
-
-    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
-    <link href="../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../frontpage/css/addstyle.css" rel="stylesheet" type="text/css">
-    <script src="../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-
-</head>
-<body>
 <!--头 -->
 <header>
     <article>
@@ -98,5 +81,4 @@
     </div>
 </div>
 <b class="line"></b>
-</body>
-</html>
+

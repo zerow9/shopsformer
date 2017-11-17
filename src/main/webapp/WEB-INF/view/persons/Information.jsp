@@ -105,7 +105,7 @@
                         <div class="am-form-group">
                             <label class="am-form-label">电话</label>
                             <div class="am-form-content">
-                                <input value="${user.userPhone}" type="tel" name="userPhone" readonly>
+                                <input value="${user.userPhone}" type="tel" name="userPhone">
                             </div>
                         </div>
 
