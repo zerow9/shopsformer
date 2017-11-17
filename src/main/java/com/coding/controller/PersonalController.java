@@ -9,7 +9,7 @@ public class PersonalController {
 
     @RequestMapping("personalCenter")
     public String personalCenter(){
-        return "";
+        return "persons/personalCenter";
     }
 
 }
