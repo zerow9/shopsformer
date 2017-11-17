@@ -4,6 +4,8 @@
     <%@include file="/public/common/publicHead.jsp" %>
     <title>注册</title>
     <link href="/public/basic/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/public/basic/css/movedown.css">
+
 </head>
 
 <body>
@@ -29,14 +31,14 @@
                 <div class="am-tabs-bd">
                     <div class="am-tab-panel am-active">
                         <form method="post" class="form-horizontal" action="/user/addUser" id="update">
-                            <div class="user-email form-group" id="userEmail">
+                            <div class="user-email" id="userEmail">
                                 <label for="email"><i class="am-icon-envelope-o"></i></label>
                                 <input type="text" class="form-control" name="userEmail" id="email"
-                                       placeholder="请输入邮箱账号">
+                                       placeholder="邮箱账号">
                             </div>
                             <div class="verification">
                                 <label for="code"><i class="am-icon-code-fork"></i></label>
-                                <input type="text" name="emailId" id="code" placeholder="请输入验证码">
+                                <input type="text" name="emailId" id="code" placeholder="验证码">
                                 <span class="btn" href="javascript:void(0);" id="sendMobileCode">
                                     <button id="btnSendCode" onclick="sendMessage()">获取</button>
                                 </span>

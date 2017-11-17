@@ -14,6 +14,7 @@
     <link rel="icon" href="/public/images/favicon.ico"/>
     <link rel="stylesheet" href="/public/amazeUI/assets/css/amazeui.css"/>
     <link rel="stylesheet" href="/public/basic/css/dlstyle.css">
+    <link rel="stylesheet" href="/public/basic/css/movedown.css">
 </head>
 
 <body>
@@ -33,13 +34,13 @@
 
             <div class="login-form">
                 <form action="/user/login" method="post" id="add">
-                    <div class="user-name" style="border:1px solid #C9C9C9 ;border-radius: 2px">
-                        <label for="user" style="width:15px;height: 15px;margin-top: 12px;margin-left:10px; "><i class="am-icon-user"></i></label>
-                        <input type="text" name="username" id="user" placeholder="输入邮箱" style="height:38px;padding-left: 30px;">
+                    <div class="user-name">
+                        <label for="user"><i class="am-icon-user"></i></label>
+                        <input type="text" name="username" id="user" placeholder="输入邮箱">
                     </div>
-                    <div class="user-pass" style="border:1px solid #C9C9C9;border-radius: 2px">
-                        <label for="password" style="width:15px;height: 15px;margin-top: 12px;margin-left:10px; "><i class="am-icon-lock"></i></label>
-                        <input type="password" name="password" id="password" placeholder="请输入密码" style="height:38px;padding-left: 30px;">
+                    <div class="user-pass">
+                        <label for="password"><i class="am-icon-lock"></i></label>
+                        <input type="password" name="password" id="password" placeholder="请输入密码" >
                     </div>
                 </form>
             </div>
