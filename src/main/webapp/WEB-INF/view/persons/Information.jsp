@@ -18,7 +18,7 @@
 
 </head>
 <body>
-<jsp:include page="/view/common/top.jsp"/>
+<jsp:include page="/view/common/top.jsp" />
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -119,14 +119,13 @@
                         <div class="am-form-group">
                             <label class="am-form-label">注册日期</label>
                             <div class="am-form-content">
-                                <input value="${user.userRegisterDateTimeToString}" name="userRegisterDateTime"
-                                       type="text" readonly>
+                                <input value="${user.userRegisterDateTimeToString}" name="userRegisterDateTime" type="text" readonly>
                             </div>
                         </div>
                         <div class="am-form-group" hidden="hidden">
                             <label class="am-form-label">用户组</label>
                             <div class="am-form-content">
-                                <input value="用户" type="text" readonly>
+                                <input value="用户"  type="text" readonly>
                             </div>
                         </div>
 
@@ -153,9 +152,9 @@
 
             </div>
         </div>
-        <jsp:include page="/view/common/footer.jsp"/>
+        <jsp:include page="/view/common/footer.jsp" />
     </div>
-    <jsp:include page="/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/view/persons/index/personalMenu.jsp" flush="true"/>
 </div>
 <script type="text/javascript">
     var sex = '${user.userSex}';

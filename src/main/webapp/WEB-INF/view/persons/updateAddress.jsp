@@ -131,11 +131,11 @@
 </div>
 <script src="/frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="/frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-<script src="/js/addressDefine.js"></script>
+<script src="/view/js/addressDefine.js"></script>
 <script src="/frontpage/js/jquery-1.7.2.min.js"></script>
-<script src="/js/address/distpicker.data.js"></script>
-<script src="/js/address/distpicker.js"></script>
-<script src="/js/address/main.js"></script>
+<script src="/view/js/address/distpicker.data.js"></script>
+<script src="/view/js/address/distpicker.js"></script>
+<script src="/view/js/address/main.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $(".new-option-r").click(function () {

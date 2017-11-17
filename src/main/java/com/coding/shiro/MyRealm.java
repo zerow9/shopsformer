@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.coding.Iservice.IAdminService;
+import com.coding.paging.PagingCustomUser;
 import com.coding.pojo.Groups;
 import com.coding.pojo.User;
 import org.apache.shiro.SecurityUtils;
@@ -28,16 +29,19 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(
             AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken usernamePassword = (UsernamePasswordToken) token;
-        String userName = usernamePassword.getUsername();
-        System.out.println(userName);
+        String email = usernamePassword.getUsername();
         String code = "4625425375472537457235427345754732";
         try {
-            User user = adminService.selectUserByPhone(userName);
+            PagingCustomUser pagingCustomUser=new PagingCustomUser();
+            User use=new User();
+            use.setUserEmail(email);
+            pagingCustomUser.setUser(use);
+            User user = adminService.selectUser(pagingCustomUser).get(0);
             code = user.getUserPassword();
             System.out.println(code);
         } catch (Exception e) {
         }
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(userName, code, this.getName());
+        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(email, code, this.getName());
         return info;
     }
 

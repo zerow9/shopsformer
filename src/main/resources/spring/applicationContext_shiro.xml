@@ -5,7 +5,7 @@
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/user/loginInfo"/>
+        <property name="loginUrl" value="/user/login"/>
         <property name="successUrl" value="/user/first"/>
         <property name="filters">
             <map>
@@ -16,8 +16,7 @@
             <value>
                 /logout=logout
                 /user/login=authc
-                /user/loginInfo=authc
-                /**=anon
+                /** = anon
             </value>
         </property>
     </bean>
