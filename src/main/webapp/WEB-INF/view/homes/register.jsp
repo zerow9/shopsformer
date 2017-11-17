@@ -1,20 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head lang="en">
-    <%@include file="/view/common/head.jsp" %>
+    <%@include file="/public/common/publicHead.jsp" %>
     <title>注册</title>
-    <link href="/frontpage/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/dlstyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
 <div class="login-boxtitle">
-    <a href="#"><img alt="" src="/view/images/logobig.png"/></a>
+    <a href="#"><img alt="" src="/public/images/logobig.png"/></a>
 </div>
 
 <div class="res-banner">
     <div class="res-main">
-        <div class="login-banner-bg"><span></span><img src="/view/images/big.jpg"/></div>
+        <div class="login-banner-bg"><span></span><img src="/public/images/big.jpg"/></div>
         <div class="login-box">
 
             <div class="am-tabs" id="doc-my-tabs">
@@ -100,8 +100,8 @@
     </div>
 
     <%--底部--%>
-    <jsp:include page="../../../view/common/footer.jsp" flush="true"/>
+    <jsp:include page="/public/common/footer.jsp" flush="true"/>
 </body>
-<script src="/frontpage/js/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script src="/view/js/email.js" type="text/javascript"></script>
+<script src="/public/basic/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="/public/basic/js/email.js" type="text/javascript"></script>
 </html>

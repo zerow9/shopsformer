@@ -5,7 +5,6 @@
   Time: 17:30
   To change this template use File | Settings | File Templates.
 --%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,18 +14,18 @@
     <title>商品页面</title>
 
     <link rel="icon" href="/images/picture.ico" />
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-    <link href="../../../frontpage/basic/css/demo.css" rel="stylesheet" type="text/css" />
-    <link type="text/css" href="../../../frontpage/css/optstyle.css" rel="stylesheet" />
-    <link type="text/css" href="../../../frontpage/css/style.css" rel="stylesheet" />
-    <script type="text/javascript" src="../../../frontpage/basic/js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="../../../frontpage/basic/js/quick_links.js"></script>
+    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+    <link href="../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+    <link href="../../frontpage/basic/css/demo.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="../../frontpage/css/optstyle.css" rel="stylesheet" />
+    <link type="text/css" href="../../frontpage/css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../frontpage/basic/js/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="../../frontpage/basic/js/quick_links.js"></script>
 
-    <script type="text/javascript" src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-    <script type="text/javascript" src="../../../frontpage/js/jquery.imagezoom.min.js"></script>
-    <script type="text/javascript" src="../../../frontpage/js/jquery.flexslider.js"></script>
-    <script type="text/javascript" src="../../../frontpage/js/list.js"></script>
+    <script type="text/javascript" src="../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+    <script type="text/javascript" src="../../frontpage/js/jquery.imagezoom.min.js"></script>
+    <script type="text/javascript" src="../../frontpage/js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="../../frontpage/js/list.js"></script>
 
 </head>
 <body>
@@ -67,9 +66,9 @@
 <!--悬浮搜索框-->
 
 <div class="nav white">
-    <div class="logo"><img src="../../../view/images/logo.png" /></div>
+    <div class="logo"><img src="../images/logo.png" /></div>
     <div class="logoBig">
-        <li><img src="../../../view/images/logobig.png" /></li>
+        <li><img src="../images/logobig.png" /></li>
     </div>
     <div class="search-bar pr">
         <a name="index_none_header_sysc" href="#"></a>
@@ -136,13 +135,13 @@
             <div class="flexslider">
                 <ul class="slides">
                     <li>
-                        <img src="../../../view/images/01.jpg" title="pic" />
+                        <img src="../images/01.jpg" title="pic" />
                     </li>
                     <li>
-                        <img src="../../../view/images/02.jpg" />
+                        <img src="../images/02.jpg" />
                     </li>
                     <li>
-                        <img src="../../../view/images/03.jpg" />
+                        <img src="../images/03.jpg" />
                     </li>
                 </ul>
             </div>
@@ -167,22 +166,22 @@
                 </script>
 
                 <div class="tb-booth tb-pic tb-s310">
-                    <a href="../../../view/images/01.jpg"><img src="../../../view/images/01_mid.jpg" alt="细节展示放大镜特效" rel="../images/01.jpg" class="jqzoom" /></a>
+                    <a href="../images/01.jpg"><img src="../images/01_mid.jpg" alt="细节展示放大镜特效" rel="../images/01.jpg" class="jqzoom" /></a>
                 </div>
                 <ul class="tb-thumb" id="thumblist">
                     <li class="tb-selected">
                         <div class="tb-pic tb-s40">
-                            <a href="#"><img src="../../../view/images/01_small.jpg" mid="../images/01_mid.jpg" big="../images/01.jpg"></a>
+                            <a href="#"><img src="../images/01_small.jpg" mid="../images/01_mid.jpg" big="../images/01.jpg"></a>
                         </div>
                     </li>
                     <li>
                         <div class="tb-pic tb-s40">
-                            <a href="#"><img src="../../../view/images/02_small.jpg" mid="../images/02_mid.jpg" big="../images/02.jpg"></a>
+                            <a href="#"><img src="../images/02_small.jpg" mid="../images/02_mid.jpg" big="../images/02.jpg"></a>
                         </div>
                     </li>
                     <li>
                         <div class="tb-pic tb-s40">
-                            <a href="#"><img src="../../../view/images/03_small.jpg" mid="../images/03_mid.jpg" big="../images/03.jpg"></a>
+                            <a href="#"><img src="../images/03_small.jpg" mid="../images/03_mid.jpg" big="../images/03.jpg"></a>
                         </div>
                     </li>
                 </ul>
@@ -307,7 +306,7 @@
         </div>
         <div class="theme-signin-right">
             <div class="img-info">
-                <img src="../../../view/images/songzi.jpg" />
+                <img src="../images/songzi.jpg" />
             </div>
             <div class="text-info">
                 <span class="J_Price price-now">¥39.00</span>
@@ -375,7 +374,7 @@
         <ul class="like_list">
             <li>
                 <div class="s_picBox">
-                    <a class="s_pic" href="#"><img src="../../../view/images/cp.jpg"></a>
+                    <a class="s_pic" href="#"><img src="../images/cp.jpg"></a>
                 </div>
                 <a class="txt" target="_blank" href="#">萨拉米 1+1小鸡腿</a>
                 <div class="info-box"> <span class="info-box-price">¥ 29.90</span> <span class="info-original-price">￥ 199.00</span> </div>
@@ -383,7 +382,7 @@
             <li class="plus_icon"><i>+</i></li>
             <li>
                 <div class="s_picBox">
-                    <a class="s_pic" href="#"><img src="../../../view/images/cp2.jpg"></a>
+                    <a class="s_pic" href="#"><img src="../images/cp2.jpg"></a>
                 </div>
                 <a class="txt" target="_blank" href="#">ZEK 原味海苔</a>
                 <div class="info-box"> <span class="info-box-price">¥ 8.90</span> <span class="info-original-price">￥ 299.00</span> </div>
@@ -412,7 +411,7 @@
 
                 <li class="first">
                     <div class="p-img">
-                        <a href="#"> <img class="" src="../../../view/images/browse1.jpg"> </a>
+                        <a href="#"> <img class="" src="../images/browse1.jpg"> </a>
                     </div>
                     <div class="p-name">
                         <a href="#">
@@ -423,7 +422,7 @@
                 </li>
                 <li>
                     <div class="p-img">
-                        <a href="#"> <img class="" src="../../../view/images/browse1.jpg"> </a>
+                        <a href="#"> <img class="" src="../images/browse1.jpg"> </a>
                     </div>
                     <div class="p-name">
                         <a href="#">
@@ -434,7 +433,7 @@
                 </li>
                 <li>
                     <div class="p-img">
-                        <a href="#"> <img class="" src="../../../view/images/browse1.jpg"> </a>
+                        <a href="#"> <img class="" src="../images/browse1.jpg"> </a>
                     </div>
                     <div class="p-name">
                         <a href="#">
@@ -445,7 +444,7 @@
                 </li>
                 <li>
                     <div class="p-img">
-                        <a href="#"> <img class="" src="../../../view/images/browse1.jpg"> </a>
+                        <a href="#"> <img class="" src="../images/browse1.jpg"> </a>
                     </div>
                     <div class="p-name">
                         <a href="#">
@@ -456,7 +455,7 @@
                 </li>
                 <li>
                     <div class="p-img">
-                        <a href="#"> <img class="" src="../../../view/images/browse1.jpg"> </a>
+                        <a href="#"> <img class="" src="../images/browse1.jpg"> </a>
                     </div>
                     <div class="p-name">
                         <a href="#">
@@ -521,13 +520,13 @@
                             <h4>商品细节</h4>
                         </div>
                         <div class="twlistNews">
-                            <img src="../../../view/images/tw1.jpg" />
-                            <img src="../../../view/images/tw2.jpg" />
-                            <img src="../../../view/images/tw3.jpg" />
-                            <img src="../../../view/images/tw4.jpg" />
-                            <img src="../../../view/images/tw5.jpg" />
-                            <img src="../../../view/images/tw6.jpg" />
-                            <img src="../../../view/images/tw7.jpg" />
+                            <img src="../images/tw1.jpg" />
+                            <img src="../images/tw2.jpg" />
+                            <img src="../images/tw3.jpg" />
+                            <img src="../images/tw4.jpg" />
+                            <img src="../images/tw5.jpg" />
+                            <img src="../images/tw6.jpg" />
+                            <img src="../images/tw7.jpg" />
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -593,7 +592,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -627,7 +626,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -661,7 +660,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -695,7 +694,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -729,7 +728,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -763,7 +762,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -797,7 +796,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -831,7 +830,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -864,7 +863,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -898,7 +897,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -932,7 +931,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -966,7 +965,7 @@
                         <li class="am-comment">
                             <!-- 评论容器 -->
                             <a href="">
-                                <img class="am-comment-avatar" src="../../../view/images/hwbn40x40.jpg" />
+                                <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
                                 <!-- 评论者头像 -->
                             </a>
 
@@ -1039,7 +1038,7 @@
                         <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1050,7 +1049,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1061,7 +1060,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1072,7 +1071,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1083,7 +1082,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1094,7 +1093,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1105,7 +1104,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1116,7 +1115,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1127,7 +1126,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1138,7 +1137,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1149,7 +1148,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1160,7 +1159,7 @@
                             </li>
                             <li>
                                 <div class="i-pic limit">
-                                    <img src="../../../view/images/imgsearch1.jpg" />
+                                    <img src="../images/imgsearch1.jpg" />
                                     <p>【良品铺子_开口松子】零食坚果特产炒货
                                         <span>东北红松子奶油味</span></p>
                                     <p class="price fl">
@@ -1240,7 +1239,7 @@
                 </a>
                 <div class="ibar_login_box status_login">
                     <div class="avatar_box">
-                        <p class="avatar_imgbox"><img src="../../../view/images/no-img_mid_.jpg" /></p>
+                        <p class="avatar_imgbox"><img src="../images/no-img_mid_.jpg" /></p>
                         <ul class="user_info">
                             <li>用户名：sl1903</li>
                             <li>级&nbsp;别：普通会员</li>
@@ -1285,7 +1284,7 @@
 
             <div id="brand" class="item">
                 <a href="#">
-                    <span class="wdsc"><img src="../../../view/images/wdsc.png" /></span>
+                    <span class="wdsc"><img src="../images/wdsc.png" /></span>
                 </a>
                 <div class="mp_tooltip">
                     我的收藏
@@ -1295,7 +1294,7 @@
 
             <div id="broadcast" class="item">
                 <a href="#">
-                    <span class="chongzhi"><img src="../../../view/images/chongzhi.png" /></span>
+                    <span class="chongzhi"><img src="../images/chongzhi.png" /></span>
                 </a>
                 <div class="mp_tooltip">
                     我要充值
@@ -1311,7 +1310,7 @@
                 <!--二维码 -->
                 <li class="qtitem">
                     <a href="#none"><span class="mpbtn_qrcode"></span></a>
-                    <div class="mp_qrcode" style="display:none;"><img src="../../../view/images/weixin_code_145.png" /><i class="icon_arrow_white"></i></div>
+                    <div class="mp_qrcode" style="display:none;"><img src="../images/weixin_code_145.png" /><i class="icon_arrow_white"></i></div>
                 </li>
                 <li class="qtitem">
                     <a href="#top" class="return_top"><span class="top"></span></a>
