@@ -16,10 +16,18 @@ public interface UserMapper {
 
     /**
      * 插入一条用户信息
-     *
+     * @return 是否插入成功  非0:成功  0:失败
      * @param user 封装了用户信息的 User 对象
      */
-    public int insertUser(User user);
+    public int insertUser(User user)throws Exception;
+
+    /**
+     * 按需插入用户信息
+     * @param user 封装了用户信息的 User 对象
+     * @return 是否插入成功
+     * @throws Exception
+     */
+    public int insertUserSelective(User user)throws Exception;
 
     /**
      * 通过用户唯一 ID 查询用户信息
@@ -35,6 +43,14 @@ public interface UserMapper {
      * @param user 封装了用户信息的 User 对象
      */
     public int updateUserByPrimaryKey(User user) throws Exception;
+
+    /**
+     * 按需更新用户信息
+     * @param user 封装了用户信息的 User 对象
+     * @return 是否插入成功  非0:成功  0:失败
+     * @throws Exception
+     */
+    public int updateUserByPrimaryKeySelective(User user) throws Exception;
 
     /**
      * 查询所有用户信息
