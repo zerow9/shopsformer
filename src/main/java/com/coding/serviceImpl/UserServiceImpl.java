@@ -54,6 +54,15 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         }
     }
 
+    @Transactional(rollbackFor =Exception.class )
+    public void insertUserSelective(User user) throws Exception {
+        try {
+            userMapper.insertUserSelective(user);
+        }catch (Exception e){
+            throw new Exception("按需插入用户信息时出错");
+        }
+    }
+
     public User selectUserByPrimaryKey(String userUuid) throws  Exception{
         if (userUuid != null && !userUuid.equals("")) {
             User user= userMapper.selectUserByPrimaryKey(userUuid);
