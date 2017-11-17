@@ -15,8 +15,7 @@
         <property name="filterChainDefinitions">
             <value>
                 /logout=logout
-                /view/persons/index.jsp=authc
-                /user/login=authc
+                /user/login=user
                 /** = anon
             </value>
         </property>

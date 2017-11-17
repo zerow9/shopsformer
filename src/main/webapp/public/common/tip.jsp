@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--begin：侧边悬浮快速链接--%>
 <div class="tip">
@@ -13,7 +12,7 @@
                 <div class="ibar_login_box status_login">
                     <div class="avatar_box">
                         <p class="avatar_imgbox">
-                            <img src="../../../view/images/no-img_mid_.jpg "/>
+                            <img src="/public/images/no-img_mid_.jpg "/>
                         </p>
                         <ul class="user_info ">
                             <li>用户名&nbsp:${user.userNickname}</li>
@@ -60,7 +59,7 @@
 
             <div id="brand " class="item ">
                 <a href="# ">
-                    <span class="wdsc "><img src="../../../view/images/wdsc.png "/></span>
+                    <span class="wdsc "><img src="/public/images/wdsc.png "/></span>
                 </a>
                 <div class="mp_tooltip ">
                     我的收藏
@@ -70,7 +69,7 @@
 
             <div id="broadcast " class="item ">
                 <a href="# ">
-                    <span class="chongzhi "><img src="../../../view/images/chongzhi.png "/></span>
+                    <span class="chongzhi "><img src="/public/images/chongzhi.png "/></span>
                 </a>
                 <div class="mp_tooltip ">
                     我要充值
@@ -86,7 +85,7 @@
                 <!--二维码 -->
                 <li class="qtitem ">
                     <a href="#none"><span class="mpbtn_qrcode "></span></a>
-                    <div class="mp_qrcode " style="display:none; "><img src="../../../view/images/weixin_code_145.png "/><i
+                    <div class="mp_qrcode " style="display:none; "><img src="/public/images/weixin_code_145.png "/><i
                             class="icon_arrow_white "></i></div>
                 </li>
                 <li class="qtitem ">
@@ -169,8 +168,8 @@
 
 <%--检查jQuery（如果jQuery没有被引入，则引入)--%>
 <script>
-    window.jQuery || document.write('<script src="/frontpage/basic/js/jquery-1.9.min.js "><\/script>');
+    window.jQuery || document.write('<script src="/public/basic/js/jquery-1.7.2.min.js "><\/script>');
 </script>
 
 <%--侧边悬浮快速链接js--%>
-<script type="text/javascript " src="/frontpage/basic/js/quick_links.js "></script>
+<script type="text/javascript " src="/public/basic/js/quick_links.js "></script>
