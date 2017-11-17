@@ -30,6 +30,161 @@
         #{userHealthy,jdbcType=LONGVARCHAR})
     </insert>
 
+    <!--按需更新用户信息-->
+    <update id="updateUserByPrimaryKeySelective" parameterType="com.coding.pojo.User" >
+        update user
+        <set >
+            <if test="userNickname != null" >
+                user_nickname = #{userNickname,jdbcType=VARCHAR},
+            </if>
+            <if test="userPassword != null" >
+                user_password = #{userPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null" >
+                user_email = #{userEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null" >
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userAge != null" >
+                user_age = #{userAge,jdbcType=INTEGER},
+            </if>
+            <if test="userSex != null" >
+                user_sex = #{userSex,jdbcType=VARCHAR},
+            </if>
+            <if test="userRegisterDateTime != null" >
+                user_register_date_time = #{userRegisterDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userScore != null" >
+                user_score = #{userScore,jdbcType=INTEGER},
+            </if>
+            <if test="userGroup != null" >
+                user_group = #{userGroup,jdbcType=INTEGER},
+            </if>
+            <if test="userLandNumber != null" >
+                user_land_number = #{userLandNumber,jdbcType=INTEGER},
+            </if>
+            <if test="userCurrentTime != null" >
+                user_current_time = #{userCurrentTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userLandIp != null" >
+                user_land_ip = #{userLandIp,jdbcType=VARCHAR},
+            </if>
+            <if test="userAddress != null" >
+                user_address = #{userAddress,jdbcType=INTEGER},
+            </if>
+            <if test="userHealthy != null" >
+                user_healthy = #{userHealthy,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where user_uuid = #{userUuid,jdbcType=VARCHAR}
+        and user_phone = #{userPhone,jdbcType=VARCHAR}
+    </update>
+    <!--按需插入用户信息-->
+    <insert id="insertUserSelective" parameterType="com.coding.pojo.User" >
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="userUuid != null" >
+                user_uuid,
+            </if>
+            <if test="userPhone != null" >
+                user_phone,
+            </if>
+            <if test="userNickname != null" >
+                user_nickname,
+            </if>
+            <if test="userPassword != null" >
+                user_password,
+            </if>
+            <if test="userEmail != null" >
+                user_email,
+            </if>
+            <if test="userName != null" >
+                user_name,
+            </if>
+            <if test="userAge != null" >
+                user_age,
+            </if>
+            <if test="userSex != null" >
+                user_sex,
+            </if>
+            <if test="userRegisterDateTime != null" >
+                user_register_date_time,
+            </if>
+            <if test="userScore != null" >
+                user_score,
+            </if>
+            <if test="userGroup != null" >
+                user_group,
+            </if>
+            <if test="userLandNumber != null" >
+                user_land_number,
+            </if>
+            <if test="userCurrentTime != null" >
+                user_current_time,
+            </if>
+            <if test="userLandIp != null" >
+                user_land_ip,
+            </if>
+            <if test="userAddress != null" >
+                user_address,
+            </if>
+            <if test="userHealthy != null" >
+                user_healthy,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="userUuid != null" >
+                #{userUuid,jdbcType=VARCHAR},
+            </if>
+            <if test="userPhone != null" >
+                #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="userNickname != null" >
+                #{userNickname,jdbcType=VARCHAR},
+            </if>
+            <if test="userPassword != null" >
+                #{userPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null" >
+                #{userEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null" >
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userAge != null" >
+                #{userAge,jdbcType=INTEGER},
+            </if>
+            <if test="userSex != null" >
+                #{userSex,jdbcType=VARCHAR},
+            </if>
+            <if test="userRegisterDateTime != null" >
+                #{userRegisterDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userScore != null" >
+                #{userScore,jdbcType=INTEGER},
+            </if>
+            <if test="userGroup != null" >
+                #{userGroup,jdbcType=INTEGER},
+            </if>
+            <if test="userLandNumber != null" >
+                #{userLandNumber,jdbcType=INTEGER},
+            </if>
+            <if test="userCurrentTime != null" >
+                #{userCurrentTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userLandIp != null" >
+                #{userLandIp,jdbcType=VARCHAR},
+            </if>
+            <if test="userAddress != null" >
+                #{userAddress,jdbcType=INTEGER},
+            </if>
+            <if test="userHealthy != null" >
+                #{userHealthy,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+
     <!--封装 User 类-->
     <resultMap id="BaseResultMap" type="com.coding.pojo.User">
         <id column="user_uuid" property="userUuid" jdbcType="VARCHAR"/>
