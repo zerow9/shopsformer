@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="/view/common/head.html" %>
+    <%@include file="/view/common/head.jsp" %>
     <title>地址管理</title>
     <link href="../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="../../frontpage/css/personal.css" rel="stylesheet" type="text/css">

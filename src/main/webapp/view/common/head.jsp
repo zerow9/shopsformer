@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!--头部公共声明和引入-->
 <meta charset="UTF-8">
 <link rel="icon" href="/images/picture.ico" />

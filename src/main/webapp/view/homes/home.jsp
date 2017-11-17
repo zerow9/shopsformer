@@ -3,7 +3,7 @@
 
 <head>
     <%--引入公共的头部--%>
-    <%@include file="/view/common/head.html" %>
+    <%@include file="/view/common/head.jsp" %>
 
     <title>孝和商城首页</title>
 

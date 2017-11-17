@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="/view/common/head.html" %>
+    <%@include file="/view/common/head.jsp" %>
     <title>全部分类</title>
     <link href="../../../frontpage/basic/css/demo.css" rel="stylesheet" type="text/css" />
     <link href="../../../frontpage/css/sortstyle.css" rel="stylesheet" type="text/css" />
