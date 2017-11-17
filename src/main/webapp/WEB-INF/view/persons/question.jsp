@@ -5,16 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
-    <title>实名认证</title>
+    <title>安全问题</title>
 
+    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
     <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
     <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
     <link href="../../../frontpage/css/stepstyle.css" rel="stylesheet" type="text/css">
 
-    <script type="text/javascript" src="../../../frontpage/js/jquery-1.7.2.min.js"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
 
 </head>
 
@@ -26,8 +27,8 @@
         <div class="main-wrap">
 
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">实名认证</strong> /
-                    <small>Real&nbsp;authentication</small>
+                <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">设置安全问题</strong> /
+                    <small>Set&nbsp;Safety&nbsp;Question</small>
                 </div>
             </div>
             <hr/>
@@ -37,7 +38,7 @@
 							<span class="step-1 step">
                                 <em class="u-progress-stage-bg"></em>
                                 <i class="u-stage-icon-inner">1<em class="bg"></em></i>
-                                <p class="stage-name">实名认证</p>
+                                <p class="stage-name">设置安全问题</p>
                             </span>
                     <span class="step-2 step">
                                 <em class="u-progress-stage-bg"></em>
@@ -51,22 +52,36 @@
                 </div>
             </div>
             <form class="am-form am-form-horizontal">
-                <div class="am-form-group bind">
-                    <label for="user-info" class="am-form-label">账户名</label>
+                <div class="am-form-group select">
+                    <label for="user-question1" class="am-form-label">问题一</label>
                     <div class="am-form-content">
-                        <span id="user-info">186XXXX0531</span>
+                        <select data-am-selected>
+                            <option value="a" selected>请选择安全问题</option>
+                            <option value="b">您最喜欢的颜色是什么？</option>
+                            <option value="c">您的故乡在哪里？</option>
+                        </select>
                     </div>
                 </div>
                 <div class="am-form-group">
-                    <label for="user-name" class="am-form-label">真实姓名</label>
+                    <label for="user-answer1" class="am-form-label">答案</label>
                     <div class="am-form-content">
-                        <input type="text" id="user-name" placeholder="请输入您的真实姓名">
+                        <input type="text" id="user-answer1" placeholder="请输入安全问题答案">
+                    </div>
+                </div>
+                <div class="am-form-group select">
+                    <label for="user-question2" class="am-form-label">问题二</label>
+                    <div class="am-form-content">
+                        <select data-am-selected>
+                            <option value="a" selected>请选择安全问题</option>
+                            <option value="b">您最喜欢的颜色是什么？</option>
+                            <option value="c">您的故乡在哪里？</option>
+                        </select>
                     </div>
                 </div>
                 <div class="am-form-group">
-                    <label for="user-IDcard" class="am-form-label">身份证号</label>
+                    <label for="user-answer2" class="am-form-label">答案</label>
                     <div class="am-form-content">
-                        <input type="tel" id="user-IDcard" placeholder="请输入您的身份证信息">
+                        <input type="text" id="user-answer2" placeholder="请输入安全问题答案">
                     </div>
                 </div>
                 <div class="info-btn">

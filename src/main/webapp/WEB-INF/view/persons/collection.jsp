@@ -22,7 +22,7 @@
 
 </head>
 <body>
-<jsp:include page="../common/head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/common/head.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -72,7 +72,8 @@
                                     </div>
                                     <div class="s-tp">
                                         <span class="ui-btn-loading-before buy"><a
-                                                onclick="addShopCart(${collectDetail.collectId},${collectDetail.item.itemMarketPrice})" style="color: rgb(255,255,255);">加入购物车</a></span>
+                                                onclick="addShopCart(${collectDetail.collectId},${collectDetail.item.itemMarketPrice})"
+                                                style="color: rgb(255,255,255);">加入购物车</a></span>
                                         <i class="am-icon-shopping-cart"></i>
                                         <span class="ui-btn-loading-before"><a
                                                 onclick="deleteCollect(${collectDetail.collectId})"
@@ -94,10 +95,10 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="../common/tail.jsp"></jsp:include>
+        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
     </div>
 
-    <jsp:include page="../common/InfoMenu.jsp"></jsp:include>
+    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
 </div>
 <script src="../../../frontpage/js/jquery.js"></script>
 <script>
@@ -112,19 +113,19 @@
         });
     }
 
-     function addShopCart(id,pice){
+    function addShopCart(id, pice) {
         $.ajax({
-            type:"POST",
-            url:"addShopCart.action?id="+id+"&pice="+pice,
-            success:function (data) {
-                if(data==1){
+            type: "POST",
+            url: "addShopCart.action?id=" + id + "&pice=" + pice,
+            success: function (data) {
+                if (data == 1) {
                     alert("添加购物车成功！");
-                }else if(data==2){
+                } else if (data == 2) {
                     alert("添加购物车失败！")
-                }else alert("购物车中已经存在!");
+                } else alert("购物车中已经存在!");
             }
         });
-     }
+    }
 
 
 </script>

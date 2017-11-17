@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
-    <title>实名认证</title>
+    <title>支付密码</title>
 
+    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
     <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
@@ -20,14 +21,14 @@
 
 <body>
 <!--头 -->
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="../common/head.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
 
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">实名认证</strong> /
-                    <small>Real&nbsp;authentication</small>
+                <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">支付密码</strong> /
+                    <small>Set&nbsp;Pay&nbsp;Password</small>
                 </div>
             </div>
             <hr/>
@@ -37,7 +38,7 @@
 							<span class="step-1 step">
                                 <em class="u-progress-stage-bg"></em>
                                 <i class="u-stage-icon-inner">1<em class="bg"></em></i>
-                                <p class="stage-name">实名认证</p>
+                                <p class="stage-name">设置支付密码</p>
                             </span>
                     <span class="step-2 step">
                                 <em class="u-progress-stage-bg"></em>
@@ -52,21 +53,30 @@
             </div>
             <form class="am-form am-form-horizontal">
                 <div class="am-form-group bind">
-                    <label for="user-info" class="am-form-label">账户名</label>
+                    <label for="user-phone" class="am-form-label">验证手机</label>
                     <div class="am-form-content">
-                        <span id="user-info">186XXXX0531</span>
+                        <span id="user-phone">186XXXX0531</span>
+                    </div>
+                </div>
+                <div class="am-form-group code">
+                    <label for="user-code" class="am-form-label">验证码</label>
+                    <div class="am-form-content">
+                        <input type="tel" id="user-code" placeholder="短信验证码">
+                    </div>
+                    <a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
+                        <div class="am-btn am-btn-danger">验证码</div>
+                    </a>
+                </div>
+                <div class="am-form-group">
+                    <label for="user-password" class="am-form-label">支付密码</label>
+                    <div class="am-form-content">
+                        <input type="tel" id="user-password" placeholder="6位数字">
                     </div>
                 </div>
                 <div class="am-form-group">
-                    <label for="user-name" class="am-form-label">真实姓名</label>
+                    <label for="user-confirm-password" class="am-form-label">确认密码</label>
                     <div class="am-form-content">
-                        <input type="text" id="user-name" placeholder="请输入您的真实姓名">
-                    </div>
-                </div>
-                <div class="am-form-group">
-                    <label for="user-IDcard" class="am-form-label">身份证号</label>
-                    <div class="am-form-content">
-                        <input type="tel" id="user-IDcard" placeholder="请输入您的身份证信息">
+                        <input type="tel" id="user-confirm-password" placeholder="请再次输入上面的密码">
                     </div>
                 </div>
                 <div class="info-btn">
@@ -77,9 +87,11 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="../common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="../common/InfoMenu.jsp"/>
 </div>
+
 </body>
+
 </html>

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head lang="en">
-    <%@include file="/view/common/head.html" %>
+    <%@include file="/view/common/head.jsp" %>
     <title>注册</title>
     <link href="/frontpage/css/dlstyle.css" rel="stylesheet" type="text/css">
 </head>

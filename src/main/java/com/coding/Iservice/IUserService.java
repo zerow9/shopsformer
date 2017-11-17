@@ -1,6 +1,7 @@
 package com.coding.Iservice;
 
 
+import com.coding.CustomVo.CustomVoAddressDetail;
 import com.coding.CustomVo.CustomVoItemsByOrderId;
 import com.coding.paging.*;
 import com.coding.pojo.*;
@@ -62,6 +63,7 @@ public interface IUserService {
      * @throws Exception 无效sql、sql异常
      */
     public Boolean registerUserPasswordByPhone( String userPhone) throws Exception;
+
     /*------------------------------------------收获地址表------------------------------------------------------------------*/
     /**
      * 根据 addressId 删除地址信息
@@ -283,6 +285,14 @@ public interface IUserService {
      * @throws Exception  SQL异常
      */
     public List<CustomVoItemsByOrderId> selectItemsByOrderId(String userUuid)throws Exception;
+
+    /**
+     * 根据订单ID查询地址订单商品数量、商品信息.
+     * @param orderId 订单唯一ID
+     * @return 自定义customvo类
+     * @throws Exception SQL异常
+     */
+    public CustomVoAddressDetail queryAddressDetail (Integer orderId)throws Exception;
 
      /*------------------------------------------订单详情表------------------------------------------------------------------*/
     /**

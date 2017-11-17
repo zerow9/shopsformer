@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="/view/common/head.html" %>
+    <%@include file="/view/common/head.jsp" %>
     <title>付款成功页面</title>
     <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet">
     <link href="../../../frontpage/basic/css/demo.css" rel="stylesheet"/>

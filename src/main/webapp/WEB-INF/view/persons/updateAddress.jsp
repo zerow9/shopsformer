@@ -25,7 +25,7 @@
 
 </head>
 <body>
-<jsp:include page="../common/head.jsp"></jsp:include>
+<jsp:include page="../common/head.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -124,10 +124,9 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="../common/tail.jsp"></jsp:include>
+        <jsp:include page="../common/tail.jsp"/>
     </div>
-
-    <jsp:include page="../common/InfoMenu.jsp"></jsp:include>
+    <jsp:include page="../common/InfoMenu.jsp"/>
 </div>
 <script src="/frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="/frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
