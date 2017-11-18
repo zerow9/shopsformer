@@ -43,7 +43,7 @@
         <li class="person">
             <a href="#">我的小窝</a>
             <ul>
-                <li><a href="/view/persons/collection.jsp">收藏</a></li>
+                <li><a href="/collection/getUserConllection">收藏</a></li>
                 <%--<li><a href="/view/persons/foot.jsp">足迹</a></li>--%>
                 <li><a href="/view/persons/comment.jsp">评价</a></li>
                 <li><a href="/view/persons/news.jsp">消息</a></li>

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +29,11 @@ public class CollectionController {
     private IUserService userService;
 
     @RequestMapping("getUserConllection")
-    public String getCollection(String userId, Model model) {
+    public String getCollection(Model model, HttpServletRequest request) {
         //设置查询条件
+        String userId = (String)request.getSession().getAttribute("uuid");
+
+        System.out.println("111111111111111111111111111"+userId);
 
         try {
             PagingCustomCollect pagingCustomCollect = new PagingCustomCollect();
@@ -38,9 +42,8 @@ public class CollectionController {
             pagingCustomCollect.setCollect(seach);
 
             // 获取用户的收藏
-            List<Collect> collects = null;
-
-            collects = userService.selectCollect(pagingCustomCollect);
+            List<Collect> collects = userService.selectCollect(pagingCustomCollect);
+            System.out.println("11111111111111111111111"+collects);
 
             List<CollectDetail> collectDetails = new ArrayList<CollectDetail>();
             for (Collect collect : collects) {
