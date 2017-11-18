@@ -1,5 +1,7 @@
 package com.coding.CustomVo;
 
+import com.coding.pojo.Orders;
+
 import java.util.List;
 
 public class CustomVoItemsByOrderId {
@@ -10,6 +12,7 @@ public class CustomVoItemsByOrderId {
     private Double orderPaid;
 
     private  double orderFreight;
+
 
     List<CustomVoItemsByOrderDetailId> customVoItemsByOrderDetailIds;
 
