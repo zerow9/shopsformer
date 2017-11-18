@@ -30,13 +30,15 @@
     <result column="send_goods_time" property="sendGoodsTime" jdbcType="TIMESTAMP" />
     <result column="order_freight" property="orderFreight" jdbcType="DOUBLE" />
     <result column="order_completion_time" property="orderCompletionTime" jdbcType="TIMESTAMP" />
+    <result column="take_goods_status" property="takeGoodsStatus"  jdbcType="TIMESTAMP" />
+
   </resultMap>
 
   <!--订单表现有所有字段-->
   <sql id="Base_Column_List" >
     order_id, user_uuid, shop_id, take_goods_name, take_goods_phone, take_goods_post,
     order_sum_price, use_score, send_score, pay_status, send_status, discuss_status,
-    protect_status, pay_type, order_create_time, order_pay_time, order_paid, order_refund,
+    protect_status,take_goods_status, pay_type, order_create_time, order_pay_time, order_paid, order_refund,
     send_way, address_id, buy_message, take_goods_province, take_goods_city, take_goods_county,
     send_goods_time, order_freight, order_completion_time
   </sql>
@@ -64,6 +66,9 @@
       </if>
       <if test="takeGoodsName != null" >
         take_goods_name = #{takeGoodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="takeGoodsStatus != null">
+          take_goods_status = #{takeGoodsStatus,jdbcType=VARCHAR}
       </if>
       <if test="takeGoodsPhone != null" >
         take_goods_phone = #{takeGoodsPhone,jdbcType=VARCHAR},
@@ -152,6 +157,9 @@
       </if>
       <if test="takeGoodsName != null" >
         take_goods_name,
+      </if>
+      <if test="takeGoodsStatus != null">
+          take_goods_status
       </if>
       <if test="takeGoodsPhone != null" >
         take_goods_phone,
@@ -347,6 +355,10 @@
         <!--根据支付状态查找订单信息-->
         <if test="order.payStatus != null ">
           and pay_status = #{order.payStatus}
+        </if>
+        <!--根据收货状态查找订单信息-->
+        <if test="order.takeGoodsStatus != null">
+          and take_goods_status = #{order.takeGoodsStatus}
         </if>
         <!--根据发货状态查找订单信息-->
         <if test="order.sendStatus != null">

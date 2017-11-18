@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +29,9 @@ public class CollectionController {
     private IUserService userService;
 
     @RequestMapping("getUserConllection")
-    public String getCollection(String userId, Model model) {
+    public String getCollection(Model model, HttpServletRequest request) {
         //设置查询条件
+        String userId = (String)request.getSession().getAttribute("uuid");
 
         try {
             PagingCustomCollect pagingCustomCollect = new PagingCustomCollect();
@@ -38,9 +40,7 @@ public class CollectionController {
             pagingCustomCollect.setCollect(seach);
 
             // 获取用户的收藏
-            List<Collect> collects = null;
-
-            collects = userService.selectCollect(pagingCustomCollect);
+            List<Collect> collects = userService.selectCollect(pagingCustomCollect);
 
             List<CollectDetail> collectDetails = new ArrayList<CollectDetail>();
             for (Collect collect : collects) {
@@ -49,8 +49,8 @@ public class CollectionController {
                 collectDetail.setCollectId(collect.getCollectId());
                 collectDetail.setItem(item);
                 collectDetail.setUserUuid(collect.getUserUuid());
-                collectDetail.setItemImages(collect.getItemImages());
-                collectDetail.setItemName(collect.getItemName());
+                collectDetail.setItemImages(item.getItemImages());
+                collectDetail.setItemName(item.getItemName());
                 collectDetails.add(collectDetail);
             }
             model.addAttribute("collectDetails", collectDetails);
@@ -76,7 +76,7 @@ public class CollectionController {
 
     @RequestMapping("addShopCart")
     @ResponseBody
-    public int addShopCart(Integer id, double pice) {
+    public String addShopCart(Integer id, double pice) {
         try {
             // 创建插入的实体
             Cart cart = new Cart();
@@ -90,9 +90,6 @@ public class CollectionController {
             Item item=userService.selectItemByPrimaryKey(collect.getItemId());
             cart.setMakeVender(item.getMakeVender());
 
-
-
-
             // 检查数据库是否存在
             PagingCustomCart pagingCustomCart=new PagingCustomCart();
             Cart cart1=new Cart();
@@ -102,7 +99,7 @@ public class CollectionController {
             try {
                 List<Cart> chack = userService.selectCart(pagingCustomCart);
                 if (chack.size()>0){
-                    return 3;
+                    return "err";
                 }
             }catch (Exception e){
                     e.printStackTrace();
@@ -111,8 +108,8 @@ public class CollectionController {
             userService.insertCartSelective(cart);
         } catch (Exception e) {
             e.printStackTrace();
-            return 2;
+            return "false";
         }
-        return 1;
+        return "success";
     }
 }

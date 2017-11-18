@@ -13,16 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
     <title>我的收藏</title>
-    <link rel="icon" href="/frontpage/images/picture.ico"/>
-    <link href="/frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="/frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="/frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="/frontpage/css/colstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/colstyle.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/top.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -95,18 +95,18 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/footer.jsp"/>
     </div>
 
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp" flush="true"/>
 </div>
-<script src="../../../frontpage/js/jquery.js"></script>
+<script src="/public/amazeUI/assets/js/jquery.min.js"></script>
 <script>
     //取消收藏
     function deleteCollect(id) {
         $.ajax({
             type: "POST",
-            url: "deleteCollect.action?id=" + id,
+            url: "deleteCollect?id=" + id,
             success: function () {
                 window.location.reload();
             }
@@ -116,11 +116,11 @@
     function addShopCart(id, pice) {
         $.ajax({
             type: "POST",
-            url: "addShopCart.action?id=" + id + "&pice=" + pice,
+            url: "addShopCart?id=" + id + "&pice=" + pice,
             success: function (data) {
-                if (data == 1) {
+                if (data ==="success") {
                     alert("添加购物车成功！");
-                } else if (data == 2) {
+                } else if (data ==="false") {
                     alert("添加购物车失败！")
                 } else alert("购物车中已经存在!");
             }
