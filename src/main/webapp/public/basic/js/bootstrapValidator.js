@@ -1697,10 +1697,49 @@ if (typeof jQuery === 'undefined') {
         // The field will not be live validated if its length is less than this number of characters
         threshold: null,
 
-
+        // Indicate fields which won't be validated
+        // By default, the plugin will not validate the following kind of fields:
+        // - disabled
+        // - hidden
+        // - invisible
+        //
+        // The setting consists of jQuery filters. Accept 3 formats:
+        // - A string. Use a comma to separate filter
+        // - An array. Each element is a filter
+        // - An array. Each element can be a callback function
+        //      function($field, validator) {
+        //          $field is jQuery object representing the field element
+        //          validator is the BootstrapValidator instance
+        //          return true or false;
+        //      }
+        //
+        // The 3 following settings are equivalent:
+        //
+        // 1) ':disabled, :hidden, :not(:visible)'
+        // 2) [':disabled', ':hidden', ':not(:visible)']
+        // 3) [':disabled', ':hidden', function($field) {
+        //        return !$field.is(':visible');
+        //    }]
         excluded: [':disabled', ':hidden', ':not(:visible)'],
 
-
+        // Shows ok/error/loading icons based on the field validity.
+        // This feature requires Bootstrap v3.1.0 or later (http://getbootstrap.com/css/#forms-control-validation).
+        // Since Bootstrap doesn't provide any methods to know its version, this option cannot be on/off automatically.
+        // In other word, to use this feature you have to upgrade your Bootstrap to v3.1.0 or later.
+        //
+        // Examples:
+        // - Use Glyphicons icons:
+        //  feedbackIcons: {
+        //      valid: 'glyphicon glyphicon-ok',
+        //      invalid: 'glyphicon glyphicon-remove',
+        //      validating: 'glyphicon glyphicon-refresh'
+        //  }
+        // - Use FontAwesome icons:
+        //  feedbackIcons: {
+        //      valid: 'fa fa-check',
+        //      invalid: 'fa fa-times',
+        //      validating: 'fa fa-refresh'
+        //  }
         feedbackIcons: {
             valid:      null,
             invalid:    null,

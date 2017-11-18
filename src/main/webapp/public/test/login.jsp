@@ -5,9 +5,9 @@
     <title>登录</title>
     <link rel="stylesheet" href="/public/basic/css/dlstyle.css">
     <link rel="stylesheet" href="/public/basic/css/movedown.css">
-    <link rel="stylesheet" href="/public/basic/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/basic/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/public/basic/css/bootstrapValidator.css">
-    <script src="/public/basic/bootstrapValidator/js/bootstrapValidator.js"></script>
+    <script src="/public/basic/js/bootstrapValidator.js"></script>
 </head>
 
 <body>
