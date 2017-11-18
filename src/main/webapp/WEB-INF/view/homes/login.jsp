@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="icon" href="/public/images/favicon.ico"/>
+    <link rel="icon" href="/public/images/picture.ico"/>
     <link rel="stylesheet" href="/public/amazeUI/assets/css/amazeui.css"/>
     <link rel="stylesheet" href="/public/basic/css/dlstyle.css">
     <link rel="stylesheet" href="/public/basic/css/movedown.css">
