@@ -30,6 +30,7 @@
                     <a href="/user/personalCenter" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
                 </div>
             </div>
+
             <div class="topMessage mini-cart">
                 <div class="menu-hd">
                     <a id="mc-menu-hd" href="/view/homes/shopcart.jsp" target="_top"><i
@@ -37,11 +38,14 @@
                                                                                                   class="h">0</strong></a>
                 </div>
             </div>
+
+            <c:if test="${!empty user}">
             <div class="topMessage favorite">
                 <div class="menu-hd">
-                    <a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
+                    <a href="/collection/getUserConllection" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
                 </div>
             </div>
+            </c:if>
         </ul>
     </div>
 
