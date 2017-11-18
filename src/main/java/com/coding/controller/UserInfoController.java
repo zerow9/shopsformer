@@ -4,13 +4,10 @@ import com.coding.Iservice.IAdminService;
 import com.coding.comomInterface.DateToString;
 import com.coding.comomInterface.MessageTools;
 import com.coding.comomInterface.MyUUID;
-import com.coding.paging.PagingCustomUser;
 import com.coding.pojo.User;
-import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.InetAddress;
@@ -26,7 +23,7 @@ public class UserInfoController {
 
     @RequestMapping("getUserInfo")
     public String getUserMessage() throws Exception {
-        return "persons/Information";
+        return "persons/information";
     }
 
     @RequestMapping("userInfo")
@@ -35,7 +32,7 @@ public class UserInfoController {
         User user = adminService.selectUserByPrimaryKey(uuid);
         user.setUserRegisterDateTimeToString(DateToString.date(user.getUserRegisterDateTime()));
         request.setAttribute("user",user);
-        return "persons/Information";
+        return "persons/information";
     }
 
     @RequestMapping("updateUser")

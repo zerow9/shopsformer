@@ -1,20 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head lang="en">
-    <%@include file="/view/common/head.html" %>
+    <%@include file="/public/common/publicHead.jsp" %>
     <title>注册</title>
-    <link href="/frontpage/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/public/basic/css/movedown.css">
+
 </head>
 
 <body>
 
 <div class="login-boxtitle">
-    <a href="#"><img alt="" src="/view/images/logobig.png"/></a>
+    <a href="#"><img alt="" src="/public/images/logobig.png"/></a>
 </div>
 
 <div class="res-banner">
     <div class="res-main">
-        <div class="login-banner-bg"><span></span><img src="/view/images/big.jpg"/></div>
+        <div class="login-banner-bg"><span></span><img src="/public/images/big.jpg"/></div>
         <div class="login-box">
 
             <div class="am-tabs" id="doc-my-tabs">
@@ -26,17 +28,17 @@
                         <a href="">手机号注册</a>
                     </li>
                 </ul>
-
                 <div class="am-tabs-bd">
                     <div class="am-tab-panel am-active">
-                        <form method="post" action="/user/addUser" id="update">
-                            <div class="user-email">
+                        <form method="post" class="form-horizontal" action="/user/addUser" id="update">
+                            <div class="user-email" id="userEmail">
                                 <label for="email"><i class="am-icon-envelope-o"></i></label>
-                                <input type="email" name="userEmail" id="email" placeholder="请输入邮箱账号">
+                                <input type="text" class="form-control" name="userEmail" id="email"
+                                       placeholder="邮箱账号">
                             </div>
                             <div class="verification">
                                 <label for="code"><i class="am-icon-code-fork"></i></label>
-                                <input type="text" name="emailId" id="code" placeholder="请输入验证码">
+                                <input type="text" name="emailId" id="code" placeholder="验证码">
                                 <span class="btn" href="javascript:void(0);" id="sendMobileCode">
                                     <button id="btnSendCode" onclick="sendMessage()">获取</button>
                                 </span>
@@ -86,13 +88,6 @@
                         </div>
                         <hr>
                     </div>
-
-                    <script>
-                        $(function () {
-                            $('#doc-my-tabs').tabs();
-                        })
-                    </script>
-
                 </div>
             </div>
 
@@ -100,8 +95,8 @@
     </div>
 
     <%--底部--%>
-    <jsp:include page="../../../view/common/footer.jsp" flush="true"/>
+    <jsp:include page="/public/common/footer.jsp" flush="true"/>
 </body>
-<script src="/frontpage/js/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script src="/view/js/email.js" type="text/javascript"></script>
+<script src="/public/basic/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="/public/basic/js/email.js" type="text/javascript"></script>
 </html>

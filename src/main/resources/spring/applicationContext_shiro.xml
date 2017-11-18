@@ -15,8 +15,9 @@
         <property name="filterChainDefinitions">
             <value>
                 /logout=logout
-                /view/persons/index.jsp=authc
-                /user/login=authc
+                /user/register=anon
+                /user/email=anon
+                /user/**=authc
                 /** = anon
             </value>
         </property>
@@ -26,12 +27,9 @@
 
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="customRealm"/>
-        <property name="cacheManager" ref="ehCacheManager"/>
         <property name="sessionManager" ref="sessionManager"/>
         <property name="rememberMeManager" ref="rememberMeManager"/>
     </bean>
-
-    <bean id="ehCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager" />
 
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="globalSessionTimeout" value="600000"/>

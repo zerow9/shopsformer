@@ -1,0 +1,72 @@
+.user-name {
+    border: 1px solid #C9C9C9;
+    border-radius: 2px
+}
+
+.user-name label {
+    width: 15px;
+    height: 15px;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.user-name input {
+    height: 38px;
+    padding-left: 30px;
+}
+
+.user-pass {
+    border: 1px solid #C9C9C9;
+    border-radius: 2px
+}
+
+.user-pass label {
+    width: 15px;
+    height: 15px;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.user-pass input {
+    height: 38px;
+    padding-left: 30px;
+}
+
+.verification label {
+    width: 10px;
+    height: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.verification input {
+    height: 38px;
+    padding-left: 30px;
+    border: 1px solid #C9C9C9;
+    border-radius: 2px
+
+}
+
+.verification button {
+    width: 55px;
+    height: 37px;
+
+}
+
+.user-email {
+    border: 1px solid #C9C9C9;
+    border-radius: 2px
+}
+
+.user-email label {
+    width: 15px;
+    height: 15px;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.user-email input {
+    height: 38px;
+    padding-left: 30px;
+}

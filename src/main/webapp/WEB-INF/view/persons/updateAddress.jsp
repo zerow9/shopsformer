@@ -1,31 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: TongZhou
-  Date: 2017/11/15
-  Time: 14:30
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <jsp:include page="/public/common/publicHead.jsp" />
+    <title>地址更新</title>
 
-    <title>地址管理</title>
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link rel="icon" href="/frontpage/images/picture.ico"/>
-    <link href="/frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="/frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
-    <link href="/frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="/frontpage/css/addstyle.css" rel="stylesheet" type="text/css">
-    <link href="/frontpage/css/bootstrap.css" rel="stylesheet">
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/addstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/bootstrap.css" rel="stylesheet">
 
 
 </head>
 <body>
-<jsp:include page="../common/head.jsp"></jsp:include>
+<jsp:include page="/public/common/top.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -124,18 +117,17 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="../common/tail.jsp"></jsp:include>
+        <jsp:include page="/public/common/footer.jsp"/>
     </div>
-
-    <jsp:include page="../common/InfoMenu.jsp"></jsp:include>
+    <jsp:include page="/public/common/personalMenu.jsp" flush="true"/>
 </div>
-<script src="/frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-<script src="/frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-<script src="/view/js/addressDefine.js"></script>
-<script src="/frontpage/js/jquery-1.7.2.min.js"></script>
-<script src="/view/js/address/distpicker.data.js"></script>
-<script src="/view/js/address/distpicker.js"></script>
-<script src="/view/js/address/main.js"></script>
+<script src="/public/amazeUI/assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="/public/amazeUI/assets/js/amazeui.js"></script>
+<script src="/public/basic/js/addressDefine.js"></script>
+<script src="/public/basic/js/jquery-1.7.2.min.js"></script>
+<script src="/public/basic/js/address/distpicker.data.js"></script>
+<script src="/public/basic/js/address/distpicker.js"></script>
+<script src="/public/basic/js/address/main.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $(".new-option-r").click(function () {
