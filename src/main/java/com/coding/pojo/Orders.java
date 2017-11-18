@@ -36,6 +36,8 @@ public class Orders {
 
     private Integer protectStatus;
 
+    private Integer takeGoodsStatus;
+
     private Integer payType;
 
     private Date orderCreateTime;
@@ -67,6 +69,7 @@ public class Orders {
 
     private Date orderCompletionTime;
     private String orderCompletionTimeToString;
+
 
 
     public Integer getOrderId() {
@@ -181,6 +184,21 @@ public class Orders {
         this.payType = payType;
     }
 
+    public DateFormatTool getDateFormatTool() {
+        return dateFormatTool;
+    }
+
+    public void setDateFormatTool(DateFormatTool dateFormatTool) {
+        this.dateFormatTool = dateFormatTool;
+    }
+
+    public Integer getTakeGoodsStatus() {
+        return takeGoodsStatus;
+    }
+
+    public void setTakeGoodsStatus(Integer takeGoodsStatus) {
+        this.takeGoodsStatus = takeGoodsStatus;
+    }
 
     public Double getOrderPaid() {
         return orderPaid;
@@ -323,7 +341,8 @@ public class Orders {
     @Override
     public String toString() {
         return "Orders{" +
-                "orderId=" + orderId +
+                "dateFormatTool=" + dateFormatTool +
+                ", orderId=" + orderId +
                 ", userUuid='" + userUuid + '\'' +
                 ", shopId=" + shopId +
                 ", takeGoodsName='" + takeGoodsName + '\'' +
@@ -336,12 +355,12 @@ public class Orders {
                 ", sendStatus=" + sendStatus +
                 ", discussStatus=" + discussStatus +
                 ", protectStatus=" + protectStatus +
+                ", takeGoodsStatus=" + takeGoodsStatus +
                 ", payType=" + payType +
                 ", orderCreateTime=" + orderCreateTime +
-                ", orderCreateTimeToString='" + dateFormatTool.dateToString(orderCreateTime, "FULL_TIME") + '\'' +
-                +'\'' +
+                ", orderCreateTimeToString='" + orderCreateTimeToString + '\'' +
                 ", orderPayTime=" + orderPayTime +
-                ", orderPayTimeToString='" + dateFormatTool.dateToString(orderPayTime, "FULL_TIME") + '\'' +
+                ", orderPayTimeToString='" + orderPayTimeToString + '\'' +
                 ", orderPaid=" + orderPaid +
                 ", orderRefund=" + orderRefund +
                 ", sendWay='" + sendWay + '\'' +
@@ -351,10 +370,10 @@ public class Orders {
                 ", takeGoodsCity='" + takeGoodsCity + '\'' +
                 ", takeGoodsCounty='" + takeGoodsCounty + '\'' +
                 ", sendGoodsTime=" + sendGoodsTime +
-                ", sendGoodsTimeToString='" + dateFormatTool.dateToString(sendGoodsTime, "FULL_TIME") + '\'' +
+                ", sendGoodsTimeToString='" + sendGoodsTimeToString + '\'' +
                 ", orderFreight=" + orderFreight +
                 ", orderCompletionTime=" + orderCompletionTime +
-                ", orderCompletionTimeToString='" + dateFormatTool.dateToString(orderCompletionTime, "FULL_TIME") + '\'' +
+                ", orderCompletionTimeToString='" + orderCompletionTimeToString + '\'' +
                 '}';
     }
 }

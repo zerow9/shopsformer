@@ -226,6 +226,13 @@
             <artifactId>commons-email</artifactId>
             <version>1.4</version>
         </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>1.5.5</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -239,6 +246,8 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
