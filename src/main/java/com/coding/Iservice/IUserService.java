@@ -3,6 +3,7 @@ package com.coding.Iservice;
 
 import com.coding.CustomVo.CustomVoAddressDetail;
 import com.coding.CustomVo.CustomVoItemsByOrderId;
+import com.coding.CustomVo.CustomVoOrdersByUserUuidAndStatus;
 import com.coding.paging.*;
 import com.coding.pojo.*;
 import org.apache.ibatis.annotations.Param;
@@ -293,6 +294,14 @@ public interface IUserService {
      * @throws Exception SQL异常
      */
     public CustomVoAddressDetail queryAddressDetail (Integer orderId)throws Exception;
+
+    /**
+     * 根据订单ID查
+     * @param orders 订单pojo
+     * @return 自定义customvo类
+     * @throws Exception SQL异常
+     */
+    public List<CustomVoOrdersByUserUuidAndStatus> queryOrdersByUserUuidAndStatus (Orders orders)throws Exception;
 
      /*------------------------------------------订单详情表------------------------------------------------------------------*/
     /**
