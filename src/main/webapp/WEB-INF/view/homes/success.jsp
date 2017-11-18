@@ -9,17 +9,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="/view/common/head.jsp" %>
+    <%@include file="/public/common/head.jsp" %>
     <title>付款成功页面</title>
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet">
-    <link href="../../../frontpage/basic/css/demo.css" rel="stylesheet"/>
-    <link href="../../../frontpage/css/sustyle.css" rel="stylesheet"/>
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet">
+    <link href="/public/basic/css/demo.css" rel="stylesheet"/>
+    <link href="/public/css/sustyle.css" rel="stylesheet"/>
 </head>
 
 <body>
 
 <%--顶部--%>
-<jsp:include page="../../../view/common/top.jsp" flush="true"/>
+<jsp:include page="/public/common/top.jsp" flush="true"/>
 
 <div class="take-delivery">
     <div class="status">
@@ -45,7 +46,7 @@
 </div>
 
 <%--底部--%>
-<jsp:include page="../../../view/common/footer.jsp" flush="true"/>
+<jsp:include page="/public/common/footer.jsp" flush="true"/>
 
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.coding.serviceImpl;
 import com.coding.CustomVo.CustomVoAddressDetail;
 import com.coding.CustomVo.CustomVoItemsByOrderDetailId;
 import com.coding.CustomVo.CustomVoItemsByOrderId;
+import com.coding.CustomVo.CustomVoOrdersByUserUuidAndStatus;
 import com.coding.Iservice.IUserService;
 import com.coding.comomInterface.ErrorExc;
 import com.coding.mapper.*;
@@ -460,6 +461,43 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         customVoAddressDetail.setCustomVoItemsByOrderDetailIds(customVoItemsByOrderDetailIds);
         }
         return customVoAddressDetail;
+        }
+        return null;
+    }
+
+    public List<CustomVoOrdersByUserUuidAndStatus> queryOrdersByUserUuidAndStatus(Orders orders) throws Exception {
+        if (orders.getUserUuid() != null && !orders.getUserUuid().equals("")) {
+            //初始化返回类
+            List<CustomVoOrdersByUserUuidAndStatus> customVoOrdersByUserUuidAndStatuses = new ArrayList<CustomVoOrdersByUserUuidAndStatus>();
+            //初始化订单查询
+            PagingCustomOrder pagingCustomOrder = new PagingCustomOrder();
+
+            //初始化订单详情查询
+            PagingCustomOrderDetail pagingCustomOrderDetail = new PagingCustomOrderDetail();
+            OrderDetail orderDetail = new OrderDetail();
+
+            pagingCustomOrder.setOrder(orders);
+            List<Orders> orders1 = ordersMapper.selectOrder(pagingCustomOrder);
+            if (!orders1.isEmpty()){
+                for (Orders ord:orders1) {
+                    List<CustomVoItemsByOrderDetailId> customVoItemsByOrderDetailIds = new ArrayList<CustomVoItemsByOrderDetailId>();
+                    CustomVoOrdersByUserUuidAndStatus customVoOrdersByUserUuidAndStatus = new CustomVoOrdersByUserUuidAndStatus();
+                    customVoOrdersByUserUuidAndStatus.setOrders(ord);
+                    orderDetail.setOrderId(ord.getOrderId());
+                    pagingCustomOrderDetail.setOrderDetail(orderDetail);
+                    List<OrderDetail> orderDetails = orderDetailMapper.selectOrderDetail(pagingCustomOrderDetail);
+                    if(!orderDetails.isEmpty()){
+                        for (OrderDetail orderdet: orderDetails) {
+                            CustomVoItemsByOrderDetailId customVoItemsByOrderDetailId = new CustomVoItemsByOrderDetailId();
+                            customVoItemsByOrderDetailId.setItemNum(orderdet.getItemNumber());
+                            customVoItemsByOrderDetailId.setItem(itemMapper.selectItemByPrimaryKey(orderdet.getItemId()));
+                            customVoItemsByOrderDetailIds.add(customVoItemsByOrderDetailId);
+                        }}
+                    customVoOrdersByUserUuidAndStatus.setCustomVoItemsByOrderDetailIds(customVoItemsByOrderDetailIds);
+                    customVoOrdersByUserUuidAndStatuses.add(customVoOrdersByUserUuidAndStatus);
+                }
+            }
+            return customVoOrdersByUserUuidAndStatuses;
         }
         return null;
     }

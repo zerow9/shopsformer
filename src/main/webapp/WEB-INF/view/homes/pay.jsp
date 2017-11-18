@@ -15,46 +15,21 @@
 
     <title>结算页面</title>
     <link rel="icon" href="/images/picture.ico"/>
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
 
-    <link href="../../../frontpage/basic/css/demo.css" rel="stylesheet" type="text/css"/>
-    <link href="../../../frontpage/css/cartstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/basic/css/demo.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/basic/css/cartstyle.css" rel="stylesheet" type="text/css"/>
 
-    <link href="../../../frontpage/css/jsstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/basic/css/jsstyle.css" rel="stylesheet" type="text/css"/>
 
-    <script type="text/javascript" src="../../frontpage/js/address.js"></script>
+    <script type="text/javascript" src="/public/basic/js/address/address.js"></script>
 
 </head>
 
 <body>
 
 <!--顶部导航条 -->
-<div class="am-container header">
-    <ul class="message-l">
-        <div class="topMessage">
-            <div class="menu-hd">
-                <a href="login.jsp" target="_top" class="h">亲，请登录</a>
-                <a href="register.jsp" target="_top">免费注册</a>
-            </div>
-        </div>
-    </ul>
-    <ul class="message-r">
-        <div class="topMessage home">
-            <div class="menu-hd"><a href="home.jsp" target="_top" class="h">商城首页</a></div>
-        </div>
-        <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="../frame.html" target="_top"><i
-                    class="am-icon-user am-icon-fw"></i>个人中心</a></div>
-        </div>
-        <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="shopcart.jsp" target="_top"><i
-                    class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
-                                                                                          class="h">0</strong></a></div>
-        </div>
-        <div class="topMessage favorite">
-            <div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
-            </div>
-    </ul>
+<jsp:include page="/public/common/top.jsp"></jsp:include>
 </div>
 
 <!--悬浮搜索框-->

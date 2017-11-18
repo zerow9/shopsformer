@@ -3,6 +3,7 @@
 <head lang="en">
     <%@include file="/public/common/publicHead.jsp" %>
     <title>注册</title>
+    <link rel="icon" href="/public/images/picture.ico"/>
     <link href="/public/basic/css/dlstyle.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/public/basic/css/movedown.css">
 

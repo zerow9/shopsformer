@@ -9,19 +9,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="/view/common/head.jsp" %>
-
     <title>购物车页面</title>
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="../../../frontpage/basic/css/demo.css" rel="stylesheet"/>
-    <link href="../../../frontpage/css/cartstyle.css" rel="stylesheet" type="text/css" />
-    <link href="../../../frontpage/css/optstyle.css" rel="stylesheet" type="text/css" />
+    <link href="/public/basic/css/demo.css" rel="stylesheet"/>
+    <link href="/public/basic/css/cartstyle.css" rel="stylesheet" type="text/css" />
+    <link href="/public/basic/css/optstyle.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
 <%--顶部--%>
-<jsp:include page="../../../view/common/top.jsp" flush="true"/>
+<jsp:include page="/public/common/top.jsp" flush="true"/>
 
 <!--购物车 -->
 <div class="concent">
@@ -316,7 +317,7 @@
     </div>
 
     <%--底部--%>
-    <jsp:include page="../../../view/common/footer.jsp" flush="true"/>
+    <jsp:include page="/public/common/footer.jsp" flush="true"/>
 
 </div>
 
@@ -379,7 +380,7 @@
 </div>
 
 <%--begin：引导--%>
-<jsp:include page="../../../view/common/navCir.jsp" flush="true"/>
+<jsp:include page="/public/common/navCir.jsp" flush="true"/>
 <%--end：引导--%>
 
 </body>
