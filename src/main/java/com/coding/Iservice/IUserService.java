@@ -296,7 +296,7 @@ public interface IUserService {
     public CustomVoAddressDetail queryAddressDetail (Integer orderId)throws Exception;
 
     /**
-     * 根据订单ID查
+     * 根据订单对象，获取自定对象CustomVoOrdersByUserUuidAndStatus
      * @param orders 订单pojo
      * @return 自定义customvo类
      * @throws Exception SQL异常
