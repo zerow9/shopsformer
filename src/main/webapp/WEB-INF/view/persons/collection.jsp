@@ -118,9 +118,9 @@
             type: "POST",
             url: "addShopCart?id=" + id + "&pice=" + pice,
             success: function (data) {
-                if (data == 1) {
+                if (data ==="success") {
                     alert("添加购物车成功！");
-                } else if (data == 2) {
+                } else if (data ==="false") {
                     alert("添加购物车失败！")
                 } else alert("购物车中已经存在!");
             }

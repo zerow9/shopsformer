@@ -32,15 +32,6 @@
         </li>
 
         <li class="person">
-            <a href="#">我的资产</a>
-            <ul>
-                <%--<li><a href="/view/persons/oupon.jsp">优惠券 </a></li>--%>
-                <%--<li><a href="/view/persons/bonus.jsp">红包</a></li>--%>
-                <li><a href="/view/persons/bill.jsp">账单明细</a></li>
-            </ul>
-        </li>
-
-        <li class="person">
             <a href="#">我的小窝</a>
             <ul>
                 <li><a href="/collection/getUserConllection">收藏</a></li>
