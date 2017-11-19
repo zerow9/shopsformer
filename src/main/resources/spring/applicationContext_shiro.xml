@@ -16,6 +16,7 @@
             <value>
                 /logout=logout
                 /user/register=anon
+                /user/addUser=anon
                 /user/email=anon
                 /user/**=authc
                 /** = anon
