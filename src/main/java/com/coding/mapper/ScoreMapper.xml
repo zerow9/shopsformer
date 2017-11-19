@@ -173,4 +173,10 @@
     select count(*) from score
   </select>
 
+  <!--查询 Score 表所有的字段-->
+  <select id="selectScoreTableColumns" resultType="java.lang.String">
+    select group_concat(column_name)
+    from information_schema.columns
+    where table_name = 'score'
+  </select>
 </mapper>

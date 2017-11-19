@@ -61,4 +61,11 @@ public interface NoticeMapper {
      * @throws Exception
      */
     public int selectNoticeCount()throws Exception;
+
+    /**
+     * 获取 Notice 表的所有字段名
+     * @return Notice 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectNoticeTableColumns()throws Exception;
 }

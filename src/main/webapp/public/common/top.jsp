@@ -40,11 +40,12 @@
             </div>
 
             <c:if test="${!empty user}">
-            <div class="topMessage favorite">
-                <div class="menu-hd">
-                    <a href="/collection/getUserConllection" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
+                <div class="topMessage favorite">
+                    <div class="menu-hd">
+                        <a href="/collection/getUserConllection" target="_top"><i
+                                class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
+                    </div>
                 </div>
-            </div>
             </c:if>
         </ul>
     </div>
@@ -58,9 +59,21 @@
         <div class="search-bar pr">
             <a name="index_none_header_sysc" href="/public/common/search.jsp"></a>
             <form>
-                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
+                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off"
+                       style="font-size: 14px">
+
                 <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
             </form>
+
+            <div class="word-search" style="margin-top: 5px;margin-left: 10px">
+                <a href="#=手机壳&amp;from=hotword&amp;" style="color: #666;">老花镜&nbsp;&nbsp; </a>
+                <a href="#=摇椅&amp;from=hotword&amp;" style="color: #ee3495;">摇椅&nbsp;&nbsp;</a>
+                <a href="#=金龙鱼&amp;from=hotword&amp;" style="color: #ee3495;">金龙鱼&nbsp;&nbsp;</a>
+                <a href="#=电子烟&amp;from=hotword&amp;" style="color: #ee3495;">电子烟&nbsp;&nbsp;</a>
+                <a href="#=血糖仪&amp;from=hotword&amp;" style="color: #666;">血糖仪&nbsp;&nbsp;</a>
+                <a href="#=大米&amp;from=hotword&amp;" style="color: #666;">大米&nbsp;&nbsp;</a>
+                <a href="#=山水画&amp;from=hotword&amp;" style="color: #666;">山水画&nbsp;&nbsp;</a>
+            </div>
         </div>
     </div>
 

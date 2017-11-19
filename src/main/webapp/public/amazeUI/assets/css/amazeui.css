@@ -383,6 +383,11 @@ input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
 }
 
+/*增加的热词部分*/
+
+
+
+
 /**
  * 1. Remove default vertical scrollbar in IE 8/9.
  * 2. Improve readability and alignment in all browsers.

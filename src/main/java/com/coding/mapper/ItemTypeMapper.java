@@ -60,4 +60,11 @@ public interface ItemTypeMapper {
      * @throws Exception
      */
     public Integer selectItemTypeCount()throws Exception;
+
+    /**
+     * 获取 ItemType 表的所有字段名
+     * @return ItemType 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectItemTypeTableColumns()throws Exception;
 }

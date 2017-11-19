@@ -155,4 +155,11 @@
   <select id="selectNoticeCount" resultType="java.lang.Integer">
     select count(*) from notice
   </select>
+
+  <!--查询 Notice 表所有的字段-->
+  <select id="selectNoticeTableColumns" resultType="java.lang.String">
+    select group_concat(column_name)
+    from information_schema.columns
+    where table_name = 'notice'
+  </select>
 </mapper>

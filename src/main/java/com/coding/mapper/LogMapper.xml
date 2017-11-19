@@ -258,4 +258,10 @@
     select count(*) from log
   </select>
 
+  <!--查询 Log 表所有的字段-->
+  <select id="selectLogTableColumns" resultType="java.lang.String">
+    select group_concat(column_name)
+    from information_schema.columns
+    where table_name = 'log'
+  </select>
 </mapper>

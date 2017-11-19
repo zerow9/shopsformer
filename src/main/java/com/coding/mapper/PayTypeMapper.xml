@@ -101,4 +101,11 @@
     where pay_type_id = #{payTypeId,jdbcType=INTEGER}
   </update>
 
+  <!--查询 PayType 表所有的字段-->
+  <select id="selectPayTypeTableColumns" resultType="java.lang.String">
+    select group_concat(column_name)
+    from information_schema.columns
+    where table_name = 'pay_type'
+  </select>
+
 </mapper>
