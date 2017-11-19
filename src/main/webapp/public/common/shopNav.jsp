@@ -2,10 +2,8 @@
 <%--begin：导航栏--%>
 <div class="shopNav">
     <div class="slideall">
-
         <%--顶部导航条--%>
-        <%@include file="/public/common/navigation.jsp" %>
-
+            <jsp:include page="/public/common/navigation.jsp" flush="true"/>
         <!--侧边导航 -->
         <div id="nav" class="navfull">
             <div class="area clearfix">
@@ -366,7 +364,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/bamboo.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/bamboo.png"></i><a
                                             class="ml-22" title="素食、卤味">素食/卤味</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -464,7 +463,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/nut.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/nut.png"></i><a
                                             class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -578,7 +578,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/candy.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/candy.png"></i><a
                                             class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -684,7 +685,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/chocolate.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/chocolate.png"></i><a
                                             class="ml-22" title="巧克力">巧克力</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -929,7 +931,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/tea.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/tea.png"></i><a
                                             class="ml-22" title="花茶、果茶">花茶/果茶</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -1197,17 +1200,17 @@
 
                     <div class="mod-vip">
                         <div class="m-baseinfo">
-                            <a href="/person/index.html">
+                            <a href="/WEB-INF/view/homes/index.jsp">
                                 <img src="/public/images/getAvatar.do.jpg">
                             </a>
                             <em>
-                                Hi,<span class="s-name">小叮当</span>
+                                Hi,<span class="s-name">${user.userNickname}</span>
                                 <a href="#"><p>点击更多优惠活动</p></a>
                             </em>
                         </div>
-                        <div class="member-logout">
-                            <a class="am-btn-warning btn" href="/view/homes/login.jsp">登录</a>
-                            <a class="am-btn-warning btn" href="/view/homes/register.jsp">注册</a>
+                        <div class="member-logout" >
+                            <a class="am-btn-warning btn"  href="/WEB-INF/view/homes/login.jsp" style="background-color:#F72862;border-color: #F72862;">登录</a>
+                            <a class="am-btn-warning btn" href="/WEB-INF/view/homes/register.jsp" style="background-color:#F72862;border-color: #F72862;">注册</a>
                         </div>
                         <div class="member-login">
                             <a href="#"><strong>0</strong>待收货</a>

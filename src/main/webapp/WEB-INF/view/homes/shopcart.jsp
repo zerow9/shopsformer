@@ -241,24 +241,6 @@
 <jsp:include page="/public/common/navCir.jsp" flush="true"/>
 <%--end：引导--%>
 <script src="/public/basic/js/jquery-1.7.2.min.js"></script>
-<script>
-    $(function(){
-        //添加商品的数量
-        $(".min").click(function(){
-            var id=$(this).parent().find("input[type='hidden']").val();
-            alert(id);
-            $.ajax({
-                type:"POST",
-                url:"minShopCartNumber?id="+id,
-                success:function (data) {
-                    if(data==='success'){
-                        alert(1);
-                    }
-                }
-            });
-        });
-    });
-</script>
-
+<script src="/public/basic/js/shopcart.js"></script>
 </body>
 </html>

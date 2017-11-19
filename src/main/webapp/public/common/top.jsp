@@ -61,7 +61,6 @@
             <form>
                 <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off"
                        style="font-size: 14px">
-
                 <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
             </form>
 

@@ -10,7 +10,7 @@
                 </a>
                 <div class="ibar_login_box status_login">
                     <div class="avatar_box">
-                        <p class="avatar_imgbox"><img src="/public/images/no-img_mid_.jpg" /></p>
+                        <p class="avatar_imgbox"><img src="/public/images/mathera.jpg" /></p>
                         <ul class="user_info">
                             <li>用户名：sl1903</li>
                             <li>级&nbsp;别：普通会员</li>
@@ -33,15 +33,6 @@
                 </p>
                 <p class="cart_num">0</p>
             </div>
-            <%--<div id="asset" class="item">
-                <a href="#">
-                    <span class="view"></span>
-                </a>
-                <div class="mp_tooltip">
-                    我的资产
-                    <i class="icon_arrow_right_black"></i>
-                </div>
-            </div>--%>
 
             <div id="brand" class="item">
                 <a href="#">
@@ -52,17 +43,6 @@
                     <i class="icon_arrow_right_black"></i>
                 </div>
             </div>
-
-            <%--<div id="broadcast" class="item">
-                <a href="#">
-                    <span class="chongzhi"><img src="/public/images/chongzhi.png" /></span>
-                </a>
-                <div class="mp_tooltip">
-                    我要充值
-                    <i class="icon_arrow_right_black"></i>
-                </div>
-            </div>--%>
-
             <div class="quick_toggle" style="margin-bottom: 50px">
 
                 <li class="qtitem">
@@ -108,21 +88,6 @@
         <div>
             资产
         </div>
-
-      <%--  <div class="ia-head-list">
-        <a href="#" target="_blank" class="pl">
-            <div class="num">0</div>
-            <div class="text">优惠券</div>
-        </a>
-        <a href="#" target="_blank" class="pl">
-            <div class="num">0</div>
-            <div class="text">红包</div>
-        </a>
-        <a href="#" target="_blank" class="pl money">
-            <div class="num">￥0</div>
-            <div class="text">余额</div>
-        </a>
-    </div>--%>
     </div>
     <div id="foot-content" class="nav-content">
         <div class="nav-con-close">

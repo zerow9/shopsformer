@@ -25,8 +25,13 @@
 <b class="line"></b>
 <div class="listMain">
     <div class="nav-table">
-        <jsp:include page="navigation.jsp"></jsp:include>
+       <jsp:include page="/public/common/navigation.jsp"></jsp:include>
     </div>
+    <ol class="am-breadcrumb am-breadcrumb-slash">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">分类</a></li>
+        <li class="am-active">内容</li>
+    </ol>
     <!--放大镜-->
     <div class="shopMainbg">
         <div class="item-inform">
@@ -50,7 +55,9 @@
 
                 <div class="clear"></div>
             </div>
+
             <div class="clearfixRight">
+
                 <!--规格属性-->
                 <!--名称-->
                 <div class="tb-detail-hd">
@@ -71,6 +78,32 @@
                         </li>
                         <div class="clear"></div>
                     </div>
+
+                    <!--地址-->
+                    <dl class="iteminfo_parameter freight">
+                        <dt>配送至</dt>
+                        <div class="iteminfo_freprice">
+                            <div class="am-form-content address">
+                                <select data-am-selected>
+                                    <option value="a">浙江省</option>
+                                    <option value="b">湖北省</option>
+                                </select>
+                                <select data-am-selected>
+                                    <option value="a">温州市</option>
+                                    <option value="b">武汉市</option>
+                                </select>
+                                <select data-am-selected>
+                                    <option value="a">瑞安区</option>
+                                    <option value="b">洪山区</option>
+                                </select>
+                            </div>
+                            <div class="pay-logis">
+                                快递<b class="sys_item_freprice">10</b>元
+                            </div>
+                        </div>
+                    </dl>
+                    <div class="clear"></div>
+
                     <!--销量-->
                     <ul class="tm-ind-panel">
                         <li class="tm-ind-item tm-ind-sellCount canClick">
@@ -90,6 +123,7 @@
                         </li>
                     </ul>
                     <div class="clear"></div>
+
                     <!--各种规格-->
                     <dl class="iteminfo_parameter sys_item_specpara">
                         <dt class="theme-login">
@@ -97,7 +131,9 @@
                         </dt>
                         <dd>
                             <!--操作页面-->
+
                             <div class="theme-popover-mask"></div>
+
                             <div class="theme-popover">
                                 <div class="theme-span"></div>
                                 <div class="theme-poptit">
@@ -131,8 +167,12 @@
                             <input id="min" class="am-btn am-btn-default" name="" type="button" value="-"/>
                             <input id="text_box" name="" type="text" value="1" style="width:30px;"/>
                             <input id="add" class="am-btn am-btn-default" name="" type="button" value="+"/>
-                            <span class="tb-hidden">库存<span class="stock">1000</span>件</span>
+                            <span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
                         </dd>
+
+                </div>
+                <div class="clear"></div>
+
                 <div class="btn-op">
                     <div class="btn am-btn am-btn-warning">确认</div>
                     <div class="btn close am-btn am-btn-warning">取消</div>
@@ -147,9 +187,11 @@
                     <span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
                 </div>
             </div>
+
             </form>
         </div>
     </div>
+
     </dd>
     </dl>
     <div class="clear"></div>
