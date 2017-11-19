@@ -138,4 +138,11 @@ public interface UserMapper {
      * @throws Exception
      */
     public List<String> selectUserPassword(@Param("userPhone") String userPhone)throws Exception;
+
+    /**
+     * 获取 User 表的所有字段名
+     * @return User 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectUserTableColumns()throws Exception;
 }

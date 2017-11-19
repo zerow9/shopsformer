@@ -110,4 +110,10 @@
         where admin_account = #{adminAccount} and admin_password= #{adminPassword}
     </select>
 
+    <!--查询 Admin 表所有的字段-->
+    <select id="selectAdminTableColumns" resultType="java.lang.String">
+        select group_concat(column_name)
+        from information_schema.columns
+        where table_name = 'admin'
+    </select>
 </mapper>

@@ -191,4 +191,11 @@
     <select id="selectComplaintCount" resultType="java.lang.Integer">
         select count(*) from complaint
     </select>
+
+    <!--查询 Complaint 表所有的字段-->
+    <select id="selectComplaintTableColumns" resultType="java.lang.String">
+        select group_concat(column_name)
+        from information_schema.columns
+        where table_name = 'complaint'
+    </select>
 </mapper>

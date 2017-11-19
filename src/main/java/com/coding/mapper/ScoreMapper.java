@@ -71,4 +71,11 @@ public interface ScoreMapper {
      */
     public int selectScoreCount()throws Exception;
 
+    /**
+     * 获取 Score 表的所有字段名
+     * @return Score 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectScoreTableColumns()throws Exception;
+
 }

@@ -488,4 +488,11 @@
     <select id="selectUserCount" resultType="java.lang.Integer">
         select count(*) from user
     </select>
+
+    <!--查询 User 表所有的字段-->
+    <select id="selectUserTableColumns" resultType="java.lang.String">
+        select group_concat(column_name)
+        from information_schema.columns
+        where table_name = 'user'
+    </select>
 </mapper>

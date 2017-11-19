@@ -69,4 +69,11 @@ public interface VenderMapper {
      */
     public int selectVenderCount()throws Exception;
 
+    /**
+     * 获取 Vender 表的所有字段名
+     * @return Vender 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectVenderTableColumns()throws Exception;
+
 }
