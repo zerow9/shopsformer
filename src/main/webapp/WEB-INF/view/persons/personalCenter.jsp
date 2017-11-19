@@ -38,7 +38,7 @@
                         <div class="m-bg"></div>
 
                         <!-- 中间顶部个人信息横幅 -->
-                        <div class="m-userinfo">
+                        <div class="m-userinfo" >
 
                             <%--左部--%>
                             <div class="m-baseinfo">
@@ -56,7 +56,7 @@
                             <%--右部--%>
                             <div class="m-right">
                                 <%--消息--%>
-                                <div class="m-new">
+                                <div class="m-new" >
                                     <a href="news.jsp"><i class="am-icon-bell-o"></i>消息</a>
                                 </div>
                                 <%--收货地址--%>

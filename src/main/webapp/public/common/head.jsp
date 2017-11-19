@@ -46,7 +46,7 @@
 
             <div class="nav white">
                 <div class="logoBig">
-                    <li><img src="../../../frontpage/images/logobig.png"/></li>
+                    <li><img src="/public/images/logobig.png"/></li>
                 </div>
 
                 <div class="search-bar pr">
