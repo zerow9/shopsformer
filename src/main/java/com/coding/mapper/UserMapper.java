@@ -45,12 +45,29 @@ public interface UserMapper {
     public int updateUserByPrimaryKey(User user) throws Exception;
 
     /**
-     * 按需更新用户信息
+     * 根据用户唯一ID按需更新用户信息
      * @param user 封装了用户信息的 User 对象
-     * @return 是否插入成功  非0:成功  0:失败
+     * @return 是否更新成功  非0:成功  0:失败
      * @throws Exception
      */
     public int updateUserByPrimaryKeySelective(User user) throws Exception;
+
+    /**
+     * 根据用户唯一邮箱按需更新用户信息（根据邮箱修改密码）
+     * @param user 封装了用户信息的 User 对象
+     * @return 是否更新成功  非0:成功  0:失败
+     * @throws Exception
+     */
+    public int updateUserByUserEmailSelective(User user) throws Exception;
+
+    /**
+     * 根据邮箱更改用户邮箱信息
+     * @param oldEmail 用户旧邮箱
+     * @param newEmail 用户新邮箱
+     * @return 是否更新成功  非0:成功  0:失败
+     * @throws Exception
+     */
+    public int updateUserNewEmailByUserOldEmail(@Param("oldEmail") String oldEmail,@Param("newEmail")String newEmail) throws Exception;
 
     /**
      * 查询所有用户信息

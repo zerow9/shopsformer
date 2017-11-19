@@ -78,8 +78,69 @@
             </if>
         </set>
         where user_uuid = #{userUuid,jdbcType=VARCHAR}
-        and user_phone = #{userPhone,jdbcType=VARCHAR}
+        or user_email = #{userEmail,jdbcType=VARCHAR}
     </update>
+    <!--根据邮箱按需更新用户信息-->
+    <update id="updateUserByUserEmailSelective" parameterType="com.coding.pojo.User">
+        update user
+        <set >
+            <if test="userNickname != null" >
+                user_nickname = #{userNickname,jdbcType=VARCHAR},
+            </if>
+            <if test="userPassword != null" >
+                user_password = #{userPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null" >
+                user_email = #{userEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null" >
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userAge != null" >
+                user_age = #{userAge,jdbcType=INTEGER},
+            </if>
+            <if test="userSex != null" >
+                user_sex = #{userSex,jdbcType=VARCHAR},
+            </if>
+            <if test="userRegisterDateTime != null" >
+                user_register_date_time = #{userRegisterDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userScore != null" >
+                user_score = #{userScore,jdbcType=INTEGER},
+            </if>
+            <if test="userGroup != null" >
+                user_group = #{userGroup,jdbcType=INTEGER},
+            </if>
+            <if test="userLandNumber != null" >
+                user_land_number = #{userLandNumber,jdbcType=INTEGER},
+            </if>
+            <if test="userCurrentTime != null" >
+                user_current_time = #{userCurrentTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userLandIp != null" >
+                user_land_ip = #{userLandIp,jdbcType=VARCHAR},
+            </if>
+            <if test="userAddress != null" >
+                user_address = #{userAddress,jdbcType=INTEGER},
+            </if>
+            <if test="userHealthy != null" >
+                user_healthy = #{userHealthy,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where user_email = #{userEmail}
+    </update>
+    <!--根据用户邮箱更改邮箱信息-->
+    <update id="updateUserNewEmailByUserOldEmail" parameterType="java.lang.String">
+        update user
+        <set>
+          user_email = #{newEmail,jdbcType=VARCHAR}
+        </set>
+        WHERE
+          user_email = #{oldEmail,jdbcType=VARCHAR}
+    </update>
+
+
+
     <!--按需插入用户信息-->
     <insert id="insertUserSelective" parameterType="com.coding.pojo.User" >
         insert into user
