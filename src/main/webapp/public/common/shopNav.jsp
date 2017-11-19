@@ -2,10 +2,8 @@
 <%--begin：导航栏--%>
 <div class="shopNav">
     <div class="slideall">
-
         <%--顶部导航条--%>
-        <%@include file="/public/common/navigation.jsp" %>
-
+            <jsp:include page="/public/common/navigation.jsp" flush="true"/>
         <!--侧边导航 -->
         <div id="nav" class="navfull">
             <div class="area clearfix">
@@ -366,7 +364,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/bamboo.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/bamboo.png"></i><a
                                             class="ml-22" title="素食、卤味">素食/卤味</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -464,7 +463,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/nut.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/nut.png"></i><a
                                             class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -578,7 +578,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/candy.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/candy.png"></i><a
                                             class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -684,7 +685,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/chocolate.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/chocolate.png"></i><a
                                             class="ml-22" title="巧克力">巧克力</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -929,7 +931,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/tea.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/tea.png"></i><a
                                             class="ml-22" title="花茶、果茶">花茶/果茶</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">

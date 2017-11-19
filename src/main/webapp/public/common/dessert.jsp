@@ -43,19 +43,6 @@
         <div class="triangle-topright "></div>
     </div>
 
-    <div class="am-u-sm-7 am-u-md-4 text-two sug ">
-        <div class="outer-con ">
-            <div class="title ">
-                雪之恋和风大福
-            </div>
-            <div class="sub-title ">
-                ¥13.8
-            </div>
-            <i class="am-icon-shopping-basket am-icon-md seprate "></i>
-        </div>
-        <a href="# "><img src="/public/images/2.jpg "/></a>
-    </div>
-
     <div class="am-u-sm-7 am-u-md-4 text-two ">
         <div class="outer-con ">
             <div class="title ">
@@ -66,8 +53,23 @@
             </div>
             <i class="am-icon-shopping-basket am-icon-md seprate "></i>
         </div>
-        <a href="# "><img src="/public/images/1.jpg "/></a>
+        <a href="/public/common/introduction.jsp"><img src="/public/images/1.jpg "/></a>
     </div>
+
+    <div class="am-u-sm-7 am-u-md-4 text-two sug ">
+        <div class="outer-con ">
+            <div class="title ">
+                雪之恋
+            </div>
+            <div class="sub-title ">
+                ¥13.8
+            </div>
+            <i class="am-icon-shopping-basket am-icon-md seprate "></i>
+        </div>
+        <a href="/public/common/introduction.jsp"><img src="/public/images/2.jpg "/></a>
+    </div>
+
+
 
 
     <div class="am-u-sm-3 am-u-md-2 text-three big ">
