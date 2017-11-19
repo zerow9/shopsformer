@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -47,5 +48,20 @@ public class ShopCartController {
 
 
         return "homes/shopcart";
+    }
+
+    @RequestMapping("minShopCartNumber")
+    @ResponseBody
+    public String minShopCartNumber(Integer id)  {
+        try {
+            Cart cart=userService.selectCartByPrimaryKey(id);
+            cart.setItemNumber(cart.getItemNumber()-1);
+            userService.updateCartByPrimaryKeySelective(cart);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
     }
 }
