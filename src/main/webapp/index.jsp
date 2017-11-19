@@ -1,3 +1,4 @@
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -10,14 +11,12 @@
     <link href="/public/basic/css/skin.css" rel="stylesheet"/>
 </head>
 <body>
-<%--顶部--%>
+<C:if test="${empty listItem}">
+    <form action="/item/indexTenItem" id="sun" method="post"></form>
+</C:if>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
-<%--begin：首页横幅--%>
 <jsp:include page="/public/common/banner.jsp" flush="true"/>
-<%--end：首页横幅--%>
-<%--begin：导航栏--%>
 <jsp:include page="/public/common/shopNav.jsp" flush="true"/>
-<%--end：导航栏--%>
 <%--begin：首页板块--%>
 <div class="shopMainbg">
     <div class="shopMain" id="shopmain">
@@ -26,53 +25,15 @@
         <!--热门活动 -->
         <jsp:include page="/public/common/activity.jsp" flush="true"/>
         <%--begin：首页楼层--%>
-        <%--甜点--%>
         <div id="f1">
             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
         </div>
-        <%--坚果--%>
-        <div id="f2">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-        <%--甜点--%>
-        <div id="f3">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
-        <%--坚果--%>
-        <div id="f4">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-        <%--甜点--%>
-        <div id="f5">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
-        <%--坚果--%>
-        <div id="f6">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-        <%--甜点--%>
-        <div id="f7">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
-        <%--坚果--%>
-        <div id="f8">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-        <%--甜点--%>
-        <div id="f9">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
-        <%--坚果--%>
-        <div id="f10">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-        <%--底部--%>
-        <jsp:include page="/public/common/footer.jsp" flush="true"/>
     </div>
-</div>
-<%--end：首页板块--%>
-<%--begin：侧边悬浮快速链接--%>
-<jsp:include page="/public/common/tip.jsp" flush="true"/>
-<%--end：侧边悬浮快速链接--%>
+    <jsp:include page="/public/common/tip.jsp" flush="true"/>
 </body>
+<script type="text/javascript">
+    var obj = document.getElementById("sun");
+    obj.action="/item/indexTenItem";
+    obj.submit();
+</script>
 </html>

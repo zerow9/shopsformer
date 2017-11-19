@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="/view/common/head.jsp" %>
+    <%@include file="/public/common/publicHead.jsp" %>
 
     <title>搜索页面</title>
 

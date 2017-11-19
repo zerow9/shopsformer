@@ -49,14 +49,14 @@ public class SafeController {
     @RequestMapping("updateUserEmail")
     public String updateUserEmail(String userEmail, String code, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
-        String emailCode = "" + (Integer) session.getAttribute("emailCode");
-        if (emailCode.equals(code)) {
-            User user = new User();
+        String emailCode=""+(Integer)session.getAttribute("emailCode");
+        if (session.getAttribute("emailCode").equals(code)) {
+            User user=new User();
             user.setUserUuid(uuid);
             user.setUserEmail(userEmail);
             userService.updateUserByPrimaryKeySelective(user);
             session.invalidate();
-            return "redirect:/user/login";
+            return "homes/index";
         }
         throw new Exception("修改邮箱不成功");
     }
