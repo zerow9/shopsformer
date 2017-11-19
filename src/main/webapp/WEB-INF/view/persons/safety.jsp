@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: TongZhou
-  Date: 2017/11/15
-  Time: 15:52
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="org.apache.shiro.SecurityUtils" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,19 +7,17 @@
 
     <title>安全设置</title>
 
-    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/infstyle.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/infstyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<jsp:include page="../common/head.jsp"/>
+<jsp:include page="/public/common/top.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
-
             <!--标题 -->
             <div class="user-safety">
                 <div class="am-cf am-padding">
@@ -39,19 +31,19 @@
                 <div class="user-infoPic">
 
                     <div class="filePic">
-                        <img class="am-circle am-img-thumbnail" src="../../../frontpage/images/getAvatar.do.jpg"
+                        <img class="am-circle am-img-thumbnail" src="/public/images/getAvatar.do.jpg"
                              alt=""/>
                     </div>
 
                     <div class="info-m">
-                        <div><b>用户名：<i>小叮当</i></b></div>
+                        <div><b>用户名：<i>${user.userNickname}</i></b></div>
                         <div class="u-level">
 									<span class="rank r2">
 							             <s class="vip1"></s><a class="classes" href="#">铜牌会员</a>
 						            </span>
                         </div>
                         <div class="u-safety">
-                            <a href="../../../frontpage/person/safety.html">
+                            <a href="#">
                                 账户安全
                                 <span class="u-profile"><i class="bc_ee0000" style="width: 60px;"
                                                            width="0">60分</i></span>
@@ -65,55 +57,27 @@
                         <li>
                             <i class="i-safety-lock"></i>
                             <div class="m-left">
-                                <div class="fore1">登录密码</div>
+                                <div class="fore1">修改登录密码</div>
                                 <div class="fore2">
                                     <small>为保证您购物安全，建议您定期更改密码以保护账户安全。</small>
                                 </div>
                             </div>
                             <div class="fore3">
-                                <a href="../../../frontpage/person/password.html">
+                                <a href="/user/safePassword">
                                     <div class="am-btn am-btn-secondary">修改</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="i-safety-wallet"></i>
-                            <div class="m-left">
-                                <div class="fore1">支付密码</div>
-                                <div class="fore2">
-                                    <small>启用支付密码功能，为您资产账户安全加把锁。</small>
-                                </div>
-                            </div>
-                            <div class="fore3">
-                                <a href="setpay.jsp">
-                                    <div class="am-btn am-btn-secondary">立即启用</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="i-safety-iphone"></i>
-                            <div class="m-left">
-                                <div class="fore1">手机验证</div>
-                                <div class="fore2">
-                                    <small>您验证的手机：186XXXXXXXX 若已丢失或停用，请立即更换</small>
-                                </div>
-                            </div>
-                            <div class="fore3">
-                                <a href="bindphone.jsp">
-                                    <div class="am-btn am-btn-secondary">换绑</div>
                                 </a>
                             </div>
                         </li>
                         <li>
                             <i class="i-safety-mail"></i>
                             <div class="m-left">
-                                <div class="fore1">邮箱验证</div>
+                                <div class="fore1">修改邮箱</div>
                                 <div class="fore2">
-                                    <small>您验证的邮箱：5831XXX@qq.com 可用于快速找回登录密码</small>
+                                    <small>您验证的邮箱：<font color="red"><%=SecurityUtils.getSubject().getPrincipal()%></font>可用于快速找回登录密码</small>
                                 </div>
                             </div>
                             <div class="fore3">
-                                <a href="../../../frontpage/person/email.html">
+                                <a href="/user/safeEmail">
                                     <div class="am-btn am-btn-secondary">换绑</div>
                                 </a>
                             </div>
@@ -127,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="fore3">
-                                <a href="../../../frontpage/person/idcard.html">
+                                <a href="/public/person/idcard.html">
                                     <div class="am-btn am-btn-secondary">认证</div>
                                 </a>
                             </div>
@@ -152,9 +116,9 @@
             </div>
         </div>
         <!--底部-->
-        <jsp:include page="../common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="../common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 </body>
 </html>

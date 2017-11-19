@@ -1,20 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-
-
-<head lang="en">
-    <meta charset="UTF-8">
+<head>
+    <%@include file="/public/common/publicHead.jsp" %>
     <title>登录</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="icon" href="/public/images/picture.ico"/>
-    <link rel="stylesheet" href="/public/amazeUI/assets/css/amazeui.css"/>
     <link rel="stylesheet" href="/public/basic/css/dlstyle.css">
     <link rel="stylesheet" href="/public/basic/css/movedown.css">
+    <link rel="stylesheet" href="/public/basic/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/basic/css/bootstrapValidator.css">
+    <script src="/public/basic/js/bootstrapValidator.js"></script>
 </head>
 
 <body>
@@ -33,21 +26,21 @@
             <div class="clear"></div>
 
             <div class="login-form">
-                <form action="/user/login" method="post" id="add">
-                    <div class="user-name">
-                        <label for="user"><i class="am-icon-user"></i></label>
-                        <input type="text" name="username" id="user" placeholder="输入邮箱">
+                <form action="/user/login" method="post" id="login-form">
+                    <div class="form-group">
+                        <%--<label for="user"><i class="am-icon-user"></i></label>--%>
+                        <input class="form-control" type="text" name="username" id="user" placeholder="请输入邮箱">
                     </div>
-                    <div class="user-pass">
-                        <label for="password"><i class="am-icon-lock"></i></label>
-                        <input type="password" name="password" id="password" placeholder="请输入密码" >
+                    <div class="form-group">
+                        <%--<label for="password"><i class="am-icon-lock"></i></label>--%>
+                        <input class="form-control" type="password" name="password" id="password" placeholder="请输入密码">
                     </div>
                 </form>
             </div>
 
-            <div class="login-links" >
+            <div class="login-links">
                 <label for="remember-me"><input id="remember-me" name="rememberMe" type="checkbox" onclick="remember()">记住密码</label>
-                <a href="#" class="am-fr">忘记密码</a>
+                <a href="/user/safePassword" class="am-fr">忘记密码</a>
                 <a href="/user/register" class="zcnext am-fr am-btn-default">注册</a>
                 <br/>
             </div>
@@ -78,7 +71,39 @@
 
 <%--底部--%>
 <jsp:include page="/public/common/footer.jsp" flush="true"/>
+
 <script type="text/javascript">
+    //    表单输入验证
+    $(document).ready(function () {
+        $('#login-form').bootstrapValidator({
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    validators: {
+                        notEmpty: {
+                            message: '邮箱地址不能为空！'
+                        },
+                        emailAddress: {
+                            message: '邮箱地址不正确！'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空！'
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+    //   begin：记住密码
     var rememberMe = false;
 
     function remember() {
@@ -86,13 +111,16 @@
     }
 
     function add() {
-        var obj = document.getElementById("add");
+        var obj = document.getElementById("login-form");
         if (rememberMe) {
             obj.action = "/user/login?rememberMe=" + rememberMe;
             obj.submit();
         } else
             obj.submit();
     }
+
+    //    end：记住密码
+
 </script>
 </body>
 </html>

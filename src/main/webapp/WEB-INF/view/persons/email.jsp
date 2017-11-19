@@ -4,27 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-
     <title>验证邮箱</title>
-
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/stepstyle.css" rel="stylesheet" type="text/css">
-
-    <script type="text/javascript" src="../../../frontpage/js/jquery-1.7.2.min.js"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/stepstyle.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/public/basic/js/jquery-1.7.2.min.js"></script>
+    <script src="/public/amazeUI/assets/js/amazeui.js"></script>
 </head>
-
 <body>
 <!--头 -->
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/head.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
-
             <div class="am-cf am-padding">
                 <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">绑定邮箱</strong> /
                     <small>Email</small>
@@ -50,7 +43,7 @@
                     <div class="u-progress-bar-inner"></div>
                 </div>
             </div>
-            <form class="am-form am-form-horizontal">
+            <form class="am-form am-form-horizontal" action="#">
                 <div class="am-form-group">
                     <label for="user-email" class="am-form-label">验证邮箱</label>
                     <div class="am-form-content">
@@ -71,14 +64,10 @@
                 </div>
 
             </form>
-
         </div>
-        <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
-
 </body>
-
 </html>

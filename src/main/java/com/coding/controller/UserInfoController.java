@@ -64,7 +64,7 @@ public class UserInfoController {
 
     @RequestMapping("email")
     public void email(String email, HttpSession session){
-        Integer integer=100000+new Random().nextInt(999999);
+        Integer integer=100000+new Random().nextInt(899999);
         MessageTools message=MessageTools.initTool();
         message.setBoxTitle("【孝和商城】验证码");
         message.setInbox(email);

@@ -11,11 +11,9 @@
     <link href="/public/basic/css/demo.css" rel="stylesheet"/>
     <link href="/public/basic/css/hmstyle.css" rel="stylesheet"/>
     <link href="/public/basic/css/skin.css" rel="stylesheet"/>
-        <link rel="icon" href="/public/images/picture.ico"/>
+    <link rel="icon" href="/public/images/picture.ico"/>
 </head>
-
 <body>
-
 <%--顶部--%>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
 
