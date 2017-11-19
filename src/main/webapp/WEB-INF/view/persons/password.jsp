@@ -41,7 +41,7 @@
                 <div class="am-form-group">
                     <label for="user-confirm-password" class="am-form-label">确认密码</label>
                     <div class="am-form-content">
-                        <input type="password" id="user-confirm-password" placeholder="请再次输入上面的密码">
+                        <input type="password" name="userPassword" id="user-confirm-password" placeholder="请再次输入上面的密码">
                     </div>
                 </div>
                 <div class="info-btn">

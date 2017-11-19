@@ -40,8 +40,24 @@ public class SafeController {
         User use = adminService.selectUserByPrimaryKey(uuid);
         if (use.getUserPassword().equals(oldPassword)) {
             user.setUserUuid(uuid);
-            return "persons/safety";
+            userService.updateUserByPrimaryKeySelective(user);
+            return "redirect:/user/safePage";
         }
         throw new Exception("修改密码不成功");
+    }
+
+    @RequestMapping("updateUserEmail")
+    public String updateUserEmail(String userEmail, String code, HttpSession session) throws Exception {
+        String uuid = (String) session.getAttribute("uuid");
+        String emailCode = "" + (Integer) session.getAttribute("emailCode");
+        if (emailCode.equals(code)) {
+            User user = new User();
+            user.setUserUuid(uuid);
+            user.setUserEmail(userEmail);
+            userService.updateUserByPrimaryKeySelective(user);
+            session.invalidate();
+            return "redirect:/user/login";
+        }
+        throw new Exception("修改邮箱不成功");
     }
 }
