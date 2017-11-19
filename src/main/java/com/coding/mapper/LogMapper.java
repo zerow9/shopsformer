@@ -61,4 +61,11 @@ public interface LogMapper {
      * @throws Exception
      */
     public int selectLogCount() throws Exception;
+
+    /**
+     * 获取 Log 表的所有字段名
+     * @return Log 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectLogTableColumns()throws Exception;
 }

@@ -62,4 +62,11 @@ public interface OrderDetailMapper {
      * @throws Exception
      */
     public Integer selectOrderDetailCount()throws Exception;
+
+    /**
+     * 获取 OrderDetail 表的所有字段名
+     * @return OrderDetail 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectOrderDetailTableColumns()throws Exception;
 }

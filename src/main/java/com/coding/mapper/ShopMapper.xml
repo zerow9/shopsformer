@@ -142,4 +142,11 @@
     select count(*) from shop
   </select>
 
+  <!--查询 Shop 表所有的字段-->
+  <select id="selectShopTableColumns" resultType="java.lang.String">
+    select group_concat(column_name)
+    from information_schema.columns
+    where table_name = 'shop'
+  </select>
+
 </mapper>

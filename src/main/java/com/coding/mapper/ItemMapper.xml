@@ -418,4 +418,10 @@
         select count(*) from item
     </select>
 
+    <!--查询 Item 表所有的字段-->
+    <select id="selectItemTableColumns" resultType="java.lang.String">
+        select group_concat(column_name)
+        from information_schema.columns
+        where table_name = 'item'
+    </select>
 </mapper>

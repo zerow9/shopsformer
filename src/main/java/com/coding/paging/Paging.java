@@ -12,6 +12,15 @@ public class Paging {
 
     protected String sortRule;//排序规则 ASC:升序  DESC：降序
 
+    protected String tableName;//用来获取表的所有字段
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
 
     public Integer getIndexNumber() {
         return indexNumber;

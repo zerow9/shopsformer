@@ -59,4 +59,11 @@ public interface GroupsMapper {
      * @throws Exception
      */
     public Integer selectGroupsCount()throws Exception;
+
+    /**
+     * 获取 Groups 表的所有字段名
+     * @return Groups 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectgroupsTableColumns()throws Exception;
 }

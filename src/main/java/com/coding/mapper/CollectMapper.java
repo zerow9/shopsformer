@@ -80,4 +80,11 @@ public interface CollectMapper {
      * @throws Exception
      */
     public int updateCollectByPrimaryKey(Collect collect)throws Exception;
+
+    /**
+     * 获取 Collect 表的所有字段名
+     * @return Collect 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectCollectTableColumns()throws Exception;
 }
