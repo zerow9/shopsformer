@@ -112,7 +112,7 @@
                         <div class="am-form-group">
                             <label class="am-form-label">电子邮件</label>
                             <div class="am-form-content">
-                                <input value="${user.userEmail}" name="userEmail" type="email">
+                                <input value="${user.userEmail}" name="userEmail" type="email" readonly>
                             </div>
                         </div>
 
