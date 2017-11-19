@@ -88,6 +88,17 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     }
 
+    @Transactional(rollbackFor =Exception.class)
+    public void updateUserByPrimaryKeySelective(User user) throws Exception {
+        try {
+            except(userMapper.updateUserByPrimaryKeySelective(user));
+        }catch (Exception e){
+            if (!e.getMessage().contains("操作无效"))
+                throw new Exception("按需修改用户信息时出错");
+            throw e;
+        }
+    }
+
     public Integer selectUserCount() throws Exception {
         try {
             return  userMapper.selectUserCount();

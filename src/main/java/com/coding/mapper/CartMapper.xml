@@ -201,6 +201,12 @@
     where cart_id = #{cartId,jdbcType=INTEGER}
   </update>
 
+  <!--查询 Cart 表所有的字段-->
+  <select id="selectCartTableColumns" resultType="java.lang.String">
+    select group_concat(column_name)
+    from information_schema.columns
+    where table_name = 'cart'
+  </select>
 
 
 </mapper>

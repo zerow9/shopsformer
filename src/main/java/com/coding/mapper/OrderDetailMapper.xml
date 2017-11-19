@@ -205,4 +205,11 @@
   <select id="selectOrderDetailCount" resultType="java.lang.Integer">
     select count(*) from order_detail
   </select>
+
+  <!--查询 OrderDetail 表所有的字段-->
+  <select id="selectOrderDetailTableColumns" resultType="java.lang.String">
+    select group_concat(column_name)
+    from information_schema.columns
+    where table_name = 'order_detail'
+  </select>
 </mapper>

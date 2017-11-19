@@ -60,4 +60,11 @@ public interface RepertoryMapper {
      * @throws Exception
      */
     public Integer selectRepertoryCount()throws Exception;
+
+    /**
+     * 获取 Repertory 表的所有字段名
+     * @return Repertory 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectRepertoryTableColumns()throws Exception;
 }

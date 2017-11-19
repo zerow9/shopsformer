@@ -148,4 +148,11 @@
     <select id="selectItemTypeCount" resultType="java.lang.Integer">
         select count(*) from item_type
     </select>
+
+    <!--查询 ItemType 表所有的字段-->
+    <select id="selectItemTypeTableColumns" resultType="java.lang.String">
+        select group_concat(column_name)
+        from information_schema.columns
+        where table_name = 'item_type'
+    </select>
 </mapper>

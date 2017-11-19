@@ -61,4 +61,11 @@ public interface OrdersMapper {
      * @throws Exception
      */
     public Integer selectOrderCount()throws Exception;
+
+    /**
+     * 获取 Orders 表的所有字段名
+     * @return Orders 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectOrdersTableColumns()throws Exception;
 }

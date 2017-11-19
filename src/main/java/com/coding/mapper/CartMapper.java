@@ -79,4 +79,11 @@ public interface CartMapper {
      * @throws Exception
      */
     public int updateCartByPrimaryKey(Cart cart)throws Exception;
+
+    /**
+     * 获取 Cart 表的所有字段名
+     * @return Cart 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectCartTableColumns()throws Exception;
 }

@@ -56,4 +56,11 @@ public interface ComplaintMapper {
      */
     public Integer selectComplaintCount()throws Exception;
 
+    /**
+     * 获取 Complaint 表的所有字段名
+     * @return Complaint 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectComplaintTableColumns()throws Exception;
+
 }

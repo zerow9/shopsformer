@@ -1,5 +1,7 @@
 package com.coding.mapper;
 
+import com.coding.paging.Paging;
+import com.coding.paging.PagingCustomAddress;
 import com.coding.pojo.Address;
 import org.apache.ibatis.annotations.Param;
 
@@ -59,4 +61,11 @@ public interface AddressMapper {
      * @throws Exception
      */
     public Integer selectAddressCount()throws Exception;
+
+    /**
+     * 获取 Address 表的所有字段名
+     * @return Address 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectAddressTableColumns()throws Exception;
 }

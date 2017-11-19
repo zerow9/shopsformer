@@ -85,4 +85,11 @@ public interface AdminMapper {
      * @throws Exception
      */
     public Admin selectAdminAccountAndPassword(@Param("adminAccount") String adminAccount, @Param("adminPassword") String adminPassword)throws Exception;
+
+    /**
+     * 获取 Admin 表的所有字段名
+     * @return Admin 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectAdminTableColumns()throws Exception;
 }

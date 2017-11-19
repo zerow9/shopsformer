@@ -65,4 +65,11 @@ public interface DiscussMapper {
      */
     public int updateDiscussByPrimaryKeySelective(Discuss discuss)throws Exception;
 
+    /**
+     * 获取 Discuss 表的所有字段名
+     * @return Discuss 表中所有的字段名
+     * @throws Exception
+     */
+    public String selectDiscussTableColumns()throws Exception;
+
 }

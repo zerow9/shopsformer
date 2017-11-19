@@ -188,5 +188,11 @@
     where collect_id = #{collectId,jdbcType=INTEGER}
   </update>
 
+  <!--查询 Collect 表所有的字段-->
+  <select id="selectCollectTableColumns" resultType="java.lang.String">
+    select group_concat(column_name)
+    from information_schema.columns
+    where table_name = 'collect'
+  </select>
 
 </mapper>

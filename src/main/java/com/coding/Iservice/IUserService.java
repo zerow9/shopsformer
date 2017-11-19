@@ -42,6 +42,13 @@ public interface IUserService {
     public void  updateUserByPrimaryKey(User user) throws Exception;
 
     /**
+     * 按需更新用户信息
+     * @param user 封装了用户信息的 User 对象
+     * @throws Exception 无效sql、sql异常
+     */
+    public void updateUserByPrimaryKeySelective(User user) throws Exception;
+
+    /**
      * 查询用户表中一共有多少数据
      * @return 封装了用户信息的 User 类对象集合
      * @throws Exception sql异常
