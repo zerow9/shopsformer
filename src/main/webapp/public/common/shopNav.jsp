@@ -1197,17 +1197,17 @@
 
                     <div class="mod-vip">
                         <div class="m-baseinfo">
-                            <a href="/person/index.html">
+                            <a href="/WEB-INF/view/homes/index.jsp">
                                 <img src="/public/images/getAvatar.do.jpg">
                             </a>
                             <em>
-                                Hi,<span class="s-name">小叮当</span>
+                                Hi,<span class="s-name">${user.userNickname}</span>
                                 <a href="#"><p>点击更多优惠活动</p></a>
                             </em>
                         </div>
-                        <div class="member-logout">
-                            <a class="am-btn-warning btn" href="/view/homes/login.jsp">登录</a>
-                            <a class="am-btn-warning btn" href="/view/homes/register.jsp">注册</a>
+                        <div class="member-logout" >
+                            <a class="am-btn-warning btn"  href="/WEB-INF/view/homes/login.jsp" style="background-color:#F72862;border-color: #F72862;">登录</a>
+                            <a class="am-btn-warning btn" href="/WEB-INF/view/homes/register.jsp" style="background-color:#F72862;border-color: #F72862;">注册</a>
                         </div>
                         <div class="member-login">
                             <a href="#"><strong>0</strong>待收货</a>
