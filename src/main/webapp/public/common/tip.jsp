@@ -63,7 +63,7 @@
                 </div>
             </div>--%>
 
-            <div class="quick_toggle">
+            <div class="quick_toggle" style="margin-bottom: 50px">
 
                 <li class="qtitem">
                     <a href="#"><span class="kfzx"></span></a>
