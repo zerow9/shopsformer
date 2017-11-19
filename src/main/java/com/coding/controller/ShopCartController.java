@@ -64,4 +64,19 @@ public class ShopCartController {
         }
         return "success";
     }
+
+    @RequestMapping("addShopCartNumber")
+    @ResponseBody
+    public String addShopCartNumber(Integer id){
+        try {
+            Cart cart=userService.selectCartByPrimaryKey(id);
+            cart.setItemNumber(cart.getItemNumber()+1);
+            userService.updateCartByPrimaryKeySelective(cart);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
+    }
 }
