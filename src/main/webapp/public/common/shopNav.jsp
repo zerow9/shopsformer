@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--begin：导航栏--%>
 <div class="shopNav">
     <div class="slideall">
@@ -12,7 +13,8 @@
                         <ul class="category-list" id="js_climit_li">
                             <li class="appliance js_toggle relative first">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/cake.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/cake.png"/></i><a
                                             class="ml-22" title="点心">点心/蛋糕</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -119,7 +121,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/cookies.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/public/images/cookies.png"/></i><a
                                             class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -251,7 +253,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/meat.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/meat.png"/></i><a
                                             class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -365,7 +368,7 @@
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img
-                                            src="/public/images/bamboo.png"></i><a
+                                            src="/public/images/bamboo.png"/></i><a
                                             class="ml-22" title="素食、卤味">素食/卤味</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -464,7 +467,7 @@
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img
-                                            src="/public/images/nut.png"></i><a
+                                            src="/public/images/nut.png"/></i><a
                                             class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -579,7 +582,7 @@
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img
-                                            src="/public/images/candy.png"></i><a
+                                            src="/public/images/candy.png"/></i><a
                                             class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -686,7 +689,7 @@
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img
-                                            src="/public/images/chocolate.png"></i><a
+                                            src="/public/images/chocolate.png"/></i><a
                                             class="ml-22" title="巧克力">巧克力</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -801,7 +804,8 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/fish.png"></i><a
+                                    <h3 class="category-name b-category-name"><i><img
+                                            src="/public/images/fish.png"/></i><a
                                             class="ml-22" title="海味、河鲜">海味/河鲜</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -1198,29 +1202,41 @@
                         </a>
                     </li>
 
+
                     <div class="mod-vip">
-                        <div class="m-baseinfo">
-                            <a href="/WEB-INF/view/homes/index.jsp">
-                                <img src="/public/images/getAvatar.do.jpg">
-                            </a>
-                            <em>
-                                Hi,<span class="s-name">${user.userNickname}</span>
-                                <a href="#"><p>点击更多优惠活动</p></a>
-                            </em>
-                        </div>
-                        <div class="member-logout">
-                            <a class="am-btn-warning btn" href="/WEB-INF/view/homes/login.jsp"
-                               style="background-color:#F72862;border-color: #F72862;">登录</a>
-                            <a class="am-btn-warning btn" href="/WEB-INF/view/homes/register.jsp"
-                               style="background-color:#F72862;border-color: #F72862;">注册</a>
-                        </div>
-                        <div class="member-login">
-                            <a href="#"><strong>0</strong>待收货</a>
-                            <a href="#"><strong>0</strong>待发货</a>
-                            <a href="#"><strong>0</strong>待付款</a>
-                            <a href="#"><strong>0</strong>待评价</a>
-                        </div>
-                        <div class="clear"></div>
+                            <%--判断用户登录状态并返回对于的走马灯状态--%>
+                        <c:if test="${empty user}">
+                            <div class="m-baseinfo">
+                                <a href="#">
+                                    <img src="/public/images/getAvatar.do.jpg"/>
+                                </a>
+                                <em>
+                                    Hi,<span class="s-name">亲爱的！</span>
+                                    <a href="/user/login"><p>想了解更多，请登录！</p></a>
+                                </em>
+                            </div>
+                            <div class="member-logout">
+                                <a class="am-btn-warning btn" href="/user/login">登录</a>
+                                <a class="am-btn-warning btn" href="/user/register">注册</a>
+                            </div>
+                        </c:if>
+                        <c:if test="${!empty user}">
+                                <div class="m-baseinfo">
+                                    <a href="#">
+                                        <img src="/public/images/getAvatar.do.jpg"/>
+                                    </a>
+                                    <em>
+                                        Hi,<span class="s-name">${user.userNickname}</span>
+                                        <a href="#"><p>点击更多优惠活动</p></a>
+                                    </em>
+                                </div>
+                                <div class="member-logout">
+                                    <a class="logout-f"  href="#" >待付款</a>
+                                    <a  class="logout-f" href="#" >待发货</a>
+                                    <a  class="logout-f" href="#" >待评价</a>
+                                </div>
+                            </c:if>
+                            <div class="clear"></div>
                     </div>
 
                     <li>
