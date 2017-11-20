@@ -401,6 +401,33 @@
         </if>
       </if>
 
+      <!--根据维权时间范围查询订单信息-->
+        <if test="formerProtectTime != null and formerProtectTime != ''">
+            <!--给定了最小值和最大值-->
+            <if test="latterProtectTime != null and latterProtectTime != ''">
+                <!--以下三种情况分别列出-->
+                <if test="formerProtectTime == latterProtectTime">
+                    and protect_time = #{latterProtectTime}
+                </if>
+                <if test="formerProtectTime &lt; latterProtectTime">
+                    and protect_time between #{formerProtectTime} and #{latterProtectTime}
+                </if>
+                <if test="formerProtectTime &gt; latterProtectTime">
+                    and protect_time between #{latterProtectTime} and #{formerProtectTime}
+                </if>
+            </if>
+            <!--只给定了最小值-->
+            <if test="latterProtectTime == null or latterProtectTime == ''">
+                and protect_time &gt;= #{formerProtectTime}
+            </if>
+        </if>
+        <!--只给定了最大值-->
+        <if test="formerProtectTime == null or formerProtectTime == ''">
+            <if test="latterProtectTime != null and latterProtectTime != ''">
+                and  protect_time &lt;= #{latterProtectTime}
+            </if>
+        </if>
+
 
       <!--根据订单支付时间范围查询订单信息-->
       <if test="formerOrderPayTime != null and formerOrderPayTime != ''">

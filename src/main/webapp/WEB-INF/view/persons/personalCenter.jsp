@@ -498,8 +498,6 @@
     <jsp:include page="/public/common/personalMenu.jsp" flush="true"/>
     <%--end：个人中心菜单--%>
 </div>
-<%--begin：引导--%>
-<jsp:include page="/public/common/navCir.jsp" flush="true"/>
-<%--end：引导--%>
+
 </body>
 </html>

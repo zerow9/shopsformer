@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-    <jsp:include page="/public/common/publicHead.jsp" />
+    <jsp:include page="/public/common/publicHead.jsp"/>
     <title>地址更新</title>
 
     <link rel="icon" href="/public/images/picture.ico"/>

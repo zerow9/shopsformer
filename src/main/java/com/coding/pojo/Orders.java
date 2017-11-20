@@ -68,9 +68,18 @@ public class Orders {
     private Double orderFreight;
 
     private Date orderCompletionTime;
+
     private String orderCompletionTimeToString;
 
+    private Date protectTime;
 
+    public Date getProtectTime() {
+        return protectTime;
+    }
+
+    public void setProtectTime(Date protectTime) {
+        this.protectTime = protectTime;
+    }
 
     public Integer getOrderId() {
         return orderId;
@@ -374,6 +383,7 @@ public class Orders {
                 ", orderFreight=" + orderFreight +
                 ", orderCompletionTime=" + orderCompletionTime +
                 ", orderCompletionTimeToString='" + orderCompletionTimeToString + '\'' +
+                ", protectTime=" + protectTime +
                 '}';
     }
 }

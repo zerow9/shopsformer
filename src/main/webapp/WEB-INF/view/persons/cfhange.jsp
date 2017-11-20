@@ -13,18 +13,18 @@
 
     <title>退换货管理</title>
 
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/orstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/orstyle.css" rel="stylesheet" type="text/css">
 
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+    <script src="/public/amazeUI/assets/js/jquery.min.js"></script>
+    <script src="/public/amazeUI/assets/js/amazeui.js"></script>
 
 </head>
 <body>
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -70,7 +70,7 @@
                             <div class="order-main">
                                 <div class="order-list">
                                     <div class="order-title">
-                                        <div class="dd-num">退款编号：<a href="javascript:;">1601430</a></div>
+                                        <div class="dd-num">退款编号：<a href="javascript:">1601430</a></div>
                                         <span>申请时间：2015-12-20</span>
                                         <!--    <em>店铺：小桔灯</em>-->
                                     </div>
@@ -80,7 +80,7 @@
                                                 <li class="td td-item">
                                                     <div class="item-pic">
                                                         <a href="#" class="J_MakePoint">
-                                                            <img src="../../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                            <img src="/public/images/kouhong.jpg_80x80.jpg"
                                                                  class="itempic J_ItemImg">
                                                         </a>
                                                     </div>
@@ -119,7 +119,7 @@
                                                 </li>
                                             </div>
                                             <li class="td td-change td-changebutton">
-                                                <a href="../../../frontpage/person/record.html">
+                                                <a href="#">
                                                     <div class="am-btn am-btn-danger anniu">
                                                         钱款去向
                                                     </div>
@@ -155,7 +155,7 @@
                             <div class="order-main">
                                 <div class="order-list">
                                     <div class="order-title">
-                                        <div class="dd-num">退款编号：<a href="javascript:;">1601430</a></div>
+                                        <div class="dd-num">退款编号：<a href="javascript:">1601430</a></div>
                                         <span>申请时间：2015-12-20</span>
                                         <!--    <em>店铺：小桔灯</em>-->
                                     </div>
@@ -165,7 +165,7 @@
                                                 <li class="td td-item">
                                                     <div class="item-pic">
                                                         <a href="#" class="J_MakePoint">
-                                                            <img src="../../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                            <img src="/public/images/kouhong.jpg_80x80.jpg"
                                                                  class="itempic J_ItemImg">
                                                         </a>
                                                     </div>
@@ -204,7 +204,7 @@
                                                 </li>
                                             </div>
                                             <li class="td td-change td-changebutton">
-                                                <a href="../../../frontpage/person/record.html">
+                                                <a href="#">
                                                     <div class="am-btn am-btn-danger anniu">
                                                         钱款去向
                                                     </div>
@@ -225,9 +225,9 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 </body>
 </html>

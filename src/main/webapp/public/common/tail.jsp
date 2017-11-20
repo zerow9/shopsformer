@@ -11,7 +11,7 @@
 <div class="footer">
     <div class="footer-hd">
         <p>
-            <a href="home/home.html">商城首页</a>
+            <a href="/index.jsp">商城首页</a>
             <b>|</b>
             <a href="#">支付宝</a>
             <b>|</b>

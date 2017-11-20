@@ -9,14 +9,14 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <!--头 -->
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 <!--文章 -->
 <div class="am-g am-g-fixed blog-g-fixed bloglist">
     <div class="am-u-md-9">
@@ -33,9 +33,9 @@
 
                     <strong class="blog-tit"><p>一张毛爷爷<span>丨</span>基础护肤</p></strong>
                     <div class="Row">
-                        <li><img src="../../../frontpage/images/blog01.jpg"/></li>
-                        <li><img src="../../../frontpage/images/blog02.jpg"/></li>
-                        <li><img src="../../../frontpage/images/blog03.jpg"/></li>
+                        <li><img src="/public/images/blog01.jpg"/></li>
+                        <li><img src="/public/images/blog02.jpg"/></li>
+                        <li><img src="/public/images/blog03.jpg"/></li>
                     </div>
                     <p>百元以内的基础护肤套装，小编给妹子们挑选了洗面奶、爽肤水和面霜，按照洁面和护肤的顺序，大家可以尽情将这些口碑好货加入购物车哦。</p>
                     <p>一向是；平价又好用的露得清洗面奶，加上很大一支感觉怎么都用不完的千纤草丝瓜水，最后用玉兰油面霜锁住面部水分，简直完美！</p>
@@ -43,9 +43,9 @@
 
                     <strong class="blog-tit"><p>两张毛爷爷<span>丨</span>彩妆</p></strong>
                     <div class="Row">
-                        <li><img src="../../../frontpage/images/blog04.jpg"/></li>
-                        <li><img src="../../../frontpage/images/blog05.jpg"/></li>
-                        <li><img src="../../../frontpage/images/blog06.jpg"/></li>
+                        <li><img src="/public/images/blog04.jpg"/></li>
+                        <li><img src="/public/images/blog05.jpg"/></li>
+                        <li><img src="/public/images/blog06.jpg"/></li>
                     </div>
 
                     <p>眼妆是整个妆面的精髓，一个精致的眼妆可以瞬间提升人的气场，或是娇羞可爱，或者温婉贤淑，或是妩媚妖娆，总有一种风格适合自己。想不到仅仅不到200软妹币就能搞定眼妆这个磨人的小妖精吧！</p>
@@ -53,9 +53,9 @@
 
                     <strong class="blog-tit"><p>三张毛爷爷<span>丨</span>身体护理</p></strong>
                     <div class="Row">
-                        <li><img src="../../../frontpage/images/blog07.jpg"/></li>
-                        <li><img src="../../../frontpage/images/blog08.jpg"/></li>
-                        <li><img src="../../../frontpage/images/blog09.jpg"/></li>
+                        <li><img src="/public/images/blog07.jpg"/></li>
+                        <li><img src="/public/images/blog08.jpg"/></li>
+                        <li><img src="/public/images/blog09.jpg"/></li>
                     </div>
 
                     <p>初春空气干燥，洗手洗澡后不马上涂点润肤乳，皮肤就会不听话得干燥粗糙起来，着实让爱美的妹子们操碎了心。春天不光是万物复苏的季节，还是万物需要滋养的季节，而且要从头到脚得滋养。</p>
@@ -93,7 +93,7 @@
     </div>
 
 </div>
-<jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+<jsp:include page="/public/common/tail.jsp"/>
 
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
@@ -102,9 +102,9 @@
 <![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+<script src="/public/amazeUI/assets/js/jquery.min.js"></script>
 <!--<![endif]-->
-<script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+<script src="/public/amazeUI/assets/js/amazeui.min.js"></script>
 
 </body>
 </html>

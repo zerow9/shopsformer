@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="/view/common/head.jsp" %>
+    <%@include file="/public/common/publicHead.jsp" %>
 
     <title>搜索页面</title>
 
@@ -22,13 +22,13 @@
 <body>
 
 <%--顶部--%>
-<jsp:include page="../../../view/common/top.jsp" flush="true"/>
+<jsp:include page="/public/common/publicHead.jsp" flush="true"/>
 
 <div class="search">
     <div class="search-list">
         <div class="nav-table">
             <%--顶部导航条--%>
-            <%@include file="/view/common/navigation.jsp" %>
+            <%@include file="/public/common/navigation.jsp" %>
         </div>
 
         <div class="am-g am-g-fixed">
@@ -405,18 +405,18 @@
         </div>
 
         <%--底部--%>
-        <jsp:include page="../../../view/common/footer.jsp" flush="true"/>
+        <jsp:include page="/public/common/footer.jsp" flush="true"/>
 
     </div>
 
 </div>
 
 <%--begin：引导--%>
-<jsp:include page="../../../view/common/navCir.jsp" flush="true"/>
+<jsp:include page="/public/common/shopNav.jsp" flush="true"/>
 <%--end：引导--%>
 
 <%--begin：侧边悬浮快速链接--%>
-<jsp:include page="../../../view/common/tip.jsp" flush="true"/>
+<jsp:include page="/public/common/tip.jsp" flush="true"/>
 <%--end：侧边悬浮快速链接--%>
 
 <div class="theme-popover-mask"></div>

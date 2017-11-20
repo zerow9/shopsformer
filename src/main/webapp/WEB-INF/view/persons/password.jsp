@@ -56,8 +56,8 @@
 </body>
 <script type="text/javascript">
     function submit() {
-        var url=document.getElementById("submit");
-        url.action="/user/updateUserPassword";
+        var url = document.getElementById("submit");
+        url.action = "/user/updateUserPassword";
         url.submit();
     }
 </script>
