@@ -26,7 +26,7 @@
         <li class="person">
             <a href="#">我的交易</a>
             <ul>
-                <li><a href="/view/persons/order.jsp">订单管理</a></li>
+                <li><a href="/user/order/order">订单管理</a></li>
                 <li><a href="/view/persons/change.jsp">退款售后</a></li>
             </ul>
         </li>
