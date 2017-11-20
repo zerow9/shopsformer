@@ -49,7 +49,7 @@ public class CollectionController {
                 collectDetail.setCollectId(collect.getCollectId());
                 collectDetail.setItem(item);
                 collectDetail.setUserUuid(collect.getUserUuid());
-                collectDetail.setItemImages(item.getItemImages());
+                collectDetail.setItemImages("https://admin.shop.xcstudio.xin"+item.getItemImages());
                 collectDetail.setItemName(item.getItemName());
                 collectDetails.add(collectDetail);
             }
