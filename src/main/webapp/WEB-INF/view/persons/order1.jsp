@@ -210,7 +210,7 @@
                                                                 <div class="item-status">
                                                                     <p class="Mystatus">交易成功</p>
                                                                     <p class="order-info"><a
-                                                                            href="orderinfo.html">订单详情</a>
+                                                                            href="/user/order/orderDetail?orderId=${customVoItemsByOrderId.orders.orderId}">订单详情</a>
                                                                     </p>
                                                                     <p class="order-info"><a
                                                                             href="logistics.html">查看物流</a>
@@ -965,7 +965,7 @@
                                                                 <div class="item-status">
                                                                     <p class="Mystatus">买家已付款</p>
                                                                     <p class="order-info"><a
-                                                                            href="orderinfo.html">订单详情</a>
+                                                                            href="/user/order/orderDetail?orderId=${send.orders.orderId}">订单详情</a>
                                                                     </p>
                                                                 </div>
                                                             </li>
@@ -1110,7 +1110,7 @@
                                                                 <div class="item-status">
                                                                     <p class="Mystatus">卖家已发货</p>
                                                                     <p class="order-info"><a
-                                                                            href="orderinfo.html">订单详情</a>
+                                                                            href="/user/order/orderDetail?orderId=${takeGoods.orders.orderId}">订单详情</a>
                                                                     </p>
                                                                     <p class="order-info"><a
                                                                             href="logistics.html">查看物流</a>
@@ -1224,7 +1224,7 @@
                                                                 <div class="item-status">
                                                                     <p class="Mystatus">交易成功</p>
                                                                     <p class="order-info"><a
-                                                                            href="orderinfo.html">订单详情</a>
+                                                                            href="/user/order/orderDetail?orderId=${discuss.orders.orderId}">订单详情</a>
                                                                     </p>
                                                                     <p class="order-info"><a
                                                                             href="logistics.html">查看物流</a>
