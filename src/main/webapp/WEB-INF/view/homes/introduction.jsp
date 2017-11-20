@@ -189,7 +189,7 @@
     </li>
     <li>
         <div class="clearfix tb-btn tb-btn-basket theme-login">
-            <a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
+            <a id="LikBasket" title="加入购物车" href="/user/collect?itemId=${item.itemId}"><i></i>加入购物车</a>
         </div>
     </li>
 </div>
