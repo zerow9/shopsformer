@@ -73,7 +73,9 @@
                             <div class="m-left">
                                 <div class="fore1">修改邮箱</div>
                                 <div class="fore2">
-                                    <small>您验证的邮箱：<font color="red"><%=SecurityUtils.getSubject().getPrincipal()%></font>可用于快速找回登录密码</small>
+                                    <small>您验证的邮箱：<font color="red"><%=SecurityUtils.getSubject().getPrincipal()%>
+                                    </font>可用于快速找回登录密码
+                                    </small>
                                 </div>
                             </div>
                             <div class="fore3">

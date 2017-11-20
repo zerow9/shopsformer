@@ -7,17 +7,17 @@
 
     <title>发表评论</title>
 
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/appstyle.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="../../../frontpage/js/jquery-1.7.2.min.js"></script>
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/appstyle.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/public/basic/js/jquery-1.7.2.min.js"></script>
 </head>
 
 <body>
 <!--头 -->
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -35,7 +35,7 @@
                     <div class="comment-list">
                         <div class="item-pic">
                             <a href="#" class="J_MakePoint">
-                                <img src="../../../frontpage/images/comment.jpg_400x400.jpg" class="itempic">
+                                <img src="/public/images/comment.jpg_400x400.jpg" class="itempic">
                             </a>
                         </div>
 
@@ -63,7 +63,7 @@
                         <div class="filePic">
                             <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
                             <span>晒照片(0/5)</span>
-                            <img src="../../../frontpage/images/image.jpg" alt="">
+                            <img src="/public/images/image.jpg" alt="">
                         </div>
                         <div class="item-opinion">
                             <li><i class="op1"></i>好评</li>
@@ -76,7 +76,7 @@
                     <div class="comment-list">
                         <div class="item-pic">
                             <a href="#" class="J_MakePoint">
-                                <img src="../../../frontpage/images/comment.jpg_400x400.jpg" class="itempic">
+                                <img src="/public/images/comment.jpg_400x400.jpg" class="itempic">
                             </a>
                         </div>
 
@@ -104,7 +104,7 @@
                         <div class="filePic">
                             <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
                             <span>晒照片(0/5)</span>
-                            <img src="../../../frontpage/images/image.jpg" alt="">
+                            <img src="/public/images/image.jpg" alt="">
                         </div>
                         <div class="item-opinion">
                             <li><i class="op1"></i>好评</li>
@@ -116,7 +116,7 @@
                     <div class="comment-list">
                         <div class="item-pic">
                             <a href="#" class="J_MakePoint">
-                                <img src="../../../frontpage/images/comment.jpg_400x400.jpg" class="itempic">
+                                <img src="/public/images/comment.jpg_400x400.jpg" class="itempic">
                             </a>
                         </div>
 
@@ -144,7 +144,7 @@
                         <div class="filePic">
                             <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
                             <span>晒照片(0/5)</span>
-                            <img src="../../../frontpage/images/image.jpg" alt="">
+                            <img src="/public/images/image.jpg" alt="">
                         </div>
                         <div class="item-opinion">
                             <li><i class="op1"></i>好评</li>
@@ -173,9 +173,9 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 </body>
 </html>

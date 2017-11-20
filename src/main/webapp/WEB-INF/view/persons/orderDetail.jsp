@@ -1,5 +1,3 @@
-<%@ page import="com.coding.CustomVo.CustomVoAddressDetail" %>
-<%@ page import="com.coding.CustomVo.CustomVoItemsByOrderDetailId" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -44,7 +42,7 @@
                         <br>
                         <span class="remain-time" style="display: none"><b></b></span>
                         <div class="state-btns">
-                            <a id="pay-button-13886555728" class="btn-1 " style="display:none" href="#none">付款</a>
+                            <a id="pay-button-13886555728" class="btn-1 " style="display:none" href="#">付款</a>
                             <a target="_blank" href="//myivc.jd.com/fpzz.html" class="btn-9">查看发票详情</a>
                         </div>
                     </div>
@@ -274,7 +272,7 @@
                                                 </span>
                                             <div class="info-rcol">
                                                     <span class="f-price">
-                                                     <%--&yen;<%=sum%>--%>
+                                                        <%--&yen;<%=sum%>--%>
                                                     </span>
                                             </div>
                                         </div>

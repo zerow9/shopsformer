@@ -25,7 +25,7 @@
 <b class="line"></b>
 <div class="listMain">
     <div class="nav-table">
-       <jsp:include page="/public/common/navigation.jsp"></jsp:include>
+        <jsp:include page="/public/common/navigation.jsp"></jsp:include>
     </div>
     <ol class="am-breadcrumb am-breadcrumb-slash">
         <li><a href="#">首页</a></li>
@@ -137,7 +137,7 @@
                             <div class="theme-popover">
                                 <div class="theme-span"></div>
                                 <div class="theme-poptit">
-                                    <a href="javascript:;" title="关闭" class="close">×</a>
+                                    <a href="javascript:" title="关闭" class="close">×</a>
                                 </div>
                                 <div class="theme-popbod dform">
                                     <form class="theme-signin" name="loginform" action="" method="post">
@@ -167,9 +167,9 @@
                             <input id="min" class="am-btn am-btn-default" name="" type="button" value="-"/>
                             <input id="text_box" name="" type="text" value="1" style="width:30px;"/>
                             <input id="add" class="am-btn am-btn-default" name="" type="button" value="+"/>
-                            <span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
+                            <span id="Stock1" class="tb-hidden">库存<span class="stock">1000</span>件</span>
                         </dd>
-
+                    </dl>
                 </div>
                 <div class="clear"></div>
 
@@ -188,12 +188,9 @@
                 </div>
             </div>
 
-            </form>
         </div>
     </div>
 
-    </dd>
-    </dl>
     <div class="clear"></div>
     <!--活动	-->
     <div class="shopPromotion gold">
@@ -235,11 +232,9 @@
     </li>
 </div>
 
-</div>
 
 <div class="clear"></div>
 
-</div>
 
 <!--优惠套装-->
 <div class="match">
@@ -1104,7 +1099,6 @@
         </div>
     </div>
 
-</div>
 </div>
 <!--菜单 -->
 <div class=tip>

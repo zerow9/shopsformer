@@ -16,8 +16,8 @@
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
     <link href="/public/basic/css/demo.css" rel="stylesheet"/>
-    <link href="/public/basic/css/cartstyle.css" rel="stylesheet" type="text/css" />
-    <link href="/public/basic/css/optstyle.css" rel="stylesheet" type="text/css" />
+    <link href="/public/basic/css/cartstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/basic/css/optstyle.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -57,7 +57,8 @@
             <div class="bundle  bundle-last ">
                 <div class="bundle-hd">
                     <div class="bd-promos">
-                        <div class="bd-has-promo">已享优惠:<span class="bd-has-promo-content">省￥19.50</span>&nbsp;&nbsp;</div>
+                        <div class="bd-has-promo">已享优惠:<span class="bd-has-promo-content">省￥19.50</span>&nbsp;&nbsp;
+                        </div>
                         <div class="act-promo">
                             <a href="#" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
                         </div>
@@ -67,70 +68,74 @@
                 <div class="clear"></div>
                 <div class="bundle-main">
                     <c:forEach items="${carts}" var="cart">
-                    <ul class="item-content clearfix">
-                        <li class="td td-chk">
-                            <div class="cart-checkbox ">
-                                <input class="check" id="J_CheckBox" name="items[]" value="${cart.cartId}" type="checkbox">
-                                <label for="J_CheckBox"></label>
-                            </div>
-                        </li>
-                        <li class="td td-item">
-                            <div class="item-pic">
-                                <a href="#" target="_blank" data-title="${cart.itemName}" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="${cart.itemImages}" class="itempic J_ItemImg"></a>
-                            </div>
-                            <div class="item-info">
-                                <div class="item-basic-info">
-                                    <a href="#" target="_blank" title="${cart.itemName}" class="item-title J_MakePoint" data-point="tbcart.8.11">${cart.itemName}</a>
+                        <ul class="item-content clearfix">
+                            <li class="td td-chk">
+                                <div class="cart-checkbox ">
+                                    <input class="check" id="J_CheckBox" name="items[]" value="${cart.cartId}"
+                                           type="checkbox">
+                                    <label for="J_CheckBox"></label>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="td td-info">
-                            <div class="item-props item-props-can">
-                                <span class="sku-line">颜色：10#蜜橘色</span>
-                                <span class="sku-line">包装：两支手袋装（送彩带）</span>
-                                <span tabindex="0" class="btn-edit-sku theme-login">修改</span>
-                                <i class="theme-login am-icon-sort-desc"></i>
-                            </div>
-                        </li>
-                        <li class="td td-price">
-                            <div class="item-price price-promo-promo">
-                                <div class="price-content">
-                                    <div class="price-line">
-                                        <em class="price-original">${cart.price*1.2}</em>
-                                    </div>
-                                    <div class="price-line">
-                                        <em class="J_Price price-now" tabindex="0">${cart.price}</em>
+                            </li>
+                            <li class="td td-item">
+                                <div class="item-pic">
+                                    <a href="#" target="_blank" data-title="${cart.itemName}" class="J_MakePoint"
+                                       data-point="tbcart.8.12">
+                                        <img src="${cart.itemImages}" class="itempic J_ItemImg"></a>
+                                </div>
+                                <div class="item-info">
+                                    <div class="item-basic-info">
+                                        <a href="#" target="_blank" title="${cart.itemName}"
+                                           class="item-title J_MakePoint" data-point="tbcart.8.11">${cart.itemName}</a>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="td td-amount">
-                            <div class="amount-wrapper ">
-                                <div class="item-amount ">
-                                    <div class="sl">
-                                        <input type="hidden" class="cartIdInput" value="${cart.cartId}">
-                                        <input class="min am-btn" name="" type="button" value="-" />
-                                        <input class="text_box" name="" type="text" value="${cart.itemNumber}" style="width:30px;" />
-                                        <input class="add am-btn" name="" type="button" value="+" />
+                            </li>
+                            <li class="td td-info">
+                                <div class="item-props item-props-can">
+                                    <span class="sku-line">颜色：10#蜜橘色</span>
+                                    <span class="sku-line">包装：两支手袋装（送彩带）</span>
+                                    <span tabindex="0" class="btn-edit-sku theme-login">修改</span>
+                                    <i class="theme-login am-icon-sort-desc"></i>
+                                </div>
+                            </li>
+                            <li class="td td-price">
+                                <div class="item-price price-promo-promo">
+                                    <div class="price-content">
+                                        <div class="price-line">
+                                            <em class="price-original">${cart.price*1.2}</em>
+                                        </div>
+                                        <div class="price-line">
+                                            <em class="J_Price price-now" tabindex="0">${cart.price}</em>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="td td-sum">
-                            <div class="td-inner">
-                                <em tabindex="0" class="J_ItemSum number">${cart.itemNumber*cart.price}</em>
-                            </div>
-                        </li>
-                        <li class="td td-op">
-                            <div class="td-inner">
-                                <a title="移入收藏夹" class="btn-fav" href="#">
-                                    移入收藏夹</a>
-                                <a href="javascript:;" data-point-url="#" class="delete">
-                                    删除</a>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                            <li class="td td-amount">
+                                <div class="amount-wrapper ">
+                                    <div class="item-amount ">
+                                        <div class="sl">
+                                            <input type="hidden" class="cartIdInput" value="${cart.cartId}">
+                                            <input class="min am-btn" name="" type="button" value="-"/>
+                                            <input class="text_box" name="" type="text" value="${cart.itemNumber}"
+                                                   style="width:30px;"/>
+                                            <input class="add am-btn" name="" type="button" value="+"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="td td-sum">
+                                <div class="td-inner">
+                                    <em tabindex="0" class="J_ItemSum number">${cart.itemNumber*cart.price}</em>
+                                </div>
+                            </li>
+                            <li class="td td-op">
+                                <div class="td-inner">
+                                    <a title="移入收藏夹" class="btn-fav" href="#">
+                                        移入收藏夹</a>
+                                    <a href="javascript:" data-point-url="#" class="delete">
+                                        删除</a>
+                                </div>
+                            </li>
+                        </ul>
 
                     </c:forEach>
 
@@ -185,7 +190,7 @@
 <div class="theme-popover">
     <div class="theme-span"></div>
     <div class="theme-poptit h-title">
-        <a href="javascript:;" title="关闭" class="close">×</a>
+        <a href="javascript:" title="关闭" class="close">×</a>
     </div>
     <div class="theme-popbod dform">
         <form class="theme-signin" name="loginform" action="" method="post">
@@ -209,10 +214,10 @@
                 <div class="theme-options">
                     <div class="cart-title number">数量</div>
                     <dd>
-                        <input class="min am-btn am-btn-default" name="" type="button" value="-" />
-                        <input class="text_box" name="" type="text" value="1" style="width:30px;" />
-                        <input class="add am-btn am-btn-default" name="" type="button" value="+" />
-                        <span  class="tb-hidden">库存<span class="stock">1000</span>件</span>
+                        <input class="min am-btn am-btn-default" name="" type="button" value="-"/>
+                        <input class="text_box" name="" type="text" value="1" style="width:30px;"/>
+                        <input class="add am-btn am-btn-default" name="" type="button" value="+"/>
+                        <span class="tb-hidden">库存<span class="stock">1000</span>件</span>
                     </dd>
 
                 </div>
@@ -225,7 +230,7 @@
             </div>
             <div class="theme-signin-right">
                 <div class="img-info">
-                    <img src="/public/images/kouhong.jpg_80x80.jpg" />
+                    <img src="/public/images/kouhong.jpg_80x80.jpg"/>
                 </div>
                 <div class="text-info">
                     <span class="J_Price price-now">¥39.00</span>
@@ -238,7 +243,7 @@
 </div>
 
 <%--begin：引导--%>
-<jsp:include page="/public/common/navCir.jsp" flush="true"/>
+<jsp:include page="/public/common/shopNav.jsp" flush="true"/>
 <%--end：引导--%>
 <script src="/public/basic/js/jquery-1.7.2.min.js"></script>
 <script src="/public/basic/js/shopcart.js"></script>

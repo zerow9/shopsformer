@@ -7,20 +7,20 @@
 
     <title>账单明细</title>
 
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/bilstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/bilstyle.css" rel="stylesheet" type="text/css">
 
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+    <script src="/public/amazeUI/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/public/amazeUI/assets/js/amazeui.js"></script>
 
 </head>
 
 <body>
 <!--头 -->
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -62,7 +62,7 @@
                 <tbody>
                 <tr>
                     <td class="img">
-                        <i><img src="../../../frontpage/images/songzi.jpg"></i>
+                        <i><img src="/public/images/songzi.jpg"></i>
                     </td>
                     <td class="time">
                         <p> 2016-01-28
@@ -87,7 +87,7 @@
                 <tr>
 
                     <td class="img">
-                        <i><img src="../../../frontpage/images/songzi.jpg"></i>
+                        <i><img src="/public/images/songzi.jpg"></i>
                     </td>
                     <td class="time">
                         <p> 2016-01-28
@@ -122,9 +122,9 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 </body>
 </html>
