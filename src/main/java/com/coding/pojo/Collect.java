@@ -11,9 +11,6 @@ public class Collect {
 
     private Integer itemId;
 
-    private String itemName;
-
-    private String itemImages;
 
     private Date collectTime;
 
@@ -46,21 +43,6 @@ public class Collect {
         this.itemId = itemId;
     }
 
-    public String getItemName() {
-        return itemName;
-    }
-
-    public void setItemName(String itemName) {
-        this.itemName = itemName == null ? null : itemName.trim();
-    }
-
-    public String getItemImages() {
-        return itemImages;
-    }
-
-    public void setItemImages(String itemImages) {
-        this.itemImages = itemImages == null ? null : itemImages.trim();
-    }
 
     public Date getCollectTime() {
         return collectTime;
@@ -92,8 +74,6 @@ public class Collect {
                 "collectId=" + collectId +
                 ", userUuid='" + userUuid + '\'' +
                 ", itemId=" + itemId +
-                ", itemName='" + itemName + '\'' +
-                ", itemImages='" + itemImages + '\'' +
                 ", collectTime=" + collectTime +
                 ", collectItemVender=" + collectItemVender +
                 ", collectRemark='" + collectRemark + '\'' +
