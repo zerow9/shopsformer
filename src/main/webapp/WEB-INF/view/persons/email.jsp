@@ -60,6 +60,6 @@
     </div>
     <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
-<script src="/public/basic/js/email.js"></script>
+<script src="/public/basic/js/register.js"></script>
 </body>
 </html>

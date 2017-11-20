@@ -2640,7 +2640,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  this._timer = null;
 	  this._input = null;
-	  this.count = 0;
+	  this.delay = 0;
 	}
 
 	inherit(TapRecognizer, Recognizer, {
@@ -2671,7 +2671,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    this.reset();
 
-	    if ((input.eventType & INPUT_START) && (this.count === 0)) {
+	    if ((input.eventType & INPUT_START) && (this.delay === 0)) {
 	      return this.failTimeout();
 	    }
 
@@ -2689,16 +2689,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.pCenter = input.center;
 
 	      if (!validMultiTap || !validInterval) {
-	        this.count = 1;
+	        this.delay = 1;
 	      } else {
-	        this.count += 1;
+	        this.delay += 1;
 	      }
 
 	      this._input = input;
 
-	      // if tap count matches we have recognized it,
+	      // if tap delay matches we have recognized it,
 	      // else it has began recognizing...
-	      var tapCount = this.count % options.taps;
+	      var tapCount = this.delay % options.taps;
 	      if (tapCount === 0) {
 	        // no failing requirements, immediately trigger the tap event
 	        // or wait as long as the multitap interval to trigger
@@ -2729,7 +2729,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  emit: function() {
 	    if (this.state == STATE_RECOGNIZED) {
-	      this._input.tapCount = this.count;
+	      this._input.tapCount = this.delay;
 	      this.manager.emit(this.options.event, this._input);
 	    }
 	  }
@@ -3606,7 +3606,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return;
 	      }
 
-	      // obey the maximum number of display count
+	      // obey the maximum number of display delay
 	      if (this.options.maxDisplayCount && this.session.displayCount >= this.options.maxDisplayCount) {
 	        this.doLog("Add to homescreen: not displaying callout because displayed too many times already");
 	        return;
@@ -3615,7 +3615,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    this.shown = true;
 
-	    // increment the display count
+	    // increment the display delay
 	    this.session.lastDisplayTime = now;
 	    this.session.displayCount++;
 	    this.updateSession();
@@ -5351,7 +5351,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      slider.containerSelector = slider.vars.selector.substr(0, slider.vars.selector.search(' '));
 	      slider.slides = $(slider.vars.selector, slider);
 	      slider.container = $(slider.containerSelector, slider);
-	      slider.count = slider.slides.length;
+	      slider.delay = slider.slides.length;
 	      // SYNC:
 	      slider.syncExists = $(slider.vars.sync).length > 0;
 	      // SLIDE:
@@ -5604,7 +5604,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      },
 	      update: function(action, pos) {
 	        if (slider.pagingCount > 1 && action === "add") {
-	          slider.controlNavScaffold.append($('<li><a>' + slider.count + '</a></li>'));
+	          slider.controlNavScaffold.append($('<li><a>' + slider.delay + '</a></li>'));
 	        } else if (slider.pagingCount === 1) {
 	          slider.controlNavScaffold.find('li').remove();
 	        } else {
@@ -6000,7 +6000,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (!slider.animating && (slider.canAdvance(target, fromNav) || override) && slider.is(":visible")) {
 	      if (asNav && withSync) {
 	        var master = $(slider.vars.asNavFor).data('flexslider');
-	        slider.atEnd = target === 0 || target === slider.count - 1;
+	        slider.atEnd = target === 0 || target === slider.delay - 1;
 	        master.flexAnimate(target, true, false, true, fromNav);
 	        slider.direction = (slider.currentItem < target) ? "next" : "prev";
 	        master.direction = slider.direction;
@@ -6060,12 +6060,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	          margin = slider.vars.itemMargin;
 	          calcNext = ((slider.itemW + margin) * slider.move) * slider.animatingTo;
 	          slideString = (calcNext > slider.limit && slider.visible !== 1) ? slider.limit : calcNext;
-	        } else if (slider.currentSlide === 0 && target === slider.count - 1 && slider.vars.animationLoop && slider.direction !== "next") {
-	          slideString = (reverse) ? (slider.count + slider.cloneOffset) * dimension : 0;
+	        } else if (slider.currentSlide === 0 && target === slider.delay - 1 && slider.vars.animationLoop && slider.direction !== "next") {
+	          slideString = (reverse) ? (slider.delay + slider.cloneOffset) * dimension : 0;
 	        } else if (slider.currentSlide === slider.last && target === 0 && slider.vars.animationLoop && slider.direction !== "prev") {
-	          slideString = (reverse) ? 0 : (slider.count + 1) * dimension;
+	          slideString = (reverse) ? 0 : (slider.delay + 1) * dimension;
 	        } else {
-	          slideString = (reverse) ? ((slider.count - 1) - target + slider.cloneOffset) * dimension : (target + slider.cloneOffset) * dimension;
+	          slideString = (reverse) ? ((slider.delay - 1) - target + slider.cloneOffset) * dimension : (target + slider.cloneOffset) * dimension;
 	        }
 	        slider.setProps(slideString, "", slider.vars.animationSpeed);
 	        if (slider.transitions) {
@@ -6161,7 +6161,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // ASNAV:
 	    var last = (asNav) ? slider.pagingCount - 1 : slider.last;
 	    return (fromNav) ? true :
-	      (asNav && slider.currentItem === slider.count - 1 && target === 0 && slider.direction === "prev") ? true :
+	      (asNav && slider.currentItem === slider.delay - 1 && target === 0 && slider.direction === "prev") ? true :
 	        (asNav && slider.currentItem === 0 && target === slider.pagingCount - 1 && slider.direction !== "next") ? false :
 	          (target === slider.currentSlide && !asNav) ? false :
 	            (slider.vars.animationLoop) ? true :
@@ -6191,13 +6191,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	          } else {
 	            switch (special) {
 	              case "setTotal":
-	                return (reverse) ? ((slider.count - 1) - slider.currentSlide + slider.cloneOffset) * pos : (slider.currentSlide + slider.cloneOffset) * pos;
+	                return (reverse) ? ((slider.delay - 1) - slider.currentSlide + slider.cloneOffset) * pos : (slider.currentSlide + slider.cloneOffset) * pos;
 	              case "setTouch":
 	                return (reverse) ? pos : pos;
 	              case "jumpEnd":
-	                return (reverse) ? pos : slider.count * pos;
+	                return (reverse) ? pos : slider.delay * pos;
 	              case "jumpStart":
-	                return (reverse) ? slider.count * pos : pos;
+	                return (reverse) ? slider.delay * pos : pos;
 	              default:
 	                return pos;
 	            }
@@ -6251,10 +6251,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      slider.newSlides = $(slider.vars.selector, slider);
 
-	      sliderOffset = (reverse) ? slider.count - 1 - slider.currentSlide + slider.cloneOffset : slider.currentSlide + slider.cloneOffset;
+	      sliderOffset = (reverse) ? slider.delay - 1 - slider.currentSlide + slider.cloneOffset : slider.currentSlide + slider.cloneOffset;
 	      // VERTICAL:
 	      if (vertical && !carousel) {
-	        slider.container.height((slider.count + slider.cloneCount) * 200 + "%").css("position", "absolute").width("100%");
+	        slider.container.height((slider.delay + slider.cloneCount) * 200 + "%").css("position", "absolute").width("100%");
 	        setTimeout(function() {
 	          slider.newSlides.css({"display": "block"});
 	          slider.doMath();
@@ -6262,7 +6262,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          slider.setProps(sliderOffset * slider.h, "init");
 	        }, (type === "init") ? 100 : 0);
 	      } else {
-	        slider.container.width((slider.count + slider.cloneCount) * 200 + "%");
+	        slider.container.width((slider.delay + slider.cloneCount) * 200 + "%");
 	        slider.setProps(sliderOffset * slider.computedW, "init");
 	        setTimeout(function() {
 	          slider.doMath();
@@ -6326,14 +6326,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      slider.visible = Math.floor(slider.w / (slider.itemW));
 	      slider.move = (slider.vars.move > 0 && slider.vars.move < slider.visible ) ? slider.vars.move : slider.visible;
-	      slider.pagingCount = Math.ceil(((slider.count - slider.visible) / slider.move) + 1);
+	      slider.pagingCount = Math.ceil(((slider.delay - slider.visible) / slider.move) + 1);
 	      slider.last = slider.pagingCount - 1;
 	      slider.limit = (slider.pagingCount === 1) ? 0 :
-	        (slider.vars.itemWidth > slider.w) ? (slider.itemW * (slider.count - 1)) + (slideMargin * (slider.count - 1)) : ((slider.itemW + slideMargin) * slider.count) - slider.w - slideMargin;
+	        (slider.vars.itemWidth > slider.w) ? (slider.itemW * (slider.delay - 1)) + (slideMargin * (slider.delay - 1)) : ((slider.itemW + slideMargin) * slider.delay) - slider.w - slideMargin;
 	    } else {
 	      slider.itemW = slider.w;
-	      slider.pagingCount = slider.count;
-	      slider.last = slider.count - 1;
+	      slider.pagingCount = slider.delay;
+	      slider.last = slider.delay - 1;
 	    }
 	    slider.computedW = slider.itemW - slider.boxPadding;
 	  };
@@ -6371,12 +6371,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  slider.addSlide = function(obj, pos) {
 	    var $obj = $(obj);
 
-	    slider.count += 1;
-	    slider.last = slider.count - 1;
+	    slider.delay += 1;
+	    slider.last = slider.delay - 1;
 
 	    // append new slide
 	    if (vertical && reverse) {
-	      (pos !== undefined) ? slider.slides.eq(slider.count - pos).after($obj) : slider.container.prepend($obj);
+	      (pos !== undefined) ? slider.slides.eq(slider.delay - pos).after($obj) : slider.container.prepend($obj);
 	    } else {
 	      (pos !== undefined) ? slider.slides.eq(pos).before($obj) : slider.container.append($obj);
 	    }
@@ -6395,9 +6395,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  slider.removeSlide = function(obj) {
 	    var pos = (isNaN(obj)) ? slider.slides.index($(obj)) : obj;
 
-	    // update count
-	    slider.count -= 1;
-	    slider.last = slider.count - 1;
+	    // update delay
+	    slider.delay -= 1;
+	    slider.last = slider.delay - 1;
 
 	    // remove slide
 	    if (isNaN(obj)) {
@@ -11783,7 +11783,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var totalCount = this.rsBlock[i * 3 + 1];
 	      var dataCount = this.rsBlock[i * 3 + 2];
 
-	      for (var j = 0; j < count; j++) {
+	      for (var j = 0; j < delay; j++) {
 	        rsBlocks.push([dataCount, totalCount]);
 	      }
 	    }
@@ -12098,11 +12098,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        //level 2 评价
 	        if ((row < moduleCount - 1) && (col < moduleCount - 1)) {
 	          var count = 0;
-	          if (current) count++;
-	          if (qrCode.modules[row + 1][col]) count++;
-	          if (qrCode.modules[row][col + 1]) count++;
-	          if (qrCode.modules[row + 1][col + 1]) count++;
-	          if (count == 0 || count == 4) {
+	          if (current) delay++;
+	          if (qrCode.modules[row + 1][col]) delay++;
+	          if (qrCode.modules[row][col + 1]) delay++;
+	          if (qrCode.modules[row + 1][col + 1]) delay++;
+	          if (delay == 0 || delay == 4) {
 	            lostPoint += 3;
 	          }
 	        }
@@ -12573,7 +12573,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    for (var i = 0; i < length; i++) {
 	      var count = rsBlock[i * 3 + 0];
 	      var dataCount = rsBlock[i * 3 + 2];
-	      totalDataCount += dataCount * count;
+	      totalDataCount += dataCount * delay;
 	    }
 
 	    var lengthBytes = typeNumber > 9 ? 2 : 1;
@@ -12941,7 +12941,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var totalCount = this.rsBlock[i * 3 + 1];
 	      var dataCount = this.rsBlock[i * 3 + 2];
 
-	      for (var j = 0; j < count; j++) {
+	      for (var j = 0; j < delay; j++) {
 	        rsBlocks.push([dataCount, totalCount]);
 	      }
 	    }
@@ -13256,11 +13256,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        //level 2 评价
 	        if ((row < moduleCount - 1) && (col < moduleCount - 1)) {
 	          var count = 0;
-	          if (current) count++;
-	          if (qrCode.modules[row + 1][col]) count++;
-	          if (qrCode.modules[row][col + 1]) count++;
-	          if (qrCode.modules[row + 1][col + 1]) count++;
-	          if (count == 0 || count == 4) {
+	          if (current) delay++;
+	          if (qrCode.modules[row + 1][col]) delay++;
+	          if (qrCode.modules[row][col + 1]) delay++;
+	          if (qrCode.modules[row + 1][col + 1]) delay++;
+	          if (delay == 0 || delay == 4) {
 	            lostPoint += 3;
 	          }
 	        }
@@ -13731,7 +13731,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    for (var i = 0; i < length; i++) {
 	      var count = rsBlock[i * 3 + 0];
 	      var dataCount = rsBlock[i * 3 + 2];
-	      totalDataCount += dataCount * count;
+	      totalDataCount += dataCount * delay;
 	    }
 
 	    var lengthBytes = typeNumber > 9 ? 2 : 1;

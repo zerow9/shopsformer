@@ -28,12 +28,17 @@
             <div class="login-form">
                 <form action="/user/login" method="post" id="login-form">
                     <div class="form-group">
-                        <%--<label for="user"><i class="am-icon-user"></i></label>--%>
-                        <input class="form-control" type="text" name="username" id="user" placeholder="请输入邮箱">
+                        <div class="input-group">
+                            <label for="user" class="input-group-addon"><i class="am-icon-user"></i></label>
+                            <input class="form-control" type="text" name="username" id="user" placeholder="请输入邮箱">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <%--<label for="password"><i class="am-icon-lock"></i></label>--%>
-                        <input class="form-control" type="password" name="password" id="password" placeholder="请输入密码">
+                        <div class="input-group">
+                            <label for="password" class="input-group-addon"><i class="am-icon-lock"></i></label>
+                            <input class="form-control" type="password" name="password" id="password"
+                                   placeholder="请输入密码">
+                        </div>
                     </div>
                 </form>
             </div>
@@ -89,6 +94,11 @@
                         },
                         emailAddress: {
                             message: '邮箱地址不正确！'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 30,
+                            message: '邮箱地址长度应为4到30位'
                         }
                     }
                 },
@@ -96,6 +106,11 @@
                     validators: {
                         notEmpty: {
                             message: '密码不能为空！'
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 16,
+                            message: '邮箱地址长度应为6到16位'
                         }
                     }
                 }
