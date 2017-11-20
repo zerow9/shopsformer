@@ -8,6 +8,7 @@ import com.coding.pojo.Cart;
 import com.coding.pojo.Collect;
 import com.coding.pojo.CollectDetail;
 import com.coding.pojo.Item;
+import constant.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,7 +50,7 @@ public class CollectionController {
                 collectDetail.setCollectId(collect.getCollectId());
                 collectDetail.setItem(item);
                 collectDetail.setUserUuid(collect.getUserUuid());
-                collectDetail.setItemImages("https://admin.shop.xcstudio.xin"+item.getItemImages());
+                collectDetail.setItemImages(Constant.pictuePath+item.getItemImages());
                 collectDetail.setItemName(item.getItemName());
                 collectDetails.add(collectDetail);
             }

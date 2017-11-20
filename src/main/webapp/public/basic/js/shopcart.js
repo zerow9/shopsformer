@@ -62,3 +62,15 @@ var addCollection=function(id){
         }
     });
 }
+
+var deleteCollection=function (id) {
+    $.ajax({
+        type:"POST",
+        url:"deleteShopCart?id="+id,
+        success:function(data){
+            if(data=="success"){
+                window.location.reload();
+            }
+        }
+    });
+}
