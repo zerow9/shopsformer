@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -41,7 +42,8 @@
                                     <span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
                                     <p class="new-tit new-p-re">
                                         <span class="new-txt">${address.takeGoodsName}</span>
-                                        <span class="new-txt-rd2">${address.addresseePhone}</span>
+                                        <%--<span class="new-txt-rd2">${address.addresseePhone}</span>--%>
+                                        <span class="new-txt-rd2">${fn:substring(address.addresseePhone, 0,3)}****${fn:substring(address.addresseePhone,7,11)}</span>
                                     </p>
                                     <div class="new-mu_l2a new-p-re">
                                         <p class="new-mu_l2cw">
@@ -65,7 +67,7 @@
                                         class="am-icon-check-circle" id="updateDefaultAddress"></i>默认地址</span>
                                     <p class="new-tit new-p-re">
                                         <span class="new-txt">${address.takeGoodsName}</span>
-                                        <span class="new-txt-rd2">${address.addresseePhone}</span>
+                                        <span class="new-txt-rd2">${fn:substring(address.addresseePhone, 0,3)}****${fn:substring(address.addresseePhone,7,11)}</span>
                                     </p>
                                     <div class="new-mu_l2a new-p-re">
                                         <p class="new-mu_l2cw">
