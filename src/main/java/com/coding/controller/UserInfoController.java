@@ -4,16 +4,20 @@ import com.coding.Iservice.IAdminService;
 import com.coding.comomInterface.DateToString;
 import com.coding.comomInterface.MessageTools;
 import com.coding.comomInterface.MyUUID;
+import com.coding.paging.PagingCustomCollect;
 import com.coding.pojo.Collect;
 import com.coding.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.InetAddress;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 @Controller
@@ -76,13 +80,21 @@ public class UserInfoController {
     }
 
     @RequestMapping("collect")
-    public String collect(Integer itemId, HttpSession session) throws Exception {
+    @ResponseBody
+    public boolean collect(Integer itemId, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
         Collect collect = new Collect();
         collect.setUserUuid(uuid);
         collect.setItemId(itemId);
-        collect.setCollectTime(new Date());
-        adminService.insertCollectSelective(collect);
-        return "redirect:/item/findItemMessage?itemId="+itemId;
+        try {
+            PagingCustomCollect pagingCustomCollect = new PagingCustomCollect();
+            pagingCustomCollect.setCollect(collect);
+            adminService.selectCollect(pagingCustomCollect);
+            return false;
+        } catch (Exception e) {
+            collect.setCollectTime(new Date());
+            adminService.insertCollectSelective(collect);
+            return true;
+        }
     }
 }
