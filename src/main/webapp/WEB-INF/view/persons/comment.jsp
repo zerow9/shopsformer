@@ -7,20 +7,20 @@
 
     <title>评价管理</title>
 
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/cmstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/cmstyle.css" rel="stylesheet" type="text/css">
 
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+    <script src="/public/amazeUI/assets/js/jquery.min.js"></script>
+    <script src="/public/amazeUI/assets/js/amazeui.js"></script>
 
 </head>
 
 <body>
 <!--头 -->
-<jsp:include page="../common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -61,7 +61,7 @@
                                         <li class="td td-item">
                                             <div class="item-pic">
                                                 <a href="#" class="J_MakePoint">
-                                                    <img src="../../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                    <img src="/public/images/kouhong.jpg_80x80.jpg"
                                                          class="itempic">
                                                 </a>
                                             </div>
@@ -114,7 +114,7 @@
                                         <li class="td td-item">
                                             <div class="item-pic">
                                                 <a href="#" class="J_MakePoint">
-                                                    <img src="../../../frontpage/images/kouhong.jpg_80x80.jpg"
+                                                    <img src="/public/images/kouhong.jpg_80x80.jpg"
                                                          class="itempic">
                                                 </a>
                                             </div>
@@ -132,7 +132,7 @@
                                             <div class="item-comment">
                                                 宝贝非常漂亮，超级喜欢！！！
                                                 口红颜色很正呐，还有第两支半价，买三支免单一支的活动，下次还要来买。就是物流太慢了，还要我自己去取快递，店家不考虑换个物流么？
-                                                <div class="filePic"><img src="../../../frontpage/images/image.jpg"
+                                                <div class="filePic"><img src="/public/images/image.jpg"
                                                                           alt=""></div>
                                             </div>
 
@@ -158,9 +158,9 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 
 </body>

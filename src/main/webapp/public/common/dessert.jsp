@@ -48,7 +48,7 @@
                     <div class="sub-title ">${item.itemPrice}</div>
                     <i class="am-icon-shopping-basket am-icon-md seprate "></i>
                 </div>
-                <a href="/public/common/introduction.jsp"><img src="https://admin.shop.xcstudio.xin${item.itemImages} "/></a>
+                <a href="/item/findItemMessage?itemId=${item.itemId}"><img src="https://admin.shop.xcstudio.xin${item.itemImages} "/></a>
             </div>
         </C:forEach>
     </div>

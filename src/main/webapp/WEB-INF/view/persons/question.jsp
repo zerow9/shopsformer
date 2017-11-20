@@ -7,21 +7,21 @@
 
     <title>安全问题</title>
 
-    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/stepstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/stepstyle.css" rel="stylesheet" type="text/css">
 
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+    <script src="/public/amazeUI/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/public/amazeUI/assets/js/amazeui.js" type="text/javascript"></script>
 
 </head>
 
 <body>
 <!--头 -->
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -53,7 +53,7 @@
             </div>
             <form class="am-form am-form-horizontal">
                 <div class="am-form-group select">
-                    <label for="user-question1" class="am-form-label">问题一</label>
+                    <label class="am-form-label">问题一</label>
                     <div class="am-form-content">
                         <select data-am-selected>
                             <option value="a" selected>请选择安全问题</option>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="am-form-group select">
-                    <label for="user-question2" class="am-form-label">问题二</label>
+                    <label class="am-form-label">问题二</label>
                     <div class="am-form-content">
                         <select data-am-selected>
                             <option value="a" selected>请选择安全问题</option>
@@ -92,9 +92,9 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 </body>
 </html>

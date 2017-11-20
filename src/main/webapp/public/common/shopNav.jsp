@@ -3,7 +3,7 @@
 <div class="shopNav">
     <div class="slideall">
         <%--顶部导航条--%>
-            <jsp:include page="/public/common/navigation.jsp" flush="true"/>
+        <jsp:include page="/public/common/navigation.jsp" flush="true"/>
         <!--侧边导航 -->
         <div id="nav" class="navfull">
             <div class="area clearfix">
@@ -1186,14 +1186,14 @@
                 <ul>
                     <li class="title-first">
                         <a target="_blank" href="#">
-                            <img src="/public/images/TJ2.jpg"></img>
+                            <img src="/public/images/TJ2.jpg"/>
                             <span>[特惠]</span>商城爆品1分秒
                         </a>
                     </li>
                     <li class="title-first">
                         <a target="_blank" href="#">
                             <span>[公告]</span>商城与广州市签署战略合作协议
-                            <img src="/public/images/TJ.jpg"></img>
+                            <img src="/public/images/TJ.jpg"/>
                             <p>XXXXXXXXXXXXXXXXXX</p>
                         </a>
                     </li>
@@ -1208,9 +1208,11 @@
                                 <a href="#"><p>点击更多优惠活动</p></a>
                             </em>
                         </div>
-                        <div class="member-logout" >
-                            <a class="am-btn-warning btn"  href="/WEB-INF/view/homes/login.jsp" style="background-color:#F72862;border-color: #F72862;">登录</a>
-                            <a class="am-btn-warning btn" href="/WEB-INF/view/homes/register.jsp" style="background-color:#F72862;border-color: #F72862;">注册</a>
+                        <div class="member-logout">
+                            <a class="am-btn-warning btn" href="/WEB-INF/view/homes/login.jsp"
+                               style="background-color:#F72862;border-color: #F72862;">登录</a>
+                            <a class="am-btn-warning btn" href="/WEB-INF/view/homes/register.jsp"
+                               style="background-color:#F72862;border-color: #F72862;">注册</a>
                         </div>
                         <div class="member-login">
                             <a href="#"><strong>0</strong>待收货</a>

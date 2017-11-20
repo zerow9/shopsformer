@@ -7,16 +7,16 @@
 
     <title>个人账单</title>
 
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/blstyle.css" rel="stylesheet" type="text/css">
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/blstyle.css" rel="stylesheet" type="text/css">
+    <script src="/public/amazeUI/assets/js/jquery.min.js"></script>
 </head>
 
 <body>
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 
 <div class="center">
     <div class="col-main">
@@ -174,7 +174,7 @@
 
                                         <div class="bac fn-left"></div>
                                         <div class="bank ng-binding"
-                                             style="background-image: url(../../../frontpage/images/combo.png);">中国农业银行
+                                             style="background-image: url(/public/images/combo.png);">中国农业银行
                                         </div>
                                         <div class="details">
                                             <a>查看详情</a>
@@ -184,7 +184,7 @@
                                 <div class="cards-details">
                                     <div class="bank-name">
                                         <div class="name fn-left"
-                                             style="background-image: url(../../../frontpage/images/combo.png);"></div>
+                                             style="background-image: url(/public/images/combo.png);"></div>
                                         <span class="close fn-right"><a>X</a></span>
                                     </div>
                                     <div class="bank-detail">
@@ -245,9 +245,9 @@
             </div>
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 
 </body>

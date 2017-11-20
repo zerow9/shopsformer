@@ -10,7 +10,7 @@
                 </a>
                 <div class="ibar_login_box status_login">
                     <div class="avatar_box">
-                        <p class="avatar_imgbox"><img src="/public/images/mathera.jpg" /></p>
+                        <p class="avatar_imgbox"><img src="/public/images/mathera.jpg"/></p>
                         <ul class="user_info">
                             <li>用户名：sl1903</li>
                             <li>级&nbsp;别：普通会员</li>
@@ -36,7 +36,7 @@
 
             <div id="brand" class="item">
                 <a href="#">
-                    <span class="wdsc"><img src="/public/images/wdsc.png" /></span>
+                    <span class="wdsc"><img src="/public/images/wdsc.png"/></span>
                 </a>
                 <div class="mp_tooltip">
                     我的收藏
@@ -52,7 +52,8 @@
                 <!--二维码 -->
                 <li class="qtitem">
                     <a href="#none"><span class="mpbtn_qrcode"></span></a>
-                    <div class="mp_qrcode" style="display:none;"><img src="/public/images/weixin_code_145.png" /><i class="icon_arrow_white"></i></div>
+                    <div class="mp_qrcode" style="display:none;"><img src="/public/images/weixin_code_145.png"/><i
+                            class="icon_arrow_white"></i></div>
                 </li>
                 <li class="qtitem">
                     <a href="#top" class="return_top"><span class="top"></span></a>

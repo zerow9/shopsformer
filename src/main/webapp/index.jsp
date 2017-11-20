@@ -32,8 +32,10 @@
     <jsp:include page="/public/common/tip.jsp" flush="true"/>
 </body>
 <script type="text/javascript">
-    var obj = document.getElementById("sun");
-    obj.action="/item/indexTenItem";
-    obj.submit();
+    window.onload=function(){
+        var obj = document.getElementById("sun");
+        obj.action="/item/indexTenItem";
+        obj.submit();
+    }
 </script>
 </html>

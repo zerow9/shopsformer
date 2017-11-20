@@ -1,11 +1,9 @@
-<%@ page import="com.coding.CustomVo.CustomVoAddressDetail" %>
-<%@ page import="com.coding.CustomVo.CustomVoItemsByOrderDetailId" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 <head>
-    <title>我的京东--我的订单</title>
+    <title>孝和享购--我的订单</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="format-detection" content="telephone=no"/>
     <script type="text/javascript">
@@ -13,6 +11,7 @@
             compatible: true
         };
     </script>
+    <link rel="icon" href="/public/images/picture.ico">
     <link type="text/css" rel="stylesheet" href="/public/basic/css/global.css"/>
     <link type="text/css" rel="stylesheet" href="/public/basic/css/recommend-goods.css">
     <script type="text/javascript" src="/public/basic/js/base.js"></script>
@@ -30,8 +29,8 @@
     <div class="w">
         <div class="main">
 
-            <div class="breadcrumb"><a href="//home.jd.com/">我的京东</a><span>&nbsp;&gt;&nbsp;<a
-                    href="//order.jd.com/center/list.action">订单中心</a>&nbsp;&gt;&nbsp;<strong>订单：${customVoAddressDetail.orders.orderId}</strong></span>
+            <div class="breadcrumb"><a href="#">孝和享购</a><span>&nbsp;&gt;&nbsp;<a
+                    href="#">订单中心</a>&nbsp;&gt;&nbsp;<strong>订单：${customVoAddressDetail.orders.orderId}</strong></span>
             </div>
             <!--变量-->
             <span id="pay-button-order" style="display:none"></span>
@@ -44,8 +43,8 @@
                         <br>
                         <span class="remain-time" style="display: none"><b></b></span>
                         <div class="state-btns">
-                            <a id="pay-button-13886555728" class="btn-1 " style="display:none" href="#none">付款</a>
-                            <a target="_blank" href="//myivc.jd.com/fpzz.html" class="btn-9">查看发票详情</a>
+                            <a id="pay-button-13886555728" class="btn-1 " style="display:none" href="#">付款</a>
+                            <a target="_blank" href="#" class="btn-9">查看发票详情</a>
                         </div>
                     </div>
                     <!-- 进度条 -->
@@ -130,7 +129,7 @@
                             <div class="p-item">
 
                                 <div class="p-img">
-                                    <a href="//item.jd.com/2250255.html"><img
+                                    <a href="#"><img
                                             src="${customVoAddressDetail.customVoItemsByOrderDetailIds[0].item.itemImages}"
                                             alt=""></a>
                                 </div>
@@ -274,7 +273,7 @@
                                                 </span>
                                             <div class="info-rcol">
                                                     <span class="f-price">
-                                                     <%--&yen;<%=sum%>--%>
+                                                        ${customVoAddressDetail.orders.orderSumPrice}
                                                     </span>
                                             </div>
                                         </div>
@@ -285,7 +284,7 @@
                                                 </span>
                                             <div class="info-rcol">
                                                     <span class="f-price">
-                                                        <%--&yen;<%=orderSum%>--%>
+                                                        ${customVoAddressDetail.orders.orderSumPrice}
                                                     </span>
                                             </div>
                                         </div>
@@ -369,7 +368,7 @@
                                 <td>
                                     <div class="p-item">
                                         <div class="p-img">
-                                            <a href="//item.jd.com/2250255.html" target="_blank">
+                                            <a href="#" target="_blank">
                                                 <img class=""
                                                      src="${customVoItemsByOrderDetailId.item.itemImages}"
                                                      title="2250255" width="60" height="60"/>
@@ -377,7 +376,7 @@
                                         </div>
                                         <div class="p-info">
                                             <div class="p-name">
-                                                <a href="//item.jd.com/2250255.html" class="a-link" target="_blank"
+                                                <a href="#" class="a-link" target="_blank"
                                                    title="${customVoItemsByOrderDetailId.item.itemName}">
                                                         ${customVoItemsByOrderDetailId.item.itemName}
                                                 </a>
@@ -404,7 +403,7 @@
                                 <td>
                                     <div class="p-btns">
                                         <!-- 根据订单类型屏蔽pop延保商品操作,只显示评价 -->
-                                        <a href="//myjd.jd.com/repair/ordersearchlist.action?searchString=13886555728"
+                                        <a href="#"
                                            target="_blank" class="link-btn mt10">申请售后
                                         </a><br>
                                         <span id="iwo655" class="flk13">
@@ -426,11 +425,11 @@
                         <ul>
                             <li>
                                 <span class="label">商品总额：</span>
-                                <%--<span class="txt">&yen;<%=sum%></span>--%>
+                                <span class="txt">&yen;${customVoAddressDetail.orders.orderSumPrice}</span>
                             </li>
                             <li>
                                 <span class="label">赠送积分：</span>
-                                <%--<span class="txt"><%=(new   Double(sum)).intValue()%></span>--%>
+                                <span class="txt">${customVoAddressDetail.orders.sendScore}</span>
                             </li>
                             <li>
                                 <span class="label">返　　现：</span>
@@ -444,7 +443,7 @@
                             </li>
                             <li class="ftx-01">
                                 <span class="label">应付总额：</span>
-                                <%--<span class="txt count">&yen;<%=orderSum%></span>--%>
+                                <span class="txt count">&yen;${customVoAddressDetail.orders.orderSumPrice}</span>
                             </li>
                         </ul>
                     </div>
