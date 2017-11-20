@@ -3,101 +3,120 @@
 <head lang="en">
     <%@include file="/public/common/publicHead.jsp" %>
     <title>注册</title>
-    <link rel="icon" href="/public/images/picture.ico"/>
-    <link href="/public/basic/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/public/basic/css/dlstyle.css">
     <link rel="stylesheet" href="/public/basic/css/movedown.css">
-
+    <link rel="stylesheet" href="/public/basic/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/basic/css/bootstrapValidator.css">
+    <script src="/public/basic/js/bootstrap.js"></script>
+    <script src="/public/basic/js/bootstrapValidator.js"></script>
 </head>
 
 <body>
 
+<%--商城logo--%>
 <div class="login-boxtitle">
-    <a href="#"><img alt="" src="/public/images/logobig.png"/></a>
+    <a href="/index.jsp"><img alt="" src="/public/images/logobig.png"/></a>
 </div>
 
 <div class="res-banner">
     <div class="res-main">
+
+        <%--登录左侧图片--%>
         <div class="login-banner-bg"><span></span><img src="/public/images/big.jpg"/></div>
+
         <div class="login-box">
 
+            <h3 class="title">注册</h3>
+
             <div class="am-tabs" id="doc-my-tabs">
-                <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
-                    <li class="am-active">
-                        <a href="">邮箱注册</a>
-                    </li>
-                    <li>
-                        <a href="">手机号注册</a>
-                    </li>
-                </ul>
+
+                <%--邮箱注册--%>
                 <div class="am-tabs-bd">
                     <div class="am-tab-panel am-active">
-                        <form method="post" class="form-horizontal" action="/user/addUser" id="update">
-                            <div class="user-email" id="userEmail">
-                                <label for="email"><i class="am-icon-envelope-o"></i></label>
-                                <input type="text" class="form-control" name="userEmail" id="email"
-                                       placeholder="邮箱账号">
+
+                        <form id="register-form">
+
+                            <%--邮箱--%>
+                            <div class="form-group" id="userEmail">
+                                <div class="input-group">
+                                    <label for="email" class="input-group-addon"><i
+                                            class="am-icon-envelope-o"></i></label>
+                                    <input type="text" class="form-control" name="email" id="email"
+                                           placeholder="请输入邮箱地址">
+                                </div>
                             </div>
-                            <div class="verification">
-                                <label for="code"><i class="am-icon-code-fork"></i></label>
-                                <input type="text" name="emailId" id="code" placeholder="验证码">
-                                <span class="btn" href="javascript:void(0);" id="sendMobileCode">
-                                    <button id="btnSendCode" onclick="sendMessage()">获取</button>
-                                </span>
+
+                            <%--邮箱验证码--%>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label for="code" class="input-group-addon"><i
+                                            class="am-icon-code-fork"></i></label>
+                                    <input type="text" class="form-control" name="emailCode" id="code"
+                                           placeholder="请输入验证码">
+                                    <span class="input-group-addon" id="codeSpan">
+                                        <button class="btn btn-info" id="btnSendCode">获取验证码</button>
+                                    </span>
+                                </div>
                             </div>
-                            <div class="user-pass">
-                                <label for="password"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="userPassword" placeholder="设置密码">
+
+                            <%--密码--%>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label class="input-group-addon"><i class="am-icon-lock"></i></label>
+                                    <input type="password" class="form-control" name="password" placeholder="设置密码">
+                                </div>
                             </div>
-                            <div class="user-pass">
-                                <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="otherUserPassword" placeholder="确认密码">
+
+                            <%--确认密码--%>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label class="input-group-addon"><i class="am-icon-lock"></i></label>
+                                    <input type="password" class="form-control" name="confirm_password"
+                                           placeholder="确认密码">
+                                </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="term"> 同意商城《服务协议》
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-lg btn-primary btn-block">注册</button>
+                            </div>
+
                         </form>
-                        <div class="login-links">
-                            <label for="reader-me">
-                                <input type="checkbox"> 点击表示您同意商城《服务协议》
-                            </label>
-                        </div>
-                        <div class="am-cf">
-                            <input type="submit" onclick="sub()" value="注册"
-                                   class="am-btn am-btn-primary am-btn-sm am-fl">
-                        </div>
+
                     </div>
 
-                    <div class="am-tab-panel">
-                        <form method="post">
-                            <div class="user-phone">
-                                <label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
-                                <input type="tel" name="" id="phone" placeholder="请输入手机号">
-                            </div>
-                            <div class="user-pass">
-                                <label for="password"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="" id="password" placeholder="设置密码">
-                            </div>
-                            <div class="user-pass">
-                                <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="" id="passwordRepeat" placeholder="确认密码">
-                            </div>
-                        </form>
-                        <div class="login-links">
-                            <label for="reader-me">
-                                <input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
-                            </label>
-                        </div>
-                        <div class="am-cf">
-                            <input type="submit" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
-                        </div>
-                        <hr>
-                    </div>
                 </div>
             </div>
 
         </div>
     </div>
+</div>
 
-    <%--底部--%>
-    <jsp:include page="/public/common/footer.jsp" flush="true"/>
+
+<%--提示框--%>
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="tip-modal">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd modal-title">提示
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd modal-body">
+            Modal 内容。
+        </div>
+    </div>
+</div>
+
+
+
+<%--底部--%>
+<jsp:include page="/public/common/footer.jsp" flush="true"/>
+
 </body>
-<script src="/public/basic/js/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script src="/public/basic/js/email.js" type="text/javascript"></script>
+<script src="/public/basic/js/register.js" type="text/javascript"></script>
 </html>

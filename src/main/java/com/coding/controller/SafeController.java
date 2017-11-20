@@ -31,7 +31,7 @@ public class SafeController {
 
     @RequestMapping("safeEmail")
     public String safeEmail() {
-        return "persons/email";
+        return "persons/getEmailCode";
     }
 
     @RequestMapping("updateUserPassword")
