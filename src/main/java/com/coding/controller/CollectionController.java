@@ -83,8 +83,6 @@ public class CollectionController {
             Collect collect = userService.selectCollectByPrimaryKey(id);
             cart.setUserUuid(collect.getUserUuid());
             cart.setItemId(collect.getItemId());
-            cart.setItemImages(collect.getItemImages());
-            cart.setItemName(collect.getItemName());
             cart.setPrice(pice);
             cart.setItemNumber(1);
             Item item=userService.selectItemByPrimaryKey(collect.getItemId());

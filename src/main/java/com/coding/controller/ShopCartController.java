@@ -3,6 +3,8 @@ package com.coding.controller;
 import com.coding.Iservice.IUserService;
 import com.coding.paging.PagingCustomCart;
 import com.coding.pojo.Cart;
+import com.coding.pojo.Collect;
+import com.coding.pojo.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -77,6 +80,29 @@ public class ShopCartController {
             e.printStackTrace();
             return "fail";
         }
+        return "success";
+    }
+
+    @RequestMapping("addCollection")
+    @ResponseBody
+    public String addCollection(Integer id,HttpServletRequest request) {
+        Collect collect=new Collect();
+        String uuid=(String) request.getSession().getAttribute("uuid");
+        // 查询商品信息
+        try {
+            Item item=userService.selectItemByPrimaryKey(id);
+            collect.setUserUuid(uuid);
+            collect.setCollectItemVender(item.getMakeVender());
+            collect.setItemId(id);
+            collect.setCollectTime(new Date());
+
+            userService.insertCollectSelective(collect);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+
         return "success";
     }
 }
