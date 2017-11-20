@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -189,7 +190,7 @@
     </li>
     <li>
         <div class="clearfix tb-btn tb-btn-basket theme-login">
-            <a id="LikBasket" title="加入购物车" href="/user/collect?itemId=${item.itemId}"><i></i>加入购物车</a>
+            <a id="LikBasket" title="加入购物车" onclick="onadd(${item.itemId})">加入购物车</a>
         </div>
     </li>
 </div>
@@ -456,4 +457,23 @@
 </div>
 <jsp:include page="/public/common/tip.jsp" flush="true"/>
 </body>
+<script type="text/javascript">
+    function onadd(id) {
+        <c:if test="${empty user}">
+        alert("请先登录");
+        </c:if>
+        <c:if test="${!empty user}">
+        $.ajax({
+            url: "/user/collect?itemId=" + id,
+            success: function (data) {
+                if (data) {
+                    alert("收藏成功!");
+                } else {
+                    alert("收藏已存在!");
+                }
+            }
+        });
+        </c:if>
+    }
+</script>
 </html>

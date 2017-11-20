@@ -27,6 +27,30 @@ public class PagingCustomOrder extends Paging {
 
     private Double latterOrderSumPrice;//一些功能需要订单支付总价范围内查询，这是右侧较大值
 
+    private String formerProtectTime;//一些功能需要维权时间范围内查询，这是左侧较小值
+
+    private String latterProtectTime;//一些功能需要维权时间范围内查询，这是右侧较大值
+
+    public void setLatterOrderSumPrice(Double latterOrderSumPrice) {
+        this.latterOrderSumPrice = latterOrderSumPrice;
+    }
+
+    public String getFormerProtectTime() {
+        return formerProtectTime;
+    }
+
+    public void setFormerProtectTime(String formerProtectTime) {
+        this.formerProtectTime = formerProtectTime;
+    }
+
+    public String getLatterProtectTime() {
+        return latterProtectTime;
+    }
+
+    public void setLatterProtectTime(String latterProtectTime) {
+        this.latterProtectTime = latterProtectTime;
+    }
+
     public Double getFormerOrderSumPrice() {
         return formerOrderSumPrice;
     }
