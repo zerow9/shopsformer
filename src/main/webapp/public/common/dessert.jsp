@@ -41,15 +41,14 @@
         </div>
     </div>
 
-    <C:forEach var="item" items="${listItem}">
-        <div class="am-u-sm-7 am-u-md-4 text-three">
-            <div class="outer-con ">
-                <div class="title ">${item.itemName}</div>
-                <div class="sub-title ">${item.itemPrice}</div>
-                <i class="am-icon-shopping-basket am-icon-md seprate "></i>
+        <C:forEach var="item" items="${listItem}">
+            <div class="am-u-sm-7 am-u-md-4 text-three">
+                <div class="outer-con ">
+                    <div class="title ">${item.itemName}</div>
+                    <div class="sub-title ">${item.itemPrice}</div>
+                    <i class="am-icon-shopping-basket am-icon-md seprate "></i>
+                </div>
+                <a href="/item/findItemMessage?itemId=${item.itemId}"><img src="https://admin.shop.xcstudio.xin${item.itemImages} "/></a>
             </div>
-            <a href="/public/common/introduction.jsp"><img
-                    src="https://admin.shop.xcstudio.xin${item.itemImages} "/></a>
-        </div>
-    </C:forEach>
-</div>
+        </C:forEach>
+    </div>
