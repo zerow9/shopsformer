@@ -499,7 +499,7 @@
     <%--end：个人中心菜单--%>
 </div>
 <%--begin：引导--%>
-<jsp:include page="/public/common/navCir.jsp" flush="true"/>
+<jsp:include page="/public/common/shopNav.jsp" flush="true"/>
 <%--end：引导--%>
 </body>
 </html>

@@ -18,7 +18,7 @@
 <body>
 
 <%--顶部--%>
-<jsp:include page="../../../view/common/top.jsp" flush="true"/>
+<jsp:include page="/public/common/top.jsp" flush="true"/>
 
 <!--主体-->
 <div id="nav" class="navfull">
