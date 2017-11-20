@@ -13,10 +13,11 @@
 <body>
 
 <%--顶部--%>
-<jsp:include page="/public/common/top.jsp" flush="true"/>
 
+<jsp:include page="/public/common/top.jsp" flush="true"/>
 <%--导航栏--%>
 <div class="nav-table">
+
     <jsp:include page="/public/common/navigation.jsp" flush="true"/>
 </div>
 
@@ -499,7 +500,7 @@
     <%--end：个人中心菜单--%>
 </div>
 <%--begin：引导--%>
-<jsp:include page="/public/common/shopNav.jsp" flush="true"/>
+<%--<jsp:include page="/public/common/shopNav.jsp" flush="true"/>--%>
 <%--end：引导--%>
 </body>
 </html>
