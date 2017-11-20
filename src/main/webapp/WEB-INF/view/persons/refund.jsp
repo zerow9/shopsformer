@@ -7,21 +7,21 @@
 
     <title>退换货</title>
 
-    <link rel="icon" href="../../../frontpage/images/picture.ico"/>
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/public/images/picture.ico"/>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/refstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/refstyle.css" rel="stylesheet" type="text/css">
 
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+    <script src="/public/amazeUI/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/public/amazeUI/assets/js/amazeui.js" type="text/javascript"></script>
 
 </head>
 
 <body>
 <!--头 -->
-<jsp:include page="../common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -110,7 +110,7 @@
                 <div class="refund-main">
                     <div class="item-comment">
                         <div class="am-form-group">
-                            <label for="refund-type" class="am-form-label">退款类型</label>
+                            <label class="am-form-label">退款类型</label>
                             <div class="am-form-content">
                                 <select data-am-selected="">
                                     <option value="a" selected>仅退款</option>
@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="am-form-group">
-                            <label for="refund-reason" class="am-form-label">退款原因</label>
+                            <label class="am-form-label">退款原因</label>
                             <div class="am-form-content">
                                 <select data-am-selected="">
                                     <option value="a" selected>请选择退款原因</option>
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                         <div class="am-form-group">
-                            <label for="refund-info" class="am-form-label">退款说明<span>（可不填）</span></label>
+                            <label class="am-form-label">退款说明<span>（可不填）</span></label>
                             <div class="am-form-content">
                                 <textarea placeholder="请输入退款说明"></textarea>
                             </div>
@@ -162,9 +162,9 @@
             <div class="clear"></div>
         </div>
         <!--底部-->
-        <jsp:include page="../common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="../common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 
 </body>

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>错误提示</title>
-    <link href="../../shopmanagement/css/notfound.css" rel="stylesheet"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>错误提示</title>
+    <link href="/public/basic/css/notfound.css" rel="stylesheet"/>
 </head>
 <body>
 

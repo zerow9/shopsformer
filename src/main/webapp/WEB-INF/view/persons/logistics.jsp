@@ -17,7 +17,7 @@
 
 <body>
 <!--头 -->
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -86,21 +86,21 @@
                             </div>
                         </li>
                         <li>
-                            <p class="text">【绍兴市】天天快递 诸暨收件员 已揽件</span>
+                            <p class="text">【绍兴市】天天快递 诸暨收件员 已揽件</p>
                             <div class="time-list">
                                 <span class="date hidden">2015-12-17</span><span class="week hidden">周四</span><span
                                     class="time">18:54:25</span>
                             </div>
                         </li>
                         <li>
-                            <p class="text">商家正通知快递公司揽件</span>
+                            <p class="text">商家正通知快递公司揽件</p>
                             <div class="time-list">
                                 <span class="date hidden">2015-12-17</span><span class="week hidden">周四</span><span
                                     class="time">15:49:40</span>
                             </div>
                         </li>
                         <li>
-                            <p class="text">您的包裹已出库</span>
+                            <p class="text">您的包裹已出库</p>
                             <div class="time-list">
                                 <span class="date hidden">2015-12-17</span><span class="week hidden">周四</span><span
                                     class="time">15:49:40</span>
@@ -126,9 +126,9 @@
             </div>
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 
 </body>

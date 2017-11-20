@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-    <jsp:include page="/public/common/publicHead.jsp" />
+    <jsp:include page="/public/common/publicHead.jsp"/>
     <title>地址管理</title>
 
     <link rel="icon" href="/public/images/picture.ico"/>
@@ -130,20 +130,19 @@
                                             <div class="form-group">
                                                 <select class="form-control" id="province2"
                                                         style="-webkit-border-radius:4px;"
-                                                        name="takeGoodsProvince" data-province="---- 选择省 ----"
-                                                        value="${address.takeGoodsProvince}"></select>
+                                                        name="takeGoodsProvince" data-province="---- 选择省 ----"></select>
                                             </div>
                                             <div class="form-group">
                                                 <select class="form-control" id="city2"
                                                         style="-webkit-border-radius:4px;"
                                                         name="takeGoodsCity"
-                                                        data-city="---- 选择市 ----">${address.takeGoodsCity}</select>
+                                                        data-city="---- 选择市 ----"></select>
                                             </div>
                                             <div class="form-group">
                                                 <select class="form-control" id="district2"
                                                         style="-webkit-border-radius:4px;"
                                                         name="takeGoodsCounty"
-                                                        data-district="---- 选择区 ----">${address.takeGoodsCounty}</select>
+                                                        data-district="---- 选择区 ----"></select>
                                             </div>
                                         </div>
                                     </div>

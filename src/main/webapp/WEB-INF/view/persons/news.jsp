@@ -7,20 +7,20 @@
 
     <title>我的消息</title>
 
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-    <link href="../../../frontpage/css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../../../frontpage/css/newstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/newstyle.css" rel="stylesheet" type="text/css">
 
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-    <script src="../../../frontpage/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+    <script src="/public/amazeUI/assets/js/jquery.min.js"></script>
+    <script src="/public/amazeUI/assets/js/amazeui.js"></script>
 
 </head>
 
 <body>
 <!--头 -->
-<jsp:include page="/WEB-INF/view/common/head.jsp"/>
+<jsp:include page="/public/common/publicHead.jsp"/>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -141,9 +141,9 @@
 
         </div>
         <!--底部-->
-        <jsp:include page="/WEB-INF/view/common/tail.jsp"/>
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
-    <jsp:include page="/WEB-INF/view/common/InfoMenu.jsp"/>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
 
 </body>
