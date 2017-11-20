@@ -4,6 +4,7 @@ import com.coding.Iservice.IAdminService;
 import com.coding.comomInterface.DateToString;
 import com.coding.comomInterface.MessageTools;
 import com.coding.comomInterface.MyUUID;
+import com.coding.pojo.Collect;
 import com.coding.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -72,5 +73,16 @@ public class UserInfoController {
         message.setText("【孝和商城】您在孝和商城请求的验证码是：" + integer);
         message.sendQQMessage();
         session.setAttribute("emailCode", integer);
+    }
+
+    @RequestMapping("collect")
+    public String collect(Integer itemId, HttpSession session) throws Exception {
+        String uuid = (String) session.getAttribute("uuid");
+        Collect collect = new Collect();
+        collect.setUserUuid(uuid);
+        collect.setItemId(itemId);
+        collect.setCollectTime(new Date());
+        adminService.insertCollectSelective(collect);
+        return "redirect:/item/findItemMessage?itemId="+itemId;
     }
 }

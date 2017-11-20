@@ -4,13 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-
     <title>个人资料</title>
-
     <link rel="icon" href="/public/images/picture.ico"/>
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
     <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/infstyle.css" rel="stylesheet" type="text/css">
     <script src="/public/amazeUI/assets/js/jquery.min.js" type="text/javascript"></script>
