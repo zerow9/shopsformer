@@ -1,12 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: 63465
-  Date: 2017/11/15 0015
-  Time: 18:32
-  To change this template use File | Settings | File Templates.
---%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,14 +6,11 @@
     <link rel="icon" href="/public/images/picture.ico"/>
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
     <link href="/public/basic/css/demo.css" rel="stylesheet"/>
     <link href="/public/basic/css/cartstyle.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/optstyle.css" rel="stylesheet" type="text/css"/>
 </head>
-
 <body>
-
 <%--顶部--%>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
 <div class="clear"></div>
@@ -71,8 +60,7 @@
                         <ul class="item-content clearfix">
                             <li class="td td-chk">
                                 <div class="cart-checkbox ">
-                                    <input class="check" id="J_CheckBox" name="items[]" value="${cart.cartId}"
-                                           type="checkbox">
+                                    <input class="check" id="J_CheckBox" onclick="onBox()" name="tyoui" value="${cart.cartId}" type="checkbox">
                                     <label for="J_CheckBox"></label>
                                 </div>
                             </li>
@@ -111,17 +99,17 @@
                                     <div class="item-amount ">
                                         <div class="sl">
                                             <input type="hidden" class="cartIdInput" value="${cart.cartId}">
-                                            <input class="min am-btn" name="" type="button" value="-"/>
-                                            <input class="text_box" name="" type="text" value="${cart.itemNumber}"
+                                            <input class="min am-btn" name="" type="button" onclick="mm(false)" value="-"/>
+                                            <input class="text_box" id="it" type="text" value="${cart.itemNumber}"
                                                    style="width:30px;"/>
-                                            <input class="add am-btn" name="" type="button" value="+"/>
+                                            <input class="add am-btn" name="" type="button" value="+" onclick="mm(false)"/>
                                         </div>
                                     </div>
                                 </div>
                             </li>
                             <li class="td td-sum">
                                 <div class="td-inner">
-                                    <em tabindex="0" class="J_ItemSum number">${cart.itemNumber*cart.item.itemMarketPrice}</em>
+                                    <em tabindex="0" class="J_ItemSum number" id="sumM">${cart.itemNumber*cart.item.itemMarketPrice}</em>
                                 </div>
                             </li>
                             <li class="td td-op">
@@ -133,7 +121,6 @@
                                 </div>
                             </li>
                         </ul>
-
                     </c:forEach>
 
                 </div>
@@ -146,7 +133,7 @@
     <div class="float-bar-wrapper">
         <div id="J_SelectAll2" class="select-all J_SelectAll">
             <div class="cart-checkbox">
-                <input class="check-all check" id="J_SelectAllCbx2" name="select-all" value="true" type="checkbox">
+                <input class="check-all check" id="J_SelectAllCbx2" onclick="yymm()" name="select-all" value="true" type="checkbox">
                 <label for="J_SelectAllCbx2"></label>
             </div>
             <span>全选</span>
@@ -158,7 +145,7 @@
         <div class="float-bar-right">
             <div class="amount-sum">
                 <span class="txt">已选商品</span>
-                <em id="J_SelectedItemsCount">0</em><span class="txt">件</span>
+                <em id="ItemsCount">0</em><span class="txt">件</span>
                 <div class="arrow-box">
                     <span class="selected-items-arrow"></span>
                     <span class="arrow"></span>
@@ -166,27 +153,54 @@
             </div>
             <div class="price-sum">
                 <span class="txt">合计:</span>
-                <strong class="price">¥<em id="J_Total">0.00</em></strong>
+                <strong class="price">¥<em id="newBox" >0.0</em></strong>
             </div>
             <div class="btn-area">
                 <a href="pay.html" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
                     <span>结&nbsp;算</span></a>
             </div>
         </div>
-
     </div>
 
     <%--底部--%>
     <jsp:include page="/public/common/footer.jsp" flush="true"/>
-
 </div>
-
 <div class="theme-popover-mask"></div>
-
-<%--begin：引导--%>
-
-<%--end：引导--%>
 <script src="/public/basic/js/jquery-1.7.2.min.js"></script>
 <script src="/public/basic/js/shopcart.js"></script>
+<script type="text/javascript">
+    function onBox() {
+        var id=document.getElementById("sumM").innerHTML;
+        id=parseFloat(id);
+        var obj=document.getElementById("newBox");
+        var it=document.getElementById("it");
+        var itemsCount=document.getElementById("ItemsCount");
+        var data=document.getElementById("J_CheckBox");
+        var sum=obj.innerHTML;
+        var sumit=it.value;
+        var sumCount=itemsCount.innerHTML;
+        sum=parseFloat(sum);
+        sumCount=parseInt(sumCount);
+        sumit=parseInt(sumit);
+        if(data.checked) {
+            itemsCount.innerHTML=sumCount+sumit;
+            obj.innerHTML = sum + id;
+        }else{
+            itemsCount.innerHTML=sumCount-sumit;
+            obj.innerHTML = sum - id;
+        }
+    }
+    function mm(flag) {
+        document.getElementById("J_CheckBox").checked=flag;
+        onBox();
+    }
+    function yymm() {
+        if(document.getElementById("J_SelectAllCbx2").checked){
+            mm(true);
+        }else{
+            mm(false);
+        }
+    }
+</script>
 </body>
 </html>

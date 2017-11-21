@@ -1,6 +1,7 @@
 $(function () {
     //添加商品的数量
     $(".min").click(function () {
+
         var ele = $(this).parent();//公共变量
         var eleul=$(this).parent().parent().parent().parent().parent(); // 找ul的公共变量
         var id = ele.find("input[type='hidden']").val();//获取购物车编号
@@ -29,6 +30,7 @@ $(function () {
 
     //添加商品的数量
     var add = $(".add").click(function () {
+
         var ele = $(this).parent();
         var id = ele.find("input[type='hidden']").val();//获取购物车编号
         var eleul=$(this).parent().parent().parent().parent().parent(); // 找ul的公共变量

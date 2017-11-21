@@ -16,7 +16,7 @@
     <link rel="icon" href="/public/images/picture.ico"/>
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
+    <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/colstyle.css" rel="stylesheet" type="text/css">
 
@@ -101,28 +101,58 @@
     <jsp:include page="/public/common/personalMenu.jsp" flush="true"/>
 </div>
 <script src="/public/amazeUI/assets/js/jquery.min.js"></script>
+<script src="/public/basic/js/sweetalert.min.js"></script>
 <script>
     //取消收藏
     function deleteCollect(id) {
-        $.ajax({
-            type: "POST",
-            url: "deleteCollect?id=" + id,
-            success: function () {
-                window.location.reload();
-            }
-        });
+        swal({
+                title: "确定取消收藏吗？",
+                text: "宝贝即将离开您的收藏列表",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "确定删除！",
+                closeOnConfirm: false
+            },
+            function(){
+                $.ajax({
+                    type: "POST",
+                    url: "deleteCollect?id=" + id,
+                    success: function () {
+                        window.location.reload();
+                        swal("删除！", "宝贝已经离开您的收藏。", "success");
+                    }
+                });
+
+            });
+
     }
 
     function addShopCart(id, pice) {
         $.ajax({
             type: "POST",
-            url: "addShopCart?id=" + id + "&pice=" + pice,
+            url: "addShopCart?id="+ id,
             success: function (data) {
                 if (data === "success") {
-                    alert("添加购物车成功！");
+                    swal({
+                        title: "添加购物车成功！",
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                });
                 } else if (data === "false") {
-                    alert("添加购物车失败！")
-                } else alert("购物车中已经存在!");
+                    swal({
+                        title: "添加购物车失败！",
+                        type: "error",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                } else swal({
+                    title: "购物车中已经存在，您可要去购物车进行购买！",
+                    type: "warning",
+                    timer: 1000,
+                    showConfirmButton: false
+                });
             }
         });
     }
