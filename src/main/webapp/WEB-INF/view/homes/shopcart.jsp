@@ -7,6 +7,7 @@
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/demo.css" rel="stylesheet"/>
+    <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/cartstyle.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/optstyle.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -166,7 +167,8 @@
     <jsp:include page="/public/common/footer.jsp" flush="true"/>
 </div>
 <div class="theme-popover-mask"></div>
-<script src="/public/basic/js/jquery-1.7.2.min.js"></script>
+<script src="/public/amazeUI/assets/js/jquery.min.js"></script>
+<script src="/public/basic/js/sweetalert.min.js"></script>
 <script src="/public/basic/js/shopcart.js"></script>
 <script type="text/javascript">
     function onBox() {
@@ -196,9 +198,19 @@
     }
     function yymm() {
         if(document.getElementById("J_SelectAllCbx2").checked){
-            mm(true);
+            var o=document.querySelectorAll("#J_CheckBox");
+            for (var i = 0; i < o.length; i++)
+            {
+                o[i].checked=true;
+            }
+            onBox();
         }else{
-            mm(false);
+            var o=document.querySelectorAll("#J_CheckBox");
+            for (var i = 0; i < o.length; i++)
+            {
+                o[i].checked=false;
+            }
+            onBox();
         }
     }
 </script>
