@@ -492,6 +492,18 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         }
     }
 
+    @Transactional(rollbackFor = Exception.class)
+    public int insertOrderSelectiveReturnId(Orders order) throws Exception {
+        try {
+            order = (Orders) Filter.filterObject(order);
+            ordersMapper.insertOrderSelective(order);
+            return order.getOrderId();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("添加订单时出错");
+        }
+    }
+
     public Orders selectOrderByPrimaryKey(Integer orderId) throws Exception {
         if (orderId != null && orderId != 0) {
             Orders orders = ordersMapper.selectOrderByPrimaryKey(orderId);
