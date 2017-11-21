@@ -8,11 +8,17 @@
     <jsp:include page="/public/common/publicHead.jsp"/>
     <title>商品页面</title>
     <link rel="icon" href="/public/images/picture.ico"/>
+    <link rel="stylesheet" href="/public/basic/css/dlstyle.css">
+    <link rel="stylesheet" href="/public/basic/css/movedown.css">
+    <link rel="stylesheet" href="/public/basic/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/basic/css/bootstrapValidator.css">
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css"/>
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/demo.css" rel="stylesheet" type="text/css"/>
     <link type="text/css" href="/public/basic/css/optstyle.css" rel="stylesheet"/>
     <link type="text/css" href="/public/basic/css/style.css" rel="stylesheet"/>
+    <%--<script src="/public/basic/js/bootstrap.js"></script>--%>
+    <script src="/public/basic/js/bootstrapValidator.js"></script>
     <script type="text/javascript" src="/public/basic/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/public/basic/js/quick_links.js"></script>
     <script type="text/javascript" src="/public/amazeUI/assets/js/amazeui.js"></script>
@@ -122,9 +128,10 @@
                                     <form class="theme-signin" name="loginform" action="" method="post">
                                         <div class="theme-signin-left">
                                             <div class="theme-options">
-                                                <div class="cart-title">规格</div>
+                                                <div class="cart-title">商品规格</div>
                                                 <ul>
-                                                    <li class="sku-line selected">${item.itemFormat}</li>
+                                                    <li class="sku-line selected"
+                                                        style="width:48px;height:28px;text-align: center">${item.itemFormat}</li>
                                                 </ul>
                                             </div>
                                             <div class="theme-options">
@@ -179,8 +186,8 @@
 
 <div class="pay">
     <div class="pay-opt">
-        <a href="home.html"><span class="am-icon-home am-icon-fw">首页</span></a>
-        <a><span class="am-icon-heart am-icon-fw">收藏</span></a>
+        <a href="/index.jsp"><span class="am-icon-home am-icon-fw">首页</span></a>
+        <a href="/collection/getUserConllection"><span class="am-icon-heart am-icon-fw">收藏</span></a>
 
     </div>
     <li>
@@ -190,9 +197,11 @@
     </li>
     <li>
         <div class="clearfix tb-btn tb-btn-basket theme-login">
-            <a id="LikBasket" title="加入收藏" onclick="onadd(${item.itemId})">加入收藏</a>
+            <a id="LikBasket" title="加入购物车" onclick="onadd(${item.itemId})">加入购物车</a>
         </div>
     </li>
+    <br/>
+
 </div>
 
 </div>

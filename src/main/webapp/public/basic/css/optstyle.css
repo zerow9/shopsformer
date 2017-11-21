@@ -57,7 +57,7 @@ input{font-size:12px;font-size:100%;outline:none;line-height:normal;color:#444;}
 .theme-options .cart-title{margin-top:10px ;}
 .theme-options ul{float: left;}
 
-.theme-signin-left .sku-line {background: none;border-radius:0 ;margin:5px;padding:3px;border:2px solid #F5F5F5 ;color:#000 ;}
+.theme-signin-left .sku-line {background: none;border-radius:0 ;margin:5px;padding:3px;border:2px solid #ddd ;color:#000 ;}
 .theme-signin-left .sku-line.selected {background:none;color:#000;border: 2px solid #BE0106;}
 
 /*选中样式*/

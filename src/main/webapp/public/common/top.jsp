@@ -4,6 +4,7 @@
 <%--begin：顶部--%>
 <div class="hmtop">
     <!--顶部导航条 -->
+    <div style="background-color:#F2F2F2;width: 100%;border-bottom:1px solid #ddd;padding-right: 50px;padding-left: 20px">
     <div class="am-container header" >
         <ul class="message-l">
             <div class="topMessage">
@@ -22,7 +23,7 @@
         <ul class="message-r">
             <div class="topMessage home">
                 <div class="menu-hd">
-                    <a href="/index.jsp" target="_top" class="h">孝和商城</a>
+                    <a href="/index.jsp" target="_top" class="h"><i class="am-icon-home" style="width:1.8em;text-align: center;font-size: 16px"></i>孝和商城</a>
                 </div>
             </div>
             <div class="topMessage my-shangcheng">
@@ -33,9 +34,10 @@
 
             <div class="topMessage mini-cart">
                 <div class="menu-hd">
-                        <a id="mc-menu-hd" href="/shopCart/getPersonShopCart" target="_top"><i
-                                class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
-                                                                                                      class="h">${collectCount}</strong></a>
+                    <a id="mc-menu-hd" href="/shopCart/getPersonShopCart" target="_top"><i
+                            class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车<p id="J_MiniCartNum" style="float: right;  width: 16px;  height: 16px;
+                             display: block; border-radius:50%;background: #ED145B none repeat scroll 0% 0% ;text-align: center;  line-height: 16px;
+                             cursor: pointer;margin-top:8px;color: #FFF;">0</p></span></a>
                 </div>
             </div>
 
@@ -47,7 +49,7 @@
                 </div>
         </ul>
     </div>
-
+    </div>
     <!--悬浮搜索框-->
     <div class="nav white">
         <div class="logoBig">
@@ -57,8 +59,10 @@
         <div class="search-bar pr">
             <a name="index_none_header_sysc" href="/public/common/search.jsp"></a>
             <form style="border-radius: 0px 6px 6px 0px;">
-                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off" style="font-size: 14px;">
-                <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit" style="border-radius:0px 4px 4px 0px; ">
+                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off"
+                       style="font-size: 14px;">
+                <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit"
+                       style="border-radius:0px 4px 4px 0px; ">
             </form>
 
             <div class="word-search" style="margin-top: 5px;margin-left: 10px">
