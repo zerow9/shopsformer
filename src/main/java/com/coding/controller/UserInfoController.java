@@ -3,6 +3,7 @@ package com.coding.controller;
 import com.coding.Iservice.IAdminService;
 import com.coding.comomInterface.DateToString;
 import com.coding.comomInterface.MessageTools;
+import com.coding.comomInterface.MyThread;
 import com.coding.comomInterface.MyUUID;
 import com.coding.paging.PagingCustomUser;
 import com.coding.pojo.User;
@@ -99,6 +100,9 @@ public class UserInfoController {
             session.setAttribute("emailCode", integer);
             result.put("status", "true");
             result.put("msg", "验证码已发送到你的邮箱：" + email + "请注意查收。");
+            MyThread myThread=new MyThread();
+            myThread.setSession(session);
+            myThread.start();
         } catch (Exception e) {
             result.put("status", "false");
             result.put("msg", e.getMessage());
