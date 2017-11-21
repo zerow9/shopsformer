@@ -57,11 +57,12 @@
                 </div>
                 <div class="clear"></div>
                 <div class="bundle-main">
-                    <c:forEach items="${carts}" var="cart">
+                    <c:forEach items="${carts}" var="cart" varStatus="status">
                         <ul class="item-content clearfix">
                             <li class="td td-chk">
                                 <div class="cart-checkbox ">
-                                    <input class="check" id="J_CheckBox" onclick="onBox()" name="tyoui" value="${cart.cartId}" type="checkbox">
+                                    <input class="check" id="J_CheckBox" onclick="onBox(${status.index })" name="tyoui"
+                                           value="${cart.cartId}" type="checkbox">
                                     <label for="J_CheckBox"></label>
                                 </div>
                             </li>
@@ -74,7 +75,8 @@
                                 <div class="item-info">
                                     <div class="item-basic-info">
                                         <a href="#" target="_blank" title="${cart.item.itemName}"
-                                           class="item-title J_MakePoint" data-point="tbcart.8.11">${cart.item.itemName}</a>
+                                           class="item-title J_MakePoint"
+                                           data-point="tbcart.8.11">${cart.item.itemName}</a>
                                     </div>
                                 </div>
                             </li>
@@ -100,24 +102,29 @@
                                     <div class="item-amount ">
                                         <div class="sl">
                                             <input type="hidden" class="cartIdInput" value="${cart.cartId}">
-                                            <input class="min am-btn" name="" type="button" onclick="mm(false)" value="-"/>
+                                            <input class="min am-btn" name="" type="button" onclick="mm(${status.index })"
+                                                   value="-"/>
                                             <input class="text_box" id="it" type="text" value="${cart.itemNumber}"
                                                    style="width:30px;"/>
-                                            <input class="add am-btn" name="" type="button" value="+" onclick="mm(false)"/>
+                                            <input class="add am-btn" name="" type="button" value="+"
+                                                   onclick="mm(${status.index })"/>
                                         </div>
                                     </div>
                                 </div>
                             </li>
                             <li class="td td-sum">
                                 <div class="td-inner">
-                                    <em tabindex="0" class="J_ItemSum number" id="sumM">${cart.itemNumber*cart.item.itemMarketPrice}</em>
+                                    <em tabindex="0" class="J_ItemSum number"
+                                        id="sumM">${cart.itemNumber*cart.item.itemMarketPrice}</em>
                                 </div>
                             </li>
                             <li class="td td-op">
                                 <div class="td-inner">
-                                    <a title="移入收藏夹" class="btn-fav" href="javascript:;" onclick="addCollection(${cart.item.itemId})">
+                                    <a title="移入收藏夹" class="btn-fav" href="javascript:;"
+                                       onclick="addCollection(${cart.item.itemId})">
                                         移入收藏夹</a>
-                                    <a href="javascript:" data-point-url="#" class="delete" onclick="deleteCollection(${cart.cartId})">
+                                    <a href="javascript:" data-point-url="#" class="delete"
+                                       onclick="deleteCollection(${cart.cartId})">
                                         删除</a>
                                 </div>
                             </li>
@@ -134,7 +141,8 @@
     <div class="float-bar-wrapper">
         <div id="J_SelectAll2" class="select-all J_SelectAll">
             <div class="cart-checkbox">
-                <input class="check-all check" id="J_SelectAllCbx2" onclick="yymm()" name="select-all" value="true" type="checkbox">
+                <input class="check-all check" id="J_SelectAllCbx2" onclick="yymm()" name="select-all" value="true"
+                       type="checkbox">
                 <label for="J_SelectAllCbx2"></label>
             </div>
             <span>全选</span>
@@ -154,10 +162,10 @@
             </div>
             <div class="price-sum">
                 <span class="txt">合计:</span>
-                <strong class="price">¥<em id="newBox" >0.0</em></strong>
+                <strong class="price">¥<em id="newBox">0.0</em></strong>
             </div>
             <div class="btn-area">
-                <a href="pay.html" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
+                <a href="/user/balance" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
                     <span>结&nbsp;算</span></a>
             </div>
         </div>
@@ -171,46 +179,59 @@
 <script src="/public/basic/js/sweetalert.min.js"></script>
 <script src="/public/basic/js/shopcart.js"></script>
 <script type="text/javascript">
-    function onBox() {
-        var id=document.getElementById("sumM").innerHTML;
-        id=parseFloat(id);
-        var obj=document.getElementById("newBox");
-        var it=document.getElementById("it");
-        var itemsCount=document.getElementById("ItemsCount");
-        var data=document.getElementById("J_CheckBox");
-        var sum=obj.innerHTML;
-        var sumit=it.value;
-        var sumCount=itemsCount.innerHTML;
-        sum=parseFloat(sum);
-        sumCount=parseInt(sumCount);
-        sumit=parseInt(sumit);
-        if(data.checked) {
-            itemsCount.innerHTML=sumCount+sumit;
-            obj.innerHTML = sum + id;
-        }else{
-            itemsCount.innerHTML=sumCount-sumit;
-            obj.innerHTML = sum - id;
+    function onBox(index) {
+        var obj = document.getElementById("newBox");
+        var itemsCount = document.getElementById("ItemsCount");
+
+        var data = document.querySelectorAll("#J_CheckBox");
+
+        var it = document.querySelectorAll("#it");
+        var id = document.querySelectorAll("#sumM");
+
+        var idd = id[index].innerHTML;
+
+        var sumit = it[index].value;
+
+        var sumCount = itemsCount.innerHTML;
+        var sum = obj.innerHTML;
+
+        idd = parseFloat(idd);
+        sum = parseFloat(sum);
+        sumCount = parseInt(sumCount);
+        sumit = parseInt(sumit);
+
+        if (data[index].checked) {
+            itemsCount.innerHTML = sumCount + sumit;
+            obj.innerHTML = sum + idd;
+        } else {
+            itemsCount.innerHTML = sumCount - sumit;
+            obj.innerHTML = sum - idd;
         }
     }
-    function mm(flag) {
-        document.getElementById("J_CheckBox").checked=flag;
-        onBox();
+
+    function mm(index) {
+        document.getElementById("J_CheckBox").checked = false;
+        onBox(index);
     }
+
     function yymm() {
-        if(document.getElementById("J_SelectAllCbx2").checked){
-            var o=document.querySelectorAll("#J_CheckBox");
-            for (var i = 0; i < o.length; i++)
-            {
-                o[i].checked=true;
+        if (document.getElementById("J_SelectAllCbx2").checked) {
+            var o = document.querySelectorAll("#J_CheckBox");
+            for (var i = 0; i < o.length; i++) {
+                if(!o[i].checked){
+                    o[i].checked = true;
+                    onBox(i);
+                }
+
             }
-            onBox();
-        }else{
-            var o=document.querySelectorAll("#J_CheckBox");
-            for (var i = 0; i < o.length; i++)
-            {
-                o[i].checked=false;
+        } else {
+            var o = document.querySelectorAll("#J_CheckBox");
+            for (var i = 0; i < o.length; i++) {
+                if(o[i].checked){
+                    o[i].checked = false;
+                    onBox(i);
+                }
             }
-            onBox();
         }
     }
 </script>
