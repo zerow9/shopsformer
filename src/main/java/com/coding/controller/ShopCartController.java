@@ -1,13 +1,13 @@
 package com.coding.controller;
 
 import com.coding.Iservice.IUserService;
+import com.coding.comomInterface.Constant;
 import com.coding.paging.PagingCustomCart;
 import com.coding.paging.PagingCustomCollect;
 import com.coding.pojo.Cart;
 import com.coding.pojo.CartDetail;
 import com.coding.pojo.Collect;
 import com.coding.pojo.Item;
-import constant.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,7 +57,7 @@ public class ShopCartController {
                 CartDetail cartDetail = new CartDetail();
                 try {
                     Item item = userService.selectItemByPrimaryKey(cart.getItemId());
-                    item.setItemImages(Constant.pictuePath + item.getItemImages());
+                    item.setItemImages(Constant.PICTURE_PATH + item.getItemImages());
                     cartDetail.setItem(item);
                     cartDetail.setUserUuid(uuid);
                     cartDetail.setCartId(cart.getCartId());

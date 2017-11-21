@@ -52,7 +52,7 @@
                         <a href="https://admin.shop.xcstudio.xin${item.itemImages}"><img
                                 src="https://admin.shop.xcstudio.xin${item.itemImages}"
                                 alt="细节展示放大镜特效"
-                                rel="https://admin.shop.xcstudio.xin${item.itemImages}" class="jqzoom"/></a>
+                                rel="${item.itemImages}" class="jqzoom"/></a>
                     </div>
                 </div>
 

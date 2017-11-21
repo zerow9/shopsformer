@@ -5,7 +5,9 @@ import com.coding.comomInterface.DateToString;
 import com.coding.comomInterface.MessageTools;
 import com.coding.comomInterface.MyThread;
 import com.coding.comomInterface.MyUUID;
+import com.coding.paging.PagingCustomCollect;
 import com.coding.paging.PagingCustomUser;
+import com.coding.pojo.Collect;
 import com.coding.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -133,4 +135,24 @@ public class UserInfoController {
         }
         return result;
     }
+
+    @RequestMapping("collect")
+    @ResponseBody
+    public boolean collect(Integer itemId, HttpSession session) throws Exception {
+        String uuid = (String) session.getAttribute("uuid");
+        Collect collect = new Collect();
+        collect.setUserUuid(uuid);
+        collect.setItemId(itemId);
+        try {
+            PagingCustomCollect pagingCustomCollect = new PagingCustomCollect();
+            pagingCustomCollect.setCollect(collect);
+            adminService.selectCollect(pagingCustomCollect);
+            return false;
+        } catch (Exception e) {
+            collect.setCollectTime(new Date());
+            adminService.insertCollectSelective(collect);
+            return true;
+        }
+    }
+
 }
