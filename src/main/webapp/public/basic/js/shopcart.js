@@ -55,13 +55,6 @@ $(function () {
     // var l=$(".bundle-main>ul>li").find("#J_CheckBox").val();
     // console.log(l);
 
-    // 点击onclick 事件
-     $(".check").on("click",function(){
-         $(this).addClass("checked");
-         $("#J_Total").html(9);
-         $("#J_SelectedItemsCount").html(34);
-     });
-
 });
 
 //添加商品
@@ -69,26 +62,53 @@ var addCollection=function(id){
     $.ajax({
         type:"POST",
         url:"addCollection?id="+id,
-        success:function (data) {
-            if(data=="success"){
-                alert("添加成功！");
-            }else if(data=="err"){
-                alert("添加失败！购物车已经存在！")
-            }else {
-                alert("添加失败！")
-            }
+        success: function (data) {
+            if (data === "success") {
+                swal({
+                    title: "添加购物车成功！",
+                    type: "success",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            } else if (data === "fail") {
+                swal({
+                    title: "添加购物车失败！",
+                    type: "error",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            } else swal({
+                title: "购物车中已经存在，您可要去购物车进行购买！",
+                type: "warning",
+                timer: 1000,
+                showConfirmButton: false
+            });
         }
     });
 }
 
 var deleteCollection=function (id) {
-    $.ajax({
-        type:"POST",
-        url:"deleteShopCart?id="+id,
-        success:function(data){
-            if(data=="success"){
-                window.location.reload();
-            }
-        }
-    });
+    swal({
+            title: "确定删除该商品吗？",
+            text: "宝贝即将离开您的购物车",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确定删除！",
+            closeOnConfirm: false
+        },
+        function(){
+            $.ajax({
+                type:"POST",
+                url:"deleteShopCart?id="+id,
+                success:function(data){
+                    if(data=="success"){
+                        swal("删除！", "宝贝已经离开您的购物车。", "success");
+                        window.location.reload();
+                    }
+                }
+            });
+
+        });
+
 }

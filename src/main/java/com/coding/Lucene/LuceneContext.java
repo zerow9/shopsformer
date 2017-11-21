@@ -31,9 +31,9 @@ public class LuceneContext {
 
     //单列初始化操作
     private static void init() throws IOException {
-        String dicUrl = new File(".").getCanonicalPath()+File.separator+"index";
-//        System.out.println(dicUrl);
-        directory = FSDirectory.open(new File(dicUrl));
+        String dicUrl = new File(".").getCanonicalPath();
+        String pathString  = dicUrl.substring(0,dicUrl.lastIndexOf(File.separator));
+        directory = FSDirectory.open(new File(pathString+File.separator+"index"));
         version = Version.LUCENE_35;
         analyzer = new StandardAnalyzer(version);
         if(writer == null)
