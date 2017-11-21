@@ -4,7 +4,7 @@
 <%--begin：顶部--%>
 <div class="hmtop">
     <!--顶部导航条 -->
-    <div class="am-container header">
+    <div class="am-container header" >
         <ul class="message-l">
             <div class="topMessage">
                 <div class="menu-hd">
@@ -58,10 +58,9 @@
 
         <div class="search-bar pr">
             <a name="index_none_header_sysc" href="/public/common/search.jsp"></a>
-            <form>
-                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off"
-                       style="font-size: 14px">
-                <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
+            <form style="border-radius: 0px 6px 6px 0px;">
+                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off" style="font-size: 14px;">
+                <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit" style="border-radius:0px 4px 4px 0px; ">
             </form>
 
             <div class="word-search" style="margin-top: 5px;margin-left: 10px">

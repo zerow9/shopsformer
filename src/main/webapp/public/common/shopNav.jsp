@@ -1246,7 +1246,7 @@
                         <a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a>
                     </li>
                     <li>
-                        <a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券 买1送1！</a>
+                        <a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券买1送1！</a>
                     </li>
 
                 </ul>
