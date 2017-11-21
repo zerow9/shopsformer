@@ -89,16 +89,23 @@
             <artifactId>lucene-queryparser</artifactId>
             <version> ${lucene.version}</version>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>com.chenlb.mmseg4j</groupId>
             <artifactId>mmseg4j-analysis</artifactId>
-            <version>1.9.0</version>
-        </dependency>
-        <dependency>
+            <version>1.9.1</version>
+        </dependency>-->
+  <!--      <dependency>
             <groupId>com.chenlb.mmseg4j</groupId>
-            <artifactId>mmseg4j-solr</artifactId>
-            <version>1.9.0</version>
+            <artifactId>mmseg4j-all</artifactId>
+            <version>1.8.5</version>
+        </dependency>-->
+<!--
+        <dependency>
+            <groupId>com.janeluo</groupId>
+            <artifactId>ikanalyzer</artifactId>
+            <version>2012_u6</version>
         </dependency>
+-->
 
         <dependency>
             <groupId>commons-logging</groupId>
