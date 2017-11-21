@@ -3,7 +3,6 @@
     jQuery(function ($) {
 
         //鼠标悬停信息
-
         $("#wrap .item").mouseenter(function () {
             $(this).children(".mp_tooltip").animate({left: -92, queue: true});
             $(this).children(".mp_tooltip").css("visibility", "visible");

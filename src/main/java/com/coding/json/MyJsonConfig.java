@@ -16,7 +16,7 @@ public class MyJsonConfig<E> {
         config.registerJsonValueProcessor(Date.class, json);
         JSONArray array = new JSONArray();
         array = array.fromObject(list, config);
-        return "{\"code\":\"\",\"count\":" + count + ",\"data\":" + array.toString() + ",\"msg\":"+msg+"}";
+        return "{\"code\":\"\",\"delay\":" + count + ",\"data\":" + array.toString() + ",\"msg\":"+msg+"}";
     }
 
 

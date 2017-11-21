@@ -23,6 +23,7 @@ public interface ItemIndexMapper {
      */
     public int deleteItemIndexByPrimaryKeyArray(@Param("indexIdArray") Integer[] indexIdArray)throws Exception;
 
+    public int deleteItemIndexAll()throws Exception;
 
     /**
      * 按需插入商品索引信息
@@ -38,13 +39,15 @@ public interface ItemIndexMapper {
      */
     public ItemIndex selectItemIndexByPrimaryKey(Integer indexId)throws Exception;
 
-    /**
-     * 查询功能模块
-     * @param pagingCustomItemIndex 封装了基本查询信息的 Paging 类的扩展类 PagingCustomItemIndex 类对象
-     * @return 满足查询条件的 ItemIndex 类对象
-     * @throws Exception
-     */
-    public List<ItemIndex> selectItemIndex(PagingCustomItemIndex pagingCustomItemIndex)throws Exception;
+//    /**
+//     * 查询功能模块
+//     * @param pagingCustomItemIndex 封装了基本查询信息的 Paging 类的扩展类 PagingCustomItemIndex 类对象
+//     * @return 满足查询条件的 ItemIndex 类对象
+//     * @throws Exception
+//     */
+//    public List<ItemIndex> selectItemIndex(PagingCustomItemIndex pagingCustomItemIndex)throws Exception;
+
+    public List<ItemIndex> selectItemIndexAll()throws Exception;
 
     /**
      * 根据商品索引唯一ID按需更新商品索引信息

@@ -1,6 +1,7 @@
 $(function () {
     //添加商品的数量
     $(".min").click(function () {
+
         var ele = $(this).parent();//公共变量
         var eleul=$(this).parent().parent().parent().parent().parent(); // 找ul的公共变量
         var id = ele.find("input[type='hidden']").val();//获取购物车编号
@@ -29,6 +30,7 @@ $(function () {
 
     //添加商品的数量
     var add = $(".add").click(function () {
+
         var ele = $(this).parent();
         var id = ele.find("input[type='hidden']").val();//获取购物车编号
         var eleul=$(this).parent().parent().parent().parent().parent(); // 找ul的公共变量
@@ -48,6 +50,18 @@ $(function () {
 
     });
 
+    //选中使用的条目
+    //$(".bundle-main>ul>li").find("#J_CheckBox").addClass("checked","checked")
+    // var l=$(".bundle-main>ul>li").find("#J_CheckBox").val();
+    // console.log(l);
+
+    // 点击onclick 事件
+     $(".check").on("click",function(){
+         $(this).addClass("checked");
+         $("#J_Total").html(9);
+         $("#J_SelectedItemsCount").html(34);
+     });
+
 });
 
 //添加商品
@@ -57,7 +71,23 @@ var addCollection=function(id){
         url:"addCollection?id="+id,
         success:function (data) {
             if(data=="success"){
-                alert("success");
+                alert("添加成功！");
+            }else if(data=="err"){
+                alert("添加失败！购物车已经存在！")
+            }else {
+                alert("添加失败！")
+            }
+        }
+    });
+}
+
+var deleteCollection=function (id) {
+    $.ajax({
+        type:"POST",
+        url:"deleteShopCart?id="+id,
+        success:function(data){
+            if(data=="success"){
+                window.location.reload();
             }
         }
     });

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -33,15 +34,16 @@
                         </div>
                     </div>
                     <hr/>
-                    <ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
+                    <ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails" style="margin-left: 50px;">
 
-                        <c:forEach items="${addresses}" var="address">
+                        <c:forEach items="${addresses}" var="address" >
                             <c:if test="${address.isDefaultAddress==1}">
                                 <li class="user-addresslist defaultAddr">
                                     <span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
                                     <p class="new-tit new-p-re">
                                         <span class="new-txt">${address.takeGoodsName}</span>
-                                        <span class="new-txt-rd2">${address.addresseePhone}</span>
+                                        <%--<span class="new-txt-rd2">${address.addresseePhone}</span>--%>
+                                        <span class="new-txt-rd2">${fn:substring(address.addresseePhone, 0,3)}****${fn:substring(address.addresseePhone,7,11)}</span>
                                     </p>
                                     <div class="new-mu_l2a new-p-re">
                                         <p class="new-mu_l2cw">
@@ -65,7 +67,7 @@
                                         class="am-icon-check-circle" id="updateDefaultAddress"></i>默认地址</span>
                                     <p class="new-tit new-p-re">
                                         <span class="new-txt">${address.takeGoodsName}</span>
-                                        <span class="new-txt-rd2">${address.addresseePhone}</span>
+                                        <span class="new-txt-rd2">${fn:substring(address.addresseePhone, 0,3)}****${fn:substring(address.addresseePhone,7,11)}</span>
                                     </p>
                                     <div class="new-mu_l2a new-p-re">
                                         <p class="new-mu_l2cw">
@@ -113,34 +115,32 @@
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-form-label">收货人</label>
                                     <div class="am-form-content">
-                                        <input type="text" name="takeGoodsName" id="user-name" placeholder="收货人">
+                                        <input type="text" name="takeGoodsName" id="user-name" placeholder="收货人" style="border-radius: 4px">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <label for="user-phone" class="am-form-label">手机号码</label>
                                     <div class="am-form-content">
-                                        <input id="user-phone" name="addresseePhone" placeholder="手机号必填" type="text">
+                                        <input id="user-phone" name="addresseePhone" placeholder="手机号必填" type="text" style="border-radius: 4px">
                                     </div>
                                 </div>
                                 <div class="am-form-group">
                                     <label class="am-form-label" style="margin-right: 5px">所在地</label>
                                     <div class="form-inline">
                                         <div data-toggle="distpicker">
-                                            <div class="form-group">
-                                                <select class="form-control" id="province2"
-                                                        style="-webkit-border-radius:4px;"
+                                            <div class="form-group" >
+                                                <select class="form-control" id="province2" style="width:160px;border-radius:4px;"
+                                                        style="border-radius:4px;"
                                                         name="takeGoodsProvince" data-province="---- 选择省 ----"></select>
                                             </div>
-                                            <div class="form-group">
-                                                <select class="form-control" id="city2"
-                                                        style="-webkit-border-radius:4px;"
+                                            <div class="form-group" >
+                                                <select class="form-control" id="city2" style="width:200px;border-radius:4px;margin-left:7px"
                                                         name="takeGoodsCity"
                                                         data-city="---- 选择市 ----"></select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" id="district2"
-                                                        style="-webkit-border-radius:4px;"
+                                                <select class="form-control" id="district2" style="width:185px;border-radius:4px;margin-left: 7px"
                                                         name="takeGoodsCounty"
                                                         data-district="---- 选择区 ----"></select>
                                             </div>
@@ -152,7 +152,7 @@
                                     <label for="user-intro" class="am-form-label">详细地址</label>
                                     <div class="am-form-content">
                                         <textarea class="" rows="3" name="address" id="user-intro"
-                                                  placeholder="输入详细地址"></textarea>
+                                                  placeholder="输入详细地址" style="border-radius: 4px"></textarea>
                                         <small>100字以内写出你的详细地址...</small>
                                     </div>
                                 </div>

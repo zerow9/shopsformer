@@ -1681,7 +1681,7 @@ dt + dd {
     .shadow-l {
         position: absolute;
         left: 0;
-        _left: -42px;
+        _left: 42px;
         top: 0;
         width: 0;
         width: 2px \9;
@@ -1805,8 +1805,7 @@ dt + dd {
     .category-content .menu-item.bottom {
         bottom: -2px;
         *bottom: -6px;
-        _ *
-        bottom: -7px;
+        -*bottom: -7px;
     }
 
     .am-dimmer {
