@@ -50,7 +50,6 @@
         address_y = #{addressY}
         where address_id = #{addressId,jdbcType=INTEGER}
     </update>
-
     <!--修改用户默认地址（将需修改用户Uuid、待修改为默认地址的AddressID封装）-->
     <update id="updateAddressUserDefaultAddress" parameterType="com.coding.pojo.Address">
         UPDATE address AS adrs3,
@@ -78,7 +77,6 @@
                     adrs2.is_default_Address = 1
             )
     </update>
-
     <!-- 查询所有地址信息 （需要将数据库字段名修改为 pojo 指定的属性名） -->
     <select id="selectAddressAll" resultType="com.coding.pojo.Address">
         SELECT
