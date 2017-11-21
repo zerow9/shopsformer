@@ -1026,7 +1026,7 @@ dt + dd {
         font-size: 14px;
         background: #f52e1f;
         color: #fff;
-        padding: 0px 10px
+        padding: 0px 10px;
     }
 
     /*时间*/
@@ -1305,7 +1305,7 @@ dt + dd {
     .am-container {
         padding-left: 0rem;
         padding-right: 0rem;
-        max-width: 1000px;
+        max-width: 1349px;
     }
 
     .am-g-fixed {
@@ -2810,7 +2810,7 @@ dt + dd {
     .am-container {
         padding-left: 0rem;
         padding-right: 0rem;
-        max-width: 1200px;
+        max-width: 1349px;
     }
 
     .am-g-fixed {
