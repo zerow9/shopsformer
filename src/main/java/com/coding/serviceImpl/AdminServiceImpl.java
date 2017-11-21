@@ -1,6 +1,7 @@
 package com.coding.serviceImpl;
 
 import com.coding.Iservice.IAdminService;
+import com.coding.filter.Filter;
 import com.coding.mapper.*;
 import com.coding.paging.*;
 import com.coding.pojo.*;
@@ -120,6 +121,8 @@ public class AdminServiceImpl extends UserServiceImpl implements IAdminService {
 
     public List<User> selectUser(PagingCustomUser paging) throws Exception {
        try {
+           String[] strArrayColumn = userMapper.selectUserTableColumns().split(",");
+           paging = (PagingCustomUser) Filter.PreventSqlInjection(paging,strArrayColumn);
            List<User>  users = userMapper.selectUser(paging);
            if(users.isEmpty()) throw new Exception("查询到的用户列表为空");
            return users;

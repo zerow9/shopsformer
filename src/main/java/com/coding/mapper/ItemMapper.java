@@ -102,4 +102,11 @@ public interface ItemMapper {
      */
     public String selectItemTableColumns()throws Exception;
 
+    /**
+     * 按需插入商品信息，并返回其唯一ID
+     * @param item 封装了商品信息的 Item 类对象
+     * @return 商品唯一ID
+     * @throws Exception
+     */
+    public Integer insertItemSelectiveAndReturnItemId(Item item)throws Exception;
 }

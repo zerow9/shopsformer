@@ -152,6 +152,9 @@
     </where>
     <!--排序规则-->
     <if test="sortByColumn != null and sortByColumn !=''">
+      <if test="sortRule == null and sortRule == ''">
+        order by ${sortByColumn}
+      </if>
       <if test="sortRule != null and sortRule != ''">
         order by ${sortByColumn} ${sortRule}
       </if>
