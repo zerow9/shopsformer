@@ -48,6 +48,18 @@ $(function () {
 
     });
 
+    //选中使用的条目
+    //$(".bundle-main>ul>li").find("#J_CheckBox").addClass("checked","checked")
+    // var l=$(".bundle-main>ul>li").find("#J_CheckBox").val();
+    // console.log(l);
+
+    // 点击onclick 事件
+     $(".check").on("click",function(){
+         $(this).addClass("checked");
+         $("#J_Total").html(9);
+         $("#J_SelectedItemsCount").html(34);
+     });
+
 });
 
 //添加商品
@@ -57,7 +69,11 @@ var addCollection=function(id){
         url:"addCollection?id="+id,
         success:function (data) {
             if(data=="success"){
-                alert("success");
+                alert("添加成功！");
+            }else if(data=="err"){
+                alert("添加失败！购物车已经存在！")
+            }else {
+                alert("添加失败！")
             }
         }
     });

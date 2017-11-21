@@ -2,7 +2,9 @@ package com.coding.controller;
 
 import com.coding.Iservice.IAdminService;
 import com.coding.comomInterface.DateToString;
+import com.coding.paging.PagingCustomCollect;
 import com.coding.paging.PagingCustomUser;
+import com.coding.pojo.Collect;
 import com.coding.pojo.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("user")
@@ -30,14 +33,26 @@ public class LoginController {
     @RequestMapping("first")
     public String first(HttpSession session) throws Exception {
         String photo = (String) SecurityUtils.getSubject().getPrincipal();
-        PagingCustomUser pagingCustomUser=new PagingCustomUser();
-        User use=new User();
+        PagingCustomUser pagingCustomUser = new PagingCustomUser();
+        User use = new User();
         use.setUserEmail(photo);
         pagingCustomUser.setUser(use);
         User user = adminService.selectUser(pagingCustomUser).get(0);
-        session.setAttribute("uuid",user.getUserUuid());
+        Collect collect = new Collect();
+        collect.setUserUuid(user.getUserUuid());
+        PagingCustomCollect pagingCustomCollect = new PagingCustomCollect();
+        pagingCustomCollect.setCollect(collect);
+        int count = 0;
+        List<Collect> collects = null;
+        try {
+            collects = adminService.selectCollect(pagingCustomCollect);
+            count = collects.size();
+        } catch (Exception e) {
+        }
+        session.setAttribute("uuid", user.getUserUuid());
         user.setUserRegisterDateTimeToString(DateToString.date(user.getUserRegisterDateTime()));
-        session.setAttribute("user",user);
+        session.setAttribute("user", user);
+        session.setAttribute("collectCount", count);
         return "homes/index";
     }
 

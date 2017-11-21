@@ -20,6 +20,8 @@
                 /user/getEmailCode=anon
                 /user/hasUser=anon
                 /user/**=authc
+                /shopCart/**=authc
+                /collection/**=authc
                 /** = anon
             </value>
         </property>

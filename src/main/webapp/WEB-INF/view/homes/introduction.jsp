@@ -52,7 +52,7 @@
                         <a href="https://admin.shop.xcstudio.xin${item.itemImages}"><img
                                 src="https://admin.shop.xcstudio.xin${item.itemImages}"
                                 alt="细节展示放大镜特效"
-                                rel="https://admin.shop.xcstudio.xin${item.itemImages}" class="jqzoom"/></a>
+                                rel="${item.itemImages}" class="jqzoom"/></a>
                     </div>
                 </div>
 
@@ -190,7 +190,7 @@
     </li>
     <li>
         <div class="clearfix tb-btn tb-btn-basket theme-login">
-            <a id="LikBasket" title="加入购物车" onclick="onadd(${item.itemId})">加入购物车</a>
+            <a id="LikBasket" title="加入收藏" onclick="onadd(${item.itemId})">加入收藏</a>
         </div>
     </li>
 </div>

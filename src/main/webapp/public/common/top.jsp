@@ -4,7 +4,7 @@
 <%--begin：顶部--%>
 <div class="hmtop">
     <!--顶部导航条 -->
-    <div class="am-container header">
+    <div class="am-container header" >
         <ul class="message-l">
             <div class="topMessage">
                 <div class="menu-hd">
@@ -33,20 +33,18 @@
 
             <div class="topMessage mini-cart">
                 <div class="menu-hd">
-                    <a id="mc-menu-hd" href="/shopCart/getPersonShopCart" target="_top"><i
-                            class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
-                                                                                                  class="h">0</strong></a>
+                        <a id="mc-menu-hd" href="/shopCart/getPersonShopCart" target="_top"><i
+                                class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
+                                                                                                      class="h">${collectCount}</strong></a>
                 </div>
             </div>
 
-            <c:if test="${!empty user}">
                 <div class="topMessage favorite">
                     <div class="menu-hd">
                         <a href="/collection/getUserConllection" target="_top"><i
                                 class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
                     </div>
                 </div>
-            </c:if>
         </ul>
     </div>
 
@@ -58,10 +56,9 @@
 
         <div class="search-bar pr">
             <a name="index_none_header_sysc" href="/public/common/search.jsp"></a>
-            <form>
-                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off"
-                       style="font-size: 14px">
-                <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
+            <form style="border-radius: 0px 6px 6px 0px;">
+                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off" style="font-size: 14px;">
+                <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit" style="border-radius:0px 4px 4px 0px; ">
             </form>
 
             <div class="word-search" style="margin-top: 5px;margin-left: 10px">

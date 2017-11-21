@@ -1,6 +1,7 @@
 package com.coding.controller;
 
 import com.coding.Iservice.IUserService;
+import com.coding.comomInterface.Constant;
 import com.coding.paging.Paging;
 import com.coding.paging.PagingCustomCart;
 import com.coding.paging.PagingCustomCollect;
@@ -8,7 +9,7 @@ import com.coding.pojo.Cart;
 import com.coding.pojo.Collect;
 import com.coding.pojo.CollectDetail;
 import com.coding.pojo.Item;
-import constant.Constant;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,7 +51,7 @@ public class CollectionController {
                 collectDetail.setCollectId(collect.getCollectId());
                 collectDetail.setItem(item);
                 collectDetail.setUserUuid(collect.getUserUuid());
-                collectDetail.setItemImages(Constant.pictuePath+item.getItemImages());
+                collectDetail.setItemImages(Constant.PICTURE_PATH+item.getItemImages());
                 collectDetail.setItemName(item.getItemName());
                 collectDetails.add(collectDetail);
             }
