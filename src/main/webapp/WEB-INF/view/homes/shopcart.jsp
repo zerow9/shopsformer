@@ -24,7 +24,7 @@
 
 <%--顶部--%>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
-
+<div class="clear"></div>
 <!--购物车 -->
 <div class="concent">
     <div id="cartTable">
@@ -98,10 +98,10 @@
                                 <div class="item-price price-promo-promo">
                                     <div class="price-content">
                                         <div class="price-line">
-                                            <em class="price-original">${cart.item.itemPrice*1.2}</em>
+                                            <em class="price-original">${cart.item.itemMarketPrice*1.2}</em>
                                         </div>
                                         <div class="price-line">
-                                            <em class="J_Price price-now" tabindex="0">${cart.item.itemPrice}</em>
+                                            <em class="J_Price price-now" tabindex="0">${cart.item.itemMarketPrice}</em>
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +121,7 @@
                             </li>
                             <li class="td td-sum">
                                 <div class="td-inner">
-                                    <em tabindex="0" class="J_ItemSum number">${cart.itemNumber*cart.item.itemPrice}</em>
+                                    <em tabindex="0" class="J_ItemSum number">${cart.itemNumber*cart.item.itemMarketPrice}</em>
                                 </div>
                             </li>
                             <li class="td td-op">
