@@ -9,8 +9,11 @@ import java.util.List;
 public interface IindexItemService {
 
         public void addIndex(Item fields,boolean in)throws Exception;
+
         public void deleteIndex(Integer id,boolean inDatabase)throws Exception;
+
         public void updateIndex(Item fields,boolean inDatabase)throws Exception;
+
 
         public List<Item> findByIndex(SearchField field)throws Exception;
         /**
