@@ -2,8 +2,10 @@ package com.coding.controller;
 
 import com.coding.Iservice.IAdminService;
 import com.coding.comomInterface.DateToString;
+import com.coding.paging.PagingCustomCart;
 import com.coding.paging.PagingCustomCollect;
 import com.coding.paging.PagingCustomUser;
+import com.coding.pojo.Cart;
 import com.coding.pojo.Collect;
 import com.coding.pojo.User;
 import org.apache.shiro.SecurityUtils;
@@ -38,14 +40,14 @@ public class LoginController {
         use.setUserEmail(photo);
         pagingCustomUser.setUser(use);
         User user = adminService.selectUser(pagingCustomUser).get(0);
-        Collect collect = new Collect();
-        collect.setUserUuid(user.getUserUuid());
-        PagingCustomCollect pagingCustomCollect = new PagingCustomCollect();
-        pagingCustomCollect.setCollect(collect);
+        Cart cart = new Cart();
+        cart.setUserUuid(user.getUserUuid());
+        PagingCustomCart pagingCustomCollect = new PagingCustomCart();
+        pagingCustomCollect.setCart(cart);
         int count = 0;
-        List<Collect> collects = null;
+        List<Cart> collects = null;
         try {
-            collects = adminService.selectCollect(pagingCustomCollect);
+            collects = adminService.selectCart(pagingCustomCollect);
             count = collects.size();
         } catch (Exception e) {
         }
