@@ -165,7 +165,7 @@
                 <strong class="price">¥<em id="newBox">0.0</em></strong>
             </div>
             <div class="btn-area">
-                <a href="/user/balance" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
+                <a href="/user/order/orderItem" onclick="orderItem()" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
                     <span>结&nbsp;算</span></a>
             </div>
         </div>
@@ -210,8 +210,11 @@
     }
 
     function mm(index) {
-        document.getElementById("J_CheckBox").checked = false;
-        onBox(index);
+        var o = document.querySelectorAll("#J_CheckBox");
+        if(o[index].checked) {
+            o[index].checked = false;
+            onBox(index);
+        }
     }
 
     function yymm() {
@@ -233,6 +236,18 @@
                 }
             }
         }
+    }
+    function orderItem() {
+        var o = document.querySelectorAll("#J_CheckBox");
+        var obj=document.getElementById("J_Go");
+        var mycars=new Array()
+        for (var i = 0; i < o.length; i++) {
+            if(o[i].checked) {
+                var laues = o[i].value;
+                mycars[i] = laues;
+            }
+        }
+        obj.href="/user/order/orderItem?cartId="+mycars;
     }
 </script>
 </body>
