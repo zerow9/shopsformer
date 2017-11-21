@@ -1,456 +1,223 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
 <head>
-    <title>孝和享购--我的订单</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <script type="text/javascript">
-        window.pageConfig = {
-            compatible: true
-        };
-    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+
+    <title>订单详情</title>
+
     <link rel="icon" href="/public/images/picture.ico">
-    <link type="text/css" rel="stylesheet" href="/public/basic/css/global.css"/>
-    <link type="text/css" rel="stylesheet" href="/public/basic/css/recommend-goods.css">
-    <script type="text/javascript" src="/public/basic/js/base.js"></script>
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+
+    <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/orstyle.css" rel="stylesheet" type="text/css">
+
+    <script src="/public/amazeUI/assets/js/jquery.min.js"></script>
+    <script src="/public/amazeUI/assets/js/amazeui.js"></script>
+
+
 </head>
+
 <body>
+<!--头 -->
+<jsp:include page="/public/common/top.jsp"></jsp:include>
+<div class="center">
+    <div class="col-main">
+        <div class="main-wrap">
 
-<div id="container">
-    <div class="emph-wrap">
-        <div class="w">
-            <div class="emph-tips">
-                <b></b>安全提醒：为了您的财产安全，<strong>不要点击陌生链接、不要向陌生人转账</strong>或透漏银行卡和验证码信息，<strong>谨防诈骗</strong>！
-            </div>
-        </div>
-    </div>
-    <div class="w">
-        <div class="main">
+            <div class="user-orderinfo">
 
-            <div class="breadcrumb"><a href="#">孝和享购</a><span>&nbsp;&gt;&nbsp;<a
-                    href="#">订单中心</a>&nbsp;&gt;&nbsp;<strong>订单：${customVoAddressDetail.orders.orderId}</strong></span>
-            </div>
-            <!--变量-->
-            <span id="pay-button-order" style="display:none"></span>
-            <div class="m order-state order-state01">
-                <div class="mc state-cont">
-                    <!-- 工具条 -->
-                    <div class="state-lcol">
-                        <div class="state-top">订单号：${customVoAddressDetail.orders.orderId}</div>
-                        <h3 class="state-txt ftx-02">完成</h3>
-                        <br>
-                        <span class="remain-time" style="display: none"><b></b></span>
-                        <div class="state-btns">
-                            <a id="pay-button-13886555728" class="btn-1 " style="display:none" href="#">付款</a>
-                            <a target="_blank" href="#" class="btn-9">查看发票详情</a>
-                        </div>
-                    </div>
-                    <!-- 进度条 -->
-                    <div class="state-rcol">
-                        <div class="state-rtop">
-                            <!--提示信息 -->
-                            <div class="ftx-03">
-                                订单已经完成，感谢您在京东商城购物，欢迎您对本次交易及所购商品进行评价。
-                            </div>
-                        </div>
-                        <!--进度条 -->
-
-                        <div id="process-04" class="order-process">
-                            <div class="node ready"><i class="node-icon icon-start"></i>
-                                <ul>
-                                    <li class="txt1">&nbsp;</li>
-                                    <li class="txt2">提交订单</li>
-                                    <li id="track_time_0" class="txt3"></li>
-                                </ul>
-                            </div>
-                            <div class="proce done">
-                                <ul>
-                                    <li class="txt1"></li>
-                                </ul>
-                            </div>
-                            <div class="node ready"><i class="node-icon icon-pay"></i>
-                                <ul>
-                                    <li class="txt1">&nbsp;</li>
-                                    <li class="txt2">付款成功</li>
-                                    <li id="track_time_4" class="txt3"></li>
-                                </ul>
-                            </div>
-                            <div class="proce done">
-                                <ul>
-                                    <li class="txt1">&nbsp;</li>
-                                </ul>
-                            </div>
-                            <div class="node ready"><i class="node-icon icon-store"></i>
-                                <ul>
-                                    <li class="txt1">&nbsp;</li>
-                                    <li class="txt2">商品出库</li>
-                                    <li id="track_time_1" class="txt3"></li>
-                                </ul>
-                            </div>
-                            <div class="proce done">
-                                <ul>
-                                    <li class="txt1">&nbsp;</li>
-                                </ul>
-                            </div>
-                            <div class="node ready"><i class="node-icon icon-express"></i>
-                                <ul>
-                                    <li class="txt1">&nbsp;</li>
-                                    <li class="txt2">等待收货</li>
-                                    <li id="track_time_5" class="txt3"></li>
-                                </ul>
-                            </div>
-                            <div class="proce done">
-                                <ul>
-                                    <li class="txt1">&nbsp;</li>
-                                </ul>
-                            </div>
-                            <div class="node ready">
-                                <i class="node-icon icon-finish"></i>
-                                <ul>
-                                    <li class="txt1">&nbsp;</li>
-                                    <li class="txt2">完成</li>
-                                    <li id="track_time_6" class="txt3"></li>
-                                </ul>
-                            </div>
-                        </div>
+                <!--标题 -->
+                <div class="am-cf am-padding">
+                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">订单详情</strong> /
+                        <small>Order&nbsp;details</small>
                     </div>
                 </div>
-                <div class="mb"></div>
-            </div>
-            <!-- 订单跟踪及安装跟踪 -->
-            <!--  /widgest/order-track/order-track.tpl -->
-            <div class="order-track order-track-02 m">
-                <!-- 订单跟踪 -->
-                <div class="mc">
-                    <div class="track-cont J-delivery-track">
-                        <div class="track-lcol">
-                            <div class="p-item">
-
-                                <div class="p-img">
-                                    <a href="#"><img
-                                            src="${customVoAddressDetail.customVoItemsByOrderDetailIds[0].item.itemImages}"
-                                            alt=""></a>
+                <hr/>
+                <!--进度条-->
+                <div class="m-progress">
+                    <div class="m-progress-list">
+								<span class="step-1 step">
+                                   <em class="u-progress-stage-bg"></em>
+                                   <i class="u-stage-icon-inner">1<em class="bg"></em></i>
+                                   <p class="stage-name">拍下商品</p>
+                                </span>
+                        <span class="step-2 step">
+                                   <em class="u-progress-stage-bg"></em>
+                                   <i class="u-stage-icon-inner">2<em class="bg"></em></i>
+                                   <p class="stage-name">卖家发货</p>
+                                </span>
+                        <span class="step-3 step">
+                                   <em class="u-progress-stage-bg"></em>
+                                   <i class="u-stage-icon-inner">3<em class="bg"></em></i>
+                                   <p class="stage-name">确认收货</p>
+                                </span>
+                        <span class="step-4 step">
+                                   <em class="u-progress-stage-bg"></em>
+                                   <i class="u-stage-icon-inner">4<em class="bg"></em></i>
+                                   <p class="stage-name">交易完成</p>
+                                </span>
+                        <span class="u-progress-placeholder"></span>
+                    </div>
+                    <div class="u-progress-bar total-steps-2">
+                        <div class="u-progress-bar-inner"></div>
+                    </div>
+                </div>
+                <div class="order-infoaside">
+                    <div class="order-logistics">
+                        <a href="#">
+                            <div class="icon-log">
+                                <i><img src="/public/images/receive.png"></i>
+                            </div>
+                            <div class="latest-logistics">
+                                <p class="text">已签收,签收人是青年城签收，感谢使用天天快递，期待再次为您服务</p>
+                                <div class="time-list">
+                                    <span class="date">2015-12-19</span><span class="week">周六</span><span class="time">15:35:42</span>
+                                </div>
+                                <div class="inquire">
+                                    <span class="package-detail">物流：天天快递</span>
+                                    <span class="package-detail">快递单号: </span>
+                                    <span class="package-number">373269427868</span>
+                                    <a href="#">查看</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="track-rcol">
-                            <div class="track-list">
-                                <ul>
-
-                                </ul>
+                            <span class="am-icon-angle-right icon"></span>
+                        </a>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="order-addresslist">
+                        <div class="order-address">
+                            <div class="icon-add">
+                            </div>
+                            <p class="new-tit new-p-re">
+                                <span class="new-txt">${customVoAddressDetail.address.takeGoodsName}</span>
+                                <span class="new-txt-rd2">${fn:substring(customVoAddressDetail.address.addresseePhone, 0,3)}****${fn:substring(customVoAddressDetail.address.addresseePhone,7,11)}</span>
+                            </p>
+                            <div class="new-mu_l2a new-p-re">
+                                <p class="new-mu_l2cw">
+                                    <span class="title">收货地址：</span>
+                                    <span class="province">${customVoAddressDetail.address.takeGoodsProvince}</span>
+                                    <span class="city">${customVoAddressDetail.address.takeGoodsCity}</span>
+                                    <span class="dist">${customVoAddressDetail.address.takeGoodsCounty}</span>
+                                    <span class="street">${customVoAddressDetail.address.address}</span></p>
                             </div>
                         </div>
                     </div>
-                    <!-- 安装跟踪 -->
-                    <div class="track-cont J-install-track" style="display:none">
-                        <div class="track-lcol">
-                            <div class="install-list" id="install-scrollbar">
-
-                            </div>
-                        </div>
-                        <div class="track-rcol">
-                            <div class="track-list">
-                                <ul>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
-            <div class="m order-info-mod">
-                <div class="order-info mc">
-                    <div class="ui-switchable-body">
-                        <div class="ui-switchable-panel-main">
-                            <div class="ui-switchable-panel">
-                                <!-- 收货人信息 -->
-                                <div class="dl">
-                                    <div class="dt">
-                                        <h4>收货人信息
-                                        </h4>
-                                    </div>
-                                    <div class="dd">
-                                        <div class="item">
-                                                <span class="label">
-                                                    收货人：
-                                                </span>
-                                            <div class="info-rcol">
-                                                ${customVoAddressDetail.address.takeGoodsName}
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                                <span class="label">
-                                                    地址：
-                                                </span>
-                                            <div class="info-rcol">
-                                                ${customVoAddressDetail.address.takeGoodsProvince}&nbsp;${customVoAddressDetail.address.takeGoodsCounty}&nbsp;${customVoAddressDetail.address.takeGoodsCity}&nbsp;${customVoAddressDetail.address.address}
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                                <span class="label">
-                                                    手机号码：
-                                                </span>
-                                            <div class="info-rcol">
-                                                ${customVoAddressDetail.address.addresseePhone}
-                                            </div>
-                                        </div>
+                <div class="order-infomain">
 
-                                    </div>
-                                </div>                    <!-- 配送信息 -->
-                                <div class="dl">
-                                    <div class="dt">
-                                        <h4>配送信息</h4>
-                                    </div>
-                                    <div class="dd">
+                    <div class="order-top">
+                        <div class="th th-item">
+                            <td class="td-inner">商品</td>
+                        </div>
+                        <div class="th th-price">
+                            <td class="td-inner">单价</td>
+                        </div>
+                        <div class="th th-number">
+                            <td class="td-inner">数量</td>
+                        </div>
+                        <div class="th th-operation">
+                            <td class="td-inner">商品操作</td>
+                        </div>
+                        <div class="th th-amount">
+                            <td class="td-inner">合计</td>
+                        </div>
+                        <div class="th th-status">
+                            <td class="td-inner">交易状态</td>
+                        </div>
+                        <div class="th th-change">
+                            <td class="td-inner">交易操作</td>
+                        </div>
+                    </div>
 
-                                        <div class="item">
-                                                <span class="label">
-                                                    配送方式：
-                                                </span>
-                                            <div class="info-rcol">
-                                                普通快递
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                                <span class="label">
-                                                    运费：
-                                                </span>
-                                            <div class="info-rcol">
-                                                    <span class="f-price">
-                                                        &yen;${customVoAddressDetail.orders.orderFreight}
-                                                    </span>
-                                            </div>
-                                        </div>
+                    <div class="order-main">
 
-
-                                        <div class="item">
-                                                <span class="label">
-                                                    送货日期：
-                                                </span>
-                                            <div class="info-rcol">
-                                                工作日、双休日与假日均可送货
-                                            </div>
+                        <div class="order-status3">
+                            <div class="order-title">
+                                <div class="dd-num">订单编号：<a
+                                        href="javascript:">${customVoAddressDetail.orders.orderId}</a></div>
+                                <span>成交时间：${customVoAddressDetail.orders.orderCompletionTimeToString}</span>
+                                <!--    <em>店铺：小桔灯</em>-->
+                            </div>
+                            <div class="order-content">
+                                <div class="order-left">
+                                    <c:forEach items="${customVoAddressDetail.customVoItemsByOrderDetailIds}"
+                                               var="orderDetail">
+                                        <ul class="item-list">
+                                            <li class="td td-item">
+                                                <div class="item-pic">
+                                                    <a href="#" class="J_MakePoint">
+                                                        <img src="${orderDetail.item.itemImages}"
+                                                             class="itempic J_ItemImg"/>
+                                                    </a>
+                                                </div>
+                                                <div class="item-info">
+                                                    <div class="item-basic-info">
+                                                        <a href="#">
+                                                            <p>${orderDetail.item.itemName}</p>
+                                                            <p class="info-little">规格：${orderDetail.item.itemFormat}
+                                                                <br/>包装：裸装 </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="td td-price">
+                                                <div class="item-price">
+                                                        ${orderDetail.item.itemPrice}
+                                                </div>
+                                            </li>
+                                            <li class="td td-number">
+                                                <div class="item-number">
+                                                    <span>×</span>${orderDetail.itemNum}
+                                                </div>
+                                            </li>
+                                            <li class="td td-operation">
+                                                <div class="item-operation">
+                                                    退款/退货
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </c:forEach>
+                                </div>
+                                <div class="order-right">
+                                    <li class="td td-amount">
+                                        <div class="item-amount">
+                                            合计：676.00
+                                            <p>含运费：<span>10.00</span></p>
                                         </div>
-                                        <div class="item">
-                                                <span class="label">
-                                                    配送时间：
-                                                </span>
-                                            <div class="info-rcol">
-                                                9:00-15:00
+                                    </li>
+                                    <div class="move-right">
+                                        <li class="td td-status">
+                                            <div class="item-status">
+                                                <p class="Mystatus">卖家已发货</p>
+                                                <p class="order-info"><a href="#">查看物流</a></p>
+                                                <p class="order-info"><a href="#">延长收货</a></p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>                    <!-- 付款信息 -->
-                                <!-- 非0费用-->
-                                <div class="dl" id="pay-info-nozero">
-                                    <div class="dt">
-                                        <h4>付款信息</h4>
-                                    </div>
-                                    <div class="dd">
-                                        <div class="item">
-                                                <span class="label">
-                                                    付款方式：
-                                                </span>
-                                            <div class="info-rcol">
-                                                在线支付
+                                        </li>
+                                        <li class="td td-change">
+                                            <div class="am-btn am-btn-danger anniu">
+                                                确认收货
                                             </div>
-                                        </div>
-
-                                        <div class="item">
-                                                <span class="label">
-                                                    付款时间：
-                                                </span>
-                                            <div class="info-rcol">
-                                                ${customVoAddressDetail.orders.orderPayTimeToString}
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                                <span class="label">
-                                                    商品总额：
-                                                </span>
-                                            <div class="info-rcol">
-                                                    <span class="f-price">
-                                                        ${customVoAddressDetail.orders.orderSumPrice}
-                                                    </span>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                                <span class="label">
-                                                    应支付金额：
-                                                </span>
-                                            <div class="info-rcol">
-                                                    <span class="f-price">
-                                                        ${customVoAddressDetail.orders.orderSumPrice}
-                                                    </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>                    <!-- 发票信息 -->
-                                <div id="J-invoice-info" class="dl">
-                                    <div class="dt">
-                                        <h4>发票信息</h4>
-                                    </div>
-                                    <div class="dd">
-                                        <div class="item">
-                                                <span class="label">
-                                                   发票类型：
-                                                </span>
-                                            <div class="info-rcol">
-                                                普通发票
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                                <span class="label">
-                                                    发票抬头：
-                                                </span>
-                                            <div class="info-rcol">
-                                                个人
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                                <span class="label">
-                                                   发票内容：
-                                                </span>
-                                            <div class="info-rcol">
-                                                明细
-                                            </div>
-                                        </div>
+                                        </li>
                                     </div>
                                 </div>
                             </div>
-                            <div class="ui-switchable-panel">
-                                <!-- 礼品购订单展示送礼人信息 -->
-                                <!-- 节能补贴信息 -->
-                                <!-- 订单留言 -->
-                                <!--备注-->
 
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="order-goods m">
-                <div class="mc">
-                    <div class="goods-list ">
-                        <table class="tb-void tb-order">
-                            <colgroup>
-                                <col class="grap">
-                                <col class="col-goods">
-                                <col class="col-number">
-                                <col class="col-price">
-                                <col class="col-amount">
-                                <col class="col-bean">
 
-                                <col class="col-ops">
-                                <col class="grap">
-                            </colgroup>
-                            <thead>
-                            <tr>
-                                <th class="grap"></th>
-                                <th>商品</th>
-                                <th>商品编号</th>
-                                <th>京东价</th>
-                                <th>商品数量</th>
-                                <th>操作</th>
-                                <th class="grap"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <!-- 获取礼品卡sku对应的贺卡寄语  -->
-                            <c:forEach items="${customVoAddressDetail.customVoItemsByOrderDetailIds}"
-                                       var="customVoItemsByOrderDetailId">
-                            <tr class="first-tr product-2250255">
-                                <td class="grap"></td>
-                                <td>
-                                    <div class="p-item">
-                                        <div class="p-img">
-                                            <a href="#" target="_blank">
-                                                <img class=""
-                                                     src="${customVoItemsByOrderDetailId.item.itemImages}"
-                                                     title="2250255" width="60" height="60"/>
-                                            </a>
-                                        </div>
-                                        <div class="p-info">
-                                            <div class="p-name">
-                                                <a href="#" class="a-link" target="_blank"
-                                                   title="${customVoItemsByOrderDetailId.item.itemName}">
-                                                        ${customVoItemsByOrderDetailId.item.itemName}
-                                                </a>
-                                            </div>
-                                            <div class="clr"></div>
-                                            <div id="coupon_2250255" class="fl"></div>
-
-
-                                            <div class="p-extra">
-                                                <span class="txt"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                        ${customVoItemsByOrderDetailId.item.itemId}
-                                </td>
-                                <td>
-                                    <span class="f-price">
-                                        &yen;${customVoItemsByOrderDetailId.item.itemPrice}
-                                    </span>
-                                </td>
-                                <td>${customVoItemsByOrderDetailId.itemNum}</td>
-                                <td>
-                                    <div class="p-btns">
-                                        <!-- 根据订单类型屏蔽pop延保商品操作,只显示评价 -->
-                                        <a href="#"
-                                           target="_blank" class="link-btn mt10">申请售后
-                                        </a><br>
-                                        <span id="iwo655" class="flk13">
-                                                     <a href="//huishou.jd.com" target="_blank"
-                                                        class="link-btn mt10">回收旧机
-                                                     </a><br>
-                                                </span>
-                                        <!-- 非下柜商品才有【立即购买】功能-->
-                                    </div>
-                                </td>
-                                <td class="grap"></td>
-                            </tr>
-                            </c:forEach>
-                        </table>
-                    </div>
-
-                    <!-- 金额 -->
-                    <div class="goods-total">
-                        <ul>
-                            <li>
-                                <span class="label">商品总额：</span>
-                                <span class="txt">&yen;${customVoAddressDetail.orders.orderSumPrice}</span>
-                            </li>
-                            <li>
-                                <span class="label">赠送积分：</span>
-                                <span class="txt">${customVoAddressDetail.orders.sendScore}</span>
-                            </li>
-                            <li>
-                                <span class="label">返　　现：</span>
-                                <span class="txt">-&yen;0.00</span>
-                            </li>
-                            <li>
-                                <span class="label">运　　费：</span>
-                                <span class="txt">
-                                        &yen;${customVoAddressDetail.orders.orderFreight}
-                                    </span>
-                            </li>
-                            <li class="ftx-01">
-                                <span class="label">应付总额：</span>
-                                <span class="txt count">&yen;${customVoAddressDetail.orders.orderSumPrice}</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
+        <!--底部-->
+        <jsp:include page="/public/common/tail.jsp"/>
     </div>
+    <jsp:include page="/public/common/personalMenu.jsp"/>
 </div>
+
 </body>
+
 </html>

@@ -21,17 +21,11 @@ public class OrderController {
     @Qualifier("userService")
     private IUserService userService;
 
-    @RequestMapping("allOrder")
-    public String allOrder(String userUuid, Model model)throws Exception{
-        Orders orders = new Orders();
-        orders.setUserUuid(userUuid);
-        List<CustomVoOrdersByUserUuidAndStatus> customVoItemsByOrderIds =userService.queryOrdersByUserUuidAndStatus(orders);
-//        List<CustomVoItemsByOrderId> customVoItemsByOrderIds = userService.selectItemsByOrderId(userUuid);
-        System.out.println(customVoItemsByOrderIds);
-        model.addAttribute("customVoItemsByOrderIds",customVoItemsByOrderIds);
-        return "persons/order1";
-    }
-
+    /**
+     * 订单详情
+     * @param orderId 订单ID
+     * @return 订单详情页
+     */
     @RequestMapping("orderDetail")
     public String orderDetail(Integer orderId, Model model)throws Exception{
 //        String userUuid = (String) session.getAttribute("uuid");
@@ -41,8 +35,14 @@ public class OrderController {
             model.addAttribute("customVoAddressDetail",customVoAddressDetail);
         return "persons/orderDetail";
     }
+
+    /**
+     * 订单管理
+     * @param session 获取用户ID
+     * @return 所有订单信息
+     */
     @RequestMapping("order")
-    public String order(HttpSession session,Integer status,Model model)throws Exception{
+    public String order(HttpSession session,Model model)throws Exception{
         CustomVoOrders customVoOrders = new CustomVoOrders();
         String userUuid = (String) session.getAttribute("uuid");
         Orders orders = new Orders();
@@ -78,6 +78,27 @@ public class OrderController {
         customVoOrders.setDiscussStatus(userService.queryOrdersByUserUuidAndStatus(discussOrders));
 
         model.addAttribute("customVoOrders",customVoOrders);
-        return "persons/order1";
+        return "persons/order";
+    }
+
+    /**
+     * 订单售后(退款退货)
+     * @param session 获取用户ID
+     * @param orderId 订单ID
+     * @return 订单售后页面
+     */
+    @RequestMapping("orderChange")
+    public String orderChange(HttpSession session,Integer orderId,Model model)throws Exception{
+        Orders ordersChange = new Orders();
+        ordersChange.setUserUuid((String) session.getAttribute("uuid"));
+        ordersChange.setOrderId(orderId);
+        ordersChange.setProtectStatus(0);
+        ordersChange.setSendStatus(1);
+        ordersChange.setPayStatus(1);
+        ordersChange.setDiscussStatus(1);
+        ordersChange.setTakeGoodsStatus(1);
+        List<CustomVoOrdersByUserUuidAndStatus> customVoOrdersByUserUuidAndStatuses =userService.queryOrdersByUserUuidAndStatus(ordersChange);
+        model.addAttribute("customVoOrdersByUserUuidAndStatuses",customVoOrdersByUserUuidAndStatuses);
+        return "persons/orderChange";
     }
 }

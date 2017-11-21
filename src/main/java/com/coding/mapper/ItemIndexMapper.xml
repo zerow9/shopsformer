@@ -16,11 +16,23 @@
     from item_index
     where index_Id = #{indexId,jdbcType=INTEGER}
   </select>
+  <!--查询所有信息-->
+  <select id="selectItemIndexAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from item_index
+  </select>
   <!--根据主键删除-->
   <delete id="deleteItemIndexByPrimaryKey" parameterType="java.lang.Integer" >
     delete from item_index
     where index_Id = #{indexId,jdbcType=INTEGER}
   </delete>
+
+  <!--删除所有-->
+  <delete id="deleteItemIndexAll">
+    truncate TABLE item_index
+  </delete>
+
   <!--根据主键按需插入-->
   <insert id="insertItemIndexSelective" parameterType="com.coding.pojo.ItemIndex" >
     insert into item_index
