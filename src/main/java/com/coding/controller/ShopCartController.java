@@ -2,6 +2,7 @@ package com.coding.controller;
 
 import com.coding.Iservice.IUserService;
 import com.coding.paging.PagingCustomCart;
+import com.coding.paging.PagingCustomCollect;
 import com.coding.pojo.Cart;
 import com.coding.pojo.CartDetail;
 import com.coding.pojo.Collect;
@@ -108,14 +109,28 @@ public class ShopCartController {
     public String addCollection(Integer id,HttpServletRequest request) {
         Collect collect=new Collect();
         String uuid=(String) request.getSession().getAttribute("uuid");
+        collect.setUserUuid(uuid);
+        collect.setItemId(id);
+
         // 查询商品信息
         try {
-            Item item=userService.selectItemByPrimaryKey(id);
-            collect.setUserUuid(uuid);
-            collect.setCollectItemVender(item.getMakeVender());
-            collect.setItemId(id);
-            collect.setCollectTime(new Date());
 
+            //检查收藏表中是否存在数据
+            try{
+                PagingCustomCollect pagingCustomCollect=new PagingCustomCollect();
+                pagingCustomCollect.setCollect(collect);
+                List<Collect> collect1=userService.selectCollect(pagingCustomCollect);
+                if (collect1.size()>0){
+                    return "err";
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+            //添加收藏
+            Item item=userService.selectItemByPrimaryKey(id);
+            collect.setCollectItemVender(item.getMakeVender());
+            collect.setCollectTime(new Date());
             userService.insertCollectSelective(collect);
 
         } catch (Exception e) {

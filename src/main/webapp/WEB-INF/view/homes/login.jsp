@@ -86,23 +86,26 @@
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
             },
+            verbose: false,
             fields: {
                 username: {
+                    trigger: 'blur',
                     validators: {
                         notEmpty: {
                             message: '邮箱地址不能为空！'
-                        },
-                        emailAddress: {
-                            message: '邮箱地址不正确！'
                         },
                         stringLength: {
                             min: 4,
                             max: 30,
                             message: '邮箱地址长度应为4到30位'
+                        },
+                        emailAddress: {
+                            message: '邮箱地址不正确！'
                         }
                     }
                 },
                 password: {
+                    trigger: 'blur',
                     validators: {
                         notEmpty: {
                             message: '密码不能为空！'

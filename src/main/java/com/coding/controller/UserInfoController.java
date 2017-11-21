@@ -3,15 +3,14 @@ package com.coding.controller;
 import com.coding.Iservice.IAdminService;
 import com.coding.comomInterface.DateToString;
 import com.coding.comomInterface.MessageTools;
+import com.coding.comomInterface.MyThread;
 import com.coding.comomInterface.MyUUID;
 import com.coding.paging.PagingCustomUser;
 import com.coding.pojo.User;
-import org.apache.ibatis.annotations.ResultMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,7 +19,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("user")
@@ -52,14 +50,15 @@ public class UserInfoController {
         return "forward:userInfo";
     }
 
+    @ResponseBody
     @RequestMapping("addUser")
-    public ModelAndView addUser(String emailCode, String userEmail, String password, HttpSession session) throws Exception {
+    public Map<String, Object> addUser(String emailCode, String email, String password, HttpSession session) throws Exception {
         User user = new User();
         Map<String, Object> result = new HashMap<>();
         Object sessionEmailCode = session.getAttribute("emailCode");
         if (sessionEmailCode != null) {
             if (emailCode.equals(sessionEmailCode.toString())) {
-                user.setUserEmail(userEmail);
+                user.setUserEmail(email);
                 user.setUserPassword(password);
                 user.setUserUuid(MyUUID.randomUUID());
                 user.setUserGroup(2);
@@ -70,8 +69,10 @@ public class UserInfoController {
                 user.setUserLandIp(InetAddress.getLocalHost().getHostAddress());
                 try {
                     adminService.insertUserSelective(user);
+                    result.put("status","true");
                     result.put("msg", "true");
-                    return new ModelAndView("/homes/login",result);
+                    result.put("url", "/user/login");
+                    return result;
                 } catch (Exception e) {
                     result.put("msg", e.getMessage());
                 }
@@ -81,7 +82,8 @@ public class UserInfoController {
         } else {
             result.put("msg", "请先获取到验证码！");
         }
-        return new ModelAndView("/homes/register",result);
+        result.put("status","false");
+        return result;
     }
 
     @ResponseBody
@@ -98,6 +100,9 @@ public class UserInfoController {
             session.setAttribute("emailCode", integer);
             result.put("status", "true");
             result.put("msg", "验证码已发送到你的邮箱：" + email + "请注意查收。");
+            MyThread myThread=new MyThread();
+            myThread.setSession(session);
+            myThread.start();
         } catch (Exception e) {
             result.put("status", "false");
             result.put("msg", e.getMessage());

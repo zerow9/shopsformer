@@ -44,16 +44,16 @@ $(document).ready(function () {
 
 //    表单输入验证
     $('#register-form').bootstrapValidator({
-        container: 'popover',//气泡提示；默认为label提示
+        // container: 'popover',//气泡提示；默认为label提示
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
             validating: 'glyphicon glyphicon-refresh'
         },
-        // verbose: false,     //	当一个字段有多个验证器时，对这个字段的验证将在遇到第一个遇到的错误时终止。因此，只有与该字段相关的第一个错误消息才会显示给用户
+        verbose: false,     //	当一个字段有多个验证器时，对这个字段的验证将在遇到第一个遇到的错误时终止。因此，只有与该字段相关的第一个错误消息才会显示给用户
         fields: {
             email: {
-                // trigger: 'blur',//触发器：当用户焦点离开该字段后，开始验证
+                trigger: 'blur',//触发器：当用户焦点离开该字段后，开始验证
                 validators: {
                     notEmpty: {
                         message: '邮箱地址不能为空！'
@@ -84,6 +84,7 @@ $(document).ready(function () {
                 }
             },
             emailCode: {
+                trigger: 'blur',
                 validators: {
                     notEmpty: {
                         message: '验证码不能为空！'
@@ -96,6 +97,7 @@ $(document).ready(function () {
                 }
             },
             password: {
+                trigger: 'blur',
                 enabled: true,  // 是否开始该字段验证，默认：是
                 validators: {
                     notEmpty: {
@@ -109,6 +111,7 @@ $(document).ready(function () {
                 }
             },
             confirm_password: {
+                trigger: 'blur',
                 enabled: true,
                 validators: {
                     notEmpty: {
@@ -150,10 +153,21 @@ $(document).ready(function () {
                 url: '/user/addUser',
                 data: $form.serialize(),
                 success: function (result) {
-                    console.log('成功数据' + result.msg);
+                    if (result.status === 'true') {
+                        $modal.find(".modal-body").text('恭喜你，注册成功！');
+                        $modal.modal();
+                        setTimeout(function () {
+                            window.location.href = result.url;
+                        }, 3000)
+                    } else {
+                        $modal.find(".modal-body").text(result.msg);
+                        $modal.modal();
+                    }
                 },
                 error: function (result) {
                     console.log('错误数据' + result.msg);
+                    $modal.find(".modal-body").text('注册失败：' + result.msg);
+                    $modal.modal();
                 },
                 dataType: 'json'
             });
