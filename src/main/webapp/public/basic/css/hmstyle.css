@@ -1805,7 +1805,7 @@ dt + dd {
     .category-content .menu-item.bottom {
         bottom: -2px;
         *bottom: -6px;
-        -*bottom: -7px;
+        /*-*bottom: -7px;*/
     }
 
     .am-dimmer {
