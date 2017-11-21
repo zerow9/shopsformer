@@ -55,7 +55,7 @@ public class IndexService implements IindexItemService{
         doc.add(new Field("name",fields.getItemName(),Field.Store.YES,Field.Index.ANALYZED));
         doc.add(new Field("keyword",fields.getKeyWord(),Field.Store.YES,Field.Index.ANALYZED));
         doc.add(new Field("images",fields.getItemImages(),Field.Store.YES,Field.Index.NOT_ANALYZED_NO_NORMS));
-        doc.add(new Field("introduce",fields.getItemIntroduce(),Field.Store.NO,Field.Index.NOT_ANALYZED_NO_NORMS));
+        doc.add(new Field("introduce",fields.getItemIntroduce(),Field.Store.NO,Field.Index.ANALYZED_NO_NORMS));
         doc.add(new NumericField("price",Field.Store.YES,true).setDoubleValue(fields.getItemMarketPrice()));
         return doc;
     }
@@ -165,7 +165,7 @@ public class IndexService implements IindexItemService{
             addIndex(item,false);
         }
         LuceneContext.getInstance().commitIndex();
-
+        indexMapper.deleteItemIndexAll();
     }
 
 

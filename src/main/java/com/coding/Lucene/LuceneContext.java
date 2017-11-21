@@ -12,7 +12,7 @@ import org.apache.lucene.util.Version;
 import java.io.File;
 import java.io.IOException;
 
-public  class  LuceneContext {
+public class LuceneContext {
     private  static  LuceneContext instance;
     private static IndexWriter writer;
     private static  Analyzer analyzer ;
@@ -30,12 +30,13 @@ public  class  LuceneContext {
     }
 
     //单列初始化操作
-    private static final void init() throws IOException {
-        directory = FSDirectory.open(new File("D:\\lucene\\coding"));
+    private static void init() throws IOException {
+        String dicUrl = new File(".").getCanonicalPath()+File.separator+"index";
+//        System.out.println(dicUrl);
+        directory = FSDirectory.open(new File(dicUrl));
         version = Version.LUCENE_35;
-        String dicUrl = new File(".").getCanonicalPath()+File.separator+"data";
         analyzer = new StandardAnalyzer(version);
-        if(writer==null)
+        if(writer == null)
         writer = new IndexWriter(directory,new IndexWriterConfig(version,analyzer));
         nrtManager = new NRTManager(writer, new SearcherWarmer() {
             public void warm(IndexSearcher indexSearcher) throws IOException {
