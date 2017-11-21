@@ -269,6 +269,13 @@ public interface IUserService {
     public void insertOrderSelective(Orders order)throws Exception;
 
     /**
+     * 按需插入订单信息并返回ID
+     * @param order 封装了订单信息的 Orders 类对象
+     * @throws Exception 无效sql、sql异常
+     */
+    public int insertOrderSelectiveReturnId(Orders order)throws Exception;
+
+    /**
      * 根据订单ID查询订单信息
      * @param orderId 订单ID
      * @return 符合查询条件的 Orders 类对象

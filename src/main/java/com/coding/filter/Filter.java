@@ -15,7 +15,7 @@ public class Filter {
      * @return
      */
     //<!------------------------------------控制排序规则 SQL Injection------------------------------------------->
-    public static Paging PreventSqlInjection(Paging pagingCustom, String[] strArrayColumn) {
+    public static Paging preventSqlInjection(Paging pagingCustom, String[] strArrayColumn) {
 
         boolean tmpColumn = false;
         boolean tmpRule = false;
@@ -56,7 +56,7 @@ public class Filter {
         for (int j = 0; j < field.length; j++) {     //遍历所有属性
             String name = field[j].getName();    //获取属性的名字
 
-            System.out.println("attribute name:" + name);
+            //System.out.println("attribute name:" + name);
             name = name.substring(0, 1).toUpperCase() + name.substring(1); //将属性的首字符大写，方便构造get，set方法
             String type = field[j].getGenericType().toString();    //获取属性的类型
 

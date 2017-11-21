@@ -143,7 +143,7 @@
     where order_id = #{orderId,jdbcType=INTEGER}
   </update>
   <!--按需插入订单信息-->
-  <insert id="insertOrderSelective" parameterType="com.coding.pojo.Orders" >
+  <insert id="insertOrderSelective" parameterType="com.coding.pojo.Orders" keyProperty="orderId" useGeneratedKeys="true">
     insert into orders
     <trim prefix="(" suffix=")" suffixOverrides="," >
 <!--      <if test="orderId != null" >

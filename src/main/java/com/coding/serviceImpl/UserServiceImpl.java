@@ -6,9 +6,11 @@ import com.coding.CustomVo.CustomVoItemsByOrderId;
 import com.coding.CustomVo.CustomVoOrdersByUserUuidAndStatus;
 import com.coding.Iservice.IUserService;
 import com.coding.comomInterface.ErrorExc;
+import com.coding.filter.Filter;
 import com.coding.mapper.*;
 import com.coding.paging.*;
 import com.coding.pojo.*;
+import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,6 +52,8 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertUser(User user) throws Exception {
         try {
+            //对数据进行过滤
+            user = (User) Filter.filterObject(user);
             userMapper.insertUser(user);
         } catch (Exception e) {
             throw new Exception("插入用戶信息时出錯");
@@ -59,6 +63,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertUserSelective(User user) throws Exception {
         try {
+            user = (User) Filter.filterObject(user);
             userMapper.insertUserSelective(user);
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,6 +75,8 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (userUuid != null && !userUuid.equals("")) {
             User user = userMapper.selectUserByPrimaryKey(userUuid);
             except(user, "用户查询为空");
+        //对结果集进行过滤
+            user = (User)Filter.filterObject(user);
             return user;
 
         }
@@ -79,6 +86,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void updateUserByPrimaryKey(User user) throws Exception {
         try {
+            //对数据进行过滤
+            user = (User)Filter.filterObject(user);
+
             except(userMapper.updateUserByPrimaryKey(user));
         } catch (Exception e) {
             if (!e.getMessage().contains("操作无效"))
@@ -92,7 +102,8 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void updateUserByPrimaryKeySelective(User user) throws Exception {
         try {
-
+            //对数据进行过滤
+            user = (User)Filter.filterObject(user);
             except(userMapper.updateUserByPrimaryKeySelective(user));
         } catch (Exception e) {
             if (!e.getMessage().contains("操作无效"))
@@ -111,6 +122,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     public List<String> selectUserPassword(String userPhone) throws Exception {
         if (userPhone != null && !userPhone.equals("")) {
+            //对数据进行清理
+            userPhone = Filter.stripXSS(userPhone);
+
             List<String> passwords = userMapper.selectUserPassword(userPhone);
             if (passwords.isEmpty()) throw new Exception("查询到的密码列表返回为空");
             return passwords;
@@ -120,6 +134,8 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     public Boolean registerUserPasswordByPhone(String userPhone) throws Exception {
         if (userPhone != null && !userPhone.equals("")) {
+            //对数据进行清理
+            userPhone = Filter.stripXSS(userPhone);
             User user = userMapper.selectUserByPhone(userPhone);
             if (user != null)
                 return false;
@@ -127,7 +143,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return true;
     }
 
-    /*------------------------------------------收获地址表------------------------------------------------------------------*/
+    /*------------------------------------------收货地址表------------------------------------------------------------------*/
     @Transactional(rollbackFor = Exception.class)
     public void deleteAddressByPrimaryKey(Integer addressId) throws Exception {
         if (addressId != null && addressId != 0) {
@@ -145,6 +161,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertAddress(Address address) throws Exception {
         try {
+            address = (Address) Filter.filterObject(address);
             addressMapper.insertAddress(address);
         } catch (Exception e) {
             throw new Exception("插入收获地址时出错");
@@ -155,6 +172,11 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (addressId != null && addressId != 0) {
             Address address = addressMapper.selectAddressByPrimaryKey(addressId);
             except(address, "收货地址查询为空");
+
+         //过滤从数据库中拿出的畸形数据
+            if(address != null){
+                address =(Address) Filter.filterObject(address);
+            }
             return address;
         }
         return null;
@@ -163,6 +185,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void updateAddressByPrimaryKey(Address address) throws Exception {
         try {
+            //过滤畸形数据
+            address = (Address)Filter.filterObject(address);
+
             except(addressMapper.updateAddressByPrimaryKey(address));
         } catch (Exception e) {
             if (!e.getMessage().contains("操作无效"))
@@ -174,8 +199,15 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     public List<Address> selectAddressByUserID(String userUuid) throws Exception {
         if (userUuid != null && !userUuid.equals("")) {
+            //过滤字符串，防止sql Injection
+            userUuid = Filter.stripXSS(userUuid);
             List<Address> addresses = addressMapper.selectAddressByUserID(userUuid);
             if (addresses.isEmpty()) throw new Exception("用户收获地址查询为空");
+            //清洗结果集
+            for (Address address :
+                    addresses) {
+                address = (Address)Filter.filterObject(address);
+            }
             return addresses;
         }
         return null;
@@ -184,6 +216,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void updateAddressUserDefaultAddress(Address address) throws Exception {
         try {
+        //清洗数据
+            address = (Address)Filter.filterObject(address);
+
             except(addressMapper.updateAddressUserDefaultAddress(address));
         } catch (Exception e) {
             if (!e.getMessage().contains("操作无效"))
@@ -210,6 +245,8 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertComplaintSelective(Complaint complaint) throws Exception {
         try {
+            //清洗数据
+            complaint = (Complaint) Filter.filterObject(complaint);
             complaintMapper.insertComplaintSelective(complaint);
         } catch (Exception e) {
             throw new Exception("添加投诉信息时出错");
@@ -217,9 +254,12 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void updateComplaintByPrimaryKeySelective(Complaint record) throws Exception {
+    public void updateComplaintByPrimaryKeySelective(Complaint complaint) throws Exception {
         try {
-            except(complaintMapper.updateComplaintByPrimaryKeySelective(record));
+            //清洗数据
+            complaint = (Complaint)Filter.filterObject(complaint);
+
+            except(complaintMapper.updateComplaintByPrimaryKeySelective(complaint));
         } catch (Exception e) {
             if (!e.getMessage().contains("操作无效"))
                 throw new Exception("修改投诉信息时出错");
@@ -231,6 +271,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (complaintId != null && complaintId != 0) {
             Complaint complaint = complaintMapper.selectComplaintByPrimaryKey(complaintId);
             except(complaint, "查询用户投诉信息为空");
+            //清洗结果集
+            complaint = (Complaint)Filter.filterObject(complaint);
+
             return complaint;
         }
         return null;
@@ -238,8 +281,20 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     public List<Complaint> selectComplaint(PagingCustomComplaint pagingCustomComplaint) throws Exception {
         try {
+            //对查询数据进行清洗
+            String[] strArrayColumn = complaintMapper.selectComplaintTableColumns().split(",");
+            pagingCustomComplaint = (PagingCustomComplaint) Filter.preventSqlInjection(pagingCustomComplaint,strArrayColumn);
+
+
             List<Complaint> complaints = complaintMapper.selectComplaint(pagingCustomComplaint);
             if (complaints.isEmpty()) throw new Exception("用户投诉信息查询为空");
+
+            //对结果集进行清洗
+            for (Complaint complaint :
+                    complaints) {
+                complaint = (Complaint)Filter.filterObject(complaint);
+            }
+
             return complaints;
         } catch (Exception e) {
             if (!e.getMessage().contains("投诉信息查询为空"))
@@ -253,6 +308,8 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (itemTypeId != null && itemTypeId != 0) {
             ItemType itemType = itemTypeMapper.selectItemTypeByPrimaryKey(itemTypeId);
             except(itemType, "查询商品类别为空");
+            //对结果集进行清洗
+            itemType = (ItemType)Filter.filterObject(itemType);
             return itemType;
         }
         return null;
@@ -261,13 +318,30 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     public List<ItemType> selectItemTypeAll() throws Exception {
         List<ItemType> itemTypes = itemTypeMapper.selectItemTypeAll();
         if (itemTypes.isEmpty()) throw new Exception("查询所有商品类别为空");
+        //对结果集进行清洗
+        for (ItemType itemType:
+             itemTypes) {
+            itemType = (ItemType)Filter.filterObject(itemType);
+        }
+
         return itemTypes;
     }
 
     public List<ItemType> selectItemType(PagingCustomItemType pagingCustomItemType) throws Exception {
         try {
+            //对查询条件进行清洗
+            String[] strArrayColumn = itemTypeMapper.selectItemTypeTableColumns().split(",");
+            pagingCustomItemType = (PagingCustomItemType) Filter.preventSqlInjection(pagingCustomItemType,strArrayColumn);
+
+
             List<ItemType> itemTypes = itemTypeMapper.selectItemType(pagingCustomItemType);
             if (itemTypes.isEmpty()) throw new Exception("查询到的商品类别列表为空");
+            //对结果集进行清洗
+            for (ItemType itemType:
+                 itemTypes) {
+                itemType = (ItemType)Filter.filterObject(itemType);
+            }
+
             return itemTypes;
         } catch (Exception e) {
             if (!e.getMessage().contains("商品类别列表为空"))
@@ -289,6 +363,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (itemId != null && itemId != 0) {
             Item item = itemMapper.selectItemByPrimaryKey(itemId);
             except(item, "查询商品时为空");
+            //对结果集进行清洗
+            item = (Item)Filter.filterObject(item);
+
             return item;
         }
         return null;
@@ -297,6 +374,12 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     public List<Item> selectItemAll() throws Exception {
         List<Item> items = itemMapper.selectItemAll();
         if (items.isEmpty()) throw new Exception("查询商品列表为空");
+        //对结果集清洗
+        for (Item item :
+                items) {
+            item = (Item)Filter.filterObject(item);
+        }
+
         return items;
     }
 
@@ -313,6 +396,12 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (itemTypeId != null && itemTypeId != 0) {
             List<Item> items = itemMapper.selectItemByItemType(itemTypeId);
             if (items.isEmpty()) throw new Exception("没有该商品类别的商品");
+            //对结果集进行清洗
+            for (Item item :
+                    items) {
+                item = (Item)Filter.filterObject(item);
+            }
+
             return items;
         }
         return null;
@@ -322,6 +411,11 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (fuzzyItemName != null && sortRule != null && sortColumn != null) {
             List<Item> items;
             try {
+                //数据清洗
+                sortColumn = Filter.stripXSS(sortColumn);
+                sortRule = Filter.stripXSS(sortRule);
+                fuzzyItemName = Filter.stripXSS(fuzzyItemName);
+
                 items = itemMapper.selectItemFuzzyByItemNameSort(fuzzyItemName, sortRule, sortColumn);
             } catch (Exception e) {
                 throw new Exception("商品参数错误，请检查重试");
@@ -332,10 +426,18 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return null;
     }
 
-    public List<Item> selectItem(PagingCustomItem paging) throws Exception {
+    public List<Item> selectItem(PagingCustomItem pagingCustomItem) throws Exception {
         try {
-            List<Item> items = itemMapper.selectItem(paging);
+            //对查询条件进行清洗
+            pagingCustomItem = (PagingCustomItem) Filter.filterObject(pagingCustomItem);
+
+            List<Item> items = itemMapper.selectItem(pagingCustomItem);
             if (items.isEmpty()) throw new Exception("查询到的商品列表为空");
+            //对结果集进行清洗
+            for (Item item :
+                    items) {
+                item = (Item)Filter.filterObject(item);
+            }
             return items;
         } catch (Exception e) {
             if (!e.getMessage().contains("商品列表为空"))
@@ -381,7 +483,21 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertOrderSelective(Orders order) throws Exception {
         try {
+            //对数据集进行清洗，防止xss
+            order = (Orders) Filter.filterObject(order);
             ordersMapper.insertOrderSelective(order);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("添加订单时出错");
+        }
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public int insertOrderSelectiveReturnId(Orders order) throws Exception {
+        try {
+            order = (Orders) Filter.filterObject(order);
+            ordersMapper.insertOrderSelective(order);
+            return order.getOrderId();
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception("添加订单时出错");
@@ -392,6 +508,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (orderId != null && orderId != 0) {
             Orders orders = ordersMapper.selectOrderByPrimaryKey(orderId);
             except(orders, "根据订单ID查询订单为空");
+            //对结果集进行清洗
+            orders = (Orders)Filter.filterObject(orders);
+
             return orders;
         }
         return null;
@@ -399,8 +518,18 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     public List<Orders> selectOrder(PagingCustomOrder pagingCustomOrder) throws Exception {
         try {
+            //对查询条件进行清洗
+            String[] strArrayColumn = ordersMapper.selectOrdersTableColumns().split(",");
+            pagingCustomOrder = (PagingCustomOrder)Filter.preventSqlInjection(pagingCustomOrder,strArrayColumn);
+
             List<Orders> orders = ordersMapper.selectOrder(pagingCustomOrder);
             if (orders.isEmpty()) throw new Exception("查询到的订单列表为空");
+            //对结果集进行清洗
+            for (Orders order :
+                    orders) {
+                order = (Orders)Filter.filterObject(order);
+            }
+
             return orders;
         } catch (Exception e) {
             if (!e.getMessage().contains("订单列表为空"))
@@ -423,6 +552,10 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
             orders.setUserUuid(userUuid);
             pagingCustomOrder.setOrder(orders);
+            //对查询条件进行清洗
+            String[] strArrayColumn = ordersMapper.selectOrdersTableColumns().split(",");
+            pagingCustomOrder = (PagingCustomOrder)Filter.preventSqlInjection(pagingCustomOrder,strArrayColumn);
+
             List<Orders> orders1 = ordersMapper.selectOrder(pagingCustomOrder);
             if (!orders1.isEmpty()) {
                 for (Orders ord : orders1) {
@@ -434,6 +567,10 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
                     customVoItemsByOrderId.setOrderFreight(ord.getOrderFreight());
                     orderDetail.setOrderId(ord.getOrderId());
                     pagingCustomOrderDetail.setOrderDetail(orderDetail);
+                    //对查询条件进行清洗
+                    String[] strArrayColumn1 = orderDetailMapper.selectOrderDetailTableColumns().split(",");
+                    pagingCustomOrderDetail = (PagingCustomOrderDetail)Filter.preventSqlInjection(pagingCustomOrderDetail,strArrayColumn1) ;
+
                     List<OrderDetail> orderDetails = orderDetailMapper.selectOrderDetail(pagingCustomOrderDetail);
                     if (!orderDetails.isEmpty()) {
                         for (OrderDetail orderdet : orderDetails) {
@@ -459,6 +596,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             List<CustomVoItemsByOrderDetailId> customVoItemsByOrderDetailIds = new ArrayList<CustomVoItemsByOrderDetailId>();
 
             Orders orders = ordersMapper.selectOrderByPrimaryKey(orderId);
+            orders = (Orders)Filter.filterObject(orders);
             customVoAddressDetail.setOrders(orders);  //set orders
             Address address = addressMapper.selectAddressByPrimaryKey(orders.getAddressId());
             customVoAddressDetail.setAddress(address); // set address
@@ -468,6 +606,10 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setOrderId(orders.getOrderId());
             pagingCustomOrderDetail.setOrderDetail(orderDetail);
+        // <------------------------------下面的是对Paging对象进行数据过滤，防止SQL Injection-------------------------------->
+            String[] strArrayColumn = orderDetailMapper.selectOrderDetailTableColumns().split(",");
+            pagingCustomOrderDetail = (PagingCustomOrderDetail) Filter.preventSqlInjection(pagingCustomOrderDetail,strArrayColumn);
+        // <------------------------------上面的是对Paging对象进行数据过滤，防止SQL Injection-------------------------------->
             List<OrderDetail> orderDetails = orderDetailMapper.selectOrderDetail(pagingCustomOrderDetail);
 
             if (!orderDetails.isEmpty()) {
@@ -496,6 +638,10 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             OrderDetail orderDetail = new OrderDetail();
 
             pagingCustomOrder.setOrder(orders);
+            // <------------------------------下面的是对Paging对象进行数据过滤，防止SQL Injection-------------------------------->
+            String[] strArrayColumn = ordersMapper.selectOrdersTableColumns().split(",");
+            pagingCustomOrder = (PagingCustomOrder) Filter.preventSqlInjection(pagingCustomOrder,strArrayColumn);
+            // <------------------------------上面的是对Paging对象进行数据过滤，防止SQL Injection-------------------------------->
             List<Orders> orders1 = ordersMapper.selectOrder(pagingCustomOrder);
             if (!orders1.isEmpty()) {
                 for (Orders ord : orders1) {
@@ -527,6 +673,8 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (orderDetailId != null && orderDetailId != 0) {
             OrderDetail orderDetail = orderDetailMapper.selectOrderDetailByPrimaryKey(orderDetailId);
             except(orderDetail, "根据订单ID查询订单为空");
+            //对结果集进行清洗
+            orderDetail = (OrderDetail)Filter.filterObject(orderDetail);
             return orderDetail;
         }
         return null;
@@ -561,6 +709,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertOrderDetailSelective(OrderDetail orderDetail) throws Exception {
         try {
+            //对数据进行清洗
+            orderDetail = (OrderDetail) Filter.filterObject(orderDetail);
+
             orderDetailMapper.insertOrderDetailSelective(orderDetail);
         } catch (Exception e) {
             throw new Exception("添加订单详情时出错");
@@ -569,8 +720,17 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     public List<OrderDetail> selectOrderDetail(PagingCustomOrderDetail pagingCustomOrderDetail) throws Exception {
         try {
+            //对查询条件进行清洗
+            pagingCustomOrderDetail = (PagingCustomOrderDetail) Filter.filterObject(pagingCustomOrderDetail);
+
             List<OrderDetail> orderDetails = orderDetailMapper.selectOrderDetail(pagingCustomOrderDetail);
             if (orderDetails.isEmpty()) throw new Exception("查询到的商品详情列表为空");
+            //对结果集进行清洗
+            for (OrderDetail orderDetail :
+                    orderDetails) {
+                orderDetail = (OrderDetail)Filter.filterObject(orderDetail);
+            }
+
             return orderDetails;
         } catch (Exception e) {
             if (!e.getMessage().contains("商品详情列表为空"))
@@ -584,8 +744,12 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         for (Integer orderDetailId : orderDetailsId) {
             PagingCustomItemByOrderDetail pagingCustomOrdersList = new PagingCustomItemByOrderDetail();
             OrderDetail orderDetail = orderDetailMapper.selectOrderDetailByPrimaryKey(orderDetailId);
+            //对结果集进行清洗
+            orderDetail = (OrderDetail)Filter.filterObject(orderDetail);
+
             pagingCustomOrdersList.setItmeNum(orderDetail.getItemNumber());
             pagingCustomOrdersList.setOrdersId(orderDetail.getOrderId());
+
             pagingCustomOrdersList.setItem(itemMapper.selectItemByPrimaryKey(orderDetail.getItemId()));
             pagingCustomOrdersLists.add(pagingCustomOrdersList);
         }
@@ -598,6 +762,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (noticeId != null && noticeId != 0) {
             Notice notice = noticeMapper.selectNoticeByPrimaryKey(noticeId);
             except(notice, "根据公告ID查询公告为空");
+            //结果集进行清洗
+            notice = (Notice)Filter.filterObject(notice);
+
             return notice;
         }
         return null;
@@ -605,8 +772,17 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     public List<Notice> selectNotice(PagingCustomNotice pagingCustomNotice) throws Exception {
         try {
+            //对查询条件进行清洗
+            String[] strArrayColumn = noticeMapper.selectNoticeTableColumns().split(",");
+            pagingCustomNotice = (PagingCustomNotice) Filter.preventSqlInjection(pagingCustomNotice,strArrayColumn);
+
             List<Notice> notices = noticeMapper.selectNotice(pagingCustomNotice);
             if (notices.isEmpty()) throw new Exception("查询到的公告列表为空");
+            //对结果集进行清洗
+            for (Notice notice :
+                    notices) {
+                notice = (Notice)Filter.filterObject(notice);
+            }
             return notices;
         } catch (Exception e) {
             if (!e.getMessage().contains("公告列表为空"))
@@ -697,10 +873,12 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
                 score.setScoreCurrent(scoreNow.getScoreCurrent() + score.getCoreDetail());
                 if (score.getCoreDetail() > 0) score.setScoreTatol(scoreNow.getScoreTatol() + score.getCoreDetail());
                 else score.setScoreTatol((scoreNow.getScoreTatol()));
+                score = (Score) Filter.filterObject(score);
                 scoreMapper.insertScoreSelective(score);
             } else {
                 score.setScoreCurrent(score.getCoreDetail());
                 score.setScoreTatol(score.getCoreDetail());
+                score = (Score) Filter.filterObject(score);
                 scoreMapper.insertScoreSelective(score);
             }
         } catch (Exception e) {
@@ -768,6 +946,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertCartSelective(Cart cart) throws Exception {
         try {
+            cart = (Cart)Filter.filterObject(cart);
             cartMapper.insertCartSelective(cart);
         } catch (Exception e) {
             throw new Exception("添加购物车时出错");
@@ -778,6 +957,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (cartId != null && cartId != 0) {
             Cart cart = cartMapper.selectCartByPrimaryKey(cartId);
             except(cart, "根据购物车ID查询购物车为空");
+         // <-------------对查询出的结果进行数据清理----------->
+            cart = (Cart)Filter.filterObject(cart);
+
             return cart;
         }
         return null;
@@ -793,8 +975,17 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     public List<Cart> selectCart(PagingCustomCart pagingCustomCart) throws Exception {
         try {
+        //  <-----------------------------对数据进行过滤,防止SQL Injection------------------------------->
+            String[] strArrayColumn = cartMapper.selectCartTableColumns().split(",");
+            pagingCustomCart =(PagingCustomCart) Filter.preventSqlInjection(pagingCustomCart,strArrayColumn);
+
             List<Cart> carts = cartMapper.selectCart(pagingCustomCart);
             if (carts.isEmpty()) throw new Exception("查询到的购物车列表为空");
+         // <------------------------------对数据进行过滤，防止XSS----------------------------------------------------------->
+            for (Cart cart:
+                 carts) {
+                cart = (Cart) Filter.filterObject(cart);
+            }
             return carts;
         } catch (Exception e) {
             if (!e.getMessage().contains("购物车列表为空"))
@@ -843,6 +1034,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertCollectSelective(Collect collect) throws Exception {
         try {
+            collect = (Collect) Filter.filterObject(collect);
             collectMapper.insertCollectSelective(collect);
         } catch (Exception e) {
             throw new Exception("添加收藏商品时出错");
@@ -853,6 +1045,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (collectId != null && collectId != 0) {
             Collect collect = collectMapper.selectCollectByPrimaryKey(collectId);
             except(collect, "根据收藏ID查询收藏商品为空");
+
+        // 对结果集进行数据过滤
+            collect = (Collect)Filter.filterObject(collect);
             return collect;
         }
         return null;
@@ -868,8 +1063,16 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
     public List<Collect> selectCollect(PagingCustomCollect pagingCustomCollect) throws Exception {
         try {
+
+        //  <------------------对查询条件进行过滤------------------------>
             List<Collect> collects = collectMapper.selectCollect(pagingCustomCollect);
+
             if (collects.isEmpty()) throw new Exception("查询到的收藏列表为空");
+        //  <------------------对结果集进行过滤---------------------------------------->
+            for (Collect collect :
+                    collects) {
+                collect = (Collect)Filter.filterObject(collect);
+            }
             return collects;
         } catch (Exception e) {
             if (!e.getMessage().contains("收藏列表为空"))
@@ -881,6 +1084,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void updateCollectByPrimaryKeySelective(Collect collect) throws Exception {
         try {
+        //  <----------------对数据进行过滤，防止XSS------------------>
+            collect = (Collect)Filter.filterObject(collect);
+
             except(collectMapper.updateCollectByPrimaryKeySelective(collect));
         } catch (Exception e) {
             if (!e.getMessage().contains("操作无效"))
@@ -907,6 +1113,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertDiscussSelective(Discuss discuss) throws Exception {
         try {
+            //对数据进行过滤
+            discuss = (Discuss) Filter.filterObject(discuss);
+
             discussMapper.insertDiscussSelective(discuss);
         } catch (Exception e) {
             throw new Exception("添加评论信息时出错");
@@ -917,6 +1126,8 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (discussId != null && discussId != 0) {
             Discuss discuss = discussMapper.selectDiscussByPrimaryKey(discussId);
             except(discuss, "根据评论ID查询评论信息为空");
+        //对结果集进行过滤
+            discuss = (Discuss)Filter.filterObject(discuss);
             return discuss;
         }
         return null;
@@ -934,6 +1145,12 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         try {
             List<Discuss> discusses = discussMapper.selectDiscuss(pagingCustomDiscuss);
             if (discusses.isEmpty()) throw new Exception("查询到的评论列表为空");
+        //对结果集进行过滤
+            for (Discuss discuss:
+                 discusses) {
+                discuss = (Discuss)Filter.filterObject(discuss);
+            }
+
             return discusses;
         } catch (Exception e) {
             if (!e.getMessage().contains("评论列表为空"))
@@ -945,6 +1162,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public void updateDiscussByPrimaryKeySelective(Discuss discuss) throws Exception {
         try {
+            discuss = (Discuss)Filter.filterObject(discuss);
             except(discussMapper.updateDiscussByPrimaryKeySelective(discuss));
         } catch (Exception e) {
             if (!e.getMessage().contains("操作无效"))
