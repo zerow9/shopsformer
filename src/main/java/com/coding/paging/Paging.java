@@ -1,5 +1,8 @@
 package com.coding.paging;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Paging {
     // x是当前页数，y是每页显示的个数
     protected Integer indexNumber;//分页功能中 当前所在页的开始数（不是单纯的页数，是计算后的数值 (x-1)*y+1）
@@ -13,6 +16,11 @@ public class Paging {
     protected String sortRule;//排序规则 ASC:升序  DESC：降序
 
     protected String tableName;//用来获取表的所有字段
+
+    public String dateToString(Date date){
+        return (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(date);
+    }
+
 
     public String getTableName() {
         return tableName;

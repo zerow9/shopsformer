@@ -50,7 +50,7 @@
                                     <label for="user-name" class="am-form-label">收货人</label>
                                     <div class="am-form-content">
                                         <input type="text" name="takeGoodsName" id="user-name" placeholder="收货人"
-                                               value="${address.takeGoodsName}">
+                                               style="border-radius: 4px" value="${address.takeGoodsName}">
                                     </div>
                                 </div>
 
@@ -58,7 +58,7 @@
                                     <label for="user-phone" class="am-form-label">手机号码</label>
                                     <div class="am-form-content">
                                         <input id="user-phone" name="addresseePhone" type="text" placeholder="手机号必填"
-                                               value="${address.addresseePhone}">
+                                               style="border-radius: 4px"    value="${address.addresseePhone}">
                                     </div>
                                 </div>
                                 <div class="am-form-group">
@@ -68,19 +68,19 @@
                                         <div data-toggle="distpicker">
                                             <div class="form-group">
                                                 <select class="form-control" id="province2"
-                                                        style="-webkit-border-radius:4px;"
+                                                        style="width:160px;border-radius:4px;"
                                                         name="takeGoodsProvince"
                                                         data-province="${address.takeGoodsProvince}"></select>
                                             </div>
                                             <div class="form-group">
                                                 <select class="form-control" id="city2"
-                                                        style="-webkit-border-radius:4px;"
+                                                        style="width:200px;border-radius:4px;margin-left:7px"
                                                         name="takeGoodsCity"
                                                         data-city="${address.takeGoodsCity}"></select>
                                             </div>
                                             <div class="form-group">
                                                 <select class="form-control" id="district2"
-                                                        style="-webkit-border-radius:4px;"
+                                                        style="width:185px;border-radius:4px;margin-left: 7px"
                                                         name="takeGoodsCounty"
                                                         data-district="${address.takeGoodsCounty}"></select>
                                             </div>
@@ -92,7 +92,7 @@
                                     <label for="user-intro" class="am-form-label">详细地址</label>
                                     <div class="am-form-content">
                                         <textarea class="" rows="3" id="user-intro" name="address"
-                                                  placeholder="输入详细地址">${address.address}</textarea>
+                                                  style="border-radius: 4px" placeholder="输入详细地址">${address.address}</textarea>
                                         <small>100字以内写出你的详细地址...</small>
                                     </div>
                                 </div>

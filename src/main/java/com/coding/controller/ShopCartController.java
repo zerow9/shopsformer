@@ -3,6 +3,10 @@ package com.coding.controller;
 import com.coding.Iservice.IUserService;
 import com.coding.paging.PagingCustomCart;
 import com.coding.pojo.Cart;
+import com.coding.pojo.CartDetail;
+import com.coding.pojo.Collect;
+import com.coding.pojo.Item;
+import constant.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -41,12 +47,29 @@ public class ShopCartController {
             PagingCustomCart pagingCustomCart = new PagingCustomCart();
             pagingCustomCart.setCart(seach);
             List<Cart> carts = userService.selectCart(pagingCustomCart);
-            model.addAttribute("carts",carts);
+
+            // 调用展示类列表
+            List<CartDetail> cartDetails=new ArrayList<CartDetail>();
+
+            //查询 Item 数据，并赋值给 List
+            for (Cart cart:carts){
+                CartDetail cartDetail=new CartDetail();
+                try{
+                Item item=userService.selectItemByPrimaryKey(cart.getItemId());
+                item.setItemImages(Constant.pictuePath+item.getItemImages());
+                cartDetail.setItem(item);
+                cartDetail.setUserUuid(uuid);
+                cartDetail.setCartId(cart.getCartId());
+                cartDetail.setItemNumber(cart.getItemNumber());
+                cartDetails.add(cartDetail);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            model.addAttribute("carts",cartDetails);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         return "homes/shopcart";
     }
 
@@ -73,6 +96,42 @@ public class ShopCartController {
             cart.setItemNumber(cart.getItemNumber()+1);
             userService.updateCartByPrimaryKeySelective(cart);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
+    }
+
+    @RequestMapping("addCollection")
+    @ResponseBody
+    public String addCollection(Integer id,HttpServletRequest request) {
+        Collect collect=new Collect();
+        String uuid=(String) request.getSession().getAttribute("uuid");
+        // 查询商品信息
+        try {
+            Item item=userService.selectItemByPrimaryKey(id);
+            collect.setUserUuid(uuid);
+            collect.setCollectItemVender(item.getMakeVender());
+            collect.setItemId(id);
+            collect.setCollectTime(new Date());
+
+            userService.insertCollectSelective(collect);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+
+        return "success";
+    }
+
+    @RequestMapping("deleteShopCart")
+    @ResponseBody
+    public String deleteCollection(Integer id){
+
+        try {
+            userService.deleteCartByPrimaryKey(id);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";

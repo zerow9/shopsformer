@@ -34,6 +34,27 @@
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-benchmark:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-facet:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-xercesImpl:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-digester:commons-digester:1.7" level="project" />
+    <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.0.b2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-core:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-highlighter:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-instantiated:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-memory:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-misc:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-queries:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: jakarta-regexp:jakarta-regexp:1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-queryparser:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.chenlb.mmseg4j:mmseg4j-analysis:1.9.0" level="project" />
+    <orderEntry type="library" name="Maven: com.chenlb.mmseg4j:mmseg4j-core:1.9.0" level="project" />
+    <orderEntry type="library" name="Maven: com.chenlb.mmseg4j:mmseg4j-solr:1.9.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.solr:solr-core:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-analyzers-common:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-analyzers:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-benchmark:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-facet:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-xercesImpl:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.2" level="project" />
     <orderEntry type="library" name="Maven: commons-digester:commons-digester:1.7" level="project" />
@@ -79,13 +100,12 @@
     <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:1.2.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.miemiedev:mybatis-paginator:1.2.15" level="project" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:3.4.2-fix" level="project" />
-    <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.32" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:druid:1.0.9" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: com.alibaba:jconsole:1.8.0">
         <CLASSES>
-          <root url="jar://D:/Software/JAVA/jdk1.7.0_80/lib/jconsole.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk1.7.0_80/lib/jconsole.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -94,7 +114,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.alibaba:tools:1.8.0">
         <CLASSES>
-          <root url="jar://D:/Software/JAVA/jdk1.7.0_80/lib/tools.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk1.7.0_80/lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

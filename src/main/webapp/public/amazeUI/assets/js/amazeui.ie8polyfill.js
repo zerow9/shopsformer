@@ -10,7 +10,7 @@
   var empty = {};
   var dummy = function() {};
   var properties = 'memory'.split(',');
-  var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+  var methods = ('assert,clear,delay,debug,dir,dirxml,error,exception,group,' +
   'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
   'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
   while (prop = properties.pop()) if (!con[prop]) con[prop] = empty;
