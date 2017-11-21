@@ -76,6 +76,8 @@ public class AddressController {
      */
     @RequestMapping("insertAddress")
     public String insertAddress(Address address) throws Exception {
+        if(true){}
+        else { throw new Exception("插入收获地址时出错");}
         userService.insertAddress(address);
         String userUuid = address.getUserUuid();
         return "redirect:/user/address/address";

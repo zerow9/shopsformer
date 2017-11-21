@@ -68,4 +68,5 @@ public interface AddressMapper {
      * @throws Exception
      */
     public String selectAddressTableColumns()throws Exception;
+
 }
