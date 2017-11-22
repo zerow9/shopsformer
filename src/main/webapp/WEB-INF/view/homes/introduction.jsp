@@ -225,11 +225,9 @@
 <br/><br/>
 <%--添加到收藏--%>
 <div id="Coco">
-    <button class="addc-1" id="myinput" type="button" onclick="onadd(${item.itemId})"><i class="am-icon-star-o"
-                                                                                         aria-hidden="true"></i>&nbsp;添加收藏
+    <button class="addc-1" id="myinput" type="button"><i class="am-icon-star-o" aria-hidden="true"></i>&nbsp;添加收藏
     </button>
     <button class="addc-2" type="button"><i class="am-icon-share-alt" aria-hidden="true"></i>&nbsp;分享</button>
-    <%--<button class="addc-2" type="button"><i class="am-icon-star" aria-hidden="true" ></i>取消收藏</button>--%>
 </div>
 
 
@@ -502,24 +500,6 @@
 <script type="text/javascript" src="/public/basic/js/list.js"></script>
 </body>
 <script type="text/javascript">
-    function onadd(id) {
-        <c:if test="${empty user}">
-        alert("请先登录");
-        </c:if>
-        <c:if test="${!empty user}">
-        $.ajax({
-            url: "/user/collect?itemId=" + id,
-            success: function (data) {
-                if (data) {
-                    alert("收藏成功!");
-                } else {
-                    alert("收藏已存在!");
-                }
-            }
-        });
-        </c:if>
-    }
-
     function oncart(id) {
         var t = $("#text_box");
         <c:if test="${empty user}">
@@ -538,5 +518,39 @@
         });
         </c:if>
     }
+
+    /*用户收藏按钮切换*/
+    $("#myinput").on("click",function(){
+        <c:if test="${empty user}">
+        alert("请先登录");
+        </c:if>
+        <c:if test="${!empty user}">
+        var isstar=$(this).find("i").attr("class");
+        var id=${item.itemId};
+        if(isstar=="am-icon-star-o") {
+            $(this).find("i").removeClass("am-icon-star-o").addClass("am-icon-star");
+            $.ajax({
+                type:"POST",
+                url: "/user/collect?itemId=" + id,
+                success:function (data) {
+                    alert("收藏成功!");
+                }
+            });
+
+        }else{
+            $(this).find("i").removeClass("am-icon-star").addClass("am-icon-star-o");
+            $.ajax({
+                type:"POST",
+                url:"/collection/deleteCollect?id="+id,
+                success:function (data) {
+                    alert("已取消收藏!");
+                }
+            });
+
+        }
+    });
+    </c:if>
+
+
 </script>
 </html>
