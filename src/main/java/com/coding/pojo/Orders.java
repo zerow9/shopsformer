@@ -1,5 +1,6 @@
 package com.coding.pojo;
 
+import com.coding.comomInterface.DateToString;
 import com.coding.converter.DateFormatTool;
 import org.springframework.stereotype.Component;
 
@@ -55,6 +56,7 @@ public class Orders {
     private String buyMessage;
 
     private String takeGoodsProvince;
+
 
     private String takeGoodsCity;
 
@@ -313,7 +315,7 @@ public class Orders {
     }
 
     public String getOrderCreateTimeToString() {
-        return orderCreateTimeToString;
+        return DateToString.date(getOrderCompletionTime());
     }
 
     public Date getOrderPayTime() {
@@ -321,7 +323,7 @@ public class Orders {
     }
 
     public String getSendGoodsTimeToString() {
-        return sendGoodsTimeToString;
+        return DateToString.date(getSendGoodsTime());
     }
 
     public Date getSendGoodsTime() {
@@ -329,11 +331,11 @@ public class Orders {
     }
 
     public String getOrderCompletionTimeToString() {
-        return orderCompletionTimeToString;
+        return DateToString.date(getOrderCompletionTime());
     }
 
     public String getOrderPayTimeToString() {
-        return orderPayTimeToString;
+        return DateToString.date(getOrderPayTime());
     }
 
 

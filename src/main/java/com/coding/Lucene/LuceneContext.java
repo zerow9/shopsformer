@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class LuceneContext {
-    private  static  LuceneContext instance;
+    private  static LuceneContext instance;
     private static IndexWriter writer;
     private static  Analyzer analyzer ;
     private static Version version;
@@ -21,7 +21,7 @@ public class LuceneContext {
     private static SearcherManager mgr;
     private static Directory directory;
     //无参构造函数
-    private  LuceneContext(){ }
+    private LuceneContext(){ }
     //单列设计模式
     public static LuceneContext getInstance() throws IOException {
         if(instance==null) instance = new LuceneContext();
@@ -67,6 +67,7 @@ public class LuceneContext {
     public void  commitIndex(){
         try {
             writer.commit();
+//            writer.forceMerge(3);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -83,5 +84,9 @@ public class LuceneContext {
 
     public Analyzer getAnalyzer(){
         return analyzer;
+    }
+
+    public static IndexWriter getWriter() {
+        return writer;
     }
 }
