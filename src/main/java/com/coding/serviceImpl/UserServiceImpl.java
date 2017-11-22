@@ -1013,6 +1013,14 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         }
     }
 
+    public List<Cart> selectCartByCartIdArray(PagingCustomCart pagingCustomCart) throws Exception {
+        try {
+            return cartMapper.selectCartByCartIdArray(pagingCustomCart);
+        } catch (Exception e) {
+            throw new Exception("ID数组查询购物车列表时出错");
+        }
+    }
+
     /*------------------------------------------收藏表------------------------------------------------------------------*/
     @Transactional(rollbackFor = Exception.class)
     public void deleteCollectByPrimaryKey(Integer collectId) throws Exception {

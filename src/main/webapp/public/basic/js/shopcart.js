@@ -50,14 +50,9 @@ $(function () {
 
     });
 
-    //选中使用的条目
-    //$(".bundle-main>ul>li").find("#J_CheckBox").addClass("checked","checked")
-    // var l=$(".bundle-main>ul>li").find("#J_CheckBox").val();
-    // console.log(l);
-
 });
 
-//添加商品
+//添加商品收藏
 var addCollection=function(id){
     $.ajax({
         type:"POST",
@@ -87,7 +82,8 @@ var addCollection=function(id){
     });
 }
 
-var deleteCollection=function (id) {
+//从购物车中删除商品
+var deleteShopCart=function (id) {
     swal({
             title: "确定删除该商品吗？",
             text: "宝贝即将离开您的购物车",
