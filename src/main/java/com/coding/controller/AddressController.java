@@ -80,22 +80,33 @@ public class AddressController {
      */
     @RequestMapping("insertAddress")
     @ResponseBody
-    public String insertAddress(HttpSession session,@RequestBody Address address) throws Exception {
+    public String insertAddress(HttpSession session,Address address) {
         String userUuid = (String)session.getAttribute("uuid");
         PagingCustomAddress pagingCustomAddress = new PagingCustomAddress();
         Address addressDefault = new Address();
         addressDefault.setUserUuid(userUuid);
         pagingCustomAddress.setAddress(addressDefault);
-        int addressCount = userService.selectAddressCountByColumn(pagingCustomAddress);
-        if (addressCount ==0){
-            address.setIsDefaultAddress(1);
-        }
-        if (addressCount>10){
-            return "no";
+        int addressCount = 0;
+        try {
+            addressCount = userService.selectAddressCountByColumn(pagingCustomAddress);
+            if (addressCount ==0){
+                address.setIsDefaultAddress(1);
+            }
+            if (addressCount<10){
+                return "fail";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         address.setUserUuid(userUuid);
-        userService.insertAddress(address);
-        return "yes";
+
+        try {
+            userService.insertAddress(address);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "err";
+        }
+        return "success";
     }
 
     /**

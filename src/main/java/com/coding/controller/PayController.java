@@ -63,10 +63,14 @@ public class PayController {
     }
 
     @RequestMapping("success")
-    public String success(Integer[] cartId) throws Exception {
+    public String success(Integer[] cartId,HttpSession session) throws Exception {
         if (cartId.length != 0 && cartId != null) {
             try {
                 adminService.deleteCartByPrimaryKeyArray(cartId);
+                Integer count=(Integer)session.getAttribute("collectCount");
+                count-=cartId.length;
+                session.removeAttribute("collectCount");
+                session.setAttribute("collectCount",count);
             } catch (Exception e) {
             }
         }
