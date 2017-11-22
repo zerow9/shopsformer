@@ -27,8 +27,13 @@ public class AddressController {
     @RequestMapping("/address")
     public String addressInfomation(HttpSession session, Model model) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
-        List<Address> addresses = userService.selectAddressByUserID(uuid);
-        model.addAttribute("addresses", addresses);
+        List<Address> addresses=null;
+        try {
+            addresses = userService.selectAddressByUserID(uuid);
+            model.addAttribute("addresses", addresses);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "persons/address";
     }
 
@@ -75,11 +80,10 @@ public class AddressController {
      * @param address 地址对象
      */
     @RequestMapping("insertAddress")
-    public String insertAddress(Address address) throws Exception {
-        if(true){}
-        else { throw new Exception("插入收获地址时出错");}
+    public String insertAddress(HttpSession session,Address address) throws Exception {
+        String userUuid = (String)session.getAttribute("uuid");
+        address.setUserUuid(userUuid);
         userService.insertAddress(address);
-        String userUuid = address.getUserUuid();
         return "redirect:/user/address/address";
     }
 
