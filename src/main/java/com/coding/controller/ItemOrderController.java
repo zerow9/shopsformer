@@ -1,10 +1,7 @@
 package com.coding.controller;
 
 import com.coding.Iservice.IAdminService;
-import com.coding.pojo.Cart;
-import com.coding.pojo.Item;
-import com.coding.pojo.Orders;
-import com.coding.pojo.User;
+import com.coding.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +35,19 @@ public class ItemOrderController {
             orders.setUserUuid(uuid);
             orders.setOrderCreateTime(new Date());
             orders.setPayStatus(0);
-            adminService.insertOrderSelective(orders);
-
+           int ordersId= adminService.insertOrderSelectiveReturnId(orders);
+            System.out.println(ordersId);
+            OrderDetail orderDetail=new OrderDetail();
+            orderDetail.setOrderId(ordersId);
+            orderDetail.setItemId(item.getItemId());
+            orderDetail.setItemPrice(item.getItemPrice());
+            orderDetail.setItemNumber(cart.getItemNumber());
+            orderDetail.setUserUuid(uuid);
+            orderDetail.setUseScore(user.getUserScore());
+            double sum=orders.getOrderSumPrice();
+            orderDetail.setSendScore((int)sum);
+            orderDetail.setItemSumPrice(sum);
+            adminService.insertOrderDetailSelective(orderDetail);
             adminService.deleteCartByPrimaryKey(id);
         }
         return "redirect:/user/order/order";
