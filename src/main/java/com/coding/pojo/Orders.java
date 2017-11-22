@@ -57,6 +57,7 @@ public class Orders {
 
     private String takeGoodsProvince;
 
+
     private String takeGoodsCity;
 
     private String takeGoodsCounty;

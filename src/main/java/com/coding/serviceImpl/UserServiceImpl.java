@@ -227,6 +227,14 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         }
     }
 
+    public Integer selectAddressCountByColumn(PagingCustomAddress pagingCustomAddress) throws Exception {
+        try {
+            return addressMapper.selectAddressCountByColumn(pagingCustomAddress);
+        } catch (Exception e) {
+            throw new Exception("查询地址总数时出错");
+        }
+    }
+
     /*------------------------------------------用户投诉表------------------------------------------------------------------*/
     @Transactional(rollbackFor = Exception.class)
     public void deleteComplaintByPrimaryKey(Integer complaintId) throws Exception {

@@ -77,6 +77,7 @@ public class OrderController {
         customVoOrders.setTakeGoodsStatus(userService.queryOrdersByUserUuidAndStatus(takeGoodsorders));
         customVoOrders.setDiscussStatus(userService.queryOrdersByUserUuidAndStatus(discussOrders));
 
+
         model.addAttribute("customVoOrders",customVoOrders);
         return "persons/order";
     }
