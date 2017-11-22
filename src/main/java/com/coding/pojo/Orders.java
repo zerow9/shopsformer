@@ -5,10 +5,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Component
 public class Orders {
 
-    private DateFormatTool dateFormatTool = new DateFormatTool();
 
     private Integer orderId;
 
@@ -194,13 +192,7 @@ public class Orders {
         this.payType = payType;
     }
 
-    public DateFormatTool getDateFormatTool() {
-        return dateFormatTool;
-    }
 
-    public void setDateFormatTool(DateFormatTool dateFormatTool) {
-        this.dateFormatTool = dateFormatTool;
-    }
 
     public Integer getTakeGoodsStatus() {
         return takeGoodsStatus;
@@ -321,7 +313,7 @@ public class Orders {
     }
 
     public String getOrderCreateTimeToString() {
-        return dateFormatTool.dateToString(orderCreateTime, "FULL_TIME");
+        return orderCreateTimeToString;
     }
 
     public Date getOrderPayTime() {
@@ -353,7 +345,6 @@ public class Orders {
     @Override
     public String toString() {
         return "Orders{" +
-                "dateFormatTool=" + dateFormatTool +
                 ", orderId=" + orderId +
                 ", userUuid='" + userUuid + '\'' +
                 ", shopId=" + shopId +
