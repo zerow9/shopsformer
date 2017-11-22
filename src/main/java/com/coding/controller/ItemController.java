@@ -26,7 +26,6 @@ public class ItemController {
         pagingCustomItem.setPageNumber(10);
         List<Item> list = adminService.selectItem(pagingCustomItem);
         for (Item item : list)
-            item.setItemImages(Constant.PICTURE_PATH + item.getItemImages());
         session.setAttribute("listItem", list);
         return "homes/index";
     }

@@ -315,7 +315,7 @@ public class Orders {
     }
 
     public String getOrderCreateTimeToString() {
-        return DateToString.date(getOrderCompletionTime());
+        return orderCreateTimeToString;
     }
 
     public Date getOrderPayTime() {
@@ -323,21 +323,20 @@ public class Orders {
     }
 
     public String getSendGoodsTimeToString() {
-        return DateToString.date(getSendGoodsTime());
+        return sendGoodsTimeToString;
     }
 
     public Date getSendGoodsTime() {
         return sendGoodsTime;
     }
 
-    public String getOrderCompletionTimeToString() {
-        return DateToString.date(getOrderCompletionTime());
-    }
-
     public String getOrderPayTimeToString() {
-        return DateToString.date(getOrderPayTime());
+        return orderPayTimeToString;
     }
 
+    public String getOrderCompletionTimeToString() {
+        return orderCompletionTimeToString;
+    }
 
     public Date getOrderCompletionTime() {
         return orderCompletionTime;
