@@ -99,6 +99,16 @@
     <select id="selectAddressCount" resultType="java.lang.Integer">
         select COUNT(*) from address
     </select>
+    <!--返回用户的地址总数-->
+    <select id="selectAddressCountByColumn" parameterType="com.coding.paging.PagingCustomAddress" resultType="java.lang.Integer">
+        select COUNT(*)
+        from address
+        <where>
+            <if test="address.userUuid != null and address.userUuid != ''">
+                and user_uuid = #{address.userUuid}
+            </if>
+        </where>
+    </select>
     <!--查询 Address 表所有的字段-->
     <select id="selectAddressTableColumns" resultType="java.lang.String">
       select group_concat(column_name)

@@ -57,7 +57,6 @@ public interface AddressMapper {
 
     /**
      * 返回地址表中一共有多少条数据
-     * @return 封装了地址信息的 Address 类对象
      * @throws Exception
      */
     public Integer selectAddressCount()throws Exception;
@@ -68,5 +67,12 @@ public interface AddressMapper {
      * @throws Exception
      */
     public String selectAddressTableColumns()throws Exception;
+
+    /**
+     * 返回地址表中一共有多少条数据(例如：根据uuid查询)
+     * @return
+     * @throws Exception
+     */
+    public Integer selectAddressCountByColumn(PagingCustomAddress pagingCustomAddress)throws Exception;
 
 }
