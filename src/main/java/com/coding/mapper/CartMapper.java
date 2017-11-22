@@ -31,6 +31,7 @@ public interface CartMapper {
      * @return 是否插入成功 0:失败 非0:成功
      * @throws Exception
      */
+
     public int insertCart(Cart cart)throws Exception;
 
     /**

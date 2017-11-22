@@ -92,7 +92,7 @@ public class AddressController {
             if (addressCount ==0){
                 address.setIsDefaultAddress(1);
             }
-            if (addressCount<10){
+            if (addressCount>10){
                 return "fail";
             }
         } catch (Exception e) {
