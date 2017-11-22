@@ -9,29 +9,51 @@ $(function () {
     }
 
     //提交表单
-    $(".submit").on("click",function () {
-        var data=$("#addressForm").serialize();//系列化表单
+    $(".submit").click(function () {
+        var data = $("#addressForm").serialize();//系列化表单
         $.ajax({
-            type:"POST",
-            data:data,
-            url:"/user/address/insertAddress",
-            success:function (da) {
+            type: "post",
+            data: data,
+            url: "/user/address/insertAddress",
+            success: function (da) {
                 if (da === "success") {
                     swal({
-                            title: "添加成功！",
-                            text: "地址添加成功了",
-                            type: "success"
-                        });
-                } else if (da === "fail") {
+                        title: "添加成功！",
+                        text: "地址添加成功了",
+                        type: "success"
+                    }, function () {
+                        $(':input', '#addressForm')
+                            .not(':button,:submit,:reset,:hidden')
+                            .val('')
+                            .removeAttr('checked')
+                            .removeAttr('selected');
+                        window.location.reload();
+                    });
+
+                } else if (da === "err") {
                     swal({
                         title: "添加失败！",
                         text: "地址添加失败了",
                         type: "error"
+                    }, function () {
+                        $(':input', '#addressForm')
+                            .not(':button,:submit,:reset,:hidden')
+                            .val('')
+                            .removeAttr('checked')
+                            .removeAttr('selected');
+                        window.location.reload();
                     });
                 } else swal({
                     title: "添加失败！",
                     text: "最多添加 10 条地址信息！",
                     type: "warning"
+                }, function () {
+                    $(':input', '#addressForm')
+                        .not(':button,:submit,:reset,:hidden')
+                        .val('')
+                        .removeAttr('checked')
+                        .removeAttr('selected');
+                    window.location.reload();
                 });
             }
         });
