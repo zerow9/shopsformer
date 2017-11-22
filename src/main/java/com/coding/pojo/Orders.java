@@ -85,6 +85,7 @@ public class Orders {
         return orderId;
     }
 
+
     public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
@@ -327,25 +328,27 @@ public class Orders {
         return orderPayTime;
     }
 
-    public String getOrderPayTimeToString() {
-        return dateFormatTool.dateToString(orderPayTime, "FULL_TIME");
+    public String getSendGoodsTimeToString() {
+        return sendGoodsTimeToString;
     }
 
     public Date getSendGoodsTime() {
         return sendGoodsTime;
     }
 
-    public String getSendGoodsTimeToString() {
-        return dateFormatTool.dateToString(sendGoodsTime, "FULL_TIME");
+    public String getOrderCompletionTimeToString() {
+        return orderCompletionTimeToString;
     }
+
+    public String getOrderPayTimeToString() {
+        return orderPayTimeToString;
+    }
+
 
     public Date getOrderCompletionTime() {
         return orderCompletionTime;
     }
 
-    public String getOrderCompletionTimeToString() {
-        return dateFormatTool.dateToString(orderCompletionTime, "FULL_TIME");
-    }
 
     @Override
     public String toString() {

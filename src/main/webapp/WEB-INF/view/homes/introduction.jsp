@@ -5,26 +5,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>商品页面</title>
+<style type="text/css">
+    #Coco{float: left;width:220px;height:50px;margin-left: 50px;color:#000;}
+    #Coco .addc-1{float:left;margin-left:10px;border-radius: 12px; height: 26px;line-height: 26px;border: none;background: #fff}
+    #Coco .addc-2{float:left;margin-left:25px;border-radius: 12px; height: 26px;line-height: 26px;border:#C9C9C9;background: #fff}
+</style>
     <jsp:include page="/public/common/publicHead.jsp"/>
-    <title>商品页面</title>
-    <link rel="icon" href="/public/images/picture.ico"/>
+
     <link rel="stylesheet" href="/public/basic/css/dlstyle.css">
     <link rel="stylesheet" href="/public/basic/css/movedown.css">
     <link rel="stylesheet" href="/public/basic/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/public/basic/css/bootstrapValidator.css">
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css"/>
-    <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/demo.css" rel="stylesheet" type="text/css"/>
     <link type="text/css" href="/public/basic/css/optstyle.css" rel="stylesheet"/>
     <link type="text/css" href="/public/basic/css/style.css" rel="stylesheet"/>
-    <%--<script src="/public/basic/js/bootstrap.js"></script>--%>
-    <script src="/public/basic/js/bootstrapValidator.js"></script>
-    <script type="text/javascript" src="/public/basic/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="/public/basic/js/quick_links.js"></script>
-    <script type="text/javascript" src="/public/amazeUI/assets/js/amazeui.js"></script>
-    <script type="text/javascript" src="/public/basic/js/jquery.imagezoom.min.js"></script>
-    <script type="text/javascript" src="/public/basic/js/jquery.flexslider.js"></script>
-    <script type="text/javascript" src="/public/basic/js/list.js"></script>
+
 </head>
 <body>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
@@ -130,8 +127,7 @@
                                             <div class="theme-options">
                                                 <div class="cart-title">商品规格</div>
                                                 <ul>
-                                                    <li class="sku-line selected"
-                                                        style="width:48px;height:28px;text-align: center">${item.itemFormat}</li>
+                                                    <li class="sku-line selected" style="width:48px;height:28px;text-align: center">${item.itemFormat}</li>
                                                 </ul>
                                             </div>
                                             <div class="theme-options">
@@ -146,7 +142,7 @@
                                                 <div class="cart-title number">数量</div>
                         <dd>
                             <input id="min" class="am-btn am-btn-default" name="" type="button" value="-"/>
-                            <input id="text_box" name="" type="text" value="1" style="width:30px;"/>
+                            <input id="text_box" name="" type="text" value="1" style="width:30px;text-align: center"/>
                             <input id="add" class="am-btn am-btn-default" name="" type="button" value="+"/>
                             <span class="tb-hidden">库存<span class="stock">${item.repertoryNumber}</span>件</span>
                         </dd>
@@ -183,7 +179,6 @@
         </div>
     </div>
 </div>
-
 <div class="pay">
     <div class="pay-opt">
         <a href="/index.jsp"><span class="am-icon-home am-icon-fw">首页</span></a>
@@ -199,10 +194,17 @@
         <div class="clearfix tb-btn tb-btn-basket theme-login">
             <a id="LikBasket" title="加入购物车" onclick="onadd(${item.itemId})">加入购物车</a>
         </div>
-    </li>
-    <br/>
+    </li><br/>
 
 </div>
+<br/><br/>
+<%--添加到收藏--%>
+<div id="Coco" >
+    <button class="addc-1" id="myinput" type="button"><i class="am-icon-star-o" aria-hidden="true"></i>&nbsp;添加收藏</button>
+    <button class="addc-2" type="button"><i class="am-icon-share-alt" aria-hidden="true"></i>&nbsp;分享</button>
+    <%--<button class="addc-2" type="button"><i class="am-icon-star" aria-hidden="true" ></i>取消收藏</button>--%>
+</div>
+
 
 </div>
 
@@ -465,6 +467,12 @@
     </div>
 </div>
 <jsp:include page="/public/common/tip.jsp" flush="true"/>
+<script src="/public/basic/js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="/public/basic/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/public/basic/js/quick_links.js"></script>
+<script type="text/javascript" src="/public/basic/js/jquery.imagezoom.min.js"></script>
+<script type="text/javascript" src="/public/basic/js/jquery.flexslider.js"></script>
+<script type="text/javascript" src="/public/basic/js/list.js"></script>
 </body>
 <script type="text/javascript">
     function onadd(id) {
@@ -484,5 +492,15 @@
         });
         </c:if>
     }
+
+
+    document.getElementById("myinput").onclick=function(){
+        if(this.style.cursor=="")
+            this.style.cursor="";
+        else
+            this.style.cursor=""
+    }
+<
+
 </script>
 </html>
