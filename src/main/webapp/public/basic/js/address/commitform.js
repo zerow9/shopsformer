@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     $(".new-option-r").click(function () {
         $(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
     });
@@ -17,22 +17,24 @@ $(document).ready(function () {
             url:"/user/address/insertAddress",
             success:function (da) {
                 if (da === "success") {
-                    window.location.reload();
+                    swal({
+                            title: "添加成功！",
+                            text: "地址添加成功了",
+                            type: "success"
+                        });
                 } else if (da === "fail") {
                     swal({
-                        title: "最多允许添加10条地址信息！",
-                        type: "error",
-                        timer: 2000,
-                        showConfirmButton: false
+                        title: "添加失败！",
+                        text: "地址添加失败了",
+                        type: "error"
                     });
                 } else swal({
                     title: "添加失败！",
-                    type: "warning",
-                    timer: 2000,
-                    showConfirmButton: false
+                    text: "最多添加 10 条地址信息！",
+                    type: "warning"
                 });
             }
         });
     });
 
-})
+});

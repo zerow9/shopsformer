@@ -104,8 +104,7 @@
                         <hr/>
 
                         <div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-                            <form class="am-form am-form-horizontal" id="addressForm" action=""
-                                  method="post">
+                            <form class="am-form am-form-horizontal" id="addressForm" method="post">
                                 <input type="hidden" name="userUuid" value="${addresses[0].userUuid}">
                                 <input type="hidden" name="isDefaultAddress" value="0">
 
@@ -177,13 +176,12 @@
     <jsp:include page="/public/common/personalMenu.jsp" flush="true"/>
 </div>
 <script src="/public/amazeUI/assets/js/jquery.min.js" type="text/javascript"></script>
-<script src="/public/amazeUI/assets/js/amazeui.js"></script>
-<script src="/public/basic/js/addressDefine.js"></script>
-<script src="/public/basic/js/jquery-1.7.2.min.js"></script>
-<script src="/public/basic/js/address/distpicker.data.js"></script>
-<script src="/public/basic/js/address/distpicker.js"></script>
-<script src="/public/basic/js/address/main.js"></script>
-<script src="/public/basic/js/sweetalert.min.js"></script>
-<script src="/public/basic/js/address/commitform.js"></script>
+<script src="/public/amazeUI/assets/js/amazeui.js" type="text/javascript"></script>
+<script src="/public/basic/js/addressDefine.js" type="text/javascript"></script>
+<script src="/public/basic/js/address/distpicker.data.js" type="text/javascript"></script>
+<script src="/public/basic/js/address/distpicker.js" type="text/javascript"></script>
+<script src="/public/basic/js/address/main.js" type="text/javascript"></script>
+<script src="/public/basic/js/sweetalert.min.js" type="text/javascript"></script>
+<script src="/public/basic/js/address/commitform.js" type="text/javascript"></script>
 </body>
 </html>
