@@ -1,5 +1,7 @@
 package com.coding.paging;
 
+import com.coding.converter.DateFormatTool;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,6 +18,8 @@ public class Paging {
     protected String sortRule;//排序规则 ASC:升序  DESC：降序
 
     protected String tableName;//用来获取表的所有字段
+
+    protected DateFormatTool dateFormatTool;
 
     public String dateToString(Date date){
         return (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(date);

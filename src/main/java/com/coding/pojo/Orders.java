@@ -1,15 +1,12 @@
 package com.coding.pojo;
 
-import com.coding.comomInterface.DateToString;
 import com.coding.converter.DateFormatTool;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Component
 public class Orders {
 
-    private DateFormatTool dateFormatTool = new DateFormatTool();
 
     private Integer orderId;
 
@@ -195,13 +192,7 @@ public class Orders {
         this.payType = payType;
     }
 
-    public DateFormatTool getDateFormatTool() {
-        return dateFormatTool;
-    }
 
-    public void setDateFormatTool(DateFormatTool dateFormatTool) {
-        this.dateFormatTool = dateFormatTool;
-    }
 
     public Integer getTakeGoodsStatus() {
         return takeGoodsStatus;
@@ -322,7 +313,7 @@ public class Orders {
     }
 
     public String getOrderCreateTimeToString() {
-        return DateToString.date(getOrderCreateTime());
+        return orderCreateTimeToString;
     }
 
     public Date getOrderPayTime() {
@@ -330,7 +321,7 @@ public class Orders {
     }
 
     public String getSendGoodsTimeToString() {
-        return DateToString.date(getSendGoodsTime());
+        return sendGoodsTimeToString;
     }
 
     public Date getSendGoodsTime() {
@@ -338,11 +329,11 @@ public class Orders {
     }
 
     public String getOrderCompletionTimeToString() {
-        return DateToString.date(getOrderCompletionTime());
+        return orderCompletionTimeToString;
     }
 
     public String getOrderPayTimeToString() {
-        return DateToString.date(getOrderPayTime());
+        return orderPayTimeToString;
     }
 
 
@@ -354,7 +345,6 @@ public class Orders {
     @Override
     public String toString() {
         return "Orders{" +
-                "dateFormatTool=" + dateFormatTool +
                 ", orderId=" + orderId +
                 ", userUuid='" + userUuid + '\'' +
                 ", shopId=" + shopId +
