@@ -122,7 +122,7 @@ public class AdminServiceImpl extends UserServiceImpl implements IAdminService {
     public List<User> selectUser(PagingCustomUser paging) throws Exception {
        try {
            String[] strArrayColumn = userMapper.selectUserTableColumns().split(",");
-           paging = (PagingCustomUser) Filter.PreventSqlInjection(paging,strArrayColumn);
+           paging = (PagingCustomUser) Filter.preventSqlInjection(paging,strArrayColumn);
            List<User>  users = userMapper.selectUser(paging);
            if(users.isEmpty()) throw new Exception("查询到的用户列表为空");
            return users;
