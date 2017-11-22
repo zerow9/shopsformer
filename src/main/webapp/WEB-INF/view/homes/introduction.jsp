@@ -5,12 +5,36 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <title>商品页面</title>
-<style type="text/css">
-    #Coco{float: left;width:220px;height:50px;margin-left: 50px;color:#000;}
-    #Coco .addc-1{float:left;margin-left:10px;border-radius: 12px; height: 26px;line-height: 26px;border: none;background: #fff}
-    #Coco .addc-2{float:left;margin-left:25px;border-radius: 12px; height: 26px;line-height: 26px;border:#C9C9C9;background: #fff}
-</style>
+    <title>商品页面</title>
+    <style type="text/css">
+        #Coco {
+            float: left;
+            width: 220px;
+            height: 50px;
+            margin-left: 50px;
+            color: #000;
+        }
+
+        #Coco .addc-1 {
+            float: left;
+            margin-left: 10px;
+            border-radius: 12px;
+            height: 26px;
+            line-height: 26px;
+            border: none;
+            background: #fff
+        }
+
+        #Coco .addc-2 {
+            float: left;
+            margin-left: 25px;
+            border-radius: 12px;
+            height: 26px;
+            line-height: 26px;
+            border: #C9C9C9;
+            background: #fff
+        }
+    </style>
     <jsp:include page="/public/common/publicHead.jsp"/>
 
     <link rel="stylesheet" href="/public/basic/css/dlstyle.css">
@@ -52,8 +76,8 @@
                         });
                     </script>
                     <div class="tb-booth tb-pic tb-s310">
-                        <a href="https://admin.shop.xcstudio.xin${item.itemImages}"><img
-                                src="https://admin.shop.xcstudio.xin${item.itemImages}"
+                        <a href="${item.itemImages}"><img
+                                src="${item.itemImages}"
                                 alt="细节展示放大镜特效"
                                 rel="${item.itemImages}" class="jqzoom"/></a>
                     </div>
@@ -127,7 +151,8 @@
                                             <div class="theme-options">
                                                 <div class="cart-title">商品规格</div>
                                                 <ul>
-                                                    <li class="sku-line selected" style="width:48px;height:28px;text-align: center">${item.itemFormat}</li>
+                                                    <li class="sku-line selected"
+                                                        style="width:48px;height:28px;text-align: center">${item.itemFormat}</li>
                                                 </ul>
                                             </div>
                                             <div class="theme-options">
@@ -192,15 +217,17 @@
     </li>
     <li>
         <div class="clearfix tb-btn tb-btn-basket theme-login">
-            <a id="LikBasket" title="加入购物车" onclick="onadd(${item.itemId})">加入购物车</a>
+            <a id="LikBasket"  onclick="oncart(${item.itemId})" title="加入购物车">加入购物车</a>
         </div>
-    </li><br/>
-
+    </li>
+    <br/>
 </div>
 <br/><br/>
 <%--添加到收藏--%>
-<div id="Coco" >
-    <button class="addc-1" id="myinput" type="button"><i class="am-icon-star-o" aria-hidden="true"></i>&nbsp;添加收藏</button>
+<div id="Coco">
+    <button class="addc-1" id="myinput" type="button" onclick="onadd(${item.itemId})"><i class="am-icon-star-o"
+                                                                                         aria-hidden="true"></i>&nbsp;添加收藏
+    </button>
     <button class="addc-2" type="button"><i class="am-icon-share-alt" aria-hidden="true"></i>&nbsp;分享</button>
     <%--<button class="addc-2" type="button"><i class="am-icon-star" aria-hidden="true" ></i>取消收藏</button>--%>
 </div>
@@ -320,7 +347,7 @@
                             <h4>商品细节</h4>
                         </div>
                         <div class="twlistNews">
-                            <img src="https://admin.shop.xcstudio.xin${item.itemImages}"/>
+                            <img src="${item.itemImages}"/>
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -493,14 +520,23 @@
         </c:if>
     }
 
-
-    document.getElementById("myinput").onclick=function(){
-        if(this.style.cursor=="")
-            this.style.cursor="";
-        else
-            this.style.cursor=""
+    function oncart(id) {
+        var t = $("#text_box");
+        <c:if test="${empty user}">
+        alert("请先登录");
+        </c:if>
+        <c:if test="${!empty user}">
+        $.ajax({
+            url: "/user/itemCart?cartId=" + id+"&number="+t.val(),
+            success: function (data) {
+                if (data) {
+                    alert("加入成功!");
+                } else {
+                    alert("购物车已存在!");
+                }
+            }
+        });
+        </c:if>
     }
-<
-
 </script>
 </html>
