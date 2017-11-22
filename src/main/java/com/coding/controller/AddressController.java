@@ -1,12 +1,15 @@
 package com.coding.controller;
 
 import com.coding.Iservice.IUserService;
+import com.coding.paging.PagingCustomAddress;
 import com.coding.pojo.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -17,7 +20,6 @@ public class AddressController {
     @Autowired
     @Qualifier("userService")
     private IUserService userService;
-
 
     /**
      * 跳转到地址页面
@@ -60,8 +62,6 @@ public class AddressController {
         return "persons/updateAddress";
     }
 
-
-
     /**
      * 更新地址信息
      *
@@ -70,8 +70,6 @@ public class AddressController {
     @RequestMapping("updateAddress")
     public String updateAddress(Address address) throws Exception {
         userService.updateAddressByPrimaryKey(address);
-        String userUuid = address.getUserUuid();
-        System.out.println(address);
         return "redirect:/user/address/address";
     }
 
@@ -81,11 +79,23 @@ public class AddressController {
      * @param address 地址对象
      */
     @RequestMapping("insertAddress")
-    public String insertAddress(HttpSession session,Address address) throws Exception {
+    @ResponseBody
+    public String insertAddress(HttpSession session,@RequestBody Address address) throws Exception {
         String userUuid = (String)session.getAttribute("uuid");
+        PagingCustomAddress pagingCustomAddress = new PagingCustomAddress();
+        Address addressDefault = new Address();
+        addressDefault.setUserUuid(userUuid);
+        pagingCustomAddress.setAddress(addressDefault);
+        int addressCount = userService.selectAddressCountByColumn(pagingCustomAddress);
+        if (addressCount ==0){
+            address.setIsDefaultAddress(1);
+        }
+        if (addressCount>10){
+            return "no";
+        }
         address.setUserUuid(userUuid);
         userService.insertAddress(address);
-        return "redirect:/user/address/address";
+        return "yes";
     }
 
     /**
