@@ -116,6 +116,13 @@ public interface IUserService {
      * @throws Exception 无效sql、sql异常
      */
     public void updateAddressUserDefaultAddress(Address address)throws Exception;
+
+    /**
+     * 返回地址表中一共有多少条数据(例如：根据uuid查询)
+     * @return 地址数量
+     * @throws Exception sql异常
+     */
+    public Integer selectAddressCountByColumn(PagingCustomAddress pagingCustomAddress)throws Exception;
      /*------------------------------------------用户投诉表------------------------------------------------------------------*/
     /**
      * 根据投诉ID删除投诉信息
