@@ -141,7 +141,7 @@ public class ShopCartController {
 
     @RequestMapping("deleteShopCart")
     @ResponseBody
-    public String deleteCollection(Integer id) {
+    public String deleteShopCart(Integer id) {
 
         try {
             userService.deleteCartByPrimaryKey(id);
