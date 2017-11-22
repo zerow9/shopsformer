@@ -11,7 +11,7 @@
     <link rel="icon" href="/public/images/picture.ico"/>
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
+    <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/addstyle.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/bootstrap.css" rel="stylesheet">
@@ -107,7 +107,7 @@
                         <hr/>
 
                         <div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-                            <form class="am-form am-form-horizontal" action="/user/address/insertAddress"
+                            <form class="am-form am-form-horizontal" action="" id="addressForm"
                                   method="post">
                                 <input type="hidden" name="userUuid" value="${addresses[0].userUuid}">
                                 <input type="hidden" name="isDefaultAddress" value="0">
@@ -159,7 +159,7 @@
 
                                 <div class="am-form-group">
                                     <div class="am-u-sm-9 am-u-sm-push-3">
-                                        <input class="am-btn am-btn-danger" type="submit" value="保存">
+                                        <input class="am-btn am-btn-danger submit" type="submit" value="保存">
                                         <a href="javascript: void(0)" class="am-close am-btn am-btn-danger"
                                            data-am-modal-close>取消</a>
                                     </div>
@@ -186,18 +186,8 @@
 <script src="/public/basic/js/address/distpicker.data.js"></script>
 <script src="/public/basic/js/address/distpicker.js"></script>
 <script src="/public/basic/js/address/main.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".new-option-r").click(function () {
-            $(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
-        });
+<script src="/public/basic/js/sweetalert.min.js"></script>
+<script src="/public/basic/js/address/commitform.js"></script>
 
-        var $ww = $(window).width();
-        if ($ww > 640) {
-            $("#doc-modal-1").removeClass("am-modal am-modal-no-btn")
-        }
-
-    })
-</script>
 </body>
 </html>
