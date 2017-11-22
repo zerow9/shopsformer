@@ -86,4 +86,12 @@ public interface CartMapper {
      * @throws Exception
      */
     public String selectCartTableColumns()throws Exception;
+
+    /**
+     * 根据购物车ID组查询购物车
+     * @param pagingCustomCart 封装了查询条件的 paging 类的扩展类
+     * @return 满足查询条件的 Cart 类对象集合
+     * @throws Exception
+     */
+    public List<Cart> selectCartByCartIdArray(PagingCustomCart pagingCustomCart)throws Exception;
 }

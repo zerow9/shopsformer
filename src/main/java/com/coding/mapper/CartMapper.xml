@@ -30,6 +30,17 @@
     select count(*) from cart
   </select>
 
+  <!--根据购物车ID组查询购物车信息-->
+  <select id="selectCartByCartIdArray" parameterType="com.coding.paging.PagingCustomCart" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cart
+    where cart_id IN
+    <foreach collection="cartIdArray" item="cartId" open="(" separator="," close=")" >
+      #{cartId}
+    </foreach>
+  </select>
+
   <!--购物车查询功能模块-->
   <select id="selectCart" parameterType="com.coding.paging.PagingCustomCart" resultMap="BaseResultMap">
     select
