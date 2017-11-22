@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service("indexService")
-public class IndexService implements IindexItemService{
+public class IndexService implements IindexItemService {
     @Autowired
     private ItemIndexMapper indexMapper;
     @Autowired
@@ -34,7 +34,7 @@ public class IndexService implements IindexItemService{
     private final static String UPDATE = "update";
 
     @Transactional(rollbackFor =Exception.class )
-    public void addIndex(Item fields,boolean inDatabase)throws Exception{
+    public void addIndex(Item fields, boolean inDatabase)throws Exception{
         try {
             if (inDatabase){
                 ItemIndex index = new ItemIndex();
@@ -45,13 +45,15 @@ public class IndexService implements IindexItemService{
             NRTManager nrtManager = LuceneContext.getInstance().getNrtManager();
             Document doc = filedDoc(fields);
             nrtManager.addDocument(doc);
+            updateCommitIndex(); //提交索引，待优化
         } catch (Exception e) {
             throw e;
         }
     }
     private Document filedDoc(Item fields)throws Exception{
         Document doc = new Document();
-        doc.add(new NumericField("id",Field.Store.YES,true).setIntValue(fields.getItemId()));
+//        doc.add(new NumericField("id",Field.Store.YES,true).setIntValue(fields.getItemId()));
+        doc.add(new Field("id",fields.getItemId().toString(),Field.Store.YES,Field.Index.NOT_ANALYZED_NO_NORMS));
         doc.add(new Field("name",fields.getItemName(),Field.Store.YES,Field.Index.ANALYZED));
         doc.add(new Field("keyword",fields.getKeyWord(),Field.Store.YES,Field.Index.ANALYZED));
         doc.add(new Field("images",fields.getItemImages(),Field.Store.YES,Field.Index.NOT_ANALYZED_NO_NORMS));
@@ -70,13 +72,14 @@ public class IndexService implements IindexItemService{
             indexMapper.insertItemIndexSelective(index);
             }
             LuceneContext.getInstance().getNrtManager().deleteDocuments(new Term("id",id.toString()));
+            updateCommitIndex(); //提交索引，待优化
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Transactional(rollbackFor =Exception.class )
-    public void updateIndex(Item fields,boolean inDatabase)throws Exception{
+    public void updateIndex(Item fields, boolean inDatabase)throws Exception{
         if(inDatabase){
         ItemIndex index = new ItemIndex();
         index.setItemId(fields.getItemId());
@@ -87,6 +90,7 @@ public class IndexService implements IindexItemService{
         Document doc = filedDoc(fields);
         try {
             nrtManager.updateDocument(new Term("id",fields.getItemId().toString()),doc);
+            updateCommitIndex(); //提交索引，待优化
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,12 +98,12 @@ public class IndexService implements IindexItemService{
 
     public List<Item> findByIndex(SearchField field)throws Exception{
         List<Item> items = new ArrayList<>();
-        IndexSearcher searcher =LuceneContext.getInstance().getSearcher();
+        IndexSearcher searcher = LuceneContext.getInstance().getSearcher();
         try {
             MultiFieldQueryParser parser = new MultiFieldQueryParser(LuceneContext.getInstance().getVersion(),
-                    new String[]{"name","keyword","introduce"},LuceneContext.getInstance().getAnalyzer());
+                    new String[]{"name","keyword","introduce"}, LuceneContext.getInstance().getAnalyzer());
             Query query = parser.parse(field.getCondition());
-            TopDocs tds = searcher.searchAfter(getLastDoc(field.getIndexNumber(),searcher,query),query,field.getPageNumber());
+            TopDocs tds = searcher.searchAfter(getLastDoc(field.getIndexNumber(),field.getPageNumber(),searcher,query),query,field.getPageNumber());
             for(ScoreDoc sd:tds.scoreDocs){
                 Document doc = searcher.doc(sd.doc);
                 Item item =new Item();
@@ -118,11 +122,25 @@ public class IndexService implements IindexItemService{
         }
         return null;
     }
-    private ScoreDoc getLastDoc(int indexNum,IndexSearcher searcher,Query query){
+    private ScoreDoc getLastDoc(int indexNum,int pageNum,IndexSearcher searcher,Query query){
         if (indexNum==0) return null;
         try {
-            TopDocs tds =searcher.search(query,indexNum-1);
-            return tds.scoreDocs[indexNum-1];
+            TopDocs tds =searcher.search(query,indexNum*pageNum);
+            return tds.scoreDocs[(indexNum*pageNum)-1];
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  null;
+    }
+
+    public Integer getDocCount(SearchField field)throws Exception{
+        IndexSearcher searcher = LuceneContext.getInstance().getSearcher();
+        try {
+            MultiFieldQueryParser parser = new MultiFieldQueryParser(LuceneContext.getInstance().getVersion(),
+                    new String[]{"name","keyword","introduce"}, LuceneContext.getInstance().getAnalyzer());
+            Query query = parser.parse(field.getCondition());
+            TopDocs tds =searcher.search(query,1);
+            return tds.totalHits;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -160,12 +178,15 @@ public class IndexService implements IindexItemService{
     }
 
     public void updateReconstructorIndex() throws Exception {
+        LuceneContext.getInstance();
+        LuceneContext.getWriter().deleteAll();
         List<Item> items = itemMapper.selectItemAll();
         for(Item item:items){
             addIndex(item,false);
         }
         LuceneContext.getInstance().commitIndex();
         indexMapper.deleteItemIndexAll();
+//        LuceneContext.getWriter().close();
     }
 
 
