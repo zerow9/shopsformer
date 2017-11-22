@@ -12,7 +12,7 @@
                     <div class="avatar_box">
                         <p class="avatar_imgbox"><img src="/public/images/mathera.jpg"/></p>
                         <ul class="user_info">
-                            <li>用户名：sl1903</li>
+                            <li>用户名：${user.userNickname}</li>
                             <li>级&nbsp;别：普通会员</li>
                         </ul>
                     </div>
@@ -31,7 +31,7 @@
                 <p>
                     购物车
                 </p>
-                <p class="cart_num">0</p>
+                <p class="cart_num">${collectCount}</p>
             </div>
 
             <div id="brand" class="item">
