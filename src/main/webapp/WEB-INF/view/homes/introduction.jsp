@@ -143,7 +143,7 @@
                             <div class="theme-popover">
                                 <div class="theme-span"></div>
                                 <div class="theme-poptit">
-                                    <a href="javascript:;" title="关闭" class="close">×</a>
+                                    <a href="javascript:" title="关闭" class="close">×</a>
                                 </div>
                                 <div class="theme-popbod dform">
                                     <form class="theme-signin" name="loginform" action="" method="post">
@@ -165,12 +165,13 @@
                                             </div>
                                             <div class="theme-options">
                                                 <div class="cart-title number">数量</div>
-                        <dd>
+
+                        <div>
                             <input id="min" class="am-btn am-btn-default" name="" type="button" value="-"/>
                             <input id="text_box" name="" type="text" value="1" style="width:30px;text-align: center"/>
                             <input id="add" class="am-btn am-btn-default" name="" type="button" value="+"/>
                             <span class="tb-hidden">库存<span class="stock">${item.repertoryNumber}</span>件</span>
-                        </dd>
+                        </div>
                 </div>
                 <div class="btn-op">
                     <div class="btn am-btn am-btn-warning">确认</div>
@@ -518,11 +519,10 @@
         });
         </c:if>
     }
-
-    /*用户收藏按钮切换*/
+    /*用户收藏按钮切换，如没有登录则提示登录之后才可以收藏商品*/
     $("#myinput").on("click",function(){
         <c:if test="${empty user}">
-        alert("请先登录");
+        alert("请先登录！");
         </c:if>
         <c:if test="${!empty user}">
         var isstar=$(this).find("i").attr("class");
@@ -536,7 +536,6 @@
                     alert("收藏成功!");
                 }
             });
-
         }else{
             $(this).find("i").removeClass("am-icon-star").addClass("am-icon-star-o");
             $.ajax({
@@ -546,10 +545,10 @@
                     alert("已取消收藏!");
                 }
             });
-
         }
+        </c:if>
     });
-    </c:if>
+
 
 
 </script>
