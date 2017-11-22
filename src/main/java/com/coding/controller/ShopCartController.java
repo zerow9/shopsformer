@@ -57,7 +57,6 @@ public class ShopCartController {
                 CartDetail cartDetail = new CartDetail();
                 try {
                     Item item = userService.selectItemByPrimaryKey(cart.getItemId());
-                    item.setItemImages(Constant.PICTURE_PATH + item.getItemImages());
                     cartDetail.setItem(item);
                     cartDetail.setUserUuid(uuid);
                     cartDetail.setCartId(cart.getCartId());

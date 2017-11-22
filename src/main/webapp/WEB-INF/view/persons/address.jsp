@@ -7,16 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
     <jsp:include page="/public/common/publicHead.jsp"/>
     <title>地址管理</title>
-
     <link rel="icon" href="/public/images/picture.ico"/>
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
     <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/addstyle.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/bootstrap.css" rel="stylesheet">
-
-
 </head>
 <body>
 <jsp:include page="/public/common/top.jsp"/>
