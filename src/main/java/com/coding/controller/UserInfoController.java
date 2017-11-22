@@ -5,8 +5,10 @@ import com.coding.comomInterface.DateToString;
 import com.coding.comomInterface.MessageTools;
 import com.coding.comomInterface.MyThread;
 import com.coding.comomInterface.MyUUID;
+import com.coding.paging.PagingCustomCart;
 import com.coding.paging.PagingCustomCollect;
 import com.coding.paging.PagingCustomUser;
+import com.coding.pojo.Cart;
 import com.coding.pojo.Collect;
 import com.coding.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +73,7 @@ public class UserInfoController {
                 user.setUserLandIp(InetAddress.getLocalHost().getHostAddress());
                 try {
                     adminService.insertUserSelective(user);
-                    result.put("status","true");
+                    result.put("status", "true");
                     result.put("msg", "true");
                     result.put("url", "/user/login");
                     return result;
@@ -84,7 +86,7 @@ public class UserInfoController {
         } else {
             result.put("msg", "请先获取到验证码！");
         }
-        result.put("status","false");
+        result.put("status", "false");
         return result;
     }
 
@@ -102,7 +104,7 @@ public class UserInfoController {
             session.setAttribute("emailCode", integer);
             result.put("status", "true");
             result.put("msg", "验证码已发送到你的邮箱：" + email + "请注意查收。");
-            MyThread myThread=new MyThread();
+            MyThread myThread = new MyThread();
             myThread.setSession(session);
             myThread.start();
         } catch (Exception e) {
@@ -155,4 +157,23 @@ public class UserInfoController {
         }
     }
 
+    @RequestMapping("itemCart")
+    @ResponseBody
+    public boolean itemCart(Integer cartId, Integer number, HttpSession session) throws Exception {
+        String uuid = (String) session.getAttribute("uuid");
+        Cart cart = new Cart(uuid, cartId);
+        try {
+            PagingCustomCart pagingCustomCart = new PagingCustomCart();
+            pagingCustomCart.setCart(cart);
+            adminService.selectCart(pagingCustomCart);
+            return false;
+        } catch (Exception e) {
+            cart.setItemNumber(number);
+            adminService.insertCartSelective(cart);
+            int sum=(int)session.getAttribute("collectCount")+1;
+            session.removeAttribute("collectCount");
+            session.setAttribute("collectCount",sum);
+        }
+        return true;
+    }
 }

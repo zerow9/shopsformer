@@ -18,7 +18,12 @@ public class Cart {
 
     private Integer makeVender;
 
+    public  Cart(){}
 
+    public  Cart(String userUUid,Integer itemId){
+        this.userUuid=userUUid;
+        this.itemId=itemId;
+    }
     public Integer getCartId() {
         return cartId;
     }
