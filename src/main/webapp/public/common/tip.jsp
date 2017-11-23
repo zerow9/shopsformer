@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--begin：侧边悬浮快速链接--%>
 <div class=tip>
     <div id="sidebar">
@@ -31,7 +31,8 @@
                 <p>
                     购物车
                 </p>
-                <p class="cart_num">${collectCount}</p>
+                <c:if test="${empty user}"><p class="cart_num">0</p></c:if>
+                <c:if test="${!empty user}"><p class="cart_num">${collectCount}</p></c:if>
             </div>
 
             <div id="brand" class="item">

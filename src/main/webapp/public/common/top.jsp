@@ -35,9 +35,15 @@
             <div class="topMessage mini-cart">
                 <div class="menu-hd">
                     <a id="mc-menu-hd" href="/shopCart/getPersonShopCart" target="_top"><i
-                            class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车<p id="J_MiniCartNum" style="float: right;  width: 16px;  height: 16px;
+                            class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车
+                        <c:if test="${empty user}"><p id="J_MiniCartNum" style="float: right;  width: 18px;  height: 18px;
+                             display: block; border-radius:50%;background: #ED145B none repeat scroll 0% 0% ;text-align: center; line-height:18px;
+                             cursor: pointer;margin-top:8px;color: #FFF;">0</p></c:if>
+                        <c:if test="${!empty user}"><p id="J_MiniCartNum" style="float: right;  width: 16px;  height: 16px;
                              display: block; border-radius:50%;background: #ED145B none repeat scroll 0% 0% ;text-align: center;  line-height: 16px;
-                             cursor: pointer;margin-top:8px;color: #FFF;">${collectCount}</p></span></a>
+                             cursor: pointer;margin-top:8px;color: #FFF;">${collectCount}</p></c:if>
+                    </span>
+                    </a>
                 </div>
             </div>
 

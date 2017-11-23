@@ -51,7 +51,6 @@ public class CollectionController {
                 collectDetail.setCollectId(collect.getCollectId());
                 collectDetail.setItem(item);
                 collectDetail.setUserUuid(collect.getUserUuid());
-                collectDetail.setItemImages(Constant.PICTURE_PATH+item.getItemImages());
                 collectDetail.setItemName(item.getItemName());
                 collectDetails.add(collectDetail);
             }
