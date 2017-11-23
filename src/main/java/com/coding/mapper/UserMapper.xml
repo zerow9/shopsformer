@@ -355,12 +355,16 @@
         where user_phone = #{userPhone}
     </select>
 
-    <!--通过电话查找用户密码-->
+    <!--通过电话/邮箱查找用户密码-->
     <select id="selectUserPassword" parameterType="java.lang.String" resultType="java.lang.String">
         select
         user_password
         from user
-        where user_phone = #{userPhone}
+        <where>
+            <if test="userPhone != null and userPhone != ''">
+                and user_phone = #{userPhone}
+            </if>
+        </where>
     </select>
 
     <!--根据组别ID查找用户信息-->
@@ -564,5 +568,9 @@
         select group_concat(column_name)
         from information_schema.columns
         where table_name = 'user'
+    </select>
+    <!--获取MD5值-->
+    <select id="selectMD5" parameterType="java.lang.String" resultType="java.lang.String">
+        select MD5(#{password})
     </select>
 </mapper>

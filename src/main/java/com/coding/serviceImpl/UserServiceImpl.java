@@ -128,7 +128,6 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (userPhone != null && !userPhone.equals("")) {
             //对数据进行清理
             userPhone = Filter.stripXSS(userPhone);
-
             List<String> passwords = userMapper.selectUserPassword(userPhone);
             if (passwords.isEmpty()) throw new Exception("查询到的密码列表返回为空");
             return passwords;
