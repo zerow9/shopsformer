@@ -20,7 +20,9 @@ $(function () {
                     swal({
                         title: "添加成功！",
                         text: "地址添加成功了",
-                        type: "success"
+                        type: "success",
+                        timer:2000,
+                        showConfirmButton:false
                     }, function () {
                         $(':input', '#addressForm')
                             .not(':button,:submit,:reset,:hidden')
@@ -34,7 +36,9 @@ $(function () {
                     swal({
                         title: "添加失败！",
                         text: "地址添加失败了",
-                        type: "error"
+                        type: "error",
+                        timer:2000,
+                        showConfirmButton:false
                     }, function () {
                         $(':input', '#addressForm')
                             .not(':button,:submit,:reset,:hidden')
@@ -45,8 +49,10 @@ $(function () {
                     });
                 } else swal({
                     title: "添加失败！",
-                    text: "最多添加 10 条地址信息！",
-                    type: "warning"
+                    text: "最多允许添加 9 条地址信息！",
+                    type: "warning",
+                    timer:2000,
+                    showConfirmButton:false
                 }, function () {
                     $(':input', '#addressForm')
                         .not(':button,:submit,:reset,:hidden')
