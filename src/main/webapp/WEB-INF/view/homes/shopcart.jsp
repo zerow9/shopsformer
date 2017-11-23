@@ -70,7 +70,7 @@
                                 <div class="item-pic">
                                     <a href="#" target="_blank" data-title="${cart.item.itemName}" class="J_MakePoint"
                                        data-point="tbcart.8.12">
-                                        <img src="${cart.item.itemImages}" class="itempic J_ItemImg"></a>
+                                        <img src="${cart.item.itemImages}" width="80"  class="itempic J_ItemImg"></a>
                                 </div>
                                 <div class="item-info">
                                     <div class="item-basic-info">
@@ -89,10 +89,10 @@
                                 <div class="item-price price-promo-promo">
                                     <div class="price-content">
                                         <div class="price-line">
-                                            <em class="price-original">${cart.item.itemMarketPrice*1.2}</em>
+                                            <em class="price-original">${cart.item.itemMarketPrice}</em>
                                         </div>
                                         <div class="price-line">
-                                            <em class="J_Price price-now" tabindex="0">${cart.item.itemMarketPrice}</em>
+                                            <em class="J_Price price-now" tabindex="0">${cart.item.itemMarketPrice*cart.item.discount/100}</em>
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
                             <li class="td td-sum">
                                 <div class="td-inner">
                                     <em tabindex="0" class="J_ItemSum number"
-                                        id="sumM">${cart.itemNumber*cart.item.itemMarketPrice}</em>
+                                        id="sumM">${cart.itemNumber*cart.item.itemMarketPrice*cart.item.discount/100}</em>
                                 </div>
                             </li>
                             <li class="td td-op">

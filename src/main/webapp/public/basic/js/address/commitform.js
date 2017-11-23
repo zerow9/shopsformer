@@ -49,7 +49,7 @@ $(function () {
                     });
                 } else swal({
                     title: "添加失败！",
-                    text: "最多添加 10 条地址信息！",
+                    text: "最多允许添加 9 条地址信息！",
                     type: "warning",
                     timer:2000,
                     showConfirmButton:false
