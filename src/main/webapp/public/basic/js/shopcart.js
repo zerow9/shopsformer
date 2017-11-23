@@ -52,7 +52,7 @@ $(function () {
 
 });
 
-//添加商品收藏
+//添加商品到购物车
 var addCollection=function(id){
     $.ajax({
         type:"POST",
