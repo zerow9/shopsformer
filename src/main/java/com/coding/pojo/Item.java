@@ -44,6 +44,16 @@ public class Item {
 
     private String dateToString;
 
+    private Integer discount;
+
+    public Integer getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
+    }
+
     public String getDateToString() {
         return dateToString;
     }
@@ -238,6 +248,7 @@ public class Item {
                 ", makeVender=" + makeVender +
                 ", makeDate=" + makeDate +
                 ", dateToString='" + dateToString + '\'' +
+                ", discount=" + discount +
                 ", itemIntroduce='" + itemIntroduce + '\'' +
                 '}';
     }
