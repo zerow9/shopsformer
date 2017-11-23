@@ -29,6 +29,15 @@ public class User {
 
     private Integer userLandNumber;
 
+    private String salt;
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
 
     public void setUserRegisterDateTimeToString(String userRegisterDateTimeToString) {
         this.userRegisterDateTimeToString = userRegisterDateTimeToString;

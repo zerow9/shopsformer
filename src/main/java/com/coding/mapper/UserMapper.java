@@ -162,4 +162,12 @@ public interface UserMapper {
      * @throws Exception
      */
     public String selectUserTableColumns()throws Exception;
+
+    /**
+     * 获取密码的MD5值
+     * @param password 用户密码
+     * @return 加密后的密码
+     * @throws Exception
+     */
+    public String selectMD5(@Param("password") String password)throws Exception;
 }

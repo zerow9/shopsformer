@@ -6,6 +6,7 @@ import com.coding.CustomVo.CustomVoItemsByOrderId;
 import com.coding.CustomVo.CustomVoOrdersByUserUuidAndStatus;
 import com.coding.Iservice.IUserService;
 import com.coding.comomInterface.ErrorExc;
+import com.coding.filter.Encoding;
 import com.coding.filter.Filter;
 import com.coding.mapper.*;
 import com.coding.paging.*;
@@ -64,6 +65,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     public void insertUserSelective(User user) throws Exception {
         try {
             user = (User) Filter.filterObject(user);
+            String salt = Encoding.getGenerateSalt();
+            user.setSalt(salt);
+            user.setUserPassword(user.getUserPassword()+ salt);
             userMapper.insertUserSelective(user);
         } catch (Exception e) {
             e.printStackTrace();
@@ -124,7 +128,6 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         if (userPhone != null && !userPhone.equals("")) {
             //对数据进行清理
             userPhone = Filter.stripXSS(userPhone);
-
             List<String> passwords = userMapper.selectUserPassword(userPhone);
             if (passwords.isEmpty()) throw new Exception("查询到的密码列表返回为空");
             return passwords;
