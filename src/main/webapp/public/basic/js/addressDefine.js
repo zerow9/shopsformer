@@ -23,7 +23,9 @@ function deleteAddress(addressId) {
                 swal({
                         title: "删除！",
                         text: "已经成功删除地址！",
-                        type: "success"
+                        type: "success",
+                        timer:2000,
+                        showConfirmButton:false
                     },
                     function () {
                         window.location.reload();
