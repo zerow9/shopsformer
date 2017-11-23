@@ -70,7 +70,7 @@ public class PayController {
                 Integer count=(Integer)session.getAttribute("collectCount");
                 count-=cartId.length;
                 session.removeAttribute("collectCount");
-                session.setAttribute("collectCount",count);
+                session.setAttribute("collectCount",count+1);
             } catch (Exception e) {
             }
         }
