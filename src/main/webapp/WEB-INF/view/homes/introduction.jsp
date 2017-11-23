@@ -36,7 +36,7 @@
         }
     </style>
     <jsp:include page="/public/common/publicHead.jsp"/>
-
+    <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/public/basic/css/dlstyle.css">
     <link rel="stylesheet" href="/public/basic/css/movedown.css">
     <link rel="stylesheet" href="/public/basic/bootstrap/css/bootstrap.css">
@@ -226,7 +226,7 @@
 <br/><br/>
 <%--添加到收藏--%>
 <div id="Coco">
-    <button class="addc-1" id="myinput" type="button"><i class="am-icon-star-o" aria-hidden="true"></i>&nbsp;添加收藏
+    <button class="addc-1" id="myinput" type="button" onclick="addCollect(${user.collect.itemId})"><i class="am-icon-star-o" aria-hidden="true"></i>&nbsp;添加收藏
     </button>
     <button class="addc-2" type="button"><i class="am-icon-share-alt" aria-hidden="true"></i>&nbsp;分享</button>
 </div>
@@ -499,6 +499,9 @@
 <script type="text/javascript" src="/public/basic/js/jquery.imagezoom.min.js"></script>
 <script type="text/javascript" src="/public/basic/js/jquery.flexslider.js"></script>
 <script type="text/javascript" src="/public/basic/js/list.js"></script>
+ <script src="/public/basic/js/sweetalert.min.js"></script>
+ <script src="/public/amazeUI/assets/js/jquery.min.js"></script>
+ <script src="/public/basic/js/collection.js"></script>
 </body>
 <script type="text/javascript">
     function oncart(id) {
@@ -548,8 +551,5 @@
         }
         </c:if>
     });
-
-
-
 </script>
 </html>
