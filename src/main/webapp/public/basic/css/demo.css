@@ -582,7 +582,7 @@ input.add, input.min {
         height: 33px;
         width: 160px;
         text-align: center;
-        background: url(../../images/extra.png);
+        background: url(/public/images/extra.png);
         cursor: pointer;
     }
 
