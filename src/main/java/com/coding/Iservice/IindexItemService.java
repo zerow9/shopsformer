@@ -17,4 +17,12 @@ public interface IindexItemService {
      */
     public List<Item> findByIndex(SearchField field) throws Exception;
 
+    /**
+     * 返回搜索结果数量
+     * @param field 自定义搜索对象
+     * @return  搜索结果数量
+     * @throws Exception Lucene异常
+     */
+    public Integer getDocCount(SearchField field) throws Exception;
+
 }

@@ -71,5 +71,18 @@ public class IndexService implements IindexItemService {
         return null;
     }
 
+    public Integer getDocCount(SearchField field) throws Exception {
+        IndexSearcher searcher = LuceneContext.getInstance().getSearcher();
+        try {
+            MultiFieldQueryParser parser = new MultiFieldQueryParser(LuceneContext.getInstance().getVersion(),
+                    new String[]{"name", "keyword", "introduce"}, LuceneContext.getInstance().getAnalyzer());
+            Query query = parser.parse(field.getCondition());
+            TopDocs tds = searcher.search(query, 1);
+            return tds.totalHits;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
 
