@@ -45,7 +45,7 @@ public class LuceneContext {
 //        String dicUrl = new File(".").getCanonicalPath();
 //        String pathString = dicUrl.substring(0, dicUrl.lastIndexOf(File.separator));
 //        directory = FSDirectory.open(new File(pathString + File.separator+"shops"+File.separator + "index"));
-        String dicUrl = getPath();
+        String dicUrl = getPathname();
         if (dicUrl == null || dicUrl.equals("")) throw new Exception("索引库路径为空.");
         directory =FSDirectory.open(new File(dicUrl));
         version = Version.LUCENE_35;
@@ -57,9 +57,9 @@ public class LuceneContext {
             }
         }, Executors.newCachedThreadPool());
     }
-    private static String getPath() {
+    private static String getPathname() {
         Element element = null;
-                File f = new File(LuceneContext.class.getClassLoader().getResource("").getPath()+File.separator+"lucene.xml");  //部署tomcat路径
+        File f = new File(LuceneContext.class.getClassLoader().getResource("").getPath()+File.separator+"lucene.xml");  //部署tomcat路径
 //        File f = new File("lucene.xml");   //测试路径
         DocumentBuilder db = null;
         DocumentBuilderFactory dbf = null;
