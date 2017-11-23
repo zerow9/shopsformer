@@ -123,8 +123,8 @@
                                     <a title="移入收藏夹" class="btn-fav" href="javascript:;"
                                        onclick="addCollection(${cart.item.itemId})">
                                         移入收藏夹</a>
-                                    <a href="javascript:" data-point-url="#" class="delete"
-                                       onclick="deleteCollection(${cart.cartId})">
+                                    <a href="javascript:" class="delete"
+                                       onclick="deleteShopCart(${cart.cartId})">
                                         删除</a>
                                 </div>
                             </li>
