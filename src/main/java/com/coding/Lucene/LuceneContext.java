@@ -42,19 +42,22 @@ public class LuceneContext {
 
     //单列初始化操作
     private static void init() throws Exception {
-        String dicUrl = new File(".").getCanonicalPath();
-        String pathString = dicUrl.substring(0, dicUrl.lastIndexOf(File.separator));
-        directory = FSDirectory.open(new File(pathString + File.separator+"shops"+File.separator + "index"));
+//        String dicUrl = new File(".").getCanonicalPath();
+//        String pathString = dicUrl.substring(0, dicUrl.lastIndexOf(File.separator));
+//        directory = FSDirectory.open(new File(pathString + File.separator+"shops"+File.separator + "index"));
+//        String dicUrl = new File(".").getCanonicalPath();
+//        directory = FSDirectory.open(new File(dicUrl+File.separator + "index"));
 //        directory = FSDirectory.open(new File("C:\\Users\\ASUS\\Desktop\\Java Web\\apache-tomcat-7.0.42\\bin\\index"));
 //        String dicUrl = getPathname();
 //        if (dicUrl == null || dicUrl.equals("")) throw new Exception("索引库路径为空.");
 //        directory =FSDirectory.open(new File(dicUrl));
+        directory = FSDirectory.open(new File("D:\\index"));//开发环节路径
         version = Version.LUCENE_35;
         analyzer = new StandardAnalyzer(version);
         searcherManager = new SearcherManager(directory, new SearcherWarmer() {
             @Override
             public void warm(IndexSearcher indexSearcher) throws IOException {
-                System.out.println("has -----------------------------------change.");
+//                System.out.println("has -----------------------------------change.");
             }
         }, Executors.newCachedThreadPool());
     }
