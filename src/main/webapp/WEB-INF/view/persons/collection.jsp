@@ -125,9 +125,7 @@
                 });
 
             });
-
     }
-
     function addShopCart(id, pice) {
         $.ajax({
             type: "POST",
