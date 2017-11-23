@@ -2,6 +2,7 @@ package com.coding.Lucene;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.search.*;
@@ -11,82 +12,64 @@ import org.apache.lucene.util.Version;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.Executors;
 
 public class LuceneContext {
-    private  static LuceneContext instance;
-    private static IndexWriter writer;
-    private static  Analyzer analyzer ;
+    private static LuceneContext instance;
+    private static Analyzer analyzer;
     private static Version version;
-    private static NRTManager nrtManager;
-    private static SearcherManager mgr;
     private static Directory directory;
+    private static SearcherManager searcherManager;
+
     //无参构造函数
-    private LuceneContext(){ }
+    private LuceneContext() {
+    }
+
     //单列设计模式
     public static LuceneContext getInstance() throws IOException {
-        if(instance==null) instance = new LuceneContext();
-        init();
+        if (instance == null) {
+            instance = new LuceneContext();
+            init();
+        }
         return instance;
     }
 
     //单列初始化操作
     private static void init() throws IOException {
         String dicUrl = new File(".").getCanonicalPath();
-        String pathString  = dicUrl.substring(0,dicUrl.lastIndexOf(File.separator));
-        directory = FSDirectory.open(new File(pathString+File.separator+"index"));
+        String pathString = dicUrl.substring(0, dicUrl.lastIndexOf(File.separator));
+        directory = FSDirectory.open(new File(pathString + File.separator+"shops"+File.separator + "index"));
+//        directory =FSDirectory.open(new File("C:\\Users\\ASUS\\Desktop\\Java Web\\apache-tomcat-7.0.42\\index"));
         version = Version.LUCENE_35;
         analyzer = new StandardAnalyzer(version);
-        if(writer == null)
-        writer = new IndexWriter(directory,new IndexWriterConfig(version,analyzer));
-        nrtManager = new NRTManager(writer, new SearcherWarmer() {
+        searcherManager = new SearcherManager(directory, new SearcherWarmer() {
+            @Override
             public void warm(IndexSearcher indexSearcher) throws IOException {
-                System.out.println("reopen index");
+                System.out.println("has -----------------------------------change.");
             }
-        });
-        mgr = nrtManager.getSearcherManager(true);
-        NRTManagerReopenThread reopenThread = new NRTManagerReopenThread(nrtManager,5.0,0.025);
-        reopenThread.setName("NRTManage reopen thread");
-        reopenThread.setDaemon(true);
-        reopenThread.start();
+        }, Executors.newCachedThreadPool());
     }
 
     //获得searcher
-    public IndexSearcher getSearcher(){
-        return  mgr.acquire();
+    public IndexSearcher getSearcher() throws IOException {
+        searcherManager.maybeReopen();
+        return searcherManager.acquire();
     }
+
     //关闭searcher
-    public void releaseSearcher(IndexSearcher searcher){
+    public void releaseSearcher(IndexSearcher searcher) {
         try {
-            mgr.release(searcher);
+            searcherManager.release(searcher);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    //writer提交操作
-    public void  commitIndex(){
-        try {
-            writer.commit();
-//            writer.forceMerge(3);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public Version getVersion() {
+        return version;
     }
 
-    //获得Nrtmanager
-    public NRTManager getNrtManager(){
-        return nrtManager;
-    }
-
-    public  Version getVersion(){
-        return  version;
-    }
-
-    public Analyzer getAnalyzer(){
+    public Analyzer getAnalyzer() {
         return analyzer;
-    }
-
-    public static IndexWriter getWriter() {
-        return writer;
     }
 }
