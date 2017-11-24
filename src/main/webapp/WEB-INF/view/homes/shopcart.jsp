@@ -14,6 +14,7 @@
 <body>
 <%--顶部--%>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
+<div style="margin-top: 20px;"></div>
 <div class="clear"></div>
 <!--购物车 -->
 <div class="concent">
@@ -49,7 +50,7 @@
                 <div class="bundle-hd">
                     <div class="bd-promos">
                         <div class="act-promo">
-                            <a href="#" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
+                            <a href="javascript:;" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
                         </div>
                         <span class="list-change theme-login">编辑</span>
                     </div>
