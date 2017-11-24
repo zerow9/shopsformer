@@ -30,11 +30,12 @@
         </div>
     </div>
     <jsp:include page="/public/common/tip.jsp" flush="true"/>
+    <%--<jsp:include page="/public/common/customerServices.jsp" flush="true"/>--%>
 </body>
 <script type="text/javascript">
-    window.onload=function(){
+    window.onload = function () {
         var obj = document.getElementById("sun");
-        obj.action="/item/indexTenItem";
+        obj.action = "/item/indexTenItem";
         obj.submit();
     }
 </script>

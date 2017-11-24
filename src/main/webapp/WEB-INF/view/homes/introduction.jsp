@@ -550,8 +550,9 @@
                         title: "加入购物车成功！",
                         type: "success",
                         timer: 2000,
-                        showConfirmButton: false
+                        showConfirmButton: false,
                     });
+                    window.location.reload();
                 }else swal({
                     title: "加入购物车失败！",
                     type: "error",
@@ -589,6 +590,7 @@
                             timer: 2000,
                             showConfirmButton: false
                         });
+                        window.location.reload();
                     }else swal({
                         title: "收藏失败！",
                         type: "error",

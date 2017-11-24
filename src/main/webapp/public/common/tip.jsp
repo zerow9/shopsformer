@@ -45,20 +45,21 @@
                 </div>
             </div>
             <div class="quick_toggle" style="margin-bottom: 50px">
-
-                <li class="qtitem">
-                    <a href="#"><span class="kfzx"></span></a>
-                    <div class="mp_tooltip">客服中心<i class="icon_arrow_right_black"></i></div>
-                </li>
-                <!--二维码 -->
-                <li class="qtitem">
-                    <a href="#none"><span class="mpbtn_qrcode"></span></a>
-                    <div class="mp_qrcode" style="display:none;"><img src="/public/images/weixin_code_145.png"/><i
-                            class="icon_arrow_white"></i></div>
-                </li>
-                <li class="qtitem">
-                    <a href="#top" class="return_top"><span class="top"></span></a>
-                </li>
+                <ul>
+                    <li class="qtitem">
+                        <a onclick="open_kefu()"><span class="kfzx"></span></a>
+                        <div class="mp_tooltip">客服中心<i class="icon_arrow_right_black"></i></div>
+                    </li>
+                    <!--二维码 -->
+                    <li class="qtitem">
+                        <a href="#none"><span class="mpbtn_qrcode"></span></a>
+                        <div class="mp_qrcode" style="display:none;"><img src="http://xcstudio.oss-cn-shenzhen.aliyuncs.com/img/mmqrcode1511511377382.png"/><i
+                                class="icon_arrow_white"></i></div>
+                    </li>
+                    <li class="qtitem">
+                        <a href="#top" class="return_top"><span class="top"></span></a>
+                    </li>
+                </ul>
             </div>
 
             <!--回到顶部 -->
@@ -121,6 +122,13 @@
 <%--检查jQuery（如果jQuery没有被引入，则引入)--%>
 <script>
     window.jQuery || document.write('<script src="/public/basic/js/jquery-1.7.2.min.js "><\/script>');
+
+    function open_kefu() {
+        var kefu = window.open('http://wpa.qq.com/msgrd?v=3&uin=634650981&site=qq&menu=yes', '_blank', 'width=500,height=300,left=500,top=200, menubar=no, toolbar=no, status=no,scrollbars=no, titlebar=no, location=no')
+        setTimeout(function () {
+            kefu.close();
+        },30000)
+    }
 </script>
 
 <%--侧边悬浮快速链接js--%>

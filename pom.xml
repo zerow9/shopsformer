@@ -40,6 +40,7 @@
         <shiro-spring.version>1.2.3</shiro-spring.version>
         <hibernate-validator.version>5.0.2.Final</hibernate-validator.version>
         <lucene.version>3.5.0</lucene.version>
+        <aliyun-sdk-oss.version>2.8.1</aliyun-sdk-oss.version>
     </properties>
 
 
@@ -290,6 +291,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-email</artifactId>
             <version>1.4</version>
+        </dependency>
+        <!--阿里云对象存储-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>${aliyun-sdk-oss.version}</version>
         </dependency>
     </dependencies>
 
