@@ -1360,7 +1360,10 @@ dt + dd {
         background: #BDECF6;
     }
 
-    .banner .am-slider .am-slides li.banner1 {
+/*    .banner .am-slider .am-slides li.banner1 {
+        background: #f7efcb;
+    }*/
+    #demo-slider-0 .am-slider .banner1{
         background: #f7efcb;
     }
 
