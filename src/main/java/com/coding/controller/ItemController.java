@@ -20,13 +20,19 @@ public class ItemController {
     private IAdminService adminService;
 
     @RequestMapping("indexTenItem")
-    public String indexTenItem(HttpSession session) throws Exception {
+    public String indexTenItem(HttpSession session) {
         PagingCustomItem pagingCustomItem = new PagingCustomItem();
         pagingCustomItem.setIndexNumber(0);
         pagingCustomItem.setPageNumber(8);
-        List<Item> list = adminService.selectItem(pagingCustomItem);
-        for (Item item : list)
-        session.setAttribute("listItem", list);
+        List<Item> list = null;
+        try {
+            list = adminService.selectItem(pagingCustomItem);
+            for (Item item : list)
+                session.setAttribute("listItem", list);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return "homes/index";
     }
 
