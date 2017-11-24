@@ -24,10 +24,8 @@ public class PayController {
     @Autowired
     private IAdminService adminService;
 
-    @RequestMapping("itemPay")
-    public String itemPay(Integer[] cartId, HttpSession session, HttpServletRequest request) throws Exception {
-        PagingCustomCart pagingCustomCart = new PagingCustomCart();
-        pagingCustomCart.setCartIdArray(cartId);
+
+    private void uuidGetAddress(HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
         List<Address> addresses = adminService.selectAddressByUserID(uuid);
         Address add = null;
@@ -39,38 +37,73 @@ public class PayController {
                 add.setAddresseePhone(photo);
             }
         }
-        request.setAttribute("addresses", addresses);
-        List<Cart> carts = adminService.selectCartByCartIdArray(pagingCustomCart);
-        List<CartDetail> cartDetails = new ArrayList<CartDetail>();
-        int sum = 0;
-        String cart_id = "";
-        for (Cart cart : carts) {
-            CartDetail cartDetail = new CartDetail();
-            Item item = adminService.selectItemByPrimaryKey(cart.getItemId());
-            cartDetail.setItem(item);
-            cartDetail.setUserUuid(uuid);
+        session.setAttribute("addresses", addresses);
+        session.setAttribute("add", add);
+    }
+
+    private double cartGetCartDetail(Integer itemId, Cart cart, List<CartDetail> cartDetails, Integer sum, String uuid) throws Exception {
+        Item item = null;
+        CartDetail cartDetail = new CartDetail();
+        if (itemId == null && cart == null) {
+            item = adminService.selectItemByPrimaryKey(cart.getItemId());
+            cartDetail.setUserUuid(cart.getUserUuid());
             cartDetail.setCartId(cart.getCartId());
             cartDetail.setItemNumber(cart.getItemNumber());
-            cartDetails.add(cartDetail);
-            sum += item.getItemMarketPrice() * cart.getItemNumber()*item.getDiscount()/100;
+        } else {
+            item = adminService.selectItemByPrimaryKey(itemId);
+            cartDetail.setUserUuid(uuid);
+            cartDetail.setItemNumber(sum);
+        }
+        cartDetail.setItem(item);
+        cartDetails.add(cartDetail);
+        double money = item.getItemMarketPrice() * cart.getItemNumber() * item.getDiscount() / 100;
+        return money;
+    }
+
+
+    @RequestMapping("itemPay")
+    public String itemPay(Integer[] cartId, HttpSession session, HttpServletRequest request) throws Exception {
+        PagingCustomCart pagingCustomCart = new PagingCustomCart();
+        pagingCustomCart.setCartIdArray(cartId);
+        String uuid = (String) session.getAttribute("uuid");
+        uuidGetAddress(session);
+        List<Cart> carts = adminService.selectCartByCartIdArray(pagingCustomCart);
+        List<CartDetail> cartDetails = new ArrayList<CartDetail>();
+        double sum = 0;
+        String cart_id = "";
+        for (Cart cart : carts) {
+            sum += cartGetCartDetail(null, cart, cartDetails, 0, uuid);
             cart_id += cart.getCartId() + ",";
         }
         session.setAttribute("cartIds", cart_id);
         session.setAttribute("sumCart", sum);
-        session.setAttribute("add", add);
         request.setAttribute("carts", cartDetails);
         return "homes/pay";
     }
 
+
+    @RequestMapping("itemBuyPay")
+    public String itemPay(Integer cartId, Integer itemNumber, HttpSession session, HttpServletRequest request) throws Exception {
+        List<CartDetail> cartDetails = new ArrayList<CartDetail>();
+        uuidGetAddress(session);
+        String uuid = (String) session.getAttribute("uuid");
+        double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
+        session.setAttribute("cartIds", cartId);
+        session.setAttribute("sumCart", sum);
+        request.setAttribute("carts", cartDetails);
+        return "homes/pay";
+    }
+
+
     @RequestMapping("success")
-    public String success(Integer[] cartId,HttpSession session) throws Exception {
+    public String success(Integer[] cartId, HttpSession session) throws Exception {
         if (cartId.length != 0 && cartId != null) {
             try {
                 adminService.deleteCartByPrimaryKeyArray(cartId);
-                Integer count=(Integer)session.getAttribute("collectCount");
-                count-=cartId.length;
+                Integer count = (Integer) session.getAttribute("collectCount");
+                count -= cartId.length;
                 session.removeAttribute("collectCount");
-                session.setAttribute("collectCount",count+1);
+                session.setAttribute("collectCount", count + 1);
             } catch (Exception e) {
             }
         }

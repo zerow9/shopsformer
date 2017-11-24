@@ -14,6 +14,7 @@
 <body>
 <%--顶部--%>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
+<div style="margin-top: 20px;"></div>
 <div class="clear"></div>
 <!--购物车 -->
 <div class="concent">

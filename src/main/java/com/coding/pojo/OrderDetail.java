@@ -20,6 +20,16 @@ public class OrderDetail {
 
     private String userUuid;
 
+    private String itemCode;
+
+    public String getItemCode() {
+        return itemCode;
+    }
+
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
+    }
+
     public Integer getOrderDetailId() {
         return orderDetailId;
     }
@@ -104,6 +114,7 @@ public class OrderDetail {
                 ", useScore=" + useScore +
                 ", sendScore=" + sendScore +
                 ", userUuid='" + userUuid + '\'' +
+                ", itemCode='" + itemCode + '\'' +
                 '}';
     }
 }

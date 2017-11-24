@@ -214,7 +214,7 @@
     </div>
     <li>
         <div class="clearfix tb-btn tb-btn-buy theme-login">
-            <a id="LikBuy" title="点此按钮到下一步确认购买信息" href="#">立即购买</a>
+            <a id="LikBuy" title="点此按钮到下一步确认购买信息" onclick="buy(${item.itemId})">立即购买</a>
         </div>
     </li>
     <li>
@@ -507,6 +507,30 @@
 
 </body>
 <script type="text/javascript">
+
+
+    function buy(id) {
+        var t = $("#text_box");
+        <c:if test="${empty user}">
+        alert("请先登录");
+        </c:if>
+        <c:if test="${!empty user}">
+        $.ajax({
+            url: "/user/order/orderBuy?itemId=" + id+"&itemNumber="+t.val(),
+            success: function (data) {
+                if (data) {
+                    alert("生成订单成功！点击继续");
+                    location.href = "/user/pay/itemBuyPay?cartId="+id+"&itemNumber="+t.val()
+                } else {
+                    alert("生成订单失败!请稍后购买");
+                }
+            }
+        });
+        </c:if>
+
+    }
+
+
     function oncart(id) {
         var t = $("#text_box");
         <c:if test="${empty user}">
@@ -526,8 +550,9 @@
                         title: "加入购物车成功！",
                         type: "success",
                         timer: 2000,
-                        showConfirmButton: false
+                        showConfirmButton: false,
                     });
+                    window.location.reload();
                 }else swal({
                     title: "加入购物车失败！",
                     type: "error",
@@ -565,6 +590,7 @@
                             timer: 2000,
                             showConfirmButton: false
                         });
+                        window.location.reload();
                     }else swal({
                         title: "收藏失败！",
                         type: "error",

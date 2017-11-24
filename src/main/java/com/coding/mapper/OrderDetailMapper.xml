@@ -12,10 +12,11 @@
     <result column="use_score" property="useScore" jdbcType="INTEGER" />
     <result column="send_score" property="sendScore" jdbcType="INTEGER" />
     <result column="user_uuid" property="userUuid" jdbcType="VARCHAR" />
+    <result column="item_code" property="itemCode" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     order_detail_id, order_id, item_id, item_price, item_number, item_sum_price, use_score,
-    send_score, user_uuid
+    send_score, user_uuid,item_code
   </sql>
 
 
@@ -68,6 +69,9 @@
       <if test="userUuid != null" >
         user_uuid,
       </if>
+      <if test="itemCode != null">
+        itme_code
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="orderId != null" >
@@ -93,6 +97,9 @@
       </if>
       <if test="userUuid != null" >
         #{userUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemCode != null">
+        #{itemCode,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -123,6 +130,9 @@
       </if>
       <if test="userUuid != null" >
         user_uuid = #{userUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemCode != null">
+        item_code = #{itemCode,jdbcType=VARCHAR},
       </if>
     </set>
     where order_detail_id = #{orderDetailId,jdbcType=INTEGER}
@@ -214,5 +224,21 @@
     select group_concat(column_name)
     from information_schema.columns
     where table_name = 'order_detail'
+  </select>
+
+  <select id="selectOrdersIdArrayByUuidAndItemCodeArray" parameterType="com.coding.paging.PagingCustomOrderDetail" resultType="java.lang.Integer">
+    select order_id
+    FROM order_detail
+    <where>
+      <if test="orderDetail.userUuid != null and orderDetail.userUuid != ''">
+        and user_uuid = #{orderDetail.userUuid}
+      </if>
+      <if test="itemCodeArray != null">
+        and item_code IN
+        <foreach collection="itemCodeArray" item="itemCode" open="(" separator="," close=")">
+          #{itemCode}
+        </foreach>
+      </if>
+    </where>
   </select>
 </mapper>
