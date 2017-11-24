@@ -7,17 +7,20 @@
         <ul class="am-slides">
             <li class="banner1">
                 <a href="/public/common/introduction.jsp">
-                    <img src="/public/images/ad1.jpg"/>
+                    <img src="/public/images/ad01.jpg"/>
                 </a>
             </li>
             <li class="banner2">
-                <a><img src="/public/images/ad2.jpg"/></a>
+                <a><img src="/public/images/ad02.jpg"/></a>
             </li>
             <li class="banner3">
-                <a><img src="/public/images/ad3.jpg"/></a>
+                <a><img src="/public/images/ad03.jpg"/></a>
             </li>
             <li class="banner4">
-                <a><img src="/public/images/ad4.jpg"/></a>
+                <a><img src="/public/images/ad04.jpg"/></a>
+            </li>
+            <li class="banner5">
+                <a><img src="/public/images/ad05.jpg"/></a>
             </li>
         </ul>
     </div>
