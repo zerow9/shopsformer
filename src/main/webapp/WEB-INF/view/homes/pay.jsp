@@ -7,13 +7,11 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0 ,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>结算页面</title>
-
     <link rel="icon" href="/public/images/picture.ico"/>
     <link href="/public/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet">
     <link href="/public/basic/css/demo.css" rel="stylesheet"/>
     <link href="/public/css/sustyle.css" rel="stylesheet"/>
     <link rel="icon" href="/public/images/picture.ico"/>
-
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/cartstyle.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/jsstyle.css" rel="stylesheet" type="text/css"/>
