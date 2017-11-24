@@ -41,6 +41,26 @@ public class PayController {
         session.setAttribute("add", add);
     }
 
+    private double cartGetCartDetail(Integer itemId, Cart cart, List<CartDetail> cartDetails, Integer sum, String uuid) throws Exception {
+        Item item = null;
+        CartDetail cartDetail = new CartDetail();
+        if (itemId == null && cart == null) {
+            item = adminService.selectItemByPrimaryKey(cart.getItemId());
+            cartDetail.setUserUuid(cart.getUserUuid());
+            cartDetail.setCartId(cart.getCartId());
+            cartDetail.setItemNumber(cart.getItemNumber());
+        } else {
+            item = adminService.selectItemByPrimaryKey(itemId);
+            cartDetail.setUserUuid(uuid);
+            cartDetail.setItemNumber(sum);
+        }
+        cartDetail.setItem(item);
+        cartDetails.add(cartDetail);
+        double money = item.getItemMarketPrice() * cart.getItemNumber() * item.getDiscount() / 100;
+        return money;
+    }
+
+
     @RequestMapping("itemPay")
     public String itemPay(Integer[] cartId, HttpSession session, HttpServletRequest request) throws Exception {
         PagingCustomCart pagingCustomCart = new PagingCustomCart();
@@ -49,17 +69,10 @@ public class PayController {
         uuidGetAddress(session);
         List<Cart> carts = adminService.selectCartByCartIdArray(pagingCustomCart);
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
-        int sum = 0;
+        double sum = 0;
         String cart_id = "";
         for (Cart cart : carts) {
-            CartDetail cartDetail = new CartDetail();
-            Item item = adminService.selectItemByPrimaryKey(cart.getItemId());
-            cartDetail.setItem(item);
-            cartDetail.setUserUuid(uuid);
-            cartDetail.setCartId(cart.getCartId());
-            cartDetail.setItemNumber(cart.getItemNumber());
-            cartDetails.add(cartDetail);
-            sum += item.getItemMarketPrice() * cart.getItemNumber()*item.getDiscount()/100;
+            sum += cartGetCartDetail(null, cart, cartDetails, 0, uuid);
             cart_id += cart.getCartId() + ",";
         }
         session.setAttribute("cartIds", cart_id);
@@ -71,15 +84,10 @@ public class PayController {
 
     @RequestMapping("itemBuyPay")
     public String itemPay(Integer cartId, Integer itemNumber, HttpSession session, HttpServletRequest request) throws Exception {
-        uuidGetAddress(session);
-        Item item = adminService.selectItemByPrimaryKey(cartId);
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
-        CartDetail cartDetail = new CartDetail();
-        cartDetail.setItemNumber(itemNumber);
-        cartDetail.setItem(item);
-        cartDetails.add(cartDetail);
-        System.out.println(itemNumber);
-        Double sum =(double) item.getItemMarketPrice() * itemNumber;
+        uuidGetAddress(session);
+        String uuid = (String) session.getAttribute("uuid");
+        double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
         session.setAttribute("cartIds", cartId);
         session.setAttribute("sumCart", sum);
         request.setAttribute("carts", cartDetails);
@@ -96,7 +104,6 @@ public class PayController {
                 count -= cartId.length;
                 session.removeAttribute("collectCount");
                 session.setAttribute("collectCount", count + 1);
-
             } catch (Exception e) {
             }
         }
