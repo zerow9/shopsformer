@@ -6,9 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateFormatTool {
-
+    private String type = "FULL_TIME";
+    public DateFormatTool(String type){
+        this.type = type;
+    }
+    public DateFormatTool(){}
     //    日期转字符串
-    public String dateToString(Date date, String type) {
+    public String dateToString(Date date) {
         String str = null;
         if (type.equals("SHORT")) {
             str = new SimpleDateFormat("yy-MM-dd").format(date);

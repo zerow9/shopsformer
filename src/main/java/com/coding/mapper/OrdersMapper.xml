@@ -316,6 +316,7 @@
     </trim>
   </insert>
   <!--批量删除订单-->
+
   <delete id="deleteOrderByPrimaryKeyArray" parameterType="java.lang.Integer">
     delete from orders where order_id IN
     <foreach collection="oderIdArray" item="order" open="(" separator="," close=")">
@@ -372,7 +373,15 @@
         <if test="order.protectStatus != null">
           and protect_status = #{order.protectStatus}
         </if>
+          <if test="timeArray != null">
+              and orderCreateTime in
+              <foreach collection="timeArray" item="time" open="(" separator="," close=")">
+                  order_create_time = #{timeArray}
+              </foreach>
+          </if>
       </if>
+
+
 
       <!--根据订单创建时间范围查询订单信息-->
       <if test="formerOrderCreateTime != null and formerOrderCreateTime != ''">

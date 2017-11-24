@@ -1,9 +1,9 @@
 package com.coding.paging;
 
 import com.coding.pojo.Orders;
-import org.springframework.stereotype.Component;
+import java.util.Date;
+import java.util.List;
 
-@Component
 public class PagingCustomOrder extends Paging {
     private Orders order;//订单基本信息
 
@@ -30,6 +30,16 @@ public class PagingCustomOrder extends Paging {
     private String formerProtectTime;//一些功能需要维权时间范围内查询，这是左侧较小值
 
     private String latterProtectTime;//一些功能需要维权时间范围内查询，这是右侧较大值
+
+    private List<Date> timeArray;//
+
+    public List<Date> getTimeArray() {
+        return timeArray;
+    }
+
+    public void setTimeArray(List<Date> timeArray) {
+        this.timeArray = timeArray;
+    }
 
     public void setLatterOrderSumPrice(Double latterOrderSumPrice) {
         this.latterOrderSumPrice = latterOrderSumPrice;

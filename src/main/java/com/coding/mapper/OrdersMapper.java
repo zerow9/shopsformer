@@ -68,6 +68,4 @@ public interface OrdersMapper {
      * @throws Exception
      */
     public String selectOrdersTableColumns()throws Exception;
-
-
 }
