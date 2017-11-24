@@ -97,7 +97,7 @@ $(document).ready(function () {
                 }
             },
             password: {
-                trigger: 'blur',
+                // trigger: 'blur',
                 enabled: true,  // 是否开始该字段验证，默认：是
                 validators: {
                     notEmpty: {
@@ -111,7 +111,7 @@ $(document).ready(function () {
                 }
             },
             confirm_password: {
-                trigger: 'blur',
+                // trigger: 'blur',
                 enabled: true,
                 validators: {
                     notEmpty: {
