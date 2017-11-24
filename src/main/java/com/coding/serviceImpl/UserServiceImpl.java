@@ -679,6 +679,14 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return null;
     }
 
+    public List<Integer> selectOrdersIdArrayByUuidAndItemCodeArray(PagingCustomOrderDetail pagingCustomOrderDetail) throws Exception {
+        try{
+        return orderDetailMapper.selectOrdersIdArrayByUuidAndItemCodeArray(pagingCustomOrderDetail);
+        }catch (Exception e){
+            throw new Exception("根据用户ID和商品列表查询订单ID出错");
+        }
+    }
+
     /*------------------------------------------订单详情表------------------------------------------------------------------*/
     public OrderDetail selectOrderDetailByPrimaryKey(Integer orderDetailId) throws Exception {
         if (orderDetailId != null && orderDetailId != 0) {
