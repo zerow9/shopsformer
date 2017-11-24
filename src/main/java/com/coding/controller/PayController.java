@@ -24,10 +24,8 @@ public class PayController {
     @Autowired
     private IAdminService adminService;
 
-    @RequestMapping("itemPay")
-    public String itemPay(Integer[] cartId, HttpSession session, HttpServletRequest request) throws Exception {
-        PagingCustomCart pagingCustomCart = new PagingCustomCart();
-        pagingCustomCart.setCartIdArray(cartId);
+
+    private void uuidGetAddress(HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
         List<Address> addresses = adminService.selectAddressByUserID(uuid);
         Address add = null;
@@ -39,7 +37,16 @@ public class PayController {
                 add.setAddresseePhone(photo);
             }
         }
-        request.setAttribute("addresses", addresses);
+        session.setAttribute("addresses", addresses);
+        session.setAttribute("add", add);
+    }
+
+    @RequestMapping("itemPay")
+    public String itemPay(Integer[] cartId, HttpSession session, HttpServletRequest request) throws Exception {
+        PagingCustomCart pagingCustomCart = new PagingCustomCart();
+        pagingCustomCart.setCartIdArray(cartId);
+        String uuid = (String) session.getAttribute("uuid");
+        uuidGetAddress(session);
         List<Cart> carts = adminService.selectCartByCartIdArray(pagingCustomCart);
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
         int sum = 0;
@@ -57,20 +64,39 @@ public class PayController {
         }
         session.setAttribute("cartIds", cart_id);
         session.setAttribute("sumCart", sum);
-        session.setAttribute("add", add);
         request.setAttribute("carts", cartDetails);
         return "homes/pay";
     }
 
+
+    @RequestMapping("itemBuyPay")
+    public String itemPay(Integer cartId, Integer itemNumber, HttpSession session, HttpServletRequest request) throws Exception {
+        uuidGetAddress(session);
+        Item item = adminService.selectItemByPrimaryKey(cartId);
+        List<CartDetail> cartDetails = new ArrayList<CartDetail>();
+        CartDetail cartDetail = new CartDetail();
+        cartDetail.setItemNumber(itemNumber);
+        cartDetail.setItem(item);
+        cartDetails.add(cartDetail);
+        System.out.println(itemNumber);
+        Double sum =(double) item.getItemMarketPrice() * itemNumber;
+        session.setAttribute("cartIds", cartId);
+        session.setAttribute("sumCart", sum);
+        request.setAttribute("carts", cartDetails);
+        return "homes/pay";
+    }
+
+
     @RequestMapping("success")
-    public String success(Integer[] cartId,HttpSession session) throws Exception {
+    public String success(Integer[] cartId, HttpSession session) throws Exception {
         if (cartId.length != 0 && cartId != null) {
             try {
                 adminService.deleteCartByPrimaryKeyArray(cartId);
-                Integer count=(Integer)session.getAttribute("collectCount");
-                count-=cartId.length;
+                Integer count = (Integer) session.getAttribute("collectCount");
+                count -= cartId.length;
                 session.removeAttribute("collectCount");
-                session.setAttribute("collectCount",count+1);
+                session.setAttribute("collectCount", count + 1);
+
             } catch (Exception e) {
             }
         }
