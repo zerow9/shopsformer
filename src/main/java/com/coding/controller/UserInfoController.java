@@ -19,10 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.InetAddress;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 @Controller
 @RequestMapping("user")
@@ -155,6 +152,45 @@ public class UserInfoController {
             adminService.insertCollectSelective(collect);
             return true;
         }
+    }
+
+    /**
+     *  取消收藏
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("deleteCollect")
+    @ResponseBody
+    public String deleteCollect(Integer id,HttpSession session) {
+
+        // 设置查询条件
+        String uuid=session.getAttribute("uuid").toString();
+        Collect collect=new Collect();
+        collect.setItemId(id);
+        collect.setUserUuid(uuid);
+
+        PagingCustomCollect pagingCustomCollect=new PagingCustomCollect();
+        pagingCustomCollect.setCollect(collect);
+
+        List<Collect> collectList=null;
+        try {
+            collectList= adminService.selectCollect(pagingCustomCollect);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (collectList.size()>0){//判断是否有数据
+                for (Collect c:collectList) {
+                    adminService.deleteCollectByPrimaryKey(c.getCollectId());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
     }
 
     @RequestMapping("itemCart")

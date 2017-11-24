@@ -55,10 +55,11 @@
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="user-phone" class="am-form-label">手机号码</label>
+                                    <label for="userPhone" class="am-form-label">手机号码</label>
                                     <div class="am-form-content">
-                                        <input id="user-phone" name="addresseePhone" type="text" placeholder="手机号必填"
+                                        <input id="userPhone" name="addresseePhone" type="text" onblur="phoneNumber()"  placeholder="手机号必填"
                                                style="border-radius: 4px"    value="${address.addresseePhone}">
+                                        <div id="phoneNumber" style="color:red; float: right;" ></div>
                                     </div>
                                 </div>
                                 <div class="am-form-group">

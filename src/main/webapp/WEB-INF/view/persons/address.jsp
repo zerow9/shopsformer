@@ -117,10 +117,11 @@
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="user-phone" class="am-form-label">手机号码</label>
+                                    <label for="userPhone" class="am-form-label">手机号码</label>
                                     <div class="am-form-content">
-                                        <input id="user-phone" name="addresseePhone" placeholder="手机号必填" type="text"
+                                        <input id="userPhone" name="addresseePhone" onblur="phoneNumber()" placeholder="手机号必填" type="text"
                                                style="border-radius: 4px">
+                                        <div id="phoneNumber" style="color:red; float: right;" ></div>
                                     </div>
                                 </div>
                                 <div class="am-form-group">

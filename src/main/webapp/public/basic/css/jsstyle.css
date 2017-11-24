@@ -10,7 +10,7 @@ input[type="text"]{-webkit-appearance:none;appearance:none;outline:none;-webkit-
 .hidden { display: none !important;}
 .defaultAddr { display:block !important;} 	
 /*地址管理*/
-.per-border{height: 4px;width: 100%;background: url(../images/peraddress.png) repeat-x;}
+.per-border{height: 4px;width: 100%;background: url(/public/images/peraddress.png) repeat-x;}
 .concent h3,.logistics h3{border-bottom: 2px solid #F1F1F1; margin-top:10px;}
 h3 { font-size: 14px;font-weight: 700;}
 .control{display: none;}
@@ -39,9 +39,9 @@ color: #FFF;}
     line-height: 0;
     right: 0px;
     bottom: 0px;
-    background: url(../images/sys_item_selected.gif) no-repeat right bottom;}
+    background: url(/public/images/sys_item_selected.gif) no-repeat right bottom;}
 .op_express_delivery_hot li {width:32%;float: left; display: block; cursor: pointer;}
-.op_express_delivery_hot i {background: transparent url(../images/kuaidi.png) no-repeat scroll 0px 0px;display: inline-block; width: 36px; height: 36px;vertical-align: middle;overflow: hidden;}
+.op_express_delivery_hot i {background: transparent url(/public/images/kuaidi.png) no-repeat scroll 0px 0px;display: inline-block; width: 36px; height: 36px;vertical-align: middle;overflow: hidden;}
 
 /*支付方式*/
 
@@ -177,8 +177,8 @@ hr {margin: 5px 0px;}
 .paycont{margin:0px auto;}
 	/*地址管理*/
 .address ul{margin-top:10px ;}
-.address li.user-addresslist{display:block; width: 255px;height: 150px;float: left;background: url(../images/peraddbg.png) no-repeat scroll 0% 0%;margin-right:10px ;padding:10px ;}
-.address li.user-addresslist.defaultAddr{background: url(../images/peraddressbg.png) no-repeat scroll 0% 0%;}
+.address li.user-addresslist{display:block; width: 255px;height: 150px;float: left;background: url(/public/images/peraddbg.png) no-repeat scroll 0% 0%;margin-right:10px ;padding:10px ;}
+.address li.user-addresslist.defaultAddr{background: url(/public/images/peraddressbg.png) no-repeat scroll 0% 0%;}
 .address-left{ width:100%;position: relative;}
 .address-right,.per-border{display:none ;}
 .th .td-inner{padding-left:0 ;}

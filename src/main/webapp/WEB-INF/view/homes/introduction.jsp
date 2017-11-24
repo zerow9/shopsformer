@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="/public/basic/css/bootstrapValidator.css">
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/demo.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css"/>
     <link type="text/css" href="/public/basic/css/optstyle.css" rel="stylesheet"/>
     <link type="text/css" href="/public/basic/css/style.css" rel="stylesheet"/>
 
@@ -226,9 +227,10 @@
 <br/><br/>
 <%--添加到收藏--%>
 <div id="Coco">
-    <button class="addc-1" id="myinput" type="button"><i class="am-icon-star-o" aria-hidden="true"></i>&nbsp;添加收藏
+                    <button class="addc-1" id="myinput" type="button"><i class="am-icon-star-o" aria-hidden="true"></i>&nbsp;添加收藏
     </button>
-    <button class="addc-2" type="button"><i class="am-icon-share-alt" aria-hidden="true"></i>&nbsp;分享</button>
+                    <button class="addc-2" type="button"><i class="am-icon-share-alt" aria-hidden="true"></i>&nbsp;分享
+                    </button>
 </div>
 
 
@@ -248,7 +250,8 @@
                     <a class="s_pic" href="#"><img src="/public/images/cp.jpg"></a>
                 </div>
                 <a class="txt" target="_blank" href="#">萨拉米 1+1小鸡腿</a>
-                <div class="info-box"><span class="info-box-price">¥ 29.90</span> <span class="info-original-price">￥ 199.00</span>
+                        <div class="info-box"><span class="info-box-price">¥ 29.90</span> <span
+                                class="info-original-price">￥ 199.00</span>
                 </div>
             </li>
             <li class="plus_icon"><i>+</i></li>
@@ -257,7 +260,8 @@
                     <a class="s_pic" href="#"><img src="/public/images/cp2.jpg"></a>
                 </div>
                 <a class="txt" target="_blank" href="#">ZEK 原味海苔</a>
-                <div class="info-box"><span class="info-box-price">¥ 8.90</span> <span class="info-original-price">￥ 299.00</span>
+                        <div class="info-box"><span class="info-box-price">¥ 8.90</span> <span
+                                class="info-original-price">￥ 299.00</span>
                 </div>
             </li>
             <li class="plus_icon"><i>=</i></li>
@@ -498,31 +502,52 @@
 <script type="text/javascript" src="/public/basic/js/quick_links.js"></script>
 <script type="text/javascript" src="/public/basic/js/jquery.imagezoom.min.js"></script>
 <script type="text/javascript" src="/public/basic/js/jquery.flexslider.js"></script>
+        <script type="text/javascript" src="/public/basic/js/sweetalert.min.js"></script>
 <script type="text/javascript" src="/public/basic/js/list.js"></script>
+
 </body>
 <script type="text/javascript">
     function oncart(id) {
         var t = $("#text_box");
         <c:if test="${empty user}">
-        alert("请先登录");
+        swal({
+            title: "请先登录，才可以购物噢！",
+            type: "warning",
+            timer: 2000,
+            showConfirmButton: false
+        });
         </c:if>
         <c:if test="${!empty user}">
         $.ajax({
             url: "/user/itemCart?cartId=" + id+"&number="+t.val(),
             success: function (data) {
                 if (data) {
-                    alert("加入成功!");
-                } else {
-                    alert("购物车已存在!");
-                }
+                    swal({
+                        title: "加入购物车成功！",
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                }else swal({
+                    title: "加入购物车失败！",
+                    type: "error",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
             }
         });
         </c:if>
     }
+
     /*用户收藏按钮切换，如没有登录则提示登录之后才可以收藏商品*/
     $("#myinput").on("click",function(){
         <c:if test="${empty user}">
-        alert("请先登录！");
+        swal({
+            title: "请先登录，才可以收藏噢！",
+            type: "warning",
+            timer: 2000,
+            showConfirmButton: false
+        });
         </c:if>
         <c:if test="${!empty user}">
         var isstar=$(this).find("i").attr("class");
@@ -533,22 +558,45 @@
                 type:"POST",
                 url: "/user/collect?itemId=" + id,
                 success:function (data) {
-                    alert("收藏成功!");
+                    if(data==true){
+                        swal({
+                            title: "收藏成功！",
+                            type: "success",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    }else swal({
+                        title: "收藏失败！",
+                        type: "error",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
                 }
             });
         }else{
             $(this).find("i").removeClass("am-icon-star").addClass("am-icon-star-o");
             $.ajax({
                 type:"POST",
-                url:"/collection/deleteCollect?id="+id,
+                url: "/user/deleteCollect?id=" + id,
                 success:function (data) {
-                    alert("已取消收藏!");
+                    if(data=="success"){
+                        swal({
+                            title: "取消收藏成功！",
+                            type: "success",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    }else swal({
+                        title: "取消收藏失败！",
+                        type: "error",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
                 }
             });
         }
         </c:if>
     });
-
 
 
 </script>

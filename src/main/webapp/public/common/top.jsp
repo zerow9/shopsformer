@@ -59,7 +59,7 @@
     <!--悬浮搜索框-->
     <div class="nav white">
         <div class="logoBig">
-            <li><img src="/public/images/logobig.png"/></li>
+            <li><img src="/public/images/logobig0.png"/></li>
         </div>
 
         <div class="search-bar pr">
