@@ -23,7 +23,7 @@ public class ItemController {
     public String indexTenItem(HttpSession session) throws Exception {
         PagingCustomItem pagingCustomItem = new PagingCustomItem();
         pagingCustomItem.setIndexNumber(0);
-        pagingCustomItem.setPageNumber(10);
+        pagingCustomItem.setPageNumber(8);
         List<Item> list = adminService.selectItem(pagingCustomItem);
         for (Item item : list)
         session.setAttribute("listItem", list);
