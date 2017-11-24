@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("user/order")
@@ -17,8 +19,7 @@ public class ItemOrderController {
     @Autowired
     private IAdminService adminService;
 
-
-    private void saveOrderDetail(Integer itemId, User user, Integer itemNumber) throws Exception {
+    private int saveOrderDetail(Integer itemId, User user, Integer itemNumber) throws Exception {
         Orders orders = new Orders();
         OrderDetail orderDetail = new OrderDetail();
         Item item = null;
@@ -52,19 +53,24 @@ public class ItemOrderController {
         orderDetail.setSendScore((int) sum);
         orderDetail.setItemSumPrice(sum);
         adminService.insertOrderDetailSelective(orderDetail);
+        return ordersId;
     }
-
 
     @RequestMapping("orderItem")
     public String orderItem(Integer[] cartId, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
         User user = adminService.selectUserByPrimaryKey(uuid);
         String cart_id = "";
+        List<Integer> ordersList = new ArrayList<>();
         if (cartId.length != 0) {
             for (Integer id : cartId) {
-                saveOrderDetail(id, user, null);
+                int ordersId = saveOrderDetail(id, user, null);
+                ordersList.add(ordersId);
                 cart_id += id + ",";
             }
+            if (session.getAttribute("ordersList") != null)
+                session.removeAttribute("ordersList");
+            session.setAttribute("ordersList", ordersList);
             return "redirect:/user/pay/itemPay?cartId=" + cart_id.substring(0, cart_id.lastIndexOf(","));
         } else
             return "redirect:/shopCart/getPersonShopCart";
@@ -73,16 +79,18 @@ public class ItemOrderController {
     @RequestMapping("orderBuy")
     @ResponseBody
     public boolean orderBuy(Integer itemId, Integer itemNumber, HttpSession session) throws Exception {
+        List<Integer> ordersList = new ArrayList<>();
         try {
             String uuid = (String) session.getAttribute("uuid");
             User user = adminService.selectUserByPrimaryKey(uuid);
-            saveOrderDetail(itemId, user, itemNumber);
+            int ordersId = saveOrderDetail(itemId, user, itemNumber);
+            ordersList.add(ordersId);
+            if (session.getAttribute("ordersList") != null)
+                session.removeAttribute("ordersList");
+            session.setAttribute("ordersList", ordersList);
             return true;
         } catch (Exception e) {
-            System.err.println(e.getMessage());
         }
         return false;
     }
-
-
 }

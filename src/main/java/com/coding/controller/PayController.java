@@ -3,10 +3,7 @@ package com.coding.controller;
 import com.coding.Iservice.IAdminService;
 import com.coding.comomInterface.Constant;
 import com.coding.paging.PagingCustomCart;
-import com.coding.pojo.Address;
-import com.coding.pojo.Cart;
-import com.coding.pojo.CartDetail;
-import com.coding.pojo.Item;
+import com.coding.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,19 +41,21 @@ public class PayController {
     private double cartGetCartDetail(Integer itemId, Cart cart, List<CartDetail> cartDetails, Integer sum, String uuid) throws Exception {
         Item item = null;
         CartDetail cartDetail = new CartDetail();
-        if (itemId == null && cart == null) {
+        double money = 0;
+        if (itemId == null) {
             item = adminService.selectItemByPrimaryKey(cart.getItemId());
             cartDetail.setUserUuid(cart.getUserUuid());
             cartDetail.setCartId(cart.getCartId());
             cartDetail.setItemNumber(cart.getItemNumber());
+            money = item.getItemMarketPrice() * cart.getItemNumber() * item.getDiscount() / 100;
         } else {
             item = adminService.selectItemByPrimaryKey(itemId);
             cartDetail.setUserUuid(uuid);
             cartDetail.setItemNumber(sum);
+            money = item.getItemMarketPrice() * sum * item.getDiscount() / 100;
         }
         cartDetail.setItem(item);
         cartDetails.add(cartDetail);
-        double money = item.getItemMarketPrice() * cart.getItemNumber() * item.getDiscount() / 100;
         return money;
     }
 
@@ -97,8 +96,18 @@ public class PayController {
 
     @RequestMapping("success")
     public String success(Integer[] cartId, HttpSession session) throws Exception {
-        if (cartId.length != 0 && cartId != null) {
+        List<Integer> ordersList = (List<Integer>) session.getAttribute("ordersList");
+        if (ordersList.size() == 1) {
+            Orders orders=adminService.selectOrderByPrimaryKey(ordersList.get(0));
+            orders.setPayStatus(1);
+            adminService.updateOrderByPrimaryKeySelective(orders);
+        } else if (cartId.length != 0 && cartId != null) {
             try {
+                for(Integer ordeId:ordersList){
+                    Orders orders=adminService.selectOrderByPrimaryKey(ordeId);
+                    orders.setPayStatus(1);
+                    adminService.updateOrderByPrimaryKeySelective(orders);
+                }
                 adminService.deleteCartByPrimaryKeyArray(cartId);
                 Integer count = (Integer) session.getAttribute("collectCount");
                 count -= cartId.length;
