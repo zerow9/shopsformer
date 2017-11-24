@@ -53,7 +53,7 @@
                     <!--二维码 -->
                     <li class="qtitem">
                         <a href="#none"><span class="mpbtn_qrcode"></span></a>
-                        <div class="mp_qrcode" style="display:none;"><img src="/public/images/weixin_code_145.png"/><i
+                        <div class="mp_qrcode" style="display:none;"><img src="http://xcstudio.oss-cn-shenzhen.aliyuncs.com/img/mmqrcode1511511377382.png"/><i
                                 class="icon_arrow_white"></i></div>
                     </li>
                     <li class="qtitem">
@@ -127,7 +127,7 @@
         var kefu = window.open('http://wpa.qq.com/msgrd?v=3&uin=634650981&site=qq&menu=yes', '_blank', 'width=500,height=300,left=500,top=200, menubar=no, toolbar=no, status=no,scrollbars=no, titlebar=no, location=no')
         setTimeout(function () {
             kefu.close();
-        },5000)
+        },20000)
     }
 </script>
 
