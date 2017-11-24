@@ -69,4 +69,12 @@ public interface OrderDetailMapper {
      * @throws Exception
      */
     public String selectOrderDetailTableColumns()throws Exception;
+
+    /**
+     * 根据用户ID和商品编码组查询订单ID
+     * @param pagingCustomOrderDetail 封装了基本查询信息的 Paging 类扩展类 PagingCustomOrderDetail 类对象
+     * @return 满足查询条件的订单ID组
+     * @throws Exception
+     */
+    public List<Integer> selectOrdersIdArrayByUuidAndItemCodeArray(PagingCustomOrderDetail pagingCustomOrderDetail)throws Exception;
 }
