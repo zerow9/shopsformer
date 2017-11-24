@@ -48,10 +48,10 @@
                                 <div class="s-item">
 
                                     <div class="s-pic">
-                                        <a href="#" class="s-pic-link">
-                                            <img src="${collectDetail.itemImages}"
+                                        <a href="/item/findItemMessage?itemId=${collectDetail.item.itemId}" class="s-pic-link">
+                                            <img src="${collectDetail.item.itemImages}"
                                                  alt="${collectDetail.item.itemIntroduce}"
-                                                 title="${collectDetail.itemName}" class="s-pic-img s-guess-item-img">
+                                                 title="${collectDetail.itemName}" class="s-pic-img s-guess-item-img" width="80" />
                                         </a>
                                     </div>
                                     <input id="collectId" value="${collectDetail.collectId}" type="hidden">
@@ -61,12 +61,12 @@
                                         </div>
                                         <div class="s-price-box">
                                             <span class="s-price"><em class="s-price-sign">¥</em><em
-                                                    class="s-value">${collectDetail.item.itemMarketPrice}</em></span>
+                                                    class="s-value">${collectDetail.item.itemMarketPrice*collectDetail.item.discount/100}</em></span>
                                             <span class="s-history-price"><em class="s-price-sign">¥</em><em
-                                                    class="s-value">${collectDetail.item.itemMarketPrice*1.2}</em></span>
+                                                    class="s-value">${collectDetail.item.itemMarketPrice}</em></span>
                                         </div>
                                         <div class="s-extra-box">
-                                            <span class="s-comment">好评: 98.03%</span>
+                                            <span class="s-comment">暂无评论</span>
                                             <span class="s-sales">月销: ${collectDetail.item.itemSaleNumber}</span>
                                         </div>
                                     </div>

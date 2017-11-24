@@ -45,10 +45,9 @@
 
         <tr class="item-list">
             <div class="bundle  bundle-last ">
+                <c:if test="${!empty carts}">
                 <div class="bundle-hd">
                     <div class="bd-promos">
-                        <div class="bd-has-promo">已享优惠:<span class="bd-has-promo-content">省￥19.50</span>&nbsp;&nbsp;
-                        </div>
                         <div class="act-promo">
                             <a href="#" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
                         </div>
@@ -56,6 +55,7 @@
                     </div>
                 </div>
                 <div class="clear"></div>
+                </c:if>
                 <div class="bundle-main">
                     <c:forEach items="${carts}" var="cart" varStatus="status">
                         <ul class="item-content clearfix">
@@ -217,6 +217,7 @@
         }
     }
 
+    //点击选中按钮
     function yymm() {
         if (document.getElementById("J_SelectAllCbx2").checked) {
             var o = document.querySelectorAll("#J_CheckBox");
@@ -237,14 +238,18 @@
             }
         }
     }
+
+    //结账点击事件
     function orderItem() {
         var o = document.querySelectorAll("#J_CheckBox");
         var obj=document.getElementById("J_Go");
         var mycars=new Array()
+        var cartIdNumber=0;//设置购物车的数量变量
         for (var i = 0; i < o.length; i++) {
             if(o[i].checked) {
                 var laues = o[i].value;
-                mycars[i] = laues;
+                mycars[cartIdNumber] = laues;
+                cartIdNumber++;
             }
         }
         obj.href="/user/order/orderItem?cartId="+mycars;
