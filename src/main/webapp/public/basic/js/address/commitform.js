@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     $(".new-option-r").click(function () {
         $(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
     });
@@ -9,30 +9,60 @@ $(document).ready(function () {
     }
 
     //提交表单
-    $(".submit").on("click",function () {
-        var data=$("#addressForm").serialize();//系列化表单
+    $(".submit").click(function () {
+        var data = $("#addressForm").serialize();//系列化表单
         $.ajax({
-            type:"POST",
-            data:data,
-            url:"/user/address/insertAddress",
-            success:function (da) {
+            type: "post",
+            data: data,
+            url: "/user/address/insertAddress",
+            success: function (da) {
                 if (da === "success") {
-                    window.location.reload();
-                } else if (da === "fail") {
                     swal({
-                        title: "最多允许添加10条地址信息！",
+                        title: "添加成功！",
+                        text: "地址添加成功了",
+                        type: "success",
+                        timer:2000,
+                        showConfirmButton:false
+                    }, function () {
+                        $(':input', '#addressForm')
+                            .not(':button,:submit,:reset,:hidden')
+                            .val('')
+                            .removeAttr('checked')
+                            .removeAttr('selected');
+                        window.location.reload();
+                    });
+
+                } else if (da === "err") {
+                    swal({
+                        title: "添加失败！",
+                        text: "地址添加失败了",
                         type: "error",
-                        timer: 2000,
-                        showConfirmButton: false
+                        timer:2000,
+                        showConfirmButton:false
+                    }, function () {
+                        $(':input', '#addressForm')
+                            .not(':button,:submit,:reset,:hidden')
+                            .val('')
+                            .removeAttr('checked')
+                            .removeAttr('selected');
+                        window.location.reload();
                     });
                 } else swal({
                     title: "添加失败！",
+                    text: "最多允许添加 9 条地址信息！",
                     type: "warning",
-                    timer: 2000,
-                    showConfirmButton: false
+                    timer:2000,
+                    showConfirmButton:false
+                }, function () {
+                    $(':input', '#addressForm')
+                        .not(':button,:submit,:reset,:hidden')
+                        .val('')
+                        .removeAttr('checked')
+                        .removeAttr('selected');
+                    window.location.reload();
                 });
             }
         });
     });
 
-})
+});

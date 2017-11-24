@@ -45,17 +45,17 @@
 
         <tr class="item-list">
             <div class="bundle  bundle-last ">
+                <c:if test="${!empty carts}">
                 <div class="bundle-hd">
                     <div class="bd-promos">
-                        <div class="bd-has-promo">已享优惠:<span class="bd-has-promo-content">省￥19.50</span>&nbsp;&nbsp;
-                        </div>
                         <div class="act-promo">
-                            <a href="#" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
+                            <a href="javascript:;" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
                         </div>
                         <span class="list-change theme-login">编辑</span>
                     </div>
                 </div>
                 <div class="clear"></div>
+                </c:if>
                 <div class="bundle-main">
                     <c:forEach items="${carts}" var="cart" varStatus="status">
                         <ul class="item-content clearfix">
@@ -70,7 +70,7 @@
                                 <div class="item-pic">
                                     <a href="#" target="_blank" data-title="${cart.item.itemName}" class="J_MakePoint"
                                        data-point="tbcart.8.12">
-                                        <img src="${cart.item.itemImages}" class="itempic J_ItemImg"></a>
+                                        <img src="${cart.item.itemImages}" width="80"  class="itempic J_ItemImg"></a>
                                 </div>
                                 <div class="item-info">
                                     <div class="item-basic-info">
@@ -89,10 +89,10 @@
                                 <div class="item-price price-promo-promo">
                                     <div class="price-content">
                                         <div class="price-line">
-                                            <em class="price-original">${cart.item.itemMarketPrice*1.2}</em>
+                                            <em class="price-original">${cart.item.itemMarketPrice}</em>
                                         </div>
                                         <div class="price-line">
-                                            <em class="J_Price price-now" tabindex="0">${cart.item.itemMarketPrice}</em>
+                                            <em class="J_Price price-now" tabindex="0">${cart.item.itemMarketPrice*cart.item.discount/100}</em>
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
                             <li class="td td-sum">
                                 <div class="td-inner">
                                     <em tabindex="0" class="J_ItemSum number"
-                                        id="sumM">${cart.itemNumber*cart.item.itemMarketPrice}</em>
+                                        id="sumM">${cart.itemNumber*cart.item.itemMarketPrice*cart.item.discount/100}</em>
                                 </div>
                             </li>
                             <li class="td td-op">
@@ -123,8 +123,8 @@
                                     <a title="移入收藏夹" class="btn-fav" href="javascript:;"
                                        onclick="addCollection(${cart.item.itemId})">
                                         移入收藏夹</a>
-                                    <a href="javascript:" data-point-url="#" class="delete"
-                                       onclick="deleteCollection(${cart.cartId})">
+                                    <a href="javascript:" class="delete"
+                                       onclick="deleteShopCart(${cart.cartId})">
                                         删除</a>
                                 </div>
                             </li>
@@ -217,6 +217,7 @@
         }
     }
 
+    //点击选中按钮
     function yymm() {
         if (document.getElementById("J_SelectAllCbx2").checked) {
             var o = document.querySelectorAll("#J_CheckBox");
@@ -237,14 +238,18 @@
             }
         }
     }
+
+    //结账点击事件
     function orderItem() {
         var o = document.querySelectorAll("#J_CheckBox");
         var obj=document.getElementById("J_Go");
         var mycars=new Array()
+        var cartIdNumber=0;//设置购物车的数量变量
         for (var i = 0; i < o.length; i++) {
             if(o[i].checked) {
                 var laues = o[i].value;
-                mycars[i] = laues;
+                mycars[cartIdNumber] = laues;
+                cartIdNumber++;
             }
         }
         obj.href="/user/order/orderItem?cartId="+mycars;

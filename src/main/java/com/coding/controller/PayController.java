@@ -59,7 +59,7 @@ public class PayController {
             cartDetail.setCartId(cart.getCartId());
             cartDetail.setItemNumber(cart.getItemNumber());
             cartDetails.add(cartDetail);
-            sum += item.getItemMarketPrice() * cart.getItemNumber();
+            sum += item.getItemMarketPrice() * cart.getItemNumber()*item.getDiscount()/100;
             cart_id += cart.getCartId() + ",";
         }
         session.setAttribute("cartIds", cart_id);

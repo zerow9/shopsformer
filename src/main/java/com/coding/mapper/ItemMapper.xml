@@ -10,7 +10,7 @@
       item_type_one, item_type_two, item_type_three,
       post_price, repertory_number, item_sale_number,
       Item_collect_number, key_word, make_vender,
-      make_date,item_introduce
+      make_date,item_introduce,discount
       )
     values (#{itemTypeId,jdbcType=INTEGER}, #{itemName,jdbcType=VARCHAR},
       #{itemPrice,jdbcType=DOUBLE}, #{itemMarketPrice,jdbcType=DOUBLE}, #{itemScoreType,jdbcType=INTEGER},
@@ -18,7 +18,7 @@
       #{itemTypeOne,jdbcType=INTEGER}, #{itemTypeTwo,jdbcType=INTEGER}, #{itemTypeThree,jdbcType=INTEGER},
       #{postPrice,jdbcType=DOUBLE}, #{repertoryNumber,jdbcType=INTEGER}, #{itemSaleNumber,jdbcType=INTEGER},
       #{itemCollectNumber,jdbcType=INTEGER}, #{keyWord,jdbcType=VARCHAR}, #{makeVender,jdbcType=INTEGER},
-      #{makeDate,jdbcType=TIMESTAMP}, #{itemIntroduce,jdbcType=LONGVARCHAR}
+      #{makeDate,jdbcType=TIMESTAMP}, #{itemIntroduce,jdbcType=LONGVARCHAR},#{discount,jdbcType=INTEGER}
       )
     </insert>
     <!--按需插入商品信息，并返回其主键-->
@@ -85,6 +85,9 @@
             <if test="itemIntroduce != null" >
                 item_introduce,
             </if>
+            <if test="discount != null">
+                discount,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="itemTypeId != null" >
@@ -143,6 +146,9 @@
             </if>
             <if test="itemIntroduce != null" >
                 #{itemIntroduce,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="discount != null">
+                #{discount,jdbcType=INTEGER},
             </if>
         </trim>
 
@@ -209,6 +215,9 @@
             <if test="itemIntroduce != null" >
                 item_introduce = #{itemIntroduce,jdbcType=LONGVARCHAR},
             </if>
+            <if test="discount != null">
+                discount = #{discount,jdbcType=INTEGER}
+            </if>
         </set>
         where item_id = #{itemId,jdbcType=INTEGER}
     </update>
@@ -266,8 +275,8 @@
         <result column="key_word" jdbcType="VARCHAR" property="keyWord"/>
         <result column="make_vender" jdbcType="INTEGER" property="makeVender"/>
         <result column="make_date" jdbcType="TIMESTAMP" property="makeDate"/>
-        <!--<result column="item1" jdbcType="VARCHAR" property="item1" />
-        <result column="item2" jdbcType="VARCHAR" property="item2" />
+        <result column="discount" jdbcType="INTEGER" property="discount" />
+        <!--<result column="item2" jdbcType="VARCHAR" property="item2" />
         <result column="item3" jdbcType="VARCHAR" property="item3" />
         <result column="item4" jdbcType="VARCHAR" property="item4" />
         <result column="item5" jdbcType="VARCHAR" property="item5" />
@@ -285,7 +294,7 @@
         item_id, item_type_id, item_name, item_price, item_market_price, item_score_type,
         score_price, item_images, item_format, item_type_one, item_type_two, item_type_three,
         post_price, repertory_number, item_sale_number, Item_collect_number, key_word, make_vender,
-        make_date
+        make_date,discount
     </sql>
     <!--Item中的大文本字段-->
     <sql id="Blob_Column_List">

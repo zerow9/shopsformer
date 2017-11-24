@@ -13,7 +13,7 @@
 <body>
 
 <div class="login-boxtitle">
-    <a href="/index.jsp"><img alt="logo" src="/public/images/logobig.png"/></a>
+    <a href="/index.jsp"><img alt="logo" src="/public/images/logobig0.png"/></a>
 </div>
 
 <div class="login-banner">

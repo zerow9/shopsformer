@@ -139,7 +139,7 @@
                             <div class="order-title">
                                 <div class="dd-num">订单编号：<a
                                         href="javascript:">${customVoAddressDetail.orders.orderId}</a></div>
-                                <span>成交时间：${customVoAddressDetail.orders.orderCompletionTimeToString}</span>
+                                <span>创建时间：${customVoAddressDetail.orders.orderCreateTimeToString}</span>
                                 <!--    <em>店铺：小桔灯</em>-->
                             </div>
                             <div class="order-content">
@@ -166,7 +166,7 @@
                                             </li>
                                             <li class="td td-price">
                                                 <div class="item-price">
-                                                        ${orderDetail.item.itemPrice}
+                                                        ${orderDetail.item.itemMarketPrice}
                                                 </div>
                                             </li>
                                             <li class="td td-number">
@@ -185,8 +185,8 @@
                                 <div class="order-right">
                                     <li class="td td-amount">
                                         <div class="item-amount">
-                                            合计：676.00
-                                            <p>含运费：<span>10.00</span></p>
+                                            合计：${customVoAddressDetail.orders.orderSumPrice}
+                                            <p>含运费：<span>${customVoAddressDetail.orders.orderSumPrice+customVoAddressDetail.orders.orderFreight}</span></p>
                                         </div>
                                     </li>
                                     <div class="move-right">

@@ -18,16 +18,16 @@
         <!--user2, user3, user4,
         user5, user6, user7,
         user8, user9, user10, -->
-        user_healthy)
+        user_healthy,salt)
         values (#{userUuid,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{userNickname,jdbcType=VARCHAR},
-        #{userPassword,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
+        MD5(#{userPassword,jdbcType=VARCHAR}), #{userEmail,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
         #{userAge,jdbcType=INTEGER}, #{userSex,jdbcType=VARCHAR}, #{userRegisterDateTime,jdbcType=TIMESTAMP},
         #{userScore,jdbcType=INTEGER}, #{userGroup,jdbcType=INTEGER}, #{userLandNumber,jdbcType=INTEGER},
         #{userCurrentTime,jdbcType=TIMESTAMP}, #{userLandIp,jdbcType=VARCHAR}, #{userAddress,jdbcType=INTEGER},
         <!--#{user2,jdbcType=VARCHAR}, #{user3,jdbcType=VARCHAR}, #{user4,jdbcType=VARCHAR},
         #{user5,jdbcType=VARCHAR}, #{user6,jdbcType=VARCHAR}, #{user7,jdbcType=VARCHAR},
         #{user8,jdbcType=VARCHAR}, #{user9,jdbcType=VARCHAR}, #{user10,jdbcType=VARCHAR},-->
-        #{userHealthy,jdbcType=LONGVARCHAR})
+        #{userHealthy,jdbcType=LONGVARCHAR},#{salt,jdbcType=VARCHAR})
     </insert>
 
     <!--按需更新用户信息-->
@@ -193,6 +193,9 @@
             <if test="userHealthy != null" >
                 user_healthy,
             </if>
+            <if test="salt != null">
+                salt
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="userUuid != null" >
@@ -205,7 +208,7 @@
                 #{userNickname,jdbcType=VARCHAR},
             </if>
             <if test="userPassword != null" >
-                #{userPassword,jdbcType=VARCHAR},
+               MD5(#{userPassword,jdbcType=VARCHAR}),
             </if>
             <if test="userEmail != null" >
                 #{userEmail,jdbcType=VARCHAR},
@@ -243,6 +246,9 @@
             <if test="userHealthy != null" >
                 #{userHealthy,jdbcType=LONGVARCHAR},
             </if>
+            <if test="salt != null">
+                #{salt,jdbcType=VARCHAR},
+            </if>
         </trim>
     </insert>
 
@@ -263,8 +269,8 @@
         <result column="user_current_time" property="userCurrentTime" jdbcType="TIMESTAMP"/>
         <result column="user_land_ip" property="userLandIp" jdbcType="VARCHAR"/>
         <result column="user_address" property="userAddress" jdbcType="INTEGER"/>
-        <!--<result column="user2" property="user2" jdbcType="VARCHAR" />
-        <result column="user3" property="user3" jdbcType="VARCHAR" />
+        <result column="salt" property="salt" jdbcType="VARCHAR" />
+        <!--<result column="user3" property="user3" jdbcType="VARCHAR" />
         <result column="user4" property="user4" jdbcType="VARCHAR" />
         <result column="user5" property="user5" jdbcType="VARCHAR" />
         <result column="user6" property="user6" jdbcType="VARCHAR" />
@@ -280,7 +286,7 @@
     <sql id="Base_Column_List">
         user_uuid, user_phone, user_nickname, user_password, user_email, user_name, user_age,
         user_sex, user_register_date_time, user_score, user_group, user_land_number, user_current_time,
-        user_land_ip, user_address
+        user_land_ip, user_address,salt
     </sql>
     <sql id="Blob_Column_List">
         user_healthy
@@ -349,12 +355,16 @@
         where user_phone = #{userPhone}
     </select>
 
-    <!--通过电话查找用户密码-->
+    <!--通过电话/邮箱查找用户密码-->
     <select id="selectUserPassword" parameterType="java.lang.String" resultType="java.lang.String">
         select
         user_password
         from user
-        where user_phone = #{userPhone}
+        <where>
+            <if test="userPhone != null and userPhone != ''">
+                and user_phone = #{userPhone}
+            </if>
+        </where>
     </select>
 
     <!--根据组别ID查找用户信息-->
@@ -558,5 +568,9 @@
         select group_concat(column_name)
         from information_schema.columns
         where table_name = 'user'
+    </select>
+    <!--获取MD5值-->
+    <select id="selectMD5" parameterType="java.lang.String" resultType="java.lang.String">
+        select MD5(#{password})
     </select>
 </mapper>
