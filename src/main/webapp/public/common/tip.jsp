@@ -127,7 +127,7 @@
         var kefu = window.open('http://wpa.qq.com/msgrd?v=3&uin=634650981&site=qq&menu=yes', '_blank', 'width=500,height=300,left=500,top=200, menubar=no, toolbar=no, status=no,scrollbars=no, titlebar=no, location=no')
         setTimeout(function () {
             kefu.close();
-        },20000)
+        },30000)
     }
 </script>
 
