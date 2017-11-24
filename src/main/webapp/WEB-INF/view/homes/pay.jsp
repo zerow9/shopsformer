@@ -132,7 +132,7 @@
                         <div class="bundle-hd">
                             <div class="bd-promos">
                                 <div class="act-promo">
-                                    <a href="#" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
+                                    <a href="javascript:;" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
                                 </div>
                                 <span class="list-change theme-login">编辑</span>
                             </div>
@@ -143,13 +143,13 @@
                                 <ul class="item-content clearfix">
                                     <li class="td td-item">
                                         <div class="item-pic">
-                                            <a href="#" target="_blank" data-title="${cart.item.itemName}" class="J_MakePoint"
+                                            <a href="javascript:;" target="_blank" data-title="${cart.item.itemName}" class="J_MakePoint"
                                                data-point="tbcart.8.12">
                                                 <img src="${cart.item.itemImages}" class="itempic J_ItemImg" width="80"></a>
                                         </div>
                                         <div class="item-info">
                                             <div class="item-basic-info">
-                                                <a href="#" target="_blank" title="${cart.item.itemName}"
+                                                <a href="javascript:;" target="_blank" title="${cart.item.itemName}"
                                                    class="item-title J_MakePoint"
                                                    data-point="tbcart.8.11">${cart.item.itemName}</a>
                                             </div>
@@ -176,7 +176,7 @@
                                         <div class="amount-wrapper ">
                                             <div class="item-amount ">
                                                 <div class="sl">
-                                                    <input class="text_box" id="it" type="text" value="${cart.itemNumber}" readonly style="width:30px;"/>
+                                                    <em>${cart.itemNumber} 件</em>
                                                 </div>
                                             </div>
                                         </div>

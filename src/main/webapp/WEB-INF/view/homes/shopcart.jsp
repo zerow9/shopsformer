@@ -49,7 +49,7 @@
                 <div class="bundle-hd">
                     <div class="bd-promos">
                         <div class="act-promo">
-                            <a href="#" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
+                            <a href="javascript:;" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
                         </div>
                         <span class="list-change theme-login">编辑</span>
                     </div>
