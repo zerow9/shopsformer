@@ -9,9 +9,10 @@
 
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-
     <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/orstyle.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css">
+
 
 
 </head>
@@ -149,7 +150,8 @@
                                                             </li>
                                                             <li class="td td-change">
                                                                 <div class="am-btn am-btn-danger anniu">
-                                                                    删除订单
+                                                                    <a href="javascript:void(0);"
+                                                                       onclick="deleteOrder(${customVoItemsByOrderId.orders.orderId})">删除订单</a>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -626,6 +628,8 @@
     <jsp:include page="/public/common/personalMenu.jsp" flush="true"/>
 
 </body>
-<script src="/public/amazeUI/assets/js/jquery.min.js"></script>
+<script src="/public/amazeUI/assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="/public/amazeUI/assets/js/amazeui.js"></script>
+<script src="/public/basic/js/sweetalert.min.js" type="text/javascript"></script>
+<script src="/public/basic/js/orderOperation.js"></script>
 </html>

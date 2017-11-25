@@ -82,6 +82,19 @@ public class OrderController {
         return "persons/order";
     }
 
+
+    /**
+     * 删除订单
+     * @param orderId 订单ID
+     * @return 订单页面
+     */
+    @RequestMapping("deleteOrder")
+    public String deleteOrder(Integer orderId)throws Exception{
+        userService.deleteOrderByPrimaryKey(orderId);
+        return "persons/order";
+    }
+
+
     /**
      * 订单售后(退款退货)
      * @param session 获取用户ID
@@ -102,4 +115,5 @@ public class OrderController {
         model.addAttribute("customVoOrdersByUserUuidAndStatuses",customVoOrdersByUserUuidAndStatuses);
         return "persons/orderChange";
     }
+
 }
