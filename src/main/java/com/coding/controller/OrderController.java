@@ -42,7 +42,7 @@ public class OrderController {
      * @return 所有订单信息
      */
     @RequestMapping("order")
-    public String order(HttpSession session,Model model)throws Exception{
+    public String order(HttpSession session,Model model,Integer attribute)throws Exception{
         CustomVoOrders customVoOrders = new CustomVoOrders();
         String userUuid = (String) session.getAttribute("uuid");
         Orders orders = new Orders();
@@ -77,6 +77,8 @@ public class OrderController {
         customVoOrders.setTakeGoodsStatus(userService.queryOrdersByUserUuidAndStatus(takeGoodsorders));
         customVoOrders.setDiscussStatus(userService.queryOrdersByUserUuidAndStatus(discussOrders));
 
+        if (attribute!=null)
+            customVoOrders.setAttribute(attribute);
 
         model.addAttribute("customVoOrders",customVoOrders);
         return "persons/order";

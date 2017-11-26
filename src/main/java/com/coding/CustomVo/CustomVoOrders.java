@@ -4,6 +4,7 @@ import java.util.List;
 
 public class CustomVoOrders {
 
+    Integer attribute=1;
     private List<CustomVoOrdersByUserUuidAndStatus> allOrders;//所有订单
     private List<CustomVoOrdersByUserUuidAndStatus> takeGoodsStatus;//收货状态
     private List<CustomVoOrdersByUserUuidAndStatus> payStatus;//支付状态
@@ -49,6 +50,14 @@ public class CustomVoOrders {
 
     public void setDiscussStatus(List<CustomVoOrdersByUserUuidAndStatus> discussStatus) {
         this.discussStatus = discussStatus;
+    }
+
+    public Integer getAttribute() {
+        return attribute;
+    }
+
+    public void setAttribute(Integer attribute) {
+        this.attribute = attribute;
     }
 
     @Override

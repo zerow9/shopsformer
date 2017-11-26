@@ -35,11 +35,31 @@
                 <div class="am-tabs am-tabs-d2 am-margin" data-am-tabs>
 
                     <ul class="am-avg-sm-5 am-tabs-nav am-nav am-nav-tabs">
-                        <li class="am-active"><a href="#tab1">所有订单</a></li>
-                        <li><a href="#tab2">待付款</a></li>
-                        <li><a href="#tab3">待发货</a></li>
-                        <li><a href="#tab4">待收货</a></li>
-                        <li><a href="#tab5">待评价</a></li>
+                        <li
+                                <c:if test="${customVoOrders.attribute==1}">
+                                class="am-active"
+                                </c:if>
+                            ><a href="#tab1">所有订单</a></li>
+                        <li
+                                <c:if test="${customVoOrders.attribute==2}">
+                                    class="am-active"
+                                </c:if>
+                            ><a href="#tab2">待付款</a></li>
+                        <li
+                                <c:if test="${customVoOrders.attribute==3}">
+                                    class="am-active"
+                                </c:if>
+                            ><a href="#tab3">待发货</a></li>
+                        <li
+                                <c:if test="${customVoOrders.attribute==4}">
+                                    class="am-active"
+                                </c:if>
+                            ><a href="#tab4">待收货</a></li>
+                        <li
+                                <c:if test="${customVoOrders.attribute==5}">
+                                    class="am-active"
+                                </c:if>
+                            ><a href="#tab5">待评价</a></li>
                     </ul>
 
                     <div class="am-tabs-bd">

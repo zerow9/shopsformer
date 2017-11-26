@@ -73,18 +73,18 @@
 
                         <div class="s-bar">
                             <i class="s-icon"></i>我的订单
-                            <a class="i-load-more-item-shadow" href="/public/persons/order.jsp">全部订单</a>
+                            <a class="i-load-more-item-shadow" href="/user/order/order">全部订单</a>
                         </div>
 
                         <ul>
-                            <li><a href="/public/persons/order.jsp"><i><img
+                            <li><a href="/user/order/order?attribute=2"><i><img
                                     src="/public/images/pay.png"/></i><span>待付款</span></a></li>
-                            <li><a href="/public/persons/order.jsp"><i><img
+                            <li><a href="/user/order/order?attribute=3"><i><img
                                     src="/public/images/send.png"/></i><span>待发货<em class="m-num">1</em></span></a>
                             </li>
-                            <li><a href="/public/persons/order.jsp"><i><img
+                            <li><a href="/user/order/order?attribute=4"><i><img
                                     src="/public/images/receive.png"/></i><span>待收货</span></a></li>
-                            <li><a href="/public/persons/order.jsp"><i><img
+                            <li><a href="/user/order/order?attribute=5"><i><img
                                     src="/public/images/comment.png"/></i><span>待评价<em
                                     class="m-num">3</em></span></a></li>
                             <li><a href="/public/persons/change.jsp"><i><img
