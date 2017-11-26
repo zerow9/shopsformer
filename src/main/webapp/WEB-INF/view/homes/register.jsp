@@ -15,7 +15,7 @@
 
 <%--商城logo--%>
 <div class="login-boxtitle">
-    <a href="/index.jsp"><img alt="" src="/public/images/logobig.png"/></a>
+    <a href="/index.jsp"><img alt="" src="/public/images/logobig0.png"/></a>
 </div>
 
 <div class="res-banner">

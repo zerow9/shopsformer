@@ -51,7 +51,7 @@ public class ItemController {
      * @throws Exception
      */
     @RequestMapping("findItemMessage")
-    public String findItemMessage(Integer itemId, Model model) throws Exception {
+    public String findItemMessage(Integer itemId,Integer page, Model model) throws Exception {
 
         //查询商品的信息
         Item item = adminService.selectItemByPrimaryKey(itemId);
@@ -62,6 +62,8 @@ public class ItemController {
         //查询评论的信息
         PagingCustomDiscuss pagingCustomDiscuss=new PagingCustomDiscuss();
         pagingCustomDiscuss.setDiscuss(discuss);
+        pagingCustomDiscuss.setPageNumber(1);
+        pagingCustomDiscuss.setIndexNumber(page-1);
 
         List<DiscuessDetail> discuessDetails=new ArrayList<DiscuessDetail>();
 
@@ -88,6 +90,22 @@ public class ItemController {
             e.printStackTrace();
         }
 
+        try{
+            //查询总的条数
+            PagingCustomDiscuss pagingCustomDiscuss2=new PagingCustomDiscuss();
+            pagingCustomDiscuss2.setDiscuss(discuss);
+            Integer count=adminService.selectDiscussCount(pagingCustomDiscuss2);
+            int sumPage=0;
+            if(count/1==0){
+                sumPage=count/1+1;
+            }else sumPage=count/1;
+
+            model.addAttribute("sumPage",sumPage);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        model.addAttribute("page",page);
         model.addAttribute("item", item);
         return "homes/introduction";
     }

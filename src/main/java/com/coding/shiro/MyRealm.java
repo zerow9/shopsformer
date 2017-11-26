@@ -23,6 +23,8 @@ public class MyRealm extends AuthorizingRealm {
 
     @Autowired
     private IAdminService adminService;
+    @Autowired
+    private IUserService userService;
 
     @Autowired
     private IUserService userService;
@@ -47,12 +49,7 @@ public class MyRealm extends AuthorizingRealm {
             User user = adminService.selectUser(pagingCustomUser).get(0);
             String md5Code = user.getUserPassword();
             String slat = code + user.getSalt();
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            byte[] bs = messageDigest.digest(slat.getBytes());
-            BigInteger bigInteger = new BigInteger(bs);
-            String md5 = bigInteger.toString(16);
-            if (md5.length() == 31)
-                md5 = "0" + md5;
+            String md5=userService.selectMD5(slat);
             if (!md5.equals(md5Code))
                 code = "";
         } catch (Exception e) {

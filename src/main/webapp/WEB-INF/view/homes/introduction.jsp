@@ -413,20 +413,48 @@
                     </ul>
                     <!--分页 -->
                     <ul class="am-pagination am-pagination-right">
-                        <li class="am-disabled">
-                            <a href="#">&laquo;</a>
-                        </li>
-                        <li class="am-active">
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">&raquo;</a>
-                        </li>
+                        <c:choose>
+                            <c:when test="${page==1}">
+                                <li class="am-disabled">
+                                    <a href="?itemId=${item.itemId}&page=${page-1}">&laquo;上一页</a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="am-active">
+                                    <a href="?itemId=${item.itemId}&page=${page-1}">&laquo;上一页</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+
+                        <c:forEach varStatus="i" begin="1" end="${sumPage}" step="1">
+                            <c:choose>
+                                <c:when test="${page==i.count}">
+                                    <li class="disabled"><a href="javascript:;">${i.count}</a></li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li class="am-active"><a href="?itemId=${item.itemId}&page=${i.count}">${i.count}</a></li>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+
+                        <c:choose>
+                            <c:when test="${page==sumPage}">
+                                <li class="am-disabled">
+                                    <a href="?itemId=${item.itemId}&page=${page+1}">下一页 &raquo;</a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="am-active">
+                                    <a href="?itemId=${item.itemId}&page=${page+1}">下一页 &raquo;</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+
                     </ul>
                     <div class="clear"></div>
                     <div class="tb-reviewsft">
                         <div class="tb-rate-alert type-attention">购买前请查看该商品的
-                            <a href="#" target="_blank">购物保障</a>，明确您的售后保障权益。
+                            <a href="javascipt:;" target="_blank">购物保障</a>，明确您的售后保障权益。
                         </div>
                     </div>
                 </div>
@@ -458,19 +486,7 @@
                             </li>
                         </ul>
                     </div>
-                    <!--分页 -->
-                    <ul class="am-pagination am-pagination-right">
-                        <li class="am-disabled">
-                            <a href="#">&laquo;</a>
-                        </li>
-                        <li class="am-active">
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">&raquo;</a>
-                        </li>
-                    </ul>
-                    <div class="clear"></div>
+
                 </div>
             </div>
         </div>
@@ -493,17 +509,32 @@
     function buy(id) {
         var t = $("#text_box");
         <c:if test="${empty user}">
-        alert("请先登录");
+        swal({
+            title: "请先登录，才可以购物噢！",
+            type: "warning",
+            timer: 2000,
+            showConfirmButton: false
+        });
         </c:if>
         <c:if test="${!empty user}">
         $.ajax({
             url: "/user/order/orderBuy?itemId=" + id+"&itemNumber="+t.val(),
             success: function (data) {
                 if (data) {
-                    alert("生成订单成功！点击继续");
+                    swal({
+                        title: "添加订单成功！",
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false,
+                    });
                     location.href = "/user/pay/itemBuyPay?cartId="+id+"&itemNumber="+t.val()
                 } else {
-                    alert("生成订单失败!请稍后购买");
+                    swal({
+                        title: "生成订单失败!请稍后购买！",
+                        type: "error",
+                        timer: 2000,
+                        showConfirmButton: false,
+                    });
                 }
             }
         });
