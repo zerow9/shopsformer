@@ -74,5 +74,5 @@ public interface OrdersMapper {
      * @return 订单总数
      * @throws Exception
      */
-    public Integer selectOredersCountByColumn(PagingCustomOrder pagingCustomOrder)throws Exception;
+        public Integer selectOredersCountByColumn(PagingCustomOrder pagingCustomOrder)throws Exception;
 }

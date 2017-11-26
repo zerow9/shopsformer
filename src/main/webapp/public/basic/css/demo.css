@@ -231,11 +231,13 @@ input.add, input.min {
 }
 
 .footer {
+    width: 100%;
     text-align: center;
     border-top: 2px solid #F8F8F8;
     margin-top: 20px;
     padding-top: 5px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
+    position: relative;
 }
 
 .footer-hd {
@@ -389,17 +391,15 @@ input.add, input.min {
         text-align: left;
         display: block;
         position: relative;
-        margin: 0px auto;
-        padding: 7px 0px 9px;
-        border-top: 2px solid #FF5400;
         margin-top: 20px;
+        padding: 7px 0px 9px;
+        border-top: 2px solid #D2364C;
     }
-
     .footer .footer-bd p, .footer .footer-hd p {
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         line-height: 27px;
         border-bottom: 1px solid #DDD;
-        text-align: left;
+        text-align: center;
     }
 
     .footer .footer-hd a {
@@ -624,12 +624,12 @@ input.add, input.min {
 
 @media only screen and (min-width: 1260px) {
     .am-container {
-        max-width: 1200px;
+        max-width: 1260px;
+        margin: 0px;
     }
 
     .footer {
-        max-width: 1200px;
-        margin: auto;
+        max-width:100%;
     }
 
     /*分类*/

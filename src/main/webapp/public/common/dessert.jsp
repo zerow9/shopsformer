@@ -4,18 +4,18 @@
 <!--甜点-->
 <div class="am-container ">
     <div class="shopTitle ">
-        <h4>甜品</h4>
-        <h3>每一道甜品都有一个故事</h3>
+        <h4>药品</h4>
+        <h3>每一类药都对应一种特殊症状</h3>
         <div class="today-brands ">
-            <a href="# ">桂花糕药</a>
-            <a href="# ">奶皮酥药</a>
-            <a href="# ">栗子糕药</a>
-            <a href="# ">马卡龙药</a>
-            <a href="# ">铜锣烧药</a>
-            <a href="# ">豌豆黄药</a>
+            <a href="# ">止疼药</a>
+            <a href="# ">肠胃药</a>
+            <a href="# ">感冒咳嗽</a>
+            <a href="# ">腰腿疼痛</a>
+            <a href="# ">保健理疗</a>
+            <a href="# ">体检套餐</a>
         </div>
         <span class="more ">
-            <a href="# ">更多美味药<i class="am-icon-angle-right " style="padding-left:10px ; "></i></a>
+            <a href="# ">更多特效药品<i class="am-icon-angle-right " style="padding-left:10px ; "></i></a>
         </span>
     </div>
 </div>
@@ -23,21 +23,20 @@
 <div class="am-g am-g-fixed floodFour ">
     <div class="am-u-sm-5 am-u-md-4 text-one list ">
         <div class="word ">
-            <a class="outer " href="# "><span class="inner "><b class="text ">神药</b></span></a>
-            <a class="outer " href="# "><span class="inner "><b class="text ">神药</b></span></a>
-            <a class="outer " href="# "><span class="inner "><b class="text ">神药</b></span></a>
+            <a class="outer " href="# "><span class="inner "><b class="text ">保健</b></span></a>
+            <a class="outer " href="# "><span class="inner "><b class="text ">营养</b></span></a>
+            <a class="outer " href="# "><span class="inner "><b class="text ">滋补</b></span></a>
             <a href="# ">
                 <div class="outer-con ">
                     <div class="title ">
-                        开抢啦！
+                        特惠好礼 活动开始啦！
                     </div>
                     <div class="sub-title ">
-                        神药大礼包
+                        体检套餐
                     </div>
                 </div>
                 <img src="/public/images/act1.png "/>
             </a>
-            <div class="triangle-topright"></div>
         </div>
     </div>
 
