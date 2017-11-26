@@ -146,6 +146,13 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return true;
     }
 
+    public String selectMD5(String password) throws Exception {
+        if (password != null && !password.equals("")) {
+            return userMapper.selectMD5(password);
+        }
+        return null;
+    }
+
     /*------------------------------------------收货地址表------------------------------------------------------------------*/
     @Transactional(rollbackFor = Exception.class)
     public void deleteAddressByPrimaryKey(Integer addressId) throws Exception {
@@ -679,11 +686,11 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return null;
     }
 
-    public List<Integer> selectOrdersIdArrayByUuidAndItemCodeArray(PagingCustomOrderDetail pagingCustomOrderDetail) throws Exception {
+    public Integer selectOredersCountByColumn(PagingCustomOrder pagingCustomOrder) throws Exception {
         try{
-        return orderDetailMapper.selectOrdersIdArrayByUuidAndItemCodeArray(pagingCustomOrderDetail);
+            return ordersMapper.selectOredersCountByColumn(pagingCustomOrder);
         }catch (Exception e){
-            throw new Exception("根据用户ID和商品列表查询订单ID出错");
+            throw new Exception("根据查询条件返回订单总数时出错");
         }
     }
 
@@ -775,6 +782,14 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return pagingCustomOrdersLists;
     }
 
+
+    public List<Integer> selectOrdersIdArrayByUuidAndItemCodeArray(PagingCustomOrderDetail pagingCustomOrderDetail) throws Exception {
+        try{
+            return orderDetailMapper.selectOrdersIdArrayByUuidAndItemCodeArray(pagingCustomOrderDetail);
+        }catch (Exception e){
+            throw new Exception("根据用户ID和商品列表查询订单ID出错");
+        }
+    }
     /*------------------------------------------公告表------------------------------------------------------------------*/
 
     public Notice selectNoticeByPrimaryKey(Integer noticeId) throws Exception {

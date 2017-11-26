@@ -1,8 +1,6 @@
 package com.coding.pojo;
 
 import com.coding.comomInterface.DateToString;
-import com.coding.converter.DateFormatTool;
-import org.springframework.stereotype.Component;
 
 import java.util.Date;
 

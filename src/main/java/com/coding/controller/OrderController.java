@@ -42,7 +42,7 @@ public class OrderController {
      * @return 所有订单信息
      */
     @RequestMapping("order")
-    public String order(HttpSession session,Model model)throws Exception{
+    public String order(HttpSession session,Model model,Integer attribute)throws Exception{
         CustomVoOrders customVoOrders = new CustomVoOrders();
         String userUuid = (String) session.getAttribute("uuid");
         Orders orders = new Orders();
@@ -77,10 +77,25 @@ public class OrderController {
         customVoOrders.setTakeGoodsStatus(userService.queryOrdersByUserUuidAndStatus(takeGoodsorders));
         customVoOrders.setDiscussStatus(userService.queryOrdersByUserUuidAndStatus(discussOrders));
 
+        if (attribute!=null)
+            customVoOrders.setAttribute(attribute);
 
         model.addAttribute("customVoOrders",customVoOrders);
         return "persons/order";
     }
+
+
+    /**
+     * 删除订单
+     * @param orderId 订单ID
+     * @return 订单页面
+     */
+    @RequestMapping("deleteOrder")
+    public String deleteOrder(Integer orderId)throws Exception{
+        userService.deleteOrderByPrimaryKey(orderId);
+        return "persons/order";
+    }
+
 
     /**
      * 订单售后(退款退货)
@@ -102,4 +117,5 @@ public class OrderController {
         model.addAttribute("customVoOrdersByUserUuidAndStatuses",customVoOrdersByUserUuidAndStatuses);
         return "persons/orderChange";
     }
+
 }

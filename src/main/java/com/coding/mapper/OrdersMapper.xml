@@ -54,6 +54,31 @@
   <select id="selectOrderCount" resultType="java.lang.Integer">
     select count(*) from orders
   </select>
+    <!--按需统计订单总数-->
+  <select id="selectOredersCountByColumn" parameterType="com.coding.paging.PagingCustomOrder" resultType="java.lang.Integer">
+      SELECT COUNT(*)
+       FROM orders
+       <where>
+           <if test="order != null">
+               <if test="order.userUuid != null and order.userUuid != ''">
+                  and user_uuid = #{order.userUuid}
+               </if>
+               <if test="order.discussStatus != null ">
+                   and discuss_status = #{order.discussStatus}
+               </if>
+               <if test="order.payStatus != null ">
+                   and pay_status = #{order.payStatus}
+               </if>
+               <if test="order.sendStatus != null ">
+                   and send_status = #{order.sendStatus}
+               </if>
+               <if test="order.takeGoodsStatus != null">
+                   and take_goods_status = #{order.takeGoodsStatus}
+               </if>
+           </if>
+       </where>
+   </select>
+
   <!--按需更新订单信息-->
   <update id="updateOrderByPrimaryKeySelective" parameterType="com.coding.pojo.Orders" >
     update orders
@@ -316,6 +341,7 @@
     </trim>
   </insert>
   <!--批量删除订单-->
+
   <delete id="deleteOrderByPrimaryKeyArray" parameterType="java.lang.Integer">
     delete from orders where order_id IN
     <foreach collection="oderIdArray" item="order" open="(" separator="," close=")">
@@ -372,7 +398,15 @@
         <if test="order.protectStatus != null">
           and protect_status = #{order.protectStatus}
         </if>
+          <if test="timeArray != null">
+              and orderCreateTime in
+              <foreach collection="timeArray" item="time" open="(" separator="," close=")">
+                  order_create_time = #{timeArray}
+              </foreach>
+          </if>
       </if>
+
+
 
       <!--根据订单创建时间范围查询订单信息-->
       <if test="formerOrderCreateTime != null and formerOrderCreateTime != ''">

@@ -46,6 +46,16 @@ public class Item {
 
     private Integer discount;
 
+    private String itemCode;
+
+    public String getItemCode() {
+        return itemCode;
+    }
+
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
+    }
+
     public Integer getDiscount() {
         return discount;
     }
@@ -249,6 +259,7 @@ public class Item {
                 ", makeDate=" + makeDate +
                 ", dateToString='" + dateToString + '\'' +
                 ", discount=" + discount +
+                ", itemCode='" + itemCode + '\'' +
                 ", itemIntroduce='" + itemIntroduce + '\'' +
                 '}';
     }

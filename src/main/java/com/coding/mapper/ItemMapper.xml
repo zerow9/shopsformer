@@ -10,7 +10,7 @@
       item_type_one, item_type_two, item_type_three,
       post_price, repertory_number, item_sale_number,
       Item_collect_number, key_word, make_vender,
-      make_date,item_introduce,discount
+      make_date,item_introduce,discount,item_code
       )
     values (#{itemTypeId,jdbcType=INTEGER}, #{itemName,jdbcType=VARCHAR},
       #{itemPrice,jdbcType=DOUBLE}, #{itemMarketPrice,jdbcType=DOUBLE}, #{itemScoreType,jdbcType=INTEGER},
@@ -18,7 +18,7 @@
       #{itemTypeOne,jdbcType=INTEGER}, #{itemTypeTwo,jdbcType=INTEGER}, #{itemTypeThree,jdbcType=INTEGER},
       #{postPrice,jdbcType=DOUBLE}, #{repertoryNumber,jdbcType=INTEGER}, #{itemSaleNumber,jdbcType=INTEGER},
       #{itemCollectNumber,jdbcType=INTEGER}, #{keyWord,jdbcType=VARCHAR}, #{makeVender,jdbcType=INTEGER},
-      #{makeDate,jdbcType=TIMESTAMP}, #{itemIntroduce,jdbcType=LONGVARCHAR},#{discount,jdbcType=INTEGER}
+      #{makeDate,jdbcType=TIMESTAMP}, #{itemIntroduce,jdbcType=LONGVARCHAR},#{discount,jdbcType=INTEGER},uuid()
       )
     </insert>
     <!--按需插入商品信息，并返回其主键-->
@@ -88,6 +88,9 @@
             <if test="discount != null">
                 discount,
             </if>
+            <if test="1==1">
+                item_code,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="itemTypeId != null" >
@@ -149,6 +152,9 @@
             </if>
             <if test="discount != null">
                 #{discount,jdbcType=INTEGER},
+            </if>
+            <if test="1==1">
+                uuid(),
             </if>
         </trim>
 
@@ -276,6 +282,7 @@
         <result column="make_vender" jdbcType="INTEGER" property="makeVender"/>
         <result column="make_date" jdbcType="TIMESTAMP" property="makeDate"/>
         <result column="discount" jdbcType="INTEGER" property="discount" />
+        <result column="item_code" jdbcType="VARCHAR" property="itemCode"/>
         <!--<result column="item2" jdbcType="VARCHAR" property="item2" />
         <result column="item3" jdbcType="VARCHAR" property="item3" />
         <result column="item4" jdbcType="VARCHAR" property="item4" />
@@ -294,7 +301,7 @@
         item_id, item_type_id, item_name, item_price, item_market_price, item_score_type,
         score_price, item_images, item_format, item_type_one, item_type_two, item_type_three,
         post_price, repertory_number, item_sale_number, Item_collect_number, key_word, make_vender,
-        make_date,discount
+        make_date,discount,itemCode
     </sql>
     <!--Item中的大文本字段-->
     <sql id="Blob_Column_List">

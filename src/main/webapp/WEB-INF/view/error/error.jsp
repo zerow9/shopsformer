@@ -22,7 +22,5 @@
 <div class="footer">
     Design by-Young Coding 孝和购物系统
 </div>
-
-
 </body>
 </html>

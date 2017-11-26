@@ -72,6 +72,14 @@ public interface IUserService {
      */
     public Boolean registerUserPasswordByPhone( String userPhone) throws Exception;
 
+    /**
+     * 获取密码的MD5值
+     * @param password 用户密码
+     * @return 加密后的密码
+     * @throws Exception sql异常
+     */
+    public String selectMD5(String password)throws Exception;
+
     /*------------------------------------------收获地址表------------------------------------------------------------------*/
     /**
      * 根据 addressId 删除地址信息
@@ -325,12 +333,11 @@ public interface IUserService {
     public List<CustomVoOrdersByUserUuidAndStatus> queryOrdersByUserUuidAndStatus (Orders orders)throws Exception;
 
     /**
-     * 根据用户ID和商品编码组查询订单ID
-     * @param pagingCustomOrderDetail 封装了基本查询信息的 Paging 类扩展类 PagingCustomOrderDetail 类对象
-     * @return 满足查询条件的订单ID组
-     * @throws Exception
+     * 根据查询条件，返回订单总数（例如：某用户未支付订单总数）
+     * @return 订单总数
+     * @throws Exception sql异常
      */
-    public List<Integer> selectOrdersIdArrayByUuidAndItemCodeArray(PagingCustomOrderDetail pagingCustomOrderDetail)throws Exception;
+    public Integer selectOredersCountByColumn(PagingCustomOrder pagingCustomOrder)throws Exception;
 
      /*------------------------------------------订单详情表------------------------------------------------------------------*/
     /**
@@ -378,6 +385,15 @@ public interface IUserService {
      * @throws Exception 无效sql、sql异常
      */
     public List<PagingCustomItemByOrderDetail> selectItemByOderDetailId(List<Integer> orderDetailsId) throws Exception;
+
+
+    /**
+     * 根据用户ID和商品编码组查询订单ID
+     * @param pagingCustomOrderDetail 封装了基本查询信息的 Paging 类扩展类 PagingCustomOrderDetail 类对象
+     * @return 满足查询条件的订单ID组
+     * @throws Exception sql异常
+     */
+    public List<Integer> selectOrdersIdArrayByUuidAndItemCodeArray(PagingCustomOrderDetail pagingCustomOrderDetail)throws Exception;
     /*------------------------------------------公告表------------------------------------------------------------------*/
 
     /**
