@@ -108,6 +108,11 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         try {
             //对数据进行过滤
             user = (User) Filter.filterObject(user);
+            //String salt = userMapper.selectUserByPrimaryKey(user.getUserUuid()).getSalt();
+            //user.setUserPassword(user.getUserPassword()+ salt);
+            PagingCustomUser pagingCustomUser = new PagingCustomUser();
+            pagingCustomUser.setUser(user);
+            user.setUserPassword(user.getUserPassword()+userMapper.selectUser(pagingCustomUser).get(0).getSalt());
             except(userMapper.updateUserByPrimaryKeySelective(user));
         } catch (Exception e) {
             if (!e.getMessage().contains("操作无效"))
