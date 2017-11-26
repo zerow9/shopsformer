@@ -57,11 +57,13 @@
     <div class="nav-table">
         <jsp:include page="/public/common/navigation.jsp"></jsp:include>
     </div>
+    <div class="clear"></div>
     <ol class="am-breadcrumb am-breadcrumb-slash">
         <li><a href="#">首页</a></li>
         <li><a href="#">分类</a></li>
         <li class="am-active">内容</li>
     </ol>
+    <div class="clear"></div>
     <!--放大镜-->
     <div class="shopMainbg">
         <div class="item-inform">

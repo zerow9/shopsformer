@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -101,6 +102,7 @@ public class PayController {
             Orders orders=adminService.selectOrderByPrimaryKey(ordersList.get(0));
             orders.setPayStatus(1);
             orders.setSendStatus(1);
+            orders.setOrderPayTime(new Date());
             adminService.updateOrderByPrimaryKeySelective(orders);
         } else if (cartId.length != 0 && cartId != null) {
             try {
