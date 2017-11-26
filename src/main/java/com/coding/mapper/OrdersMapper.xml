@@ -93,7 +93,7 @@
         take_goods_name = #{takeGoodsName,jdbcType=VARCHAR},
       </if>
       <if test="takeGoodsStatus != null">
-          take_goods_status = #{takeGoodsStatus,jdbcType=VARCHAR}
+          take_goods_status = #{takeGoodsStatus,jdbcType=VARCHAR},
       </if>
       <if test="takeGoodsPhone != null" >
         take_goods_phone = #{takeGoodsPhone,jdbcType=VARCHAR},
