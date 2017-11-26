@@ -68,4 +68,11 @@ public interface OrdersMapper {
      * @throws Exception
      */
     public String selectOrdersTableColumns()throws Exception;
+
+    /**
+     * 根据查询条件，返回订单总数（例如：某用户未支付订单总数）
+     * @return 订单总数
+     * @throws Exception
+     */
+    public Integer selectOredersCountByColumn(PagingCustomOrder pagingCustomOrder)throws Exception;
 }
