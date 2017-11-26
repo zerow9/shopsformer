@@ -269,6 +269,9 @@
       <if test="takeGoodsName != null" >
         #{takeGoodsName,jdbcType=VARCHAR},
       </if>
+      <if test="takeGoodsStatus != null">
+        #{takeGoodsStatus,jdbcType=INTEGER},
+      </if>
       <if test="takeGoodsPhone != null" >
         #{takeGoodsPhone,jdbcType=VARCHAR},
       </if>
