@@ -1,3 +1,4 @@
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -10,14 +11,12 @@
     <link href="/public/basic/css/skin.css" rel="stylesheet"/>
 </head>
 <body>
-<%--顶部--%>
+<C:if test="${empty listItem}">
+    <form action="/item/indexTenItem" id="sun" method="post"></form>
+</C:if>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
-<%--begin：首页横幅--%>
 <jsp:include page="/public/common/banner.jsp" flush="true"/>
-<%--end：首页横幅--%>
-<%--begin：导航栏--%>
 <jsp:include page="/public/common/shopNav.jsp" flush="true"/>
-<%--end：导航栏--%>
 <%--begin：首页板块--%>
 <div class="shopMainbg">
     <div class="shopMain" id="shopmain">
@@ -29,54 +28,15 @@
         <div id="f1">
             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
         </div>
-
-      <%--  &lt;%&ndash;坚果&ndash;%&gt;
-        <div id="f2">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-
-        &lt;%&ndash;甜点&ndash;%&gt;
-        <div id="f3">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
-
-        &lt;%&ndash;坚果&ndash;%&gt;
-        <div id="f4">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-
-        &lt;%&ndash;甜点&ndash;%&gt;
-        <div id="f5">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
-
-        &lt;%&ndash;坚果&ndash;%&gt;
-        <div id="f6">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-
-        &lt;%&ndash;甜点&ndash;%&gt;
-        <div id="f7">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
-
-        &lt;%&ndash;坚果&ndash;%&gt;
-        <div id="f8">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-
-        &lt;%&ndash;甜点&ndash;%&gt;
-        <div id="f9">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
-
-        &lt;%&ndash;坚果&ndash;%&gt;
-        <div id="f10">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>--%>
-        <jsp:include page="/public/common/footer.jsp" flush="true"/>
     </div>
     <jsp:include page="/public/common/tip.jsp" flush="true"/>
-
+    <%--<jsp:include page="/public/common/customerServices.jsp" flush="true"/>--%>
 </body>
+<script type="text/javascript">
+    window.onload = function () {
+        var obj = document.getElementById("sun");
+        obj.action = "/item/indexTenItem";
+        obj.submit();
+    }
+</script>
 </html>
