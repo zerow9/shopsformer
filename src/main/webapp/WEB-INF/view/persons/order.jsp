@@ -280,11 +280,10 @@
                                                                 <div class="item-status">
                                                                     <p class="Mystatus">等待买家付款</p>
                                                                     <p class="order-info"><a href="#">取消订单</a></p>
-
                                                                 </div>
                                                             </li>
                                                             <li class="td td-change">
-                                                                <a href="pay.html">
+                                                                <a href="/user/pay/onekeyPay?orderId=${pay.orders.orderId}&sum=${pay.orders.orderSumPrice+pay.orders.orderFreight}">
                                                                     <div class="am-btn am-btn-danger anniu">
                                                                         一键支付
                                                                     </div>
@@ -292,7 +291,6 @@
                                                             </li>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </c:if>
