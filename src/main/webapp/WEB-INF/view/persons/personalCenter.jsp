@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -78,17 +79,35 @@
 
                         <ul>
                             <li><a href="/user/order/order?attribute=2"><i><img
-                                    src="/public/images/pay.png"/></i><span>待付款</span></a></li>
+                                    src="/public/images/pay.png"/></i><span>待付款
+                                <c:if test="${customVoOrdersCount.payOrderCount!=0}">
+                                <em class="m-num">${customVoOrdersCount.payOrderCount}</em>
+                                </c:if>
+                                </span></a>
+                            </li>
                             <li><a href="/user/order/order?attribute=3"><i><img
-                                    src="/public/images/send.png"/></i><span>待发货<em class="m-num">1</em></span></a>
+                                    src="/public/images/send.png"/></i><span>待发货
+                                <c:if test="${customVoOrdersCount.sendGoodsCount!=0}">
+                                    <em class="m-num">${customVoOrdersCount.sendGoodsCount}</em>
+                                </c:if>
+                                </span></a>
                             </li>
                             <li><a href="/user/order/order?attribute=4"><i><img
-                                    src="/public/images/receive.png"/></i><span>待收货</span></a></li>
+                                    src="/public/images/receive.png"/></i><span>待收货
+                                <c:if test="${customVoOrdersCount.takeGoodsCount!=0}">
+                                    <em class="m-num">${customVoOrdersCount.takeGoodsCount}</em>
+                                </c:if>
+                                </span></a>
+                            </li>
                             <li><a href="/user/order/order?attribute=5"><i><img
-                                    src="/public/images/comment.png"/></i><span>待评价<em
-                                    class="m-num">3</em></span></a></li>
-                            <li><a href="/public/persons/change.jsp"><i><img
-                                    src="/public/images/refund.png"/></i><span>退换货</span></a></li>
+                                    src="/public/images/comment.png"/></i><span>待评价
+                                <c:if test="${customVoOrdersCount.discussCount!=0}">
+                                    <em class="m-num">${customVoOrdersCount.discussCount}</em>
+                                </c:if>
+                                </span></a>
+                            </li>
+                            <%--<li><a href="/public/persons/change.jsp"><i><img--%>
+                                    <%--src="/public/images/refund.png"/></i><span>退换货</span></a></li>--%>
                         </ul>
                     </div>
 
