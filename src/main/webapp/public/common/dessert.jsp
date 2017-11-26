@@ -47,7 +47,7 @@
                     <div class="sub-title ">${item.itemPrice}</div>
                     <i class="am-icon-shopping-basket am-icon-md seprate "></i>
                 </div>
-                <a href="/item/findItemMessage?itemId=${item.itemId}"><img src="${item.itemImages} "/></a>
+                <a href="/item/findItemMessage?itemId=${item.itemId}&page=1"><img src="${item.itemImages} "/></a>
             </div>
         </C:forEach>
     </div>
