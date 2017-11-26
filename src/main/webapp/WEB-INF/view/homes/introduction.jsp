@@ -378,7 +378,7 @@
                             <li class="tb-taglist-li tb-taglist-li-current">
                                 <div class="comment-info">
                                     <span>全部评价</span>
-                                    <span class="tb-tbcr-num">(${discuessDetails.size()})</span>
+                                    <span class="tb-tbcr-num">(${count})</span>
                                 </div>
                             </li>
                         </ul>
