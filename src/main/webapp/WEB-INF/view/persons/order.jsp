@@ -64,7 +64,8 @@
 
                     <div class="am-tabs-bd">
                         <%--全部订单--%>
-                        <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                        <div class="am-tab-panel am-fade
+                            <c:if test="${customVoOrders.attribute==1}">am-in am-active</c:if>" id="tab1">
                             <div class="order-top">
                                 <div class="th th-item">
                                     <td class="td-inner">商品</td>
@@ -187,7 +188,8 @@
                         </div>
 
                         <%--待付款订单--%>
-                        <div class="am-tab-panel am-fade" id="tab2">
+                        <div class="am-tab-panel am-fade
+                            <c:if test="${customVoOrders.attribute==2}">am-in am-active</c:if>" id="tab2">
 
                             <div class="order-top">
                                 <div class="th th-item">
@@ -300,7 +302,8 @@
                         </div>
 
                         <%--待发货订单--%>
-                        <div class="am-tab-panel am-fade" id="tab3">
+                        <div class="am-tab-panel am-fade
+                            <c:if test="${customVoOrders.attribute==3}">am-in am-active</c:if>" id="tab3">
                             <div class="order-top">
                                 <div class="th th-item">
                                     <td class="td-inner">商品</td>
@@ -409,7 +412,8 @@
                         </div>
 
                         <%--待收货订单--%>
-                        <div class="am-tab-panel am-fade" id="tab4">
+                        <div class="am-tab-panel am-fade
+                            <c:if test="${customVoOrders.attribute==4}">am-in am-active</c:if>" id="tab4">
                             <div class="order-top">
                                 <div class="th th-item">
                                     <td class="td-inner">商品</td>
@@ -522,7 +526,8 @@
                         </div>
 
                         <%--待评价订单--%>
-                        <div class="am-tab-panel am-fade" id="tab5">
+                        <div class="am-tab-panel am-fade
+                            <c:if test="${customVoOrders.attribute==5}">am-in am-active</c:if>" id="tab5">
                             <div class="order-top">
                                 <div class="th th-item">
                                     <td class="td-inner">商品</td>
