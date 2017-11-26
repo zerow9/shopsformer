@@ -184,7 +184,7 @@
         take_goods_name,
       </if>
       <if test="takeGoodsStatus != null">
-          take_goods_status
+          take_goods_status,
       </if>
       <if test="takeGoodsPhone != null" >
         take_goods_phone,

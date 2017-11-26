@@ -26,8 +26,6 @@ public class MyRealm extends AuthorizingRealm {
     @Autowired
     private IUserService userService;
 
-    @Autowired
-    private IUserService userService;
 
     @Override
     public void setName(String name) {
