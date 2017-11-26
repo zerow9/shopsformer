@@ -27,7 +27,7 @@ public class PersonalController {
         PagingCustomOrder takeGoodsPagingCustomOrder = new PagingCustomOrder();
         PagingCustomOrder discussPagingCustomOrder = new PagingCustomOrder();
 //        Orders allOrders = new Orders();
-        Orders takeGoodsorders = new Orders();//收货状态
+        Orders takeGoodsOrders = new Orders();//收货状态
         Orders payOrders = new Orders();//支付状态
         Orders sendOrders = new Orders();//发货状态
         Orders discussOrders = new Orders();//评论状态
@@ -46,11 +46,11 @@ public class PersonalController {
         payPagingCustomOrder.setOrder(sendOrders);
         customVoOrdersCount.setSendGoodsCount(userService.selectOrdersCountByColumn(sendPagingCustomOrder));
 
-        takeGoodsorders.setUserUuid(userUuid);
-        takeGoodsorders.setPayStatus(1);
-        takeGoodsorders.setSendStatus(1);
-        takeGoodsorders.setTakeGoodsStatus(0);
-        takeGoodsPagingCustomOrder.setOrder(takeGoodsorders);
+        takeGoodsOrders.setUserUuid(userUuid);
+        takeGoodsOrders.setPayStatus(1);
+        takeGoodsOrders.setSendStatus(1);
+        takeGoodsOrders.setTakeGoodsStatus(0);
+        takeGoodsPagingCustomOrder.setOrder(takeGoodsOrders);
         customVoOrdersCount.setTakeGoodsCount(userService.selectOrdersCountByColumn(takeGoodsPagingCustomOrder));
 
         discussOrders.setUserUuid(userUuid);
