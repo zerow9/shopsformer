@@ -72,6 +72,14 @@ public interface IUserService {
      */
     public Boolean registerUserPasswordByPhone( String userPhone) throws Exception;
 
+    /**
+     * 获取密码的MD5值
+     * @param password 用户密码
+     * @return 加密后的密码
+     * @throws Exception sql异常
+     */
+    public String selectMD5(String password)throws Exception;
+
     /*------------------------------------------收获地址表------------------------------------------------------------------*/
     /**
      * 根据 addressId 删除地址信息

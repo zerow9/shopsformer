@@ -146,6 +146,13 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return true;
     }
 
+    public String selectMD5(String password) throws Exception {
+        if (password != null && !password.equals("")) {
+            return userMapper.selectMD5(password);
+        }
+        return null;
+    }
+
     /*------------------------------------------收货地址表------------------------------------------------------------------*/
     @Transactional(rollbackFor = Exception.class)
     public void deleteAddressByPrimaryKey(Integer addressId) throws Exception {
