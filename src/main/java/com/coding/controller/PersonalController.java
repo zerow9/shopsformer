@@ -38,20 +38,20 @@ public class PersonalController {
         payOrders.setPayStatus(0);
         payOrders.setUserUuid(userUuid);
         payPagingCustomOrder.setOrder(payOrders);
-        customVoOrdersCount.setPayOrderCount(userService.selectOredersCountByColumn(payPagingCustomOrder));
+        customVoOrdersCount.setPayOrderCount(userService.selectOrdersCountByColumn(payPagingCustomOrder));
 
         sendOrders.setUserUuid(userUuid);
         sendOrders.setPayStatus(1);
         sendOrders.setSendStatus(0);
         payPagingCustomOrder.setOrder(sendOrders);
-        customVoOrdersCount.setSendGoodsCount(userService.selectOredersCountByColumn(sendPagingCustomOrder));
+        customVoOrdersCount.setSendGoodsCount(userService.selectOrdersCountByColumn(sendPagingCustomOrder));
 
         takeGoodsorders.setUserUuid(userUuid);
         takeGoodsorders.setPayStatus(1);
         takeGoodsorders.setSendStatus(1);
         takeGoodsorders.setTakeGoodsStatus(0);
         takeGoodsPagingCustomOrder.setOrder(takeGoodsorders);
-        customVoOrdersCount.setTakeGoodsCount(userService.selectOredersCountByColumn(takeGoodsPagingCustomOrder));
+        customVoOrdersCount.setTakeGoodsCount(userService.selectOrdersCountByColumn(takeGoodsPagingCustomOrder));
 
         discussOrders.setUserUuid(userUuid);
         discussOrders.setPayStatus(1);
@@ -59,7 +59,7 @@ public class PersonalController {
         discussOrders.setTakeGoodsStatus(1);
         discussOrders.setDiscussStatus(0);
         discussPagingCustomOrder.setOrder(discussOrders);
-        customVoOrdersCount.setDiscussCount(userService.selectOredersCountByColumn(discussPagingCustomOrder));
+        customVoOrdersCount.setDiscussCount(userService.selectOrdersCountByColumn(discussPagingCustomOrder));
         model.addAttribute("customVoOrdersCount",customVoOrdersCount);
         return "persons/personalCenter";
     }

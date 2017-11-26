@@ -337,7 +337,7 @@ public interface IUserService {
      * @return 订单总数
      * @throws Exception sql异常
      */
-    public Integer selectOredersCountByColumn(PagingCustomOrder pagingCustomOrder)throws Exception;
+    public Integer selectOrdersCountByColumn(PagingCustomOrder pagingCustomOrder)throws Exception;
 
      /*------------------------------------------订单详情表------------------------------------------------------------------*/
     /**

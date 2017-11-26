@@ -686,7 +686,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return null;
     }
 
-    public Integer selectOredersCountByColumn(PagingCustomOrder pagingCustomOrder) throws Exception {
+    public Integer selectOrdersCountByColumn(PagingCustomOrder pagingCustomOrder) throws Exception {
         try{
             return ordersMapper.selectOredersCountByColumn(pagingCustomOrder);
         }catch (Exception e){
