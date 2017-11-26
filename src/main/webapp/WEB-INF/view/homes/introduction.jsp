@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -358,20 +359,16 @@
                 <div class="am-tab-panel am-fade">
                     <div class="actor-new">
                         <div class="rate">
-                            <strong>100<span>%</span></strong><br> <span>好评度</span>
+                            <strong>99<span>%</span></strong><br> <span>好评度</span>
                         </div>
                         <dl>
                             <dt>买家印象</dt>
                             <dd class="p-bfc">
-                                <q class="comm-tags"><span>味道不错</span><em>(2177)</em></q>
-                                <q class="comm-tags"><span>颗粒饱满</span><em>(1860)</em></q>
-                                <q class="comm-tags"><span>口感好</span><em>(1823)</em></q>
-                                <q class="comm-tags"><span>商品不错</span><em>(1689)</em></q>
-                                <q class="comm-tags"><span>香脆可口</span><em>(1488)</em></q>
-                                <q class="comm-tags"><span>个个开口</span><em>(1392)</em></q>
-                                <q class="comm-tags"><span>价格便宜</span><em>(1119)</em></q>
-                                <q class="comm-tags"><span>特价买的</span><em>(865)</em></q>
-                                <q class="comm-tags"><span>皮很薄</span><em>(831)</em></q>
+                                <q class="comm-tags"><span>包装还不错</span><em>(0)</em></q>
+                                <q class="comm-tags"><span>服务态度好</span><em>(0)</em></q>
+                                <q class="comm-tags"><span>商品不错</span><em>(0)</em></q>
+                                <q class="comm-tags"><span>价格便宜</span><em>(0)</em></q>
+                                <q class="comm-tags"><span>特价买的</span><em>(0)</em></q>
                             </dd>
                         </dl>
                     </div>
@@ -381,30 +378,13 @@
                             <li class="tb-taglist-li tb-taglist-li-current">
                                 <div class="comment-info">
                                     <span>全部评价</span>
-                                    <span class="tb-tbcr-num">(32)</span>
-                                </div>
-                            </li>
-                            <li class="tb-taglist-li tb-taglist-li-1">
-                                <div class="comment-info">
-                                    <span>好评</span>
-                                    <span class="tb-tbcr-num">(32)</span>
-                                </div>
-                            </li>
-                            <li class="tb-taglist-li tb-taglist-li-0">
-                                <div class="comment-info">
-                                    <span>中评</span>
-                                    <span class="tb-tbcr-num">(32)</span>
-                                </div>
-                            </li>
-                            <li class="tb-taglist-li tb-taglist-li--1">
-                                <div class="comment-info">
-                                    <span>差评</span>
-                                    <span class="tb-tbcr-num">(32)</span>
+                                    <span class="tb-tbcr-num">(${discuessDetails.size()})</span>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <ul class="am-comments-list am-comments-list-flip">
+                        <c:forEach items="${discuessDetails}" var="discuessDetail">
                         <li class="am-comment">
                             <a href="">
                                 <img class="am-comment-avatar" src="/public/images/hwbn40x40.jpg"/>
@@ -412,23 +392,24 @@
                             <div class="am-comment-main">
                                 <header class="am-comment-hd">
                                     <div class="am-comment-meta">
-                                        <a href="#link-to-user" class="am-comment-author">l***4 (匿名)</a>
+                                        <a href="javascript:;" class="am-comment-author">${fn:substring(discuessDetail.user.userName,0,1)} *** (匿名)</a>
                                         评论于
-                                        <time datetime="">2015年10月28日 11:33</time>
+                                        <time datetime="">${discuessDetail.dateToString}</time>
                                     </div>
                                 </header>
                                 <div class="am-comment-bd">
                                     <div class="tb-rev-item " data-id="255095758792">
                                         <div class="J_TbcRate_ReviewContent tb-tbcr-content ">
-                                            没有色差，很暖和……美美的
+                                            ${discuessDetail.discussDetail}
                                         </div>
                                         <div class="tb-r-act-bar">
-                                            颜色分类：蓝调灰&nbsp;&nbsp;尺码：2XL
+                                            商品的关键字：${discuessDetail.item.keyWord}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
+                        </c:forEach>
                     </ul>
                     <!--分页 -->
                     <ul class="am-pagination am-pagination-right">
