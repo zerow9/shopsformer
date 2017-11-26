@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.coding.Iservice.IAdminService;
+import com.coding.Iservice.IUserService;
 import com.coding.paging.PagingCustomUser;
 import com.coding.pojo.Groups;
 import com.coding.pojo.User;
@@ -22,6 +23,9 @@ public class MyRealm extends AuthorizingRealm {
 
     @Autowired
     private IAdminService adminService;
+
+    @Autowired
+    private IUserService userService;
 
     @Override
     public void setName(String name) {
