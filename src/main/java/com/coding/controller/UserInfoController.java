@@ -33,11 +33,13 @@ public class UserInfoController {
     }
 
     @RequestMapping("userInfo")
-    public String first(HttpServletRequest request) throws Exception {
-        String uuid = (String) request.getSession().getAttribute("uuid");
+    public String first(HttpSession session) throws Exception {
+        String uuid = (String) session.getAttribute("uuid");
         User user = adminService.selectUserByPrimaryKey(uuid);
         user.setUserRegisterDateTimeToString(DateToString.date(user.getUserRegisterDateTime()));
-        request.setAttribute("user", user);
+        if(session.getAttribute("user")!=null)
+            session.removeAttribute("user");
+        session.setAttribute("user", user);
         return "persons/information";
     }
 
