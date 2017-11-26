@@ -100,6 +100,7 @@ public class PayController {
         if (ordersList.size() == 1) {
             Orders orders=adminService.selectOrderByPrimaryKey(ordersList.get(0));
             orders.setPayStatus(1);
+            orders.setSendStatus(1);
             adminService.updateOrderByPrimaryKeySelective(orders);
         } else if (cartId.length != 0 && cartId != null) {
             try {

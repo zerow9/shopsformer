@@ -43,6 +43,9 @@ public class ItemOrderController {
         orders.setUserUuid(user.getUserUuid());
         orders.setOrderCreateTime(new Date());
         orders.setPayStatus(0);
+        orders.setSendStatus(0);
+        orders.setDiscussStatus(0);
+        orders.setTakeGoodsStatus(0);
         int ordersId = adminService.insertOrderSelectiveReturnId(orders);
         orderDetail.setOrderId(ordersId);
         orderDetail.setItemId(item.getItemId());

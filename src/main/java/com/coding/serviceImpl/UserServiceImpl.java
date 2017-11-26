@@ -518,7 +518,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public int insertOrderSelectiveReturnId(Orders order) throws Exception {
         try {
-            order = (Orders) Filter.filterObject(order);
+           // order = (Orders) Filter.filterObject(order);
             ordersMapper.insertOrderSelective(order);
             return order.getOrderId();
         } catch (Exception e) {
