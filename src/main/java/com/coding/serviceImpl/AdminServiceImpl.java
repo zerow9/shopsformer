@@ -5,6 +5,7 @@ import com.coding.filter.Filter;
 import com.coding.mapper.*;
 import com.coding.paging.*;
 import com.coding.pojo.*;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,6 +61,12 @@ public class AdminServiceImpl extends UserServiceImpl implements IAdminService {
             }
         }
     }
+
+    public String selectMD5(String password)throws Exception{
+        String MD5 = userMapper.selectMD5(password);
+        return MD5;
+    }
+
     public List<User> selectUserAll()  throws Exception{
             List<User> users = userMapper.selectUserAll();
             if(users.isEmpty()) throw new Exception("用户列表查询为空");
