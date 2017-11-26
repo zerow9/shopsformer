@@ -22,10 +22,15 @@ public class PayController {
     @Autowired
     private IAdminService adminService;
 
-
-    private void uuidGetAddress(HttpSession session) throws Exception {
+    private List<Address> hasAddress(HttpSession session)throws Exception{
         String uuid = (String) session.getAttribute("uuid");
         List<Address> addresses = adminService.selectAddressByUserID(uuid);
+        return addresses;
+    }
+
+
+    private void uuidGetAddress(HttpSession session, List<Address> addresses) throws Exception {
+
         Address add = null;
         for (Address address : addresses) {
             if (address.getIsDefaultAddress() == 1) {
@@ -66,7 +71,10 @@ public class PayController {
         PagingCustomCart pagingCustomCart = new PagingCustomCart();
         pagingCustomCart.setCartIdArray(cartId);
         String uuid = (String) session.getAttribute("uuid");
-        uuidGetAddress(session);
+        List<Address> addresses=hasAddress(session);
+        if(addresses.size()==0)
+            return "forward:/user/address/address";
+        uuidGetAddress(session,addresses);
         List<Cart> carts = adminService.selectCartByCartIdArray(pagingCustomCart);
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
         double sum = 0;
@@ -85,7 +93,10 @@ public class PayController {
     @RequestMapping("itemBuyPay")
     public String itemPay(Integer cartId, Integer itemNumber, HttpSession session, HttpServletRequest request) throws Exception {
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
-        uuidGetAddress(session);
+        List<Address> addresses=hasAddress(session);
+        if(addresses.size()==0)
+            return "forward:/user/address/address";
+        uuidGetAddress(session,addresses);
         String uuid = (String) session.getAttribute("uuid");
         double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
         session.setAttribute("cartIds", cartId);
