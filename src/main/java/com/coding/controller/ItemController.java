@@ -57,12 +57,14 @@ public class ItemController {
         Item item = adminService.selectItemByPrimaryKey(itemId);
         item.setDateToString(DateToString.date(item.getMakeDate()));
 
+        Integer count=0;
+
         Discuss discuss=new Discuss();
         discuss.setItemId(itemId);
         //查询评论的信息
         PagingCustomDiscuss pagingCustomDiscuss=new PagingCustomDiscuss();
         pagingCustomDiscuss.setDiscuss(discuss);
-        pagingCustomDiscuss.setPageNumber(1);
+        pagingCustomDiscuss.setPageNumber(10);
         pagingCustomDiscuss.setIndexNumber(page-1);
 
         List<DiscuessDetail> discuessDetails=new ArrayList<DiscuessDetail>();
@@ -89,24 +91,25 @@ public class ItemController {
         }catch (Exception e){
             e.printStackTrace();
         }
-
         try{
             //查询总的条数
             PagingCustomDiscuss pagingCustomDiscuss2=new PagingCustomDiscuss();
             pagingCustomDiscuss2.setDiscuss(discuss);
-            Integer count=adminService.selectDiscussCount(pagingCustomDiscuss2);
-            int sumPage=0;
-            if(count/1==0){
-                sumPage=count/1+1;
-            }else sumPage=count/1;
+            count=adminService.selectDiscussCount(pagingCustomDiscuss2);
 
-            model.addAttribute("sumPage",sumPage);
+            int sumPage=0;
+            if(count/10==0){
+                sumPage=count/10+1;
+            }else sumPage=count/10;
+
+            model.addAttribute("sumPage",sumPage);//总页数
         }catch (Exception e){
             e.printStackTrace();
         }
 
-        model.addAttribute("page",page);
-        model.addAttribute("item", item);
+        model.addAttribute("page",page);//页数
+        model.addAttribute("count",count);//总的条数
+        model.addAttribute("item", item);//商品信息
         return "homes/introduction";
     }
 
