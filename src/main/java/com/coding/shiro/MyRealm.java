@@ -1,5 +1,7 @@
 package com.coding.shiro;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,9 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import sun.security.provider.MD5;
 
 public class MyRealm extends AuthorizingRealm {
 
@@ -29,14 +33,24 @@ public class MyRealm extends AuthorizingRealm {
             AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken usernamePassword = (UsernamePasswordToken) token;
         String email = usernamePassword.getUsername();
-        String code = "4625425375472537457235427345754732";
+        char c[] = usernamePassword.getPassword();
+        String code = new String(c);
         try {
             PagingCustomUser pagingCustomUser = new PagingCustomUser();
             User use = new User();
             use.setUserEmail(email);
             pagingCustomUser.setUser(use);
             User user = adminService.selectUser(pagingCustomUser).get(0);
-            code = user.getUserPassword();
+            String md5Code = user.getUserPassword();
+            String slat = code + user.getSalt();
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            byte[] bs = messageDigest.digest(slat.getBytes());
+            BigInteger bigInteger = new BigInteger(bs);
+            String md5 = bigInteger.toString(16);
+            if (md5.length() == 31)
+                md5 = "0" + md5;
+            if (!md5.equals(md5Code))
+                code = "";
         } catch (Exception e) {
         }
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(email, code, this.getName());
