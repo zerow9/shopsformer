@@ -231,11 +231,12 @@ input.add, input.min {
 }
 
 .footer {
-    text-align: center;
+    text-align: left;
     border-top: 2px solid #F8F8F8;
     margin-top: 20px;
     padding-top: 5px;
     margin-bottom: 60px;
+    position: relative;
 }
 
 .footer-hd {
@@ -391,12 +392,19 @@ input.add, input.min {
         position: relative;
         margin: 0px auto;
         padding: 7px 0px 9px;
-        border-top: 2px solid #FF5400;
+        border-top: 2px solid #D2364C;
         margin-top: 20px;
     }
 
+/*    .footer .nilala {
+        margin: 0px;
+        margin-top: 20px;
+        border-top: 2px solid #D2364C;
+        padding: 7px 0px 9px;
+    }*/
+
     .footer .footer-bd p, .footer .footer-hd p {
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         line-height: 27px;
         border-bottom: 1px solid #DDD;
         text-align: left;
@@ -625,11 +633,11 @@ input.add, input.min {
 @media only screen and (min-width: 1260px) {
     .am-container {
         max-width: 1200px;
+        margin: 0px;
     }
 
     .footer {
         max-width: 1200px;
-        margin: auto;
     }
 
     /*分类*/

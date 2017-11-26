@@ -12,7 +12,7 @@
         </span>
     </div>
 
-    <div class="am-g am-g-fixed ">
+    <div class="am-g am-g-fixed " style="margin-left:50px ">
         <div class="am-u-sm-3 ">
             <div class="icon-sale one "></div>
             <h4>秒杀</h4>
