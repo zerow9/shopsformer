@@ -469,9 +469,9 @@
                     </div>
                     <div class="s-care s-care-noweather">
                         <div class="s-date">
-                            <em>21</em>
-                            <span>星期一</span>
-                            <span>2015.12</span>
+                            <em>${customVoOrdersCount.day}</em>
+                            <span>${customVoOrdersCount.weekday}</span>
+                            <span>${customVoOrdersCount.yearMonth}</span>
                         </div>
                     </div>
                 </div>
