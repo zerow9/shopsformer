@@ -28,6 +28,9 @@
         <div id="f1">
             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
         </div>
+        <div id="f3">
+            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+        </div>
 
     </div>
 
