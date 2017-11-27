@@ -43,7 +43,7 @@ public class PersonalController {
         sendOrders.setUserUuid(userUuid);
         sendOrders.setPayStatus(1);
         sendOrders.setSendStatus(0);
-        payPagingCustomOrder.setOrder(sendOrders);
+        sendPagingCustomOrder.setOrder(sendOrders);
         customVoOrdersCount.setSendGoodsCount(userService.selectOrdersCountByColumn(sendPagingCustomOrder));
 
         takeGoodsOrders.setUserUuid(userUuid);
