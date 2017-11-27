@@ -32,6 +32,7 @@
     </div>
 
     <jsp:include page="/public/common/tip.jsp" flush="true"/>
+    <jsp:include page="/public/common/footer.jsp"/>
     <%--<jsp:include page="/public/common/customerServices.jsp" flush="true"/>--%>
 </body>
 <script type="text/javascript">

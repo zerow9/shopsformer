@@ -64,8 +64,8 @@
 
         <div class="search-bar pr">
             <a name="index_none_header_sysc" href="/public/common/search.jsp"></a>
-            <form style="border-radius: 0px 6px 6px 0px;">
-                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off"
+            <form style="border-radius: 0px 6px 6px 0px;" action="/search/search">
+                <input id="searchInput" name="searchInput" type="text" placeholder="搜索" autocomplete="off"
                        style="font-size: 14px;">
                 <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit"
                        style="border-radius:0px 4px 4px 0px; ">
