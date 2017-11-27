@@ -29,8 +29,8 @@
         <li class="person">
             <ul>
                 <li><a href="/collection/getUserConllection">收藏</a></li>
-                <li><a href="/view/persons/comment.jsp">评价</a></li>
-                <li><a href="/view/persons/news.jsp">消息</a></li>
+                <li><a href="/WEB-INF/view/persons/comment.jsp">评价</a></li>
+                <li><a href="/WEB-INF/view/persons/news.jsp">消息</a></li>
             </ul>
         </li>
     </ul>
