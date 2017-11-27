@@ -28,8 +28,14 @@
         <div id="f1">
             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
         </div>
+        <div id="f3">
+            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+        </div>
+
     </div>
+
     <jsp:include page="/public/common/tip.jsp" flush="true"/>
+    <jsp:include page="/public/common/footer.jsp"/>
     <%--<jsp:include page="/public/common/customerServices.jsp" flush="true"/>--%>
 </body>
 <script type="text/javascript">
