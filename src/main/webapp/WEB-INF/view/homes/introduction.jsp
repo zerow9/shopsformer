@@ -173,6 +173,7 @@
                         <div>
                             <input id="min" class="am-btn am-btn-default" name="" type="button" value="-"/>
                             <input id="text_box" name="" type="text" value="1" style="width:30px;text-align: center"/>
+                            <input id="itemId" value="${item.itemId}" type="hidden">
                             <input id="add" class="am-btn am-btn-default" name="" type="button" value="+"/>
                             <span class="tb-hidden">库存<span class="stock">${item.repertoryNumber}</span>件</span>
                         </div>

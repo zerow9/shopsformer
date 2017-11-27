@@ -1,5 +1,8 @@
 package com.coding.CustomVo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class CustomVoOrdersCount {
 
     private Integer allOrderCount;
@@ -7,6 +10,10 @@ public class CustomVoOrdersCount {
     private Integer sendGoodsCount;
     private Integer takeGoodsCount;
     private Integer discussCount;
+
+    private String weekday;
+    private String day;
+    private String yearMonth;
 
     public Integer getAllOrderCount() {
         return allOrderCount;
@@ -46,5 +53,33 @@ public class CustomVoOrdersCount {
 
     public void setDiscussCount(Integer discussCount) {
         this.discussCount = discussCount;
+    }
+
+    private SimpleDateFormat weekdayFm = new SimpleDateFormat("EEEE");
+    private SimpleDateFormat dayFm = new SimpleDateFormat("dd");
+    private SimpleDateFormat yearMonthFm = new SimpleDateFormat("yyyy.MM");
+    private Date date = new Date();
+    public String getWeekday() {
+        return weekdayFm.format(date);
+    }
+
+    public void setWeekday(String weekday) {
+        this.weekday = weekday;
+    }
+
+    public String getDay() {
+        return dayFm.format(date);
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getYearMonth() {
+        return yearMonthFm.format(date);
+    }
+
+    public void setYearMonth(String yearMonth) {
+        this.yearMonth = yearMonth;
     }
 }

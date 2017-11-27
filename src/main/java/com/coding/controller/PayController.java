@@ -22,10 +22,15 @@ public class PayController {
     @Autowired
     private IAdminService adminService;
 
-
-    private void uuidGetAddress(HttpSession session) throws Exception {
+    private List<Address> hasAddress(HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
         List<Address> addresses = adminService.selectAddressByUserID(uuid);
+        return addresses;
+    }
+
+
+    private void uuidGetAddress(HttpSession session, List<Address> addresses) throws Exception {
+
         Address add = null;
         for (Address address : addresses) {
             if (address.getIsDefaultAddress() == 1) {
@@ -66,7 +71,10 @@ public class PayController {
         PagingCustomCart pagingCustomCart = new PagingCustomCart();
         pagingCustomCart.setCartIdArray(cartId);
         String uuid = (String) session.getAttribute("uuid");
-        uuidGetAddress(session);
+        List<Address> addresses = hasAddress(session);
+        if (addresses.size() == 0)
+            return "forward:/user/address/address";
+        uuidGetAddress(session, addresses);
         List<Cart> carts = adminService.selectCartByCartIdArray(pagingCustomCart);
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
         double sum = 0;
@@ -75,6 +83,9 @@ public class PayController {
             sum += cartGetCartDetail(null, cart, cartDetails, 0, uuid);
             cart_id += cart.getCartId() + ",";
         }
+        cart_id = cart_id.substring(0, cart_id.length() - 1);
+        if (!cart_id.contains(","))
+            session.setAttribute("pop", 1);
         session.setAttribute("cartIds", cart_id);
         session.setAttribute("sumCart", sum);
         request.setAttribute("carts", cartDetails);
@@ -85,7 +96,10 @@ public class PayController {
     @RequestMapping("itemBuyPay")
     public String itemPay(Integer cartId, Integer itemNumber, HttpSession session, HttpServletRequest request) throws Exception {
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
-        uuidGetAddress(session);
+        List<Address> addresses = hasAddress(session);
+        if (addresses.size() == 0)
+            return "forward:/user/address/address";
+        uuidGetAddress(session, addresses);
         String uuid = (String) session.getAttribute("uuid");
         double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
         session.setAttribute("cartIds", cartId);
@@ -98,27 +112,50 @@ public class PayController {
     @RequestMapping("success")
     public String success(Integer[] cartId, HttpSession session) throws Exception {
         List<Integer> ordersList = (List<Integer>) session.getAttribute("ordersList");
+        Integer pop = (Integer) session.getAttribute("pop");
+        Integer count = (Integer) session.getAttribute("collectCount");
+
         if (ordersList.size() == 1) {
-            Orders orders=adminService.selectOrderByPrimaryKey(ordersList.get(0));
+            Orders orders = adminService.selectOrderByPrimaryKey(ordersList.get(0));
             orders.setPayStatus(1);
             orders.setSendStatus(1);
             orders.setOrderPayTime(new Date());
             adminService.updateOrderByPrimaryKeySelective(orders);
+            if (pop != null && pop == 1) {
+                adminService.deleteCartByPrimaryKeyArray(cartId);
+                session.removeAttribute("collectCount");
+                session.setAttribute("collectCount", count - 1);
+            }
         } else if (cartId.length != 0 && cartId != null) {
             try {
-                for(Integer ordeId:ordersList){
-                    Orders orders=adminService.selectOrderByPrimaryKey(ordeId);
+                for (Integer ordeId : ordersList) {
+                    Orders orders = adminService.selectOrderByPrimaryKey(ordeId);
                     orders.setPayStatus(1);
                     adminService.updateOrderByPrimaryKeySelective(orders);
                 }
-                adminService.deleteCartByPrimaryKeyArray(cartId);
-                Integer count = (Integer) session.getAttribute("collectCount");
-                count -= cartId.length;
                 session.removeAttribute("collectCount");
-                session.setAttribute("collectCount", count + 1);
+                session.setAttribute("collectCount", count - cartId.length);
+                adminService.deleteCartByPrimaryKeyArray(cartId);
             } catch (Exception e) {
             }
         }
+        return "homes/success";
+    }
+
+    @RequestMapping("onekeyPay")
+    public String onekeyPay(Integer orderId, String sum, HttpSession session) throws Exception {
+        List<Address> addresses = hasAddress(session);
+        if (addresses.size() == 0)
+            return "forward:/user/address/address";
+        uuidGetAddress(session, addresses);
+        Orders orders = adminService.selectOrderByPrimaryKey(orderId);
+        orders.setPayStatus(1);
+        orders.setSendStatus(1);
+        orders.setOrderPayTime(new Date());
+        adminService.updateOrderByPrimaryKeySelective(orders);
+        if (session.getAttribute("sumCart") != null)
+            session.removeAttribute("sumCart");
+        session.setAttribute("sumCart", sum);
         return "homes/success";
     }
 }

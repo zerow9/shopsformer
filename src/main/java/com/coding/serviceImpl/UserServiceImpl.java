@@ -217,10 +217,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             //过滤字符串，防止sql Injection
             userUuid = Filter.stripXSS(userUuid);
             List<Address> addresses = addressMapper.selectAddressByUserID(userUuid);
-            if (addresses.isEmpty()) throw new Exception("用户收获地址查询为空");
+           // if (addresses.isEmpty()) throw new Exception("用户收获地址查询为空");
             //清洗结果集
-            for (Address address :
-                    addresses) {
+            for (Address address : addresses) {
                 address = (Address) Filter.filterObject(address);
             }
             return addresses;

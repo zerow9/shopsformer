@@ -93,8 +93,13 @@ public class ShopCartController {
     public String addShopCartNumber(Integer id) {
         try {
             Cart cart = userService.selectCartByPrimaryKey(id);
-            cart.setItemNumber(cart.getItemNumber() + 1);
-            userService.updateCartByPrimaryKeySelective(cart);
+
+            Item item=userService.selectItemByPrimaryKey(cart.getItemId());
+            if(item.getRepertoryNumber()>cart.getItemNumber()){
+                cart.setItemNumber(cart.getItemNumber() + 1);
+                userService.updateCartByPrimaryKeySelective(cart);
+            }else return "error";
+
 
         } catch (Exception e) {
             e.printStackTrace();
