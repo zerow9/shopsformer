@@ -107,7 +107,12 @@ var deleteShopCart=function (id) {
                 url:"deleteShopCart?id="+id,
                 success:function(data){
                     if(data=="success"){
-                        swal("删除！", "宝贝已经离开您的购物车。", "success");
+                        swal({
+                            title: "删除成功！",
+                            type: "success",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
                         window.location.reload();
                     }
                 }
