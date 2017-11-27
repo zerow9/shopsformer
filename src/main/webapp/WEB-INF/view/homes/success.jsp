@@ -29,7 +29,7 @@
                 <div class="user-info">
                     <p>&nbsp;&nbsp;&nbsp;收货人： ${add.takeGoodsName}</p>
                     <p>联系电话：${add.addresseePhone}</p>
-                    <p>收货地址：${add.address}</p>
+                    <p>收货地址：${add.takeGoodsProvince}${add.takeGoodsCity}${add.takeGoodsCounty}${add.address}</p>
                 </div>
                 请认真核对您的收货信息，如有错误请联系客服
             </ul>
