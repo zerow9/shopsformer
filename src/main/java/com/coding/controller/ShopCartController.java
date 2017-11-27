@@ -95,7 +95,6 @@ public class ShopCartController {
             Cart cart = userService.selectCartByPrimaryKey(id);
 
             Item item=userService.selectItemByPrimaryKey(cart.getItemId());
-            System.out.println("111111111111111111111"+item.getRepertoryNumber());
             if(item.getRepertoryNumber()>cart.getItemNumber()){
                 cart.setItemNumber(cart.getItemNumber() + 1);
                 userService.updateCartByPrimaryKeySelective(cart);
