@@ -1,21 +1,31 @@
 package com.coding.pojo;
 
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class Complaint {
     private Integer complaintId;
-
+    @NotNull(message = "complaint.accuserId")
     private String accuserId;
 
+    @NotNull(message = "complaint.accusedId")
+    @Min(value = 0,message ="complaint.accusedIdLength" )
     private Integer accusedId;
 
+    @NotNull(message = "complaint.complaintTittle")
+    @Size(min = 1,max = 50,message = "complaint.complaintTittleLength")
     private String complaintTittle;
 
+    @NotNull(message = "complaint.complaintDate")
     private Date complaintDate;
 
+    @NotNull(message = "complaint.isDeal")
     private Integer isDeal;
 
+    @NotNull(message = "complaint.complaintContent")
     private String complaintContent;
 
     private boolean status;

@@ -1,13 +1,17 @@
 package com.coding.pojo;
 
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class Admin {
     private Integer adminId;
-
+    @Size(min = 4,max = 16,message = "admin.adminAccountLength")
+    @NotNull(message = "admin.adminAccount")
     private String adminAccount;
-
+    @NotNull(message = "admin.adminPassword")
+    @Size(min = 3,max = 16,message = "admin.adminPasswordLength")
     private String adminPassword;
 
     private String adminPhone;
@@ -15,7 +19,7 @@ public class Admin {
     private String adminEmail;
 
     private Date adminRegisterTime;
-
+    @NotNull(message = "admin.groupId")
     private Integer groupId;
 
     private String dateToString;

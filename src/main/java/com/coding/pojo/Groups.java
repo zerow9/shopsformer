@@ -1,14 +1,19 @@
 package com.coding.pojo;
 
 
+import javax.validation.constraints.NotNull;
+
 public class Groups {
     private Integer groupId;
 
+    @NotNull(message = "groups.groupName")
     private String groupName;
 
+    @NotNull(message = "groups.groupJurisdiction")
     private String groupJurisdiction;
-
+    @NotNull(message = "groups.isStart")
     private Integer isStart;
+
     private String isStatus;
 
     public void setIsStatus(String isStatus) {

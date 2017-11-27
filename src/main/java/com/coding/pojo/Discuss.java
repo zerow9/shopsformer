@@ -2,22 +2,29 @@ package com.coding.pojo;
 
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Component
 public class Discuss {
     private Integer discussId;
-
+    @NotNull(message = "discuss.shopId")
+    @Min(value = 0,message = "discuss.shopIdLength")
     private Integer shopId;
 
+    @Min(value = 0,message = "discuss.itemIdLength")
+    @NotNull(message = "discuss.itemId")
     private Integer itemId;
 
     private String discussDetail;
 
+    @NotNull(message = "discuss.userUuid")
     private String userUuid;
 
     private String replyContent;
 
+    @NotNull(message = "discuss.discussTime")
     private Date discussTime;
 
 

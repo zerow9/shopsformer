@@ -1,17 +1,21 @@
 package com.coding.pojo;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Component
 public class Collect {
     private Integer collectId;
-
+    @NotNull(message = "collect.userUuid")
     private String userUuid;
 
+    @DecimalMin(value = "0",message = "collect.itemIdLength")
+    @NotNull(message = "collect.itemId")
     private Integer itemId;
 
-
+    @NotNull(message = "collect.collectTime")
     private Date collectTime;
 
     private Integer collectItemVender;

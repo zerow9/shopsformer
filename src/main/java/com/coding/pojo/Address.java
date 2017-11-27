@@ -1,17 +1,21 @@
 package com.coding.pojo;
 
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Address {
 
 
     private Integer addressId;
-
+    @NotNull(message = "address.userUuid")
     private String userUuid;
-
+    @Size(max = 11,min = 11,message = "address.addresseePhoneLength")
+    @NotNull(message = "address.addresseePhone")
     private String addresseePhone;
-
+    @NotNull(message = "address.address")
     private String address;
-
+    @NotNull(message = "address.isDefaultAddress")
     private Integer isDefaultAddress;
 
     private String takeGoodsProvince;
@@ -19,7 +23,7 @@ public class Address {
     private String takeGoodsCity;
 
     private String takeGoodsCounty;
-
+    @NotNull(message = "address.takeGoodsName")
     private String takeGoodsName;
 
     private Double addressX;
