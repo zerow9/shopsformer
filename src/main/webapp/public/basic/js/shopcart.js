@@ -44,6 +44,13 @@ $(function () {
                 if (data == 'success') {
                     eleul.find(".number").html(pice*(number+1));
                     ele.find('.text_box').val(number + 1);
+                }else if(data=='error'){
+                    swal({
+                        title: "商品数量不足！",
+                        type: "error",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
                 }
             }
         });
