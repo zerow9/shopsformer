@@ -114,18 +114,36 @@ $(document).ready(function() {
 
 	//获得文本框对象
 	var t = $("#text_box");
+	var id=$("#itemId").val();
 	//初始化数量为1,并失效减
 	$('#min').attr('disabled', true);
 	//数量增加操作
 	$("#add").click(function() {
-			t.val(parseInt(t.val()) + 1)
-			if (parseInt(t.val()) != 1) {
-				$('#min').attr('disabled', false);
-			}
+			$.ajax({
+				type:"POST",
+				url:"/item/getReprotoryNumber?itemId="+id,
+				success:function (data) {
+					if(data>t.val()){
+                    t.val(parseInt(t.val()) + 1)
+                    if (parseInt(t.val()) != 1) {
+                        $('#min').attr('disabled', false);
+                    }}else {
+						$("#add").attr("disabled",true);
+                        swal({
+                            title: "商品数量不足！",
+                            type: "error",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+					}
+                }
+			});
+
 
 		})
 		//数量减少操作
 	$("#min").click(function() {
+        $("#add").attr("disabled",false);
 		t.val(parseInt(t.val()) - 1);
 		if (parseInt(t.val()) == 1) {
 			$('#min').attr('disabled', true);
