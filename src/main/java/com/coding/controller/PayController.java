@@ -84,6 +84,8 @@ public class PayController {
             cart_id += cart.getCartId() + ",";
         }
         cart_id = cart_id.substring(0, cart_id.length() - 1);
+        if (!cart_id.contains(","))
+            session.setAttribute("pop", 1);
         session.setAttribute("cartIds", cart_id);
         session.setAttribute("sumCart", sum);
         request.setAttribute("carts", cartDetails);
@@ -110,16 +112,20 @@ public class PayController {
     @RequestMapping("success")
     public String success(Integer[] cartId, HttpSession session) throws Exception {
         List<Integer> ordersList = (List<Integer>) session.getAttribute("ordersList");
+        Integer pop = (Integer) session.getAttribute("pop");
         Integer count = (Integer) session.getAttribute("collectCount");
-        session.removeAttribute("collectCount");
+
         if (ordersList.size() == 1) {
             Orders orders = adminService.selectOrderByPrimaryKey(ordersList.get(0));
             orders.setPayStatus(1);
             orders.setSendStatus(1);
             orders.setOrderPayTime(new Date());
             adminService.updateOrderByPrimaryKeySelective(orders);
-            adminService.deleteCartByPrimaryKeyArray(cartId);
-            session.setAttribute("collectCount", count - 1);
+            if (pop != null && pop == 1) {
+                adminService.deleteCartByPrimaryKeyArray(cartId);
+                session.removeAttribute("collectCount");
+                session.setAttribute("collectCount", count - 1);
+            }
         } else if (cartId.length != 0 && cartId != null) {
             try {
                 for (Integer ordeId : ordersList) {
@@ -127,7 +133,8 @@ public class PayController {
                     orders.setPayStatus(1);
                     adminService.updateOrderByPrimaryKeySelective(orders);
                 }
-                session.setAttribute("collectCount", count-cartId.length);
+                session.removeAttribute("collectCount");
+                session.setAttribute("collectCount", count - cartId.length);
                 adminService.deleteCartByPrimaryKeyArray(cartId);
             } catch (Exception e) {
             }

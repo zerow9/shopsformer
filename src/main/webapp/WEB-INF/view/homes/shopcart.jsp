@@ -47,15 +47,15 @@
         <tr class="item-list">
             <div class="bundle  bundle-last ">
                 <c:if test="${!empty carts}">
-                <div class="bundle-hd">
-                    <div class="bd-promos">
-                        <div class="act-promo">
-                            <a href="javascript:;" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
+                    <div class="bundle-hd">
+                        <div class="bd-promos">
+                            <div class="act-promo">
+                                <a href="javascript:;" target="_blank">购买越多，优惠就更丰厚哦！<span class="gt">&gt;&gt;</span></a>
+                            </div>
+                            <span class="list-change theme-login">编辑</span>
                         </div>
-                        <span class="list-change theme-login">编辑</span>
                     </div>
-                </div>
-                <div class="clear"></div>
+                    <div class="clear"></div>
                 </c:if>
                 <div class="bundle-main">
                     <c:forEach items="${carts}" var="cart" varStatus="status">
@@ -71,7 +71,7 @@
                                 <div class="item-pic">
                                     <a href="#" target="_blank" data-title="${cart.item.itemName}" class="J_MakePoint"
                                        data-point="tbcart.8.12">
-                                        <img src="${cart.item.itemImages}" width="80"  class="itempic J_ItemImg"></a>
+                                        <img src="${cart.item.itemImages}" width="80" class="itempic J_ItemImg"></a>
                                 </div>
                                 <div class="item-info">
                                     <div class="item-basic-info">
@@ -93,7 +93,8 @@
                                             <em class="price-original">${cart.item.itemMarketPrice}</em>
                                         </div>
                                         <div class="price-line">
-                                            <em class="J_Price price-now" tabindex="0">${cart.item.itemMarketPrice*cart.item.discount/100}</em>
+                                            <em class="J_Price price-now"
+                                                tabindex="0">${cart.item.itemMarketPrice*cart.item.discount/100}</em>
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +104,8 @@
                                     <div class="item-amount ">
                                         <div class="sl">
                                             <input type="hidden" class="cartIdInput" value="${cart.cartId}">
-                                            <input class="min am-btn" name="" type="button" onclick="mm(${status.index })"
+                                            <input class="min am-btn" name="" type="button"
+                                                   onclick="mm(${status.index })"
                                                    value="-"/>
                                             <input class="text_box" id="it" type="text" value="${cart.itemNumber}"
                                                    style="width:30px;"/>
@@ -166,7 +168,8 @@
                 <strong class="price">¥<em id="newBox">0.0</em></strong>
             </div>
             <div class="btn-area">
-                <a href="/user/order/orderItem" onclick="orderItem()" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
+                <a href="/user/order/orderItem" onclick="orderItem()" id="J_Go" class="submit-btn submit-btn-disabled"
+                   aria-label="请注意如果没有选择宝贝，将无法结算">
                     <span>结&nbsp;算</span></a>
             </div>
         </div>
@@ -212,7 +215,7 @@
 
     function mm(index) {
         var o = document.querySelectorAll("#J_CheckBox");
-        if(o[index].checked) {
+        if (o[index].checked) {
             o[index].checked = false;
             onBox(index);
         }
@@ -223,7 +226,7 @@
         if (document.getElementById("J_SelectAllCbx2").checked) {
             var o = document.querySelectorAll("#J_CheckBox");
             for (var i = 0; i < o.length; i++) {
-                if(!o[i].checked){
+                if (!o[i].checked) {
                     o[i].checked = true;
                     onBox(i);
                 }
@@ -232,7 +235,7 @@
         } else {
             var o = document.querySelectorAll("#J_CheckBox");
             for (var i = 0; i < o.length; i++) {
-                if(o[i].checked){
+                if (o[i].checked) {
                     o[i].checked = false;
                     onBox(i);
                 }
@@ -243,17 +246,17 @@
     //结账点击事件
     function orderItem() {
         var o = document.querySelectorAll("#J_CheckBox");
-        var obj=document.getElementById("J_Go");
-        var mycars=new Array()
-        var cartIdNumber=0;//设置购物车的数量变量
+        var obj = document.getElementById("J_Go");
+        var mycars = new Array()
+        var cartIdNumber = 0;//设置购物车的数量变量
         for (var i = 0; i < o.length; i++) {
-            if(o[i].checked) {
+            if (o[i].checked) {
                 var laues = o[i].value;
                 mycars[cartIdNumber] = laues;
                 cartIdNumber++;
             }
         }
-        obj.href="/user/order/orderItem?cartId="+mycars;
+        obj.href = "/user/order/orderItem?cartId=" + mycars;
     }
 </script>
 </body>

@@ -8,8 +8,6 @@
     <name>shopsformer Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
-
-
     <properties>
         <junit.version>4.12</junit.version>
         <spring.version>4.1.3.RELEASE</spring.version>
@@ -46,67 +44,67 @@
 
     <dependencies>
         <dependency>
-            <groupId> org.apache.lucene</groupId>
+            <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-analyzers</artifactId>
-            <version> ${lucene.version}</version>
+            <version>${lucene.version}</version>
         </dependency>
         <dependency>
-            <groupId> org.apache.lucene</groupId>
+            <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-benchmark</artifactId>
-            <version> ${lucene.version}</version>
+            <version>${lucene.version}</version>
         </dependency>
         <dependency>
-            <groupId> org.apache.lucene</groupId>
+            <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
-            <version> ${lucene.version}</version>
+            <version>${lucene.version}</version>
         </dependency>
         <dependency>
-            <groupId> org.apache.lucene</groupId>
+            <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-highlighter</artifactId>
-            <version> ${lucene.version}</version>
+            <version>${lucene.version}</version>
         </dependency>
         <dependency>
-            <groupId> org.apache.lucene</groupId>
+            <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-instantiated</artifactId>
-            <version> ${lucene.version}</version>
+            <version>${lucene.version}</version>
         </dependency>
         <dependency>
-            <groupId> org.apache.lucene</groupId>
+            <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-memory</artifactId>
-            <version> ${lucene.version}</version>
+            <version>${lucene.version}</version>
         </dependency>
         <dependency>
-            <groupId> org.apache.lucene</groupId>
+            <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-misc</artifactId>
-            <version> ${lucene.version}</version>
+            <version>${lucene.version}</version>
         </dependency>
         <dependency>
-            <groupId> org.apache.lucene</groupId>
+            <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-queries</artifactId>
-            <version> ${lucene.version}</version>
+            <version>${lucene.version}</version>
         </dependency>
         <dependency>
-            <groupId> org.apache.lucene</groupId>
+            <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-queryparser</artifactId>
-            <version> ${lucene.version}</version>
+            <version>${lucene.version}</version>
         </dependency>
-       <!-- <dependency>
-            <groupId>com.chenlb.mmseg4j</groupId>
-            <artifactId>mmseg4j-analysis</artifactId>
-            <version>1.9.1</version>
-        </dependency>-->
-  <!--      <dependency>
-            <groupId>com.chenlb.mmseg4j</groupId>
-            <artifactId>mmseg4j-all</artifactId>
-            <version>1.8.5</version>
-        </dependency>-->
-<!--
-        <dependency>
-            <groupId>com.janeluo</groupId>
-            <artifactId>ikanalyzer</artifactId>
-            <version>2012_u6</version>
-        </dependency>
--->
+        <!-- <dependency>
+             <groupId>com.chenlb.mmseg4j</groupId>
+             <artifactId>mmseg4j-analysis</artifactId>
+             <version>1.9.1</version>
+         </dependency>-->
+        <!--      <dependency>
+                  <groupId>com.chenlb.mmseg4j</groupId>
+                  <artifactId>mmseg4j-all</artifactId>
+                  <version>1.8.5</version>
+              </dependency>-->
+        <!--
+                <dependency>
+                    <groupId>com.janeluo</groupId>
+                    <artifactId>ikanalyzer</artifactId>
+                    <version>2012_u6</version>
+                </dependency>
+        -->
 
         <dependency>
             <groupId>commons-logging</groupId>
@@ -298,7 +296,38 @@
             <artifactId>aliyun-sdk-oss</artifactId>
             <version>${aliyun-sdk-oss.version}</version>
         </dependency>
+
+        <!--这是私服的jar包-->
+        <!--<dependency>-->
+            <!--<groupId>cn.tyoui</groupId>-->
+            <!--<artifactId>commons4j</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>http://120.79.20.6:8081/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <url>http://120.79.20.6:8081/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
 
     <build>
         <finalName>${project.artifactId}</finalName>
