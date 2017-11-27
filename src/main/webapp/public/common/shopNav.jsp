@@ -1416,9 +1416,9 @@
                                 </em>
                             </div>
                             <div class="member-logout">
-                                <a class="logout-f" href="#">待付款</a>
-                                <a class="logout-f" href="#">待发货</a>
-                                <a class="logout-f" href="#">待评价</a>
+                                <a class="logout-f" href="/user/order/order?attribute=2">待付款</a>
+                                <a class="logout-f" href="/user/order/order?attribute=3">待发货</a>
+                                <a class="logout-f" href="/user/order/order?attribute=5">待评价</a>
                             </div>
                         </c:if>
                         <div class="clear"></div>
