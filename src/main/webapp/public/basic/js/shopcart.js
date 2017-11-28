@@ -8,7 +8,7 @@ $(function () {
        // var eleli=$(this).parent().parent().parent().parent().parent().find("li.td.td-sum>.td-inner>.number").html(1);
         var number = ele.find(".text_box").val();// 获取商品的数量
         var pice=eleul.find(".price-now").html();//获取商品的价格
-
+        ele.find(".add").attr("disabled",false);
         if (number == 1) {
             ele.find(".min").attr("disabled",true);
         } else {
@@ -45,6 +45,7 @@ $(function () {
                     eleul.find(".number").html(pice*(number+1));
                     ele.find('.text_box').val(number + 1);
                 }else if(data=='error'){
+                    ele.find(".add").attr("disabled",true);
                     swal({
                         title: "商品数量不足！",
                         type: "error",
@@ -106,7 +107,12 @@ var deleteShopCart=function (id) {
                 url:"deleteShopCart?id="+id,
                 success:function(data){
                     if(data=="success"){
-                        swal("删除！", "宝贝已经离开您的购物车。", "success");
+                        swal({
+                            title: "删除成功！",
+                            type: "success",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
                         window.location.reload();
                     }
                 }

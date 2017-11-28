@@ -1,13 +1,16 @@
 package com.coding.pojo;
 
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class Item {
     private Integer itemId;
 
+    @NotNull(message = "item.itemTypeId")
     private Integer itemTypeId;
 
+    @NotNull(message = "item.itemName")
     private String itemName;
 
     private Double itemPrice;

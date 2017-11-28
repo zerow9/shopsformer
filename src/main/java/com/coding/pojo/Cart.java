@@ -1,19 +1,31 @@
 package com.coding.pojo;
 
 
+import javax.validation.constraints.*;
+
 public class Cart {
     private Integer cartId;
 
+    @NotNull(message = "cart.userUuid")
     private String userUuid;
 
+    @DecimalMin(value = "0",message = "cart.itemIdLength")
+    @NotNull(message = "cart.itemId")
     private Integer itemId;
 
+    @Size(min = 1,max = 50,message = "cart.itemNameLength" )
+    @NotNull(message = "cart.itemName")
     private String itemName;
 
+    @Digits(integer = 10,fraction = 10,message = "cart.priceLength")
+    @NotNull(message = "cart.price")
     private Double price;
+
 
     private String itemImages;
 
+    @NotNull(message = "cart.itemNumber")
+    @Min(value = 1,message = "cart.itemNumberLength")
     private Integer itemNumber;
 
     private Integer makeVender;

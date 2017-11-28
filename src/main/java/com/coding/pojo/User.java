@@ -1,17 +1,26 @@
 package com.coding.pojo;
 
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable{
     private String userUuid;
+
 
     private String userPhone;
 
     private String userNickname;
 
+    @NotNull(message = "user.userPassword")
+    @Size(min = 1,max = 16,message = "user.userPasswordLength")
     private String userPassword;
 
+    @NotNull(message = "user.userEmail")
+    @Pattern(regexp = "^\\\\s*\\\\w+(?:\\\\.{0,1}[\\\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\\\.[a-zA-Z]+\\\\s*$",message = "user.userEmailFormat")
     private String userEmail;
 
     private String userName;
