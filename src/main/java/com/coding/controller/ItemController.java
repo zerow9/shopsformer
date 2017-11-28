@@ -1,6 +1,7 @@
 package com.coding.controller;
 
 import com.coding.Iservice.IAdminService;
+import com.coding.comomInterface.Constant;
 import com.coding.comomInterface.DateToString;
 import com.coding.paging.PagingCustomDiscuss;
 import com.coding.paging.PagingCustomItem;
@@ -12,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import seetaface.Face;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class ItemController {
     private IAdminService adminService;
 
     @RequestMapping("indexTenItem")
-    public String indexTenItem(HttpSession session) throws Exception{
+    public String indexTenItem(HttpSession session) {
         PagingCustomItem pagingCustomItem = new PagingCustomItem();
         pagingCustomItem.setIndexNumber(0);
         pagingCustomItem.setPageNumber(8);
@@ -37,6 +38,7 @@ public class ItemController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return "homes/index";
     }
 
@@ -110,6 +112,23 @@ public class ItemController {
         model.addAttribute("count",count);//总的条数
         model.addAttribute("item", item);//商品信息
         return "homes/introduction";
+    }
+
+    /**
+     * 查询商品的数量
+     * @param itemId
+     * @return
+     */
+    @RequestMapping("getReprotoryNumber")
+    @ResponseBody
+    public Integer getReprotoryNumber(Integer itemId){
+        try {
+            Item item=adminService.selectItemByPrimaryKey(itemId);
+            return item.getRepertoryNumber();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 
