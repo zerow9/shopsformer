@@ -72,14 +72,6 @@ public interface IAdminService extends IUserService {
     public List<User> selectUserAllPaging(Integer nowPage, Integer number)throws Exception;
 
     /**
-     * 获取密码的MD5值
-     * @param password 用户密码
-     * @return 加密后的密码
-     * @throws Exception
-     */
-    public String selectMD5(@Param("password") String password)throws Exception;
-
-    /**
      * user综合查询
      *实现：姓名（模糊），昵称（模糊），性别，组别，电话，健康状态，年龄范围，积分范围，注册时间范围，排序规则，排序字段，分页。
      * @param paging 封装了分页查询需要的字段的 Paging 类对象
