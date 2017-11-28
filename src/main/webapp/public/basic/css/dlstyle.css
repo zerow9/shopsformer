@@ -315,7 +315,7 @@ input:-webkit-autofill {
     }
 
     .login-boxtitle {
-        max-width: 1000px;
+        max-width: 100%;
         margin: 0 auto;
         height: 60px;
     }

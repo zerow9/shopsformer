@@ -1,3 +1,7 @@
+.body {
+    background-color: #F2F2F2
+}
+
 .video {
     border: 1px solid #ccc;
     display: block;
@@ -9,4 +13,62 @@
     margin-top: 20px;
     border: 1px solid #ccc;
     display: block;
+}
+
+#contentHolder .photo-1 {
+    float: left;
+    margin-left: 30%;
+    margin-top: 33px
+}
+
+#picture {
+    display: block;
+    margin-left: 40%;
+    background-color: #1ab394;
+    width: 80px;
+    height: 35px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: Arial;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+.picture:hover {
+    background-color: #009688;
+}
+
+.picture:active {
+    position: relative;
+    top: 1px;
+}
+
+#contentHolder .photo-2 {
+    float: right;
+    margin-right: 20%;
+    margin-top: 33px
+}
+
+#sc {
+    display: block;
+    background-color: #1ab394;
+    width: 80px;
+    height: 35px;
+    margin-left: 100px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: Arial;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+.sc:hover {
+    background-color: #009688;
+}
+
+.sc:active {
+    position: relative;
+    top: 1px;
 }
