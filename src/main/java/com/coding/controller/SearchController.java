@@ -26,6 +26,8 @@ public class SearchController {
 
     @RequestMapping("search")
     public String search(String searchInput, Model model,Integer page, HttpServletRequest request)throws Exception{
+        if (searchInput==null||searchInput.equals(""))
+            return "homes/index";
         CustomVoSearch customVoSearch = new CustomVoSearch();
         String searchKey = JavaGet.charsetGet(searchInput,request);
         SearchField searchField = new SearchField();
@@ -40,7 +42,6 @@ public class SearchController {
         customVoSearch.setSearchCount((count-1)/4);
         customVoSearch.setSumPage(count/12+1);
         List<Item> items = indexService.findByIndex(searchField);
-        System.out.println(items);
         model.addAttribute("items",items);
         model.addAttribute("customVoSearch",customVoSearch);
         return "homes/search";
