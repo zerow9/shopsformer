@@ -74,4 +74,8 @@ public class LoginController {
         }
         return "homes/login";
     }
+    @RequestMapping("index")
+    public String index(){
+        return  "/homes/index";
+    }
 }

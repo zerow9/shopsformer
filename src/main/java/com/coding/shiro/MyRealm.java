@@ -1,7 +1,5 @@
 package com.coding.shiro;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +13,8 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import sun.security.provider.MD5;
+import seetaface.Face;
 
 public class MyRealm extends AuthorizingRealm {
 
@@ -29,7 +26,7 @@ public class MyRealm extends AuthorizingRealm {
 
     @Override
     public void setName(String name) {
-        super.setName("user");
+        super.setName("myRealm");
     }
 
     @Override
@@ -38,7 +35,7 @@ public class MyRealm extends AuthorizingRealm {
         UsernamePasswordToken usernamePassword = (UsernamePasswordToken) token;
         String email = usernamePassword.getUsername();
         char c[] = usernamePassword.getPassword();
-        String code = new String(c);
+        Face face = new Face();
         try {
             PagingCustomUser pagingCustomUser = new PagingCustomUser();
             User use = new User();
@@ -46,14 +43,19 @@ public class MyRealm extends AuthorizingRealm {
             pagingCustomUser.setUser(use);
             User user = adminService.selectUser(pagingCustomUser).get(0);
             String md5Code = user.getUserPassword();
-            String slat = code + user.getSalt();
-            String md5=userService.selectMD5(slat);
-            if (!md5.equals(md5Code))
-                code = "";
+            if (c.length==1 && face.start("C:\\1.jpg", "C:\\2.jpg") > 0.6) {
+                return new SimpleAuthenticationInfo(email, "1", this.getName());
+            } else {
+                String code = new String(c);
+                String slat = code + user.getSalt();
+                String md5 = userService.selectMD5(slat);
+                if (!md5.equals(md5Code))
+                    code = "";
+                return new SimpleAuthenticationInfo(email, code, this.getName());
+            }
         } catch (Exception e) {
         }
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(email, code, this.getName());
-        return info;
+        return null;
     }
 
     @Override

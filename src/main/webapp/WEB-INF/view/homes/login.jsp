@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <label for="password" class="input-group-addon"><i class="am-icon-lock"></i></label>
-                            <input class="form-control" type="password" name="password" id="password"
+                            <input class="form-control" type="password" name="password" id="password" value="1"
                                    placeholder="请输入密码">
                         </div>
                     </div>
@@ -128,17 +128,23 @@
         rememberMe = !rememberMe;
     }
 
+
     function add() {
-        var obj = document.getElementById("login-form");
-        if (rememberMe) {
-            obj.action = "/user/login?rememberMe=" + rememberMe;
-            obj.submit();
-        } else
-            obj.submit();
+        var r = Math.random();
+        var obj = $("#login-form").serialize();
+        obj = obj + "&random=" + r;
+        $.ajax({
+            url: "/user/login",
+            type: "POST",
+            data: obj,
+            success: function (data) {
+                if (data.code === 0)
+                    alert(data.msg);
+                else
+                    window.location.href = "/user/index";
+            }
+        });
     }
-
-    //    end：记住密码
-
 </script>
 </body>
 </html>
