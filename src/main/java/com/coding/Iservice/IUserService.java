@@ -78,7 +78,15 @@ public interface IUserService {
      * @return 加密后的密码
      * @throws Exception sql异常
      */
-    public String selectMD5(String password)throws Exception;
+    public String selectMD5(@Param("password") String password)throws Exception;
+
+    /**
+     * 通过邮箱查询人脸图片
+     * @param userEmail 用户唯一邮箱
+     * @return 满足条件的图片
+     * @throws Exception sql异常
+     */
+    public List<String> selectUserFaceImages(@Param("userEmail") String userEmail)throws Exception;
 
     /*------------------------------------------收获地址表------------------------------------------------------------------*/
     /**

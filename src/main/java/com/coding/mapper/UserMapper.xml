@@ -15,7 +15,8 @@
         user_age, user_sex, user_register_date_time,
         user_score, user_group, user_land_number,
         user_current_time, user_land_ip, user_address,
-        <!--user2, user3, user4,
+        faceImage,faceOtherImage,
+        <!--user4,
         user5, user6, user7,
         user8, user9, user10, -->
         user_healthy,salt)
@@ -24,7 +25,8 @@
         #{userAge,jdbcType=INTEGER}, #{userSex,jdbcType=VARCHAR}, #{userRegisterDateTime,jdbcType=TIMESTAMP},
         #{userScore,jdbcType=INTEGER}, #{userGroup,jdbcType=INTEGER}, #{userLandNumber,jdbcType=INTEGER},
         #{userCurrentTime,jdbcType=TIMESTAMP}, #{userLandIp,jdbcType=VARCHAR}, #{userAddress,jdbcType=INTEGER},
-        <!--#{user2,jdbcType=VARCHAR}, #{user3,jdbcType=VARCHAR}, #{user4,jdbcType=VARCHAR},
+        #{faceImage,jdbcType=VARCHAR}, #{faceOtherImage,jdbcType=VARCHAR},
+        <!--#{user4,jdbcType=VARCHAR},
         #{user5,jdbcType=VARCHAR}, #{user6,jdbcType=VARCHAR}, #{user7,jdbcType=VARCHAR},
         #{user8,jdbcType=VARCHAR}, #{user9,jdbcType=VARCHAR}, #{user10,jdbcType=VARCHAR},-->
         #{userHealthy,jdbcType=LONGVARCHAR},#{salt,jdbcType=VARCHAR})
@@ -76,10 +78,16 @@
             <if test="userHealthy != null" >
                 user_healthy = #{userHealthy,jdbcType=LONGVARCHAR},
             </if>
+            <if test="faceImage != null">
+                face_image =#{faceImage,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="faceOtherImage != null">
+                face_other_image = #{faceOtherImage}
+            </if>
         </set>
         <where>
             <if test="userUuid != null and userUuid != ''">
-                and user_uuid = #{userUuid,jdbcType=VARCHAR}
+                or user_uuid = #{userUuid,jdbcType=VARCHAR}
             </if>
             <if test="userEmail != null and userEmail != ''">
                 or user_email = #{userEmail,jdbcType=VARCHAR}
@@ -132,6 +140,13 @@
             <if test="userHealthy != null" >
                 user_healthy = #{userHealthy,jdbcType=LONGVARCHAR},
             </if>
+            <if test="faceImage != null">
+                face_image = #{faceImage,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="faceOtherImage != null">
+                face_other_image = #{faceOtherImage,jdbcType=LONGVARCHAR},
+            </if>
+
         </set>
         where user_email = #{userEmail}
     </update>
@@ -200,8 +215,10 @@
                 user_healthy,
             </if>
             <if test="salt != null">
-                salt
+                salt,
             </if>
+            <if test="faceImage">face_image</if>
+            <if test="faceOtherImage">face_other_image</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="userUuid != null" >
@@ -255,6 +272,12 @@
             <if test="salt != null">
                 #{salt,jdbcType=VARCHAR},
             </if>
+            <if test="faceImage != null">
+                #{faceImage,jdbcType=VARCHAR},
+            </if>
+            <if test="face_other_image != null">
+                #{face_other_image,jdbcType=VARCHAR},
+            </if>
         </trim>
     </insert>
 
@@ -276,9 +299,9 @@
         <result column="user_land_ip" property="userLandIp" jdbcType="VARCHAR"/>
         <result column="user_address" property="userAddress" jdbcType="INTEGER"/>
         <result column="salt" property="salt" jdbcType="VARCHAR" />
-        <!--<result column="user3" property="user3" jdbcType="VARCHAR" />
-        <result column="user4" property="user4" jdbcType="VARCHAR" />
-        <result column="user5" property="user5" jdbcType="VARCHAR" />
+        <result column="face_image" property="faceImage" jdbcType="VARCHAR" />
+        <result column="face_other_image" property="faceOtherImage" jdbcType="VARCHAR" />
+        <!--<result column="user5" property="user5" jdbcType="VARCHAR" />
         <result column="user6" property="user6" jdbcType="VARCHAR" />
         <result column="user7" property="user7" jdbcType="VARCHAR" />
         <result column="user8" property="user8" jdbcType="VARCHAR" />
@@ -292,7 +315,7 @@
     <sql id="Base_Column_List">
         user_uuid, user_phone, user_nickname, user_password, user_email, user_name, user_age,
         user_sex, user_register_date_time, user_score, user_group, user_land_number, user_current_time,
-        user_land_ip, user_address,salt
+        user_land_ip, user_address,salt,face_image,face_other_image
     </sql>
     <sql id="Blob_Column_List">
         user_healthy
@@ -420,6 +443,12 @@
         from user limit #{nowPage},#{number}
     </select>
 
+    <!--selectUserFaceImages-->
+    <select id="selectUserFaceImages" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+        select face_image,face_other_image
+        from user
+        where user_email = #{userEmail}
+    </select>
 
     <!--根据关键字查询用户信息并按照字段排序-->
     <select id="selectUser" parameterType="com.coding.paging.PagingCustomUser"

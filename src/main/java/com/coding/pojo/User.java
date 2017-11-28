@@ -40,8 +40,57 @@ public class User implements Serializable{
 
     private String salt;
 
+    private String faceImage;
+
+    private String faceOtherImage;
+
+
     public String getSalt() {
         return salt;
+    }
+
+    public String getFaceImage() {
+        return faceImage;
+    }
+
+    public void setFaceImage(String faceImage) {
+        this.faceImage = faceImage;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userUuid='" + userUuid + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userNickname='" + userNickname + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userAge=" + userAge +
+                ", userSex='" + userSex + '\'' +
+                ", userRegisterDateTime=" + userRegisterDateTime +
+                ", userRegisterDateTimeToString='" + userRegisterDateTimeToString + '\'' +
+                ", userScore=" + userScore +
+                ", userGroup=" + userGroup +
+                ", userLandNumber=" + userLandNumber +
+                ", salt='" + salt + '\'' +
+                ", faceImage='" + faceImage + '\'' +
+                ", faceOtherImage='" + faceOtherImage + '\'' +
+                ", userCurrentTime=" + userCurrentTime +
+                ", userCurrentTimeToString='" + userCurrentTimeToString + '\'' +
+                ", userLandIp='" + userLandIp + '\'' +
+                ", userAddress=" + userAddress +
+                ", userHealthy='" + userHealthy + '\'' +
+                ", dateToString='" + dateToString + '\'' +
+                '}';
+    }
+
+    public String getFaceOtherImage() {
+        return faceOtherImage;
+    }
+
+    public void setFaceOtherImage(String faceOtherImage) {
+        this.faceOtherImage = faceOtherImage;
     }
 
     public void setSalt(String salt) {
@@ -212,28 +261,4 @@ public class User implements Serializable{
         return dateToString;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userUuid='" + userUuid + '\'' +
-                ", userPhone='" + userPhone + '\'' +
-                ", userNickname='" + userNickname + '\'' +
-                ", userPassword='" + userPassword + '\'' +
-                ", userEmail='" + userEmail + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userAge=" + userAge +
-                ", userSex='" + userSex + '\'' +
-                ", userRegisterDateTime=" + userRegisterDateTime +
-                ", userRegisterDateTimeToString='" + userRegisterDateTimeToString + '\'' +
-                ", userScore=" + userScore +
-                ", userGroup=" + userGroup +
-                ", userLandNumber=" + userLandNumber +
-                ", userCurrentTime=" + userCurrentTime +
-                ", userCurrentTimeToString='" + userCurrentTimeToString + '\'' +
-                ", userLandIp='" + userLandIp + '\'' +
-                ", userAddress=" + userAddress +
-                ", userHealthy='" + userHealthy + '\'' +
-                ", dateToString='" + dateToString + '\'' +
-                '}';
-    }
 }

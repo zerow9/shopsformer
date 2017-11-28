@@ -158,6 +158,13 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         return null;
     }
 
+    public List<String> selectUserFaceImages(String userEmail) throws Exception {
+        if (userEmail != null && !userEmail.equals("")) {
+            return userMapper.selectUserFaceImages(userEmail);
+        }
+        return null;
+    }
+
     /*------------------------------------------收货地址表------------------------------------------------------------------*/
     @Transactional(rollbackFor = Exception.class)
     public void deleteAddressByPrimaryKey(Integer addressId) throws Exception {
