@@ -17,6 +17,14 @@
     <link href="/public/basic/css/jsstyle.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/addstyle.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        function  showImg(){
+            document.getElementById("wxImg").style.display='block';
+        }
+        function hideImg(){
+            document.getElementById("wxImg").style.display='none';
+        }
+    </script>
 </head>
 <body>
 <!--顶部导航条 -->
@@ -245,6 +253,16 @@
                                     </p>
                                 </div>
                             </div>
+
+                            <%--二维码--%>
+                            <%--<div id="kalated-weixin">--%>
+                                <%--<a href="javascript:void(0)" onMouseOut="hideImg()"  onmouseover="showImg()">--%>
+                                    <%--<img class="wx" src="http://www.czqiushi.com/wp-content/uploads/2015/10/wx.png">--%>
+                                <%--</a>--%>
+                            <%--</div>--%>
+                            <%--<div id="wxImg" style="display:none; right: 120px; top: 50px;back-ground:#f00;position:absolute; z-index:999;">--%>
+                                <%--<img class="wx" src="/public/images/tyoui.png">--%>
+                            <%--</div>--%>
 
                             <div id="holyshit269" class="submitOrder">
                                 <div class="go-btn-wrap">

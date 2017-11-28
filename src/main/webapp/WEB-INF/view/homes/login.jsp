@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <label for="password" class="input-group-addon"><i class="am-icon-lock"></i></label>
-                            <input class="form-control" type="password" name="password" id="password" value="1"
+                            <input class="form-control" type="password" name="password" id="password"
                                    placeholder="请输入密码">
                         </div>
                     </div>
@@ -61,10 +61,10 @@
                             <a href="#"><i class="am-icon-qq am-icon-sm"></i><span>QQ登录</span></a>
                         </li>
                         <li>
-                            <a href="/getSc"><i class="am-icon-weibo am-icon-sm"></i><span>扫脸登录</span> </a>
+                            <a href="/getSc"><img src="/public/images/face.png"/><span>&nbsp;扫脸登录</span> </a>
                         </li>
                         <li>
-                            <a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a>
+                            <a class="tc"><i class="am-icon-weixin am-icon-sm "></i><span>微信登录</span> </a>
                         </li>
                     </ul>
                 </div>

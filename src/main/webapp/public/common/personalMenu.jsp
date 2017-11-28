@@ -19,7 +19,6 @@
         <li class="person">
             <ul>
                 <li><a href="/user/order/order">订单管理</a></li>
-                <%--<li><a href="/view/persons/change.jsp">退款售后</a></li>--%>
             </ul>
         </li>
 

@@ -17,17 +17,18 @@
                         </ul>
                     </div>
                     <div class="login_btnbox">
-                        <a href="#" class="login_order">我的订单</a>
-                        <a href="#" class="login_favorite">我的收藏</a>
+                        <a href="/user/order/order" class="login_order">我的订单</a>
+                        <a href="/collection/getUserConllection" class="login_favorite">我的收藏</a>
                     </div>
                     <i class="icon_arrow_white"></i>
                 </div>
 
             </div>
             <div id="shopCart" class="item">
-                <a href="#">
+                <a href="/shopCart/getPersonShopCart">
                     <span class="message"></span>
                 </a>
+
                 <p>
                     购物车
                 </p>
@@ -36,7 +37,7 @@
             </div>
 
             <div id="brand" class="item">
-                <a href="#">
+                <a  href="/collection/getUserConllection">
                     <span class="wdsc"><img src="/public/images/wdsc.png"/></span>
                 </a>
                 <div class="mp_tooltip">
@@ -122,9 +123,8 @@
 <%--检查jQuery（如果jQuery没有被引入，则引入)--%>
 <script>
     window.jQuery || document.write('<script src="/public/basic/js/jquery-1.7.2.min.js "><\/script>');
-
     function open_kefu() {
-        var kefu = window.open('http://wpa.qq.com/msgrd?v=3&uin=1123195494&site=qq&menu=yes', '_blank', 'width=500,height=300,left=500,top=200, menubar=no, toolbar=no, status=no,scrollbars=no, titlebar=no, location=no')
+        var kefu = window.open('http://wpa.qq.com/msgrd?v=3&uin=634650981&site=qq&menu=yes', '_blank', 'width=500,height=300,left=500,top=200, menubar=no, toolbar=no, status=no,scrollbars=no, titlebar=no, location=no')
         setTimeout(function () {
             kefu.close();
         },30000)

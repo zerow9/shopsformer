@@ -23,9 +23,9 @@
 <div class="am-g am-g-fixed floodFour ">
     <div class="am-u-sm-5 am-u-md-4 text-one list ">
         <div class="word ">
-            <a class="outer " href="# "><span class="inner "><b class="text ">保健</b></span></a>
-            <a class="outer " href="# "><span class="inner "><b class="text ">营养</b></span></a>
-            <a class="outer " href="# "><span class="inner "><b class="text ">滋补</b></span></a>
+            <a class="outer " href="#"><span class="inner "><b class="text ">保健</b></span></a>
+            <a class="outer " href="#"><span class="inner "><b class="text ">营养</b></span></a>
+            <a class="outer " href="#"><span class="inner "><b class="text ">滋补</b></span></a>
             <a href="# ">
                 <div class="outer-con ">
                     <div class="title ">
@@ -35,7 +35,7 @@
                         体检套餐
                     </div>
                 </div>
-                <img src="/public/images/act1.png "/>
+                <img src="/public/images/act01.png "/>
             </a>
         </div>
     </div>

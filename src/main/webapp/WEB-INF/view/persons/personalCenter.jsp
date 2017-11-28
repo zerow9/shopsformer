@@ -84,6 +84,7 @@
                                 <em class="m-num">${customVoOrdersCount.payOrderCount}</em>
                                 </c:if>
                                 </span></a>
+
                             </li>
                             <li><a href="/user/order/order?attribute=3"><i><img
                                     src="/public/images/send.png"/></i><span>待发货
@@ -106,8 +107,7 @@
                                 </c:if>
                                 </span></a>
                             </li>
-                            <%--<li><a href="/public/persons/change.jsp"><i><img--%>
-                                    <%--src="/public/images/refund.png"/></i><span>退换货</span></a></li>--%>
+
                         </ul>
                     </div>
 
