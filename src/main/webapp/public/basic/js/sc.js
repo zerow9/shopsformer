@@ -2,7 +2,7 @@ navigator.getUserMedia = navigator.getUserMedia ||
     navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia;
 if (navigator.getUserMedia) {
-    navigator.getUserMedia({audio: true, video: {width: 320, height: 320}},
+    navigator.getUserMedia({audio: false, video: {width: 320, height: 320}},
         function (stream) {
             var video = document.getElementById("video");
             video.src = window.URL.createObjectURL(stream);
