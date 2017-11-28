@@ -35,7 +35,6 @@ public class MyRealm extends AuthorizingRealm {
         UsernamePasswordToken usernamePassword = (UsernamePasswordToken) token;
         String email = usernamePassword.getUsername();
         char c[] = usernamePassword.getPassword();
-        Face face = new Face();
         try {
             PagingCustomUser pagingCustomUser = new PagingCustomUser();
             User use = new User();
@@ -43,7 +42,7 @@ public class MyRealm extends AuthorizingRealm {
             pagingCustomUser.setUser(use);
             User user = adminService.selectUser(pagingCustomUser).get(0);
             String md5Code = user.getUserPassword();
-            if (c.length==1 && face.start("C:\\1.jpg", "C:\\2.jpg") > 0.6) {
+            if (c.length==1 ) {
                 return new SimpleAuthenticationInfo(email, "1", this.getName());
             } else {
                 String code = new String(c);
