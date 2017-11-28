@@ -7,6 +7,8 @@ public class CustomVoSearch {
 
     private Integer sumPage;
 
+    private Integer searchCount;
+
     public Integer getLimit() {
         return limit;
     }
@@ -37,5 +39,13 @@ public class CustomVoSearch {
 
     public void setSumPage(Integer sumPage) {
         this.sumPage = sumPage;
+    }
+
+    public Integer getSearchCount() {
+        return searchCount;
+    }
+
+    public void setSearchCount(Integer searchCount) {
+        this.searchCount = searchCount;
     }
 }

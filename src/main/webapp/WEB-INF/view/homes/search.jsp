@@ -143,7 +143,7 @@
                     <div class="clear"></div>
                 </div>
 
-                <div class="search-content">
+                <div class="search-content" >
                     <div class="sort">
                         <ul>
                             <li class="first">
@@ -166,7 +166,9 @@
                         <c:forEach items="${items}" var="items">
                         <li>
                             <div class="i-pic limit">
-                                <img src="${items.itemImages}"/>
+                                <a href="/item/findItemMessage?itemId=${items.itemId}&page=${customVoSearch.page}">
+                                    <img src="${items.itemImages}"/>
+                                </a>
                                 <p class="title fl">${items.itemName}</p>
                                 <p class="price fl">
                                     <b>¥</b>
@@ -339,52 +341,96 @@
 
                 <div class="search-side">
 
-                    <%--<div class="side-title">--%>
-                        <%--经典搭配--%>
-                    <%--</div>--%>
+                    <div class="side-title">
+                        经典搭配
+                    </div>
 
-                    <%--<ul>--%>
-                        <%--<li>--%>
-                            <%--<div class="i-pic check">--%>
-                                <%--<img src="/public/images/cp.jpg"/>--%>
-                                <%--<p class="check-title">萨拉米 1+1小鸡腿</p>--%>
-                                <%--<p class="price fl">--%>
-                                    <%--<b>¥</b>--%>
-                                    <%--<strong>29.90</strong>--%>
-                                <%--</p>--%>
-                                <%--<p class="number fl">--%>
-                                    <%--销量<span>1110</span>--%>
-                                <%--</p>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li>--%>
-                            <%--<div class="i-pic check">--%>
-                                <%--<img src="/public/images/cp2.jpg"/>--%>
-                                <%--<p class="check-title">ZEK 原味海苔</p>--%>
-                                <%--<p class="price fl">--%>
-                                    <%--<b>¥</b>--%>
-                                    <%--<strong>8.90</strong>--%>
-                                <%--</p>--%>
-                                <%--<p class="number fl">--%>
-                                    <%--销量<span>1110</span>--%>
-                                <%--</p>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li>--%>
-                            <%--<div class="i-pic check">--%>
-                                <%--<img src="/public/images/cp.jpg"/>--%>
-                                <%--<p class="check-title">萨拉米 1+1小鸡腿</p>--%>
-                                <%--<p class="price fl">--%>
-                                    <%--<b>¥</b>--%>
-                                    <%--<strong>29.90</strong>--%>
-                                <%--</p>--%>
-                                <%--<p class="number fl">--%>
-                                    <%--销量<span>1110</span>--%>
-                                <%--</p>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                    <%--</ul>--%>
-
+                    <ul>
+                        <c:if test="${customVoSearch.searchCount==0}">
+                            <li>
+                            <div class="i-pic check">
+                                <img src="/public/images/cp.jpg"/>
+                                <p class="check-title">萨拉米 1+1小鸡腿</p>
+                                <p class="price fl">
+                                    <b>¥</b>
+                                    <strong>29.90</strong>
+                                </p>
+                                <p class="number fl">
+                                    销量<span>1110</span>
+                                </p>
+                            </div>
+                        </li>
+                        </c:if>
+                        <c:if test="${customVoSearch.searchCount==1}">
+                            <li>
+                                <div class="i-pic check">
+                                    <img src="/public/images/cp.jpg"/>
+                                    <p class="check-title">萨拉米 1+1小鸡腿</p>
+                                    <p class="price fl">
+                                        <b>¥</b>
+                                        <strong>29.90</strong>
+                                    </p>
+                                    <p class="number fl">
+                                        销量<span>1110</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                            <div class="i-pic check">
+                                <img src="/public/images/cp2.jpg"/>
+                                <p class="check-title">ZEK 原味海苔</p>
+                                <p class="price fl">
+                                    <b>¥</b>
+                                    <strong>8.90</strong>
+                                </p>
+                                <p class="number fl">
+                                    销量<span>1110</span>
+                                </p>
+                            </div>
+                        </li>
+                        </c:if>
+                        <c:if test="${customVoSearch.searchCount==2}">
+                            <li>
+                                <div class="i-pic check">
+                                    <img src="/public/images/cp.jpg"/>
+                                    <p class="check-title">萨拉米 1+1小鸡腿</p>
+                                    <p class="price fl">
+                                        <b>¥</b>
+                                        <strong>29.90</strong>
+                                    </p>
+                                    <p class="number fl">
+                                        销量<span>1110</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="i-pic check">
+                                    <img src="/public/images/cp2.jpg"/>
+                                    <p class="check-title">ZEK 原味海苔</p>
+                                    <p class="price fl">
+                                        <b>¥</b>
+                                        <strong>8.90</strong>
+                                    </p>
+                                    <p class="number fl">
+                                        销量<span>1110</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                            <div class="i-pic check">
+                                <img src="/public/images/cp.jpg"/>
+                                <p class="check-title">萨拉米 1+1小鸡腿</p>
+                                <p class="price fl">
+                                    <b>¥</b>
+                                    <strong>29.90</strong>
+                                </p>
+                                <p class="number fl">
+                                    销量<span>1110</span>
+                                </p>
+                            </div>
+                        </li>
+                        </c:if>
+                    </ul>
                 </div>
                 <div class="clear"></div>
 

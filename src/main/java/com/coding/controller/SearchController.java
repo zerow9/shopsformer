@@ -34,11 +34,10 @@ public class SearchController {
         searchField.setCondition(searchKey);
         customVoSearch.setSearchInput(searchKey);
         customVoSearch.setPage(page);
-        if (count==null){
-            SearchField searchField1 = new SearchField();
-            searchField1.setCondition(searchKey);
-            count = indexService.getDocCount(searchField1);
-        }
+        SearchField searchField1 = new SearchField();
+        searchField1.setCondition(searchKey);
+        count = indexService.getDocCount(searchField1);
+        customVoSearch.setSearchCount((count-1)/4);
         customVoSearch.setSumPage(count/12+1);
         List<Item> items = indexService.findByIndex(searchField);
         System.out.println(items);
