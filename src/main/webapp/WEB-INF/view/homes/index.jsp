@@ -51,7 +51,7 @@
     function oncartItem(id) {
         <C:if test="${empty user}">
         swal({
-            title: "请先登录，才可以购物噢！",
+            title: "请先登录，才能加入购物车噢！",
             type: "warning",
             timer: 2000,
             showConfirmButton: false

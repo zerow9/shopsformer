@@ -36,11 +36,11 @@
 
 
         <%--  &lt;%&ndash;坚果--%>
-       <div id="f2">
-           <jsp:include page="/public/common/nut.jsp" flush="true"/>
-         </div>
+        <div id="f2">
+            <jsp:include page="/public/common/nut.jsp" flush="true"/>
+        </div>
 
-         <%--甜点--%>
+        <%--甜点--%>
         <div id="f3">
             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
         </div>
@@ -51,34 +51,34 @@
         </div>
 
         <%--甜点--%>
-         <div id="f5">
-             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-         </div>
+        <div id="f5">
+            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+        </div>
 
         <%--坚果--%>
-         <div id="f6">
-             <jsp:include page="/public/common/nut.jsp" flush="true"/>
-         </div>
+        <div id="f6">
+            <jsp:include page="/public/common/nut.jsp" flush="true"/>
+        </div>
 
-         <%--甜点--%>
-         <div id="f7">
-             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-         </div>
+        <%--甜点--%>
+        <div id="f7">
+            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+        </div>
 
-         <%--坚果--%>
-         <div id="f8">
-             <jsp:include page="/public/common/nut.jsp" flush="true"/>
-         </div>
+        <%--坚果--%>
+        <div id="f8">
+            <jsp:include page="/public/common/nut.jsp" flush="true"/>
+        </div>
 
-         <%--甜点--%>
-         <div id="f9">
-             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-         </div>
+        <%--甜点--%>
+        <div id="f9">
+            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+        </div>
 
-         <%--坚果--%>
-         <div id="f10">
-             <jsp:include page="/public/common/nut.jsp" flush="true"/>
-         </div>
+        <%--坚果--%>
+        <div id="f10">
+            <jsp:include page="/public/common/nut.jsp" flush="true"/>
+        </div>
         <jsp:include page="/public/common/footer.jsp" flush="true"/>
 
     </div>
@@ -99,7 +99,7 @@
     function oncartItem(id) {
         <C:if test="${empty user}">
         swal({
-            title: "请先登录，才可以购物噢！",
+            title: "请先登录，才能加入购物车噢！",
             type: "warning",
             timer: 2000,
             showConfirmButton: false
@@ -107,7 +107,7 @@
         </C:if>
         <C:if test="${!empty user}">
         $.ajax({
-            url: "/user/itemCart?cartId=" + id+"&number=1",
+            url: "/user/itemCart?cartId=" + id + "&number=1",
             success: function (data) {
                 if (data) {
                     swal({
@@ -116,7 +116,7 @@
                         timer: 2000,
                         showConfirmButton: false,
                     });
-                }else swal({
+                } else swal({
                     title: "加入购物车失败！",
                     type: "error",
                     timer: 2000,
