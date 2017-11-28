@@ -9,7 +9,7 @@
         <property name="successUrl" value="/user/first"/>
         <property name="filters">
             <map>
-                <!--<entry key="authc" value-ref="myFilter"/>-->
+                <entry key="authc" value-ref="myFilter"/>
             </map>
         </property>
         <property name="filterChainDefinitions">
@@ -48,9 +48,9 @@
         <property name="maxAge" value="2592000"/>
     </bean>
 
-    <!--<bean id="myFilter" class="com.coding.shiro.MyAuthenticationFilter ">-->
-        <!--<property name="usernameParam" value="username"/>-->
-        <!--<property name="passwordParam" value="password"/>-->
-    <!--</bean>-->
+    <bean id="myFilter" class="com.coding.shiro.MyAuthenticationFilter ">
+        <property name="usernameParam" value="username"/>
+        <property name="passwordParam" value="password"/>
+    </bean>
 
 </beans>
