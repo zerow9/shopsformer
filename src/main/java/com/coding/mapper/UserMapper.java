@@ -170,4 +170,12 @@ public interface UserMapper {
      * @throws Exception
      */
     public String selectMD5(@Param("password") String password)throws Exception;
+
+    /**
+     * 通过邮箱查询人脸图片
+     * @param userEmail 用户唯一邮箱
+     * @return 满足条件的图片
+     * @throws Exception
+     */
+    public List<String> selectUserFaceImages(@Param("userEmail") String userEmail)throws Exception;
 }
