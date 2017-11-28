@@ -20,7 +20,6 @@ public class Face {
 
 
     public float start(String face, String otherFace) throws Exception {
-        face(otherFace);
         FaceService faceService = new FaceService();
         faceService.initModel();
         float[] faceVo1 = faceService.detectFaces(face)[0].getFeatures();
@@ -56,9 +55,4 @@ public class Face {
         grabber.stop();
         canvasFrame.dispose();
     }
-//
-//    public static void main(String[] args) throws Exception {
-//        start("E:\\共享文件\\1.jpg", "E:\\共享文件\\4.jpg");
-//    }
-
 }
