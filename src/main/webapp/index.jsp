@@ -32,11 +32,59 @@
             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
         </div>
 
+
+        <%--  &lt;%&ndash;坚果--%>
+       <div id="f2">
+           <jsp:include page="/public/common/nut.jsp" flush="true"/>
+         </div>
+
+         <%--甜点--%>
+        <div id="f3">
+            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+        </div>
+
+        <%--坚果--%>
+        <div id="f4">
+            <jsp:include page="/public/common/nut.jsp" flush="true"/>
+        </div>
+
+        <%--甜点--%>
+         <div id="f5">
+             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+         </div>
+
+        <%--坚果--%>
+         <div id="f6">
+             <jsp:include page="/public/common/nut.jsp" flush="true"/>
+         </div>
+
+         <%--甜点--%>
+         <div id="f7">
+             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+         </div>
+
+         <%--坚果--%>
+         <div id="f8">
+             <jsp:include page="/public/common/nut.jsp" flush="true"/>
+         </div>
+
+         <%--甜点--%>
+         <div id="f9">
+             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+         </div>
+
+         <%--坚果--%>
+         <div id="f10">
+             <jsp:include page="/public/common/nut.jsp" flush="true"/>
+         </div>
+        <jsp:include page="/public/common/footer.jsp" flush="true"/>
+
     </div>
 
     <jsp:include page="/public/common/tip.jsp" flush="true"/>
     <jsp:include page="/public/common/footer.jsp"/>
     <%--<jsp:include page="/public/common/customerServices.jsp" flush="true"/>--%>
+</div>
 </body>
 <script type="text/javascript">
     window.onload = function () {

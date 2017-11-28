@@ -61,7 +61,7 @@
                             <a href="#"><i class="am-icon-qq am-icon-sm"></i><span>QQ登录</span></a>
                         </li>
                         <li>
-                            <a href="/getSc"><i class="am-icon-weibo am-icon-sm"></i><span>扫脸登录</span> </a>
+                            <a href="/getSc"><img src="/public/images/face.png"/><span>&nbsp;扫脸登录</span> </a>
                         </li>
                         <li>
                             <a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a>

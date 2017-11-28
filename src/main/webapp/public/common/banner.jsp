@@ -6,7 +6,7 @@
     <div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
         <ul class="am-slides">
             <li class="banner1" style=" background: #f7efcb;" >
-                <a href="/public/common/introduction.jsp">
+                <a href="#">
                     <img src="/public/images/ad01.jpg"/>
                 </a>
             </li>
