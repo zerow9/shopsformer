@@ -53,12 +53,12 @@ public class PayController {
             cartDetail.setUserUuid(cart.getUserUuid());
             cartDetail.setCartId(cart.getCartId());
             cartDetail.setItemNumber(cart.getItemNumber());
-            money = item.getItemMarketPrice() * cart.getItemNumber() * item.getDiscount() / 100;
+            money = item.getItemPrice() * cart.getItemNumber();
         } else {
             item = adminService.selectItemByPrimaryKey(itemId);
             cartDetail.setUserUuid(uuid);
             cartDetail.setItemNumber(sum);
-            money = item.getItemMarketPrice() * sum * item.getDiscount() / 100;
+            money = item.getItemPrice() * sum ;
         }
         cartDetail.setItem(item);
         cartDetails.add(cartDetail);

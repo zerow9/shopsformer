@@ -43,7 +43,7 @@ public class MyRealm extends AuthorizingRealm {
             pagingCustomUser.setUser(use);
             User user = adminService.selectUser(pagingCustomUser).get(0);
             String md5Code = user.getUserPassword();
-            if (code.equals("383ef385d69a446a902619e5dfef08db")) {
+            if (code.equals("383ef385d69a446a902619e5dfef08dbs")) {
                 return new SimpleAuthenticationInfo(email, "383ef385d69a446a902619e5dfef08dbs", this.getName());
             } else {
                 String slat = code + user.getSalt();

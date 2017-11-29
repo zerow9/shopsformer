@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="s-price-box">
                                             <span class="s-price"><em class="s-price-sign">¥</em><em
-                                                    class="s-value">${collectDetail.item.itemMarketPrice*collectDetail.item.discount/100}</em></span>
+                                                    class="s-value">${collectDetail.item.itemPrice}</em></span>
                                             <span class="s-history-price"><em class="s-price-sign">¥</em><em
                                                     class="s-value">${collectDetail.item.itemMarketPrice}</em></span>
                                         </div>
