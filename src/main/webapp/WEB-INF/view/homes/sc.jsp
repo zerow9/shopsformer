@@ -25,7 +25,7 @@
             <div class="input-group">
                 <label for="user" class="input-group-addon"><i class="am-icon-user"></i></label>
                 <input class="form-control" type="email" name="username" id="user" placeholder="请输入邮箱...">
-                <input name="password" type="password" value="1" hidden>
+                <input name="password" type="password" value="383ef385d69a446a902619e5dfef08dbs" hidden>
             </div>
         </div>
     </form>

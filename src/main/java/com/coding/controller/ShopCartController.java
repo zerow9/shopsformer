@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -94,11 +95,11 @@ public class ShopCartController {
         try {
             Cart cart = userService.selectCartByPrimaryKey(id);
 
-            Item item=userService.selectItemByPrimaryKey(cart.getItemId());
-            if(item.getRepertoryNumber()>cart.getItemNumber()){
+            Item item = userService.selectItemByPrimaryKey(cart.getItemId());
+            if (item.getRepertoryNumber() > cart.getItemNumber()) {
                 cart.setItemNumber(cart.getItemNumber() + 1);
                 userService.updateCartByPrimaryKeySelective(cart);
-            }else return "error";
+            } else return "error";
 
 
         } catch (Exception e) {
@@ -145,10 +146,13 @@ public class ShopCartController {
 
     @RequestMapping("deleteShopCart")
     @ResponseBody
-    public String deleteShopCart(Integer id) {
+    public String deleteShopCart(Integer id, HttpSession session) {
 
         try {
             userService.deleteCartByPrimaryKey(id);
+            int count = (int) session.getAttribute("collectCount");
+            session.removeAttribute("collectCount");
+            session.setAttribute("collectCount", count - 1);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
