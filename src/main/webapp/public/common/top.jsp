@@ -67,6 +67,7 @@
             <form style="border-radius: 0px 6px 6px 0px;" action="/search/search">
                 <input type="hidden" value="1" name="page">
                 <input id="searchInput" name="searchInput" type="text" placeholder="搜索" autocomplete="off"
+                <c:if test="${!empty customVoSearch.searchInput}">value="${customVoSearch.searchInput}" </c:if>
                        style="font-size: 14px;">
                 <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit"
                        style="border-radius:0px 4px 4px 0px; ">
