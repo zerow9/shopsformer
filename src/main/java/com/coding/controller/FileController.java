@@ -1,6 +1,6 @@
 package com.coding.controller;
 
-import com.coding.serviceImpl.ossFileService;
+import com.coding.serviceImpl.OssFileService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +23,7 @@ public class FileController {
      * 自动装配文件处理服务
      */
     @Resource
-    private ossFileService ossFileService;
+    private OssFileService ossFileService;
 
     /**
      * 文件上传
