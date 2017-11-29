@@ -5,9 +5,15 @@ import com.coding.Iservice.IUserService;
 import com.coding.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import seetaface.Face;
+import sun.misc.BASE64Decoder;
 
 import javax.servlet.http.HttpSession;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 @Controller
 @RequestMapping("user")
@@ -31,7 +37,7 @@ public class SafeController {
 
     @RequestMapping("safeEmail")
     public String safeEmail() {
-        return "persons/getEmailCode";
+        return "persons/email";
     }
 
     @RequestMapping("updateUserPassword")
@@ -49,9 +55,9 @@ public class SafeController {
     @RequestMapping("updateUserEmail")
     public String updateUserEmail(String userEmail, String code, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
-        String emailCode=""+(Integer)session.getAttribute("emailCode");
+        String emailCode = "" + (Integer) session.getAttribute("emailCode");
         if (session.getAttribute("emailCode").equals(code)) {
-            User user=new User();
+            User user = new User();
             user.setUserUuid(uuid);
             user.setUserEmail(userEmail);
             userService.updateUserByPrimaryKeySelective(user);
@@ -60,4 +66,10 @@ public class SafeController {
         }
         throw new Exception("修改邮箱不成功");
     }
+
+    @RequestMapping("getFace")
+    public String getFace() {
+        return "homes/face";
+    }
+
 }

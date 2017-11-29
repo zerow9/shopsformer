@@ -77,7 +77,6 @@
     float: right;
     margin-right: 50px;
     margin-top: 10px;
-
 }
 .logo-1{
     float: left;
@@ -86,6 +85,7 @@
 .login-1 ul a{
     color: #4d4d4d;
 }
+
 #user{
     width:300px;
 }

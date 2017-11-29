@@ -60,6 +60,7 @@
         <jsp:include page="/public/common/footer.jsp" flush="true"/>
     </div>
 </div>
+
 <script src="/public/basic/js/jquery-1.7.2.min.js"></script>
 <script src="/public/basic/js/sc.js"></script>
 </body>

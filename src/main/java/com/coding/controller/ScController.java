@@ -22,8 +22,8 @@ public class ScController {
 
     @RequestMapping("/sc")
     @ResponseBody
-    public boolean sc(String email, HttpServletRequest request, String sj) throws Exception {
-        String imgFilePath = "c:/2.jpg";
+    public boolean sc(String sj) throws Exception {
+        String imgFilePath = "D:\\2.jpg";
         BASE64Decoder decoder = new BASE64Decoder();
         try {
             byte[] b = decoder.decodeBuffer(sj);
@@ -37,10 +37,31 @@ public class ScController {
             out.flush();
             out.close();
             Face face = new Face();
-            float f = face.start("c:\\1.jpg", "c:\\2.jpg");
-            System.out.println(f);
+            float f = face.start("D:\\1.jpg", imgFilePath);
             if (f > 0.8)
                 return true;
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    @RequestMapping("/updateFace")
+    @ResponseBody
+    public boolean updateFace(String sj) throws Exception {
+        String imgFilePath = "D:\\1.jpg";
+        BASE64Decoder decoder = new BASE64Decoder();
+        try {
+            byte[] b = decoder.decodeBuffer(sj);
+            for (int i = 0; i < b.length; ++i) {
+                if (b[i] < 0) {
+                    b[i] += 256;
+                }
+            }
+            OutputStream out = new FileOutputStream(imgFilePath);
+            out.write(b);
+            out.flush();
+            out.close();
+            return true;
         } catch (Exception e) {
         }
         return false;
