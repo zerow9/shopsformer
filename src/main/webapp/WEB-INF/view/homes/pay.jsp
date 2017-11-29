@@ -8,14 +8,15 @@
           content="width=device-width, initial-scale=1.0 ,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>结算页面</title>
     <link rel="icon" href="/public/images/picture.ico"/>
-    <link href="/public/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet">
+    <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet">
     <link href="/public/basic/css/demo.css" rel="stylesheet"/>
-    <link href="/public/css/sustyle.css" rel="stylesheet"/>
+    <link href="/public/basic/css/sustyle.css" rel="stylesheet"/>
     <link rel="icon" href="/public/images/picture.ico"/>
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/cartstyle.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/jsstyle.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/addstyle.css" rel="stylesheet" type="text/css">
     <script type="text/javascript">
         function  showImg(){
@@ -254,19 +255,9 @@
                                 </div>
                             </div>
 
-                            <%--二维码--%>
-                            <%--<div id="kalated-weixin">--%>
-                                <%--<a href="javascript:void(0)" onMouseOut="hideImg()"  onmouseover="showImg()">--%>
-                                    <%--<img class="wx" src="http://www.czqiushi.com/wp-content/uploads/2015/10/wx.png">--%>
-                                <%--</a>--%>
-                            <%--</div>--%>
-                            <%--<div id="wxImg" style="display:none; right: 120px; top: 50px;back-ground:#f00;position:absolute; z-index:999;">--%>
-                                <%--<img class="wx" src="/public/images/tyoui.png">--%>
-                            <%--</div>--%>
-
                             <div id="holyshit269" class="submitOrder">
                                 <div class="go-btn-wrap">
-                                    <a id="J_Go" href="/user/pay/success?cartId=${cartIds}" class="btn-go" tabindex="0"
+                                    <a id="J_Go"  class="btn-go" tabindex="0"
                                        title="点击此按钮，提交订单">提交订单</a>
                                 </div>
                             </div>
@@ -278,28 +269,13 @@
             <div class="clear"></div>
         </div>
     </div>
-    <div class="footer">
-        <div class="footer-hd">
-            <p>
-                <a href="#">商城首页</a>
-                <b>|</b>
-                <a href="#">支付宝</a>
-                <b>|</b>
-                <a href="#">物流</a>
-            </p>
-        </div>
-        <div class="footer-bd">
-            <p>
-                <a>Yang Coding</a>
-                <em>© 2017-2020 YangCoding.com 版权所有</em>
-            </p>
-        </div>
-    </div>
+        <jsp:include page="/public/common/tail.jsp" flush="true"/></div>
 </div>
 <div class="theme-popover-mask"></div>
 </body>
+<script src="/public/basic/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(function () {
         $(".new-option-r").click(function () {
             $(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
         });
@@ -307,7 +283,35 @@
         if ($ww > 640) {
             $("#doc-modal-1").removeClass("am-modal am-modal-no-btn")
         }
-    })
+    });
 </script>
 <script type="text/javascript" src="/public/basic/js/address/address.js"></script>
+<script type="text/javascript" src="/public/basic/js/sweetalert.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $("#J_Go").on("click",function () {
+            swal({
+                    title: "等待付款",
+                    imageUrl: "/public/images/tyoui.png",
+                    imageSize:"400x400",
+                    cancelButtonText:"取消",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "支付完成！",
+                    closeOnConfirm: false
+                },
+                function(){
+                    swal({
+                        title: "购买成功！",
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false,
+                    });
+
+                    window.location.href="/user/pay/success?cartId=${cartIds}";
+                });
+        });
+    });
+</script>
 </html>
