@@ -30,7 +30,7 @@
 <jsp:include page="/public/common/top.jsp" flush="true"/>
 <div class="clear"></div>
 <%--导航栏--%>
-<div class="nav-table">
+<div class="nav-table" style="margin-top: 10px">
     <jsp:include page="/public/common/navigation.jsp" flush="true"/>
 </div>
 
@@ -435,8 +435,9 @@
                 <div class="clear"></div>
 
                 <!--分页 -->
-                <c:if test="${customVoSearch.searchCount!=-1}">
-                    <ul class="am-pagination am-pagination-right">
+
+                <ul class="am-pagination am-pagination-right">
+                    <c:if test="${customVoSearch.searchCount!=-1}">
                         <c:choose>
                             <c:when test="${customVoSearch.page==1}">
                                 <li class="am-disabled">
@@ -477,9 +478,10 @@
                                 </li>
                             </c:otherwise>
                         </c:choose>
+                    </c:if>
 
-                    </ul>
-                </c:if>
+                </ul>
+
             </div>
         </div>
 
