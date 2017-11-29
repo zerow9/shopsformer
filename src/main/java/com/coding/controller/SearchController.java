@@ -39,7 +39,10 @@ public class SearchController {
         SearchField searchField1 = new SearchField();
         searchField1.setCondition(searchKey);
         count = indexService.getDocCount(searchField1);
-        customVoSearch.setSearchCount((count-1)/4);
+        if (count==0)
+            customVoSearch.setSearchCount(-1);
+        else
+            customVoSearch.setSearchCount((count-1)/4);
         customVoSearch.setSumPage(count/12+1);
         List<Item> items = indexService.findByIndex(searchField);
         model.addAttribute("items",items);

@@ -74,13 +74,13 @@
             </form>
 
             <div class="word-search" style="margin-top: 5px;margin-left: 10px">
-                <a href="#=手机壳&amp;from=hotword&amp;" style="color: #666;">老花镜&nbsp;&nbsp; </a>
-                <a href="#=摇椅&amp;from=hotword&amp;" style="color: #ee3495;">摇椅&nbsp;&nbsp;</a>
-                <a href="#=金龙鱼&amp;from=hotword&amp;" style="color: #ee3495;">金龙鱼&nbsp;&nbsp;</a>
-                <a href="#=电子烟&amp;from=hotword&amp;" style="color: #ee3495;">电子烟&nbsp;&nbsp;</a>
-                <a href="#=血糖仪&amp;from=hotword&amp;" style="color: #666;">血糖仪&nbsp;&nbsp;</a>
-                <a href="#=大米&amp;from=hotword&amp;" style="color: #666;">大米&nbsp;&nbsp;</a>
-                <a href="#=山水画&amp;from=hotword&amp;" style="color: #666;">山水画&nbsp;&nbsp;</a>
+                <a href="/search/search?page=1&searchInput=老花镜&amp;from=hotword&amp;" style="color: #666;">老花镜&nbsp;&nbsp; </a>
+                <a href="/search/search?page=1&searchInput=摇椅&amp;from=hotword&amp;" style="color: #ee3495;">摇椅&nbsp;&nbsp;</a>
+                <a href="/search/search?page=1&searchInput=金龙鱼&amp;from=hotword&amp;" style="color: #ee3495;">金龙鱼&nbsp;&nbsp;</a>
+                <a href="/search/search?page=1&searchInput=电子烟&amp;from=hotword&amp;" style="color: #ee3495;">电子烟&nbsp;&nbsp;</a>
+                <a href="/search/search?page=1&searchInput=血糖仪&amp;from=hotword&amp;" style="color: #666;">血糖仪&nbsp;&nbsp;</a>
+                <a href="/search/search?page=1&searchInput=大米&amp;from=hotword&amp;" style="color: #666;">大米&nbsp;&nbsp;</a>
+                <a href="/search/search?page=1&searchInput=山水画&amp;from=hotword&amp;" style="color: #666;">山水画&nbsp;&nbsp;</a>
             </div>
         </div>
     </div>
