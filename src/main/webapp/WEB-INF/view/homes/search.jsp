@@ -172,7 +172,7 @@
                                 <p class="title fl">${items.itemName}</p>
                                 <p class="price fl">
                                     <b>¥</b>
-                                    <strong>${items.itemMarketPrice}</strong>
+                                    <strong>${items.itemPrice}</strong>
                                 </p>
                                 <p class="number fl">
                                     销量<span>${items.itemSaleNumber}</span>
