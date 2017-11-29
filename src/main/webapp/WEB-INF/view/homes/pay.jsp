@@ -174,7 +174,7 @@
                                                     <em class="price-original">${cart.item.itemMarketPrice}</em>
                                                 </div>
                                                 <div class="price-line">
-                                                    <em class="J_Price price-now" tabindex="0">${cart.item.itemMarketPrice*cart.item.discount/100}</em>
+                                                    <em class="J_Price price-now" tabindex="0">${cart.item.itemPrice}</em>
                                                 </div>
                                             </div>
                                         </div>
@@ -191,7 +191,7 @@
                                     <li class="td td-sum">
                                         <div class="td-inner">
                                             <em tabindex="0" class="J_ItemSum number"
-                                                id="sumM">${cart.itemNumber*cart.item.itemMarketPrice*cart.item.discount/100}</em>
+                                                id="sumM">${cart.itemNumber*cart.item.itemPrice}</em>
                                         </div>
                                     </li>
                                 </ul>
