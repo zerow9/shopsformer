@@ -35,51 +35,51 @@
         </div>
 
 
-        <%--  &lt;%&ndash;坚果--%>
-        <div id="f2">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
+        <%--&lt;%&ndash;  &lt;%&ndash;坚果&ndash;%&gt;--%>
+        <%--<div id="f2">--%>
+            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
+        <%--</div>--%>
 
-        <%--甜点--%>
-        <div id="f3">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
+        <%--&lt;%&ndash;甜点&ndash;%&gt;--%>
+        <%--<div id="f3">--%>
+            <%--<jsp:include page="/public/common/dessert.jsp" flush="true"/>--%>
+        <%--</div>--%>
 
-        <%--坚果--%>
-        <div id="f4">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
+        <%--&lt;%&ndash;坚果&ndash;%&gt;--%>
+        <%--<div id="f4">--%>
+            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
+        <%--</div>--%>
 
-        <%--甜点--%>
-        <div id="f5">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
+        <%--&lt;%&ndash;甜点&ndash;%&gt;--%>
+        <%--<div id="f5">--%>
+            <%--<jsp:include page="/public/common/dessert.jsp" flush="true"/>--%>
+        <%--</div>--%>
 
-        <%--坚果--%>
-        <div id="f6">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
+        <%--&lt;%&ndash;坚果&ndash;%&gt;--%>
+        <%--<div id="f6">--%>
+            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
+        <%--</div>--%>
 
-        <%--甜点--%>
-        <div id="f7">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
+        <%--&lt;%&ndash;甜点&ndash;%&gt;--%>
+        <%--<div id="f7">--%>
+            <%--<jsp:include page="/public/common/dessert.jsp" flush="true"/>--%>
+        <%--</div>--%>
 
-        <%--坚果--%>
-        <div id="f8">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
+        <%--&lt;%&ndash;坚果&ndash;%&gt;--%>
+        <%--<div id="f8">--%>
+            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
+        <%--</div>--%>
 
-        <%--甜点--%>
-        <div id="f9">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
-        </div>
+        <%--&lt;%&ndash;甜点&ndash;%&gt;--%>
+        <%--<div id="f9">--%>
+            <%--<jsp:include page="/public/common/dessert.jsp" flush="true"/>--%>
+        <%--</div>--%>
 
-        <%--坚果--%>
-        <div id="f10">
-            <jsp:include page="/public/common/nut.jsp" flush="true"/>
-        </div>
-        <jsp:include page="/public/common/footer.jsp" flush="true"/>
+        <%--&lt;%&ndash;坚果&ndash;%&gt;--%>
+        <%--<div id="f10">--%>
+            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
+        <%--</div>--%>
+        <%--<jsp:include page="/public/common/footer.jsp" flush="true"/>--%>
 
     </div>
 
