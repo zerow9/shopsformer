@@ -48,5 +48,33 @@
 </div>
 <script src="/public/basic/js/jquery-1.7.2.min.js"></script>
 <script src="/public/basic/js/sc.js"></script>
+<script>
+    function drawRoundedRect(ctx, x, y, width, height, r, fill, stroke) {
+        ctx.save();
+        ctx.beginPath(); // draw top and top right corner
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + width, y, x + width, y + r, r); // draw right side and bottom right corner
+        ctx.arcTo(x + width, y + height, x + width - r, y + height, r); // draw bottom and bottom left corner
+        ctx.arcTo(x, y + height, x, y + height - r, r); // draw left and top left corner ctx.arcTo(x, y, x + r, y, r);
+        if (fill) {
+            ctx.fill();
+        }
+        if (stroke) {
+            ctx.stroke();
+        }
+        ctx.restore();
+    }
+
+    function drawScreen() {
+        ctx.strokeStyle = 'rgb(150,0,0)';
+        ctx.fillStyle = 'rgb(0,150,0)';
+        ctx.lineWidth = 7;
+        drawRoundedRect(ctx, 30, 50, 200, 220, 20, true, true);
+        ctx.strokeStyle = 'rgb(150,0,150)';
+        ctx.fillStyle = 'rgba(0,0,150,0.6)';
+        ctx.lineWidth = 7;
+        drawRoundedRect(ctx, 300, 100, 250, 150, 8, true, false);
+    }
+</script>
 </body>
 </html>
