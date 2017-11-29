@@ -40,15 +40,24 @@ public class IndexService implements IindexItemService {
             MultiFieldQueryParser parser = new MultiFieldQueryParser(LuceneContext.getInstance().getVersion(),
                     new String[]{"name", "keyword", "introduce"}, LuceneContext.getInstance().getAnalyzer());
             Query query = parser.parse(field.getCondition());
-            TopDocs tds = searcher.searchAfter(getLastDoc(field.getIndexNumber(), field.getPageNumber(), searcher, query), query, field.getPageNumber());
+            TopDocs tds = null;
+            if(field.getIndexNumber()==null && field.getPageNumber() == null){
+                tds = searcher.search(query,20);
+            }
+            else if(field.getIndexNumber()==null && field.getPageNumber() > 0){
+                tds = searcher.search(query,field.getPageNumber());
+            }else {
+                tds = searcher.searchAfter(getLastDoc(field.getIndexNumber(), field.getPageNumber(), searcher, query), query, field.getPageNumber());
+            }
             for (ScoreDoc sd : tds.scoreDocs) {
                 Document doc = searcher.doc(sd.doc);
                 Item item = new Item();
                 item.setItemId(Integer.valueOf(doc.get("id")));
                 item.setItemName(doc.get("name"));
                 item.setItemImages(doc.get("images"));
-                item.setItemPrice(Double.valueOf(doc.get("price")));
+                item.setItemMarketPrice(Double.valueOf(doc.get("price")));
                 item.setKeyWord(doc.get("keyword"));
+                item.setItemSaleNumber(Integer.valueOf(doc.get("saleNumber")));
                 items.add(item);
             }
             return items;

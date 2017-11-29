@@ -61,10 +61,10 @@
                             <a href="#"><i class="am-icon-qq am-icon-sm"></i><span>QQ登录</span></a>
                         </li>
                         <li>
-                            <a href="#"><i class="am-icon-weibo am-icon-sm"></i><span>微博登录</span> </a>
+                            <a href="/getSc"><img src="/public/images/face.png"/><span>&nbsp;扫脸登录</span> </a>
                         </li>
                         <li>
-                            <a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a>
+                            <a class="tc"><i class="am-icon-weixin am-icon-sm "></i><span>微信登录</span> </a>
                         </li>
                     </ul>
                 </div>
@@ -128,17 +128,23 @@
         rememberMe = !rememberMe;
     }
 
+
     function add() {
-        var obj = document.getElementById("login-form");
-        if (rememberMe) {
-            obj.action = "/user/login?rememberMe=" + rememberMe;
-            obj.submit();
-        } else
-            obj.submit();
+        var r = Math.random();
+        var obj = $("#login-form").serialize();
+        obj = obj + "&random=" + r;
+        $.ajax({
+            url: "/user/login",
+            type: "POST",
+            data: obj,
+            success: function (data) {
+                if (data.code === 0)
+                    alert(data.msg);
+                else
+                    window.location.href = "/user/index";
+            }
+        });
     }
-
-    //    end：记住密码
-
 </script>
 </body>
 </html>

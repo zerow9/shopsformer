@@ -62,11 +62,6 @@ public class AdminServiceImpl extends UserServiceImpl implements IAdminService {
         }
     }
 
-    public String selectMD5(String password)throws Exception{
-        String MD5 = userMapper.selectMD5(password);
-        return MD5;
-    }
-
     public List<User> selectUserAll()  throws Exception{
             List<User> users = userMapper.selectUserAll();
             if(users.isEmpty()) throw new Exception("用户列表查询为空");
