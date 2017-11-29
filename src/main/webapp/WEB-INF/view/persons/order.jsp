@@ -130,7 +130,7 @@
                                                                 </li>
                                                                 <li class="td td-price">
                                                                     <div class="item-price">
-                                                                            ${customVoItemsByOrderDetailIdsx.item.itemMarketPrice}
+                                                                            ${customVoItemsByOrderDetailIdsx.item.itemPrice}
                                                                     </div>
                                                                 </li>
                                                                 <li class="td td-number">
@@ -172,7 +172,7 @@
                                                             <li class="td td-change">
                                                                 <div class="am-btn am-btn-danger anniu">
                                                                     <a href="javascript:void(0);"
-                                                                       onclick="deleteOrder(${customVoItemsByOrderId.orders.orderId})">删除订单</a>
+                                                                       onclick="deleteOrder(${customVoItemsByOrderId.orders.orderId},'删除')">删除订单</a>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -252,7 +252,7 @@
                                                                 </li>
                                                                 <li class="td td-price">
                                                                     <div class="item-price">
-                                                                            ${payCustomVoItem.item.itemMarketPrice}
+                                                                            ${payCustomVoItem.item.itemPrice}
                                                                     </div>
                                                                 </li>
                                                                 <li class="td td-number">
@@ -279,7 +279,8 @@
                                                             <li class="td td-status">
                                                                 <div class="item-status">
                                                                     <p class="Mystatus">等待买家付款</p>
-                                                                    <p class="order-info"><a href="#">取消订单</a></p>
+                                                                    <p class="order-info"><a href="javascript:void(0);"
+                                                                                             onclick="deleteOrder(${pay.orders.orderId},'取消')">取消订单</a></p>
                                                                 </div>
                                                             </li>
                                                             <li class="td td-change">
@@ -362,7 +363,7 @@
                                                                 </li>
                                                                 <li class="td td-price">
                                                                     <div class="item-price">
-                                                                            ${sendCustomVoItem.item.itemMarketPrice}
+                                                                            ${sendCustomVoItem.item.itemPrice}
                                                                     </div>
                                                                 </li>
                                                                 <li class="td td-number">
@@ -472,7 +473,7 @@
                                                                 </li>
                                                                 <li class="td td-price">
                                                                     <div class="item-price">
-                                                                            ${takeGoodsCustomVoItem.item.itemMarketPrice}
+                                                                            ${takeGoodsCustomVoItem.item.itemPrice}
                                                                     </div>
                                                                 </li>
                                                                 <li class="td td-number">
@@ -587,7 +588,7 @@
                                                                 </li>
                                                                 <li class="td td-price">
                                                                     <div class="item-price">
-                                                                            ${discussCustomVoItem.item.itemMarketPrice}
+                                                                            ${discussCustomVoItem.item.itemPrice}
                                                                     </div>
                                                                 </li>
                                                                 <li class="td td-number">
