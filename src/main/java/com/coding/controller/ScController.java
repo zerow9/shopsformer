@@ -37,7 +37,7 @@ public class ScController {
             out.flush();
             out.close();
             Face face = new Face();
-            float f = face.start("C:\\1.jpg", "C:\\2.jpg");
+            float f = face.start("c:\\1.jpg", "c:\\2.jpg");
             System.out.println(f);
             if (f > 0.8)
                 return true;
