@@ -319,7 +319,7 @@
     <sql id="Base_Column_List">
         user_uuid, user_phone, user_nickname, user_password, user_email, user_name, user_age,
         user_sex, user_register_date_time, user_score, user_group, user_land_number, user_current_time,
-        user_land_ip, user_address,salt,face_image,face_other_image,
+        user_land_ip, user_address,salt,face_image,face_other_image
     </sql>
     <sql id="Blob_Column_List">
         user_healthy
@@ -446,7 +446,6 @@
         <include refid="Blob_Column_List"/>
         from user limit #{nowPage},#{number}
     </select>
-
     <!--selectUserFaceImages-->
     <select id="selectUserFaceImages" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
         select face_image,face_other_image
