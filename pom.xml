@@ -300,23 +300,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.38</version>
         </dependency>
-
-
-        <!--这是私服的jar包-->
-        <dependency>
-            <groupId>cn.tyoui</groupId>
-            <artifactId>commons4j</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <!--人脸识别的jar包-->
-        <dependency>
-            <groupId>org.bytedeco</groupId>
-            <artifactId>javacv-platform</artifactId>
-            <version>1.3.3</version>
-        </dependency>
     </dependencies>
-
     <repositories>
         <repository>
             <id>nexus</id>
