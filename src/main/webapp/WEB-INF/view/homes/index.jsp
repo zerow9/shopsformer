@@ -10,7 +10,6 @@
     <link href="/public/basic/css/hmstyle.css" rel="stylesheet"/>
     <link href="/public/basic/css/skin.css" rel="stylesheet"/>
     <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css"/>
-
 </head>
 <body>
 <C:if test="${empty listItem}">
