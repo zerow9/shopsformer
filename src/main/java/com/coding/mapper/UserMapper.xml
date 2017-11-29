@@ -453,6 +453,13 @@
         where user_email = #{userEmail}
     </select>
 
+    <select id="selectUserFaceImage" parameterType="java.lang.String" resultType="java.lang.String">
+        select face_image
+        from user
+        where user_email = #{userEmail}
+    </select>
+
+
     <!--根据关键字查询用户信息并按照字段排序-->
     <select id="selectUser" parameterType="com.coding.paging.PagingCustomUser"
             resultMap="ResultMapWithBLOBs">

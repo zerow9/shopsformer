@@ -1,20 +1,20 @@
 
-function deleteOrder(orderId) {
+function deleteOrder(orderId,operation) {
     swal({
-        title: "确定删除该订单吗？",
-        text: "该订单即将被删除！",
+        title: "确定"+operation+"该订单吗？",
+        text: "该订单即将被"+operation+"！",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
-        confirmButtonText: "确定删除！",
+        confirmButtonText: "确定"+operation+"！",
         closeOnConfirm: false
     }, function () {
         $.ajax({
             url: "/user/order/deleteOrder?orderId=" + orderId,
             success: function () {
                 swal({
-                        title: "删除！",
-                        text: "已经成功删除订单！",
+                        title: operation,
+                        text: "已经成功"+operation+"订单！",
                         type: "success",
                         timer:2000,
                         showConfirmButton:false

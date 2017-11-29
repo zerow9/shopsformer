@@ -23,10 +23,11 @@ document.getElementById("picture").addEventListener("click", function () {
     context.drawImage(video, 0, 0, 320, 320);
 });
 document.getElementById("sc").addEventListener("click", function () {
+    var email=document.getElementById("user").value;
     var obj = $("#em").serialize();
     var imgData = document.getElementById("canvas").toDataURL("image/png");
     var data = imgData.substr(22);
-     $.post('/sc', {'sj': data},function (b) {
+     $.post('/sc?email='+email, {'sj': data},function (b) {
          if (b) {
              $.ajax({
                  url: "/user/login",

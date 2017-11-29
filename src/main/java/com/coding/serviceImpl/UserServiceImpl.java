@@ -67,7 +67,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             user = (User) Filter.filterObject(user);
             String salt = Encoding.getGenerateSalt();
             user.setSalt(salt);
-            user.setUserPassword(user.getUserPassword()+ salt);
+            user.setUserPassword(user.getUserPassword() + salt);
             userMapper.insertUserSelective(user);
         } catch (Exception e) {
             e.printStackTrace();
@@ -112,7 +112,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             //user.setUserPassword(user.getUserPassword()+ salt);
             PagingCustomUser pagingCustomUser = new PagingCustomUser();
             pagingCustomUser.setUser(user);
-            user.setUserPassword(user.getUserPassword()+userMapper.selectUser(pagingCustomUser).get(0).getSalt());
+            user.setUserPassword(user.getUserPassword() + userMapper.selectUser(pagingCustomUser).get(0).getSalt());
             except(userMapper.updateUserByPrimaryKeySelective(user));
         } catch (Exception e) {
             if (!e.getMessage().contains("操作无效"))
@@ -224,7 +224,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             //过滤字符串，防止sql Injection
             userUuid = Filter.stripXSS(userUuid);
             List<Address> addresses = addressMapper.selectAddressByUserID(userUuid);
-           // if (addresses.isEmpty()) throw new Exception("用户收获地址查询为空");
+            // if (addresses.isEmpty()) throw new Exception("用户收获地址查询为空");
             //清洗结果集
             for (Address address : addresses) {
                 address = (Address) Filter.filterObject(address);
@@ -524,7 +524,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     @Transactional(rollbackFor = Exception.class)
     public int insertOrderSelectiveReturnId(Orders order) throws Exception {
         try {
-           // order = (Orders) Filter.filterObject(order);
+            // order = (Orders) Filter.filterObject(order);
             ordersMapper.insertOrderSelective(order);
             return order.getOrderId();
         } catch (Exception e) {
@@ -698,9 +698,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     }
 
     public Integer selectOrdersCountByColumn(PagingCustomOrder pagingCustomOrder) throws Exception {
-        try{
+        try {
             return ordersMapper.selectOredersCountByColumn(pagingCustomOrder);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("根据查询条件返回订单总数时出错");
         }
     }
@@ -795,9 +795,9 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
 
 
     public List<Integer> selectOrdersIdArrayByUuidAndItemCodeArray(PagingCustomOrderDetail pagingCustomOrderDetail) throws Exception {
-        try{
+        try {
             return orderDetailMapper.selectOrdersIdArrayByUuidAndItemCodeArray(pagingCustomOrderDetail);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("根据用户ID和商品列表查询订单ID出错");
         }
     }
@@ -1180,8 +1180,8 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             Discuss discuss = discussMapper.selectDiscussByPrimaryKey(discussId);
 //            except(discuss, "根据评论ID查询评论信息为空");
             //对结果集进行过滤
-            if(discuss != null){
-            discuss = (Discuss) Filter.filterObject(discuss);
+            if (discuss != null) {
+                discuss = (Discuss) Filter.filterObject(discuss);
             }
             return discuss;
         }
@@ -1201,11 +1201,12 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
             List<Discuss> discusses = discussMapper.selectDiscuss(pagingCustomDiscuss);
 //            if (discusses.isEmpty()) throw new Exception("查询到的评论列表为空");
             //对结果集进行过滤
-            if(!discusses.isEmpty()){
-            for (Discuss discuss :
-                    discusses) {
-                discuss = (Discuss) Filter.filterObject(discuss);
-            }}
+            if (!discusses.isEmpty()) {
+                for (Discuss discuss :
+                        discusses) {
+                    discuss = (Discuss) Filter.filterObject(discuss);
+                }
+            }
             return discusses;
         } catch (Exception e) {
             if (!e.getMessage().contains("评论列表为空"))
@@ -1224,6 +1225,11 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
                 throw new Exception("修改评论信息时出错");
             throw e;
         }
+    }
+
+    @Override
+    public String selectUserFaceImage(String userEmail) throws Exception {
+        return userMapper.selectUserFaceImage(userEmail);
     }
 
 }
