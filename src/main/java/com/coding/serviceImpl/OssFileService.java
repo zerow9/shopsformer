@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  * java 版本
  */
 @Service("ossFileService")
-public class ossFileService implements FileService {
+public class OssFileService implements FileService {
     /**
      * bucket名
      */
@@ -42,7 +42,7 @@ public class ossFileService implements FileService {
     /**
      * 初始化配置信息
      */
-    public ossFileService() {
+    public OssFileService() {
         bucketName = "xcstudio-shop";
         endpoint = "http://oss-cn-shenzhen.aliyuncs.com";
         accessKeyId = "LTAItV2D26rhST1y";
