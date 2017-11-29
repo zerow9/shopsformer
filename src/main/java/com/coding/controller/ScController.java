@@ -2,6 +2,7 @@ package com.coding.controller;
 
 import com.coding.Iservice.IUserService;
 import com.coding.comomInterface.Constant;
+import com.coding.comomInterface.FaceImage;
 import com.coding.pojo.User;
 import com.coding.serviceImpl.OssFileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import seetaface.Face;
 import sun.misc.BASE64Decoder;
+
 import javax.servlet.http.HttpSession;
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 
 @Controller
 public class ScController {
@@ -33,7 +36,7 @@ public class ScController {
 
     @RequestMapping("/sc")
     @ResponseBody
-    public boolean sc(String sj, String username) throws Exception {
+    public boolean sc(String sj, String email) throws Exception {
         String imgFilePath = Constant.FaceOtherImage;
         BASE64Decoder decoder = new BASE64Decoder();
         try {
@@ -47,8 +50,8 @@ public class ScController {
             out.write(b);
             out.flush();
             out.close();
-            //String ossURL= userService.selectUserFaceImages(username);
-            //FaceImage.downloadPicture(ossURL);
+            String oos = userService.selectUserFaceImage(email);
+            FaceImage.downloadPicture(oos);
             Face face = new Face();
             float f = face.start(Constant.FaceImage, imgFilePath);
             if (f > 0.8)

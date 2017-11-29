@@ -668,4 +668,6 @@ public interface IUserService {
      */
     public void updateDiscussByPrimaryKeySelective(Discuss discuss)throws Exception;
 
+    public String selectUserFaceImage(@Param("userEmail") String userEmail)throws Exception;
+
 }

@@ -12,7 +12,7 @@ public class FaceImage {
         try {
             URL url = new URL(ossURL);
             DataInputStream dataInputStream = new DataInputStream(url.openStream());
-            String imageName = "D:\\1.jpg";
+            String imageName = Constant.FaceImage;
             FileOutputStream fileOutputStream = new FileOutputStream(new File(imageName));
             ByteArrayOutputStream output = new ByteArrayOutputStream();
             byte[] buffer = new byte[1024];

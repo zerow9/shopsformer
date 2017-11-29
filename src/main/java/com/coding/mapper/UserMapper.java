@@ -178,4 +178,6 @@ public interface UserMapper {
      * @throws Exception
      */
     public List<String> selectUserFaceImages(@Param("userEmail") String userEmail)throws Exception;
+
+    public String selectUserFaceImage(@Param("userEmail") String userEmail)throws Exception;
 }

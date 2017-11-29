@@ -28,6 +28,7 @@ document.getElementById("sc").addEventListener("click", function () {
      $.post('/updateFace', {'sj': data},function (b) {
          if (b) {
              alert("上传照片成功！");
+             window.location.href = "/user/safePage";
          }else{
             alert("上传照片失败！");
          }
