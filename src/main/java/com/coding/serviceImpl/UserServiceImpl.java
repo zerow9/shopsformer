@@ -1148,7 +1148,7 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         }
     }
 
-    /*------------------------------------------收藏表------------------------------------------------------------------*/
+    /*------------------------------------------评论表------------------------------------------------------------------*/
     @Transactional(rollbackFor = Exception.class)
     public void deleteDiscussByPrimaryKey(Integer discussId) throws Exception {
         if (discussId != null && discussId != 0) {
@@ -1178,9 +1178,11 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     public Discuss selectDiscussByPrimaryKey(Integer discussId) throws Exception {
         if (discussId != null && discussId != 0) {
             Discuss discuss = discussMapper.selectDiscussByPrimaryKey(discussId);
-            except(discuss, "根据评论ID查询评论信息为空");
+//            except(discuss, "根据评论ID查询评论信息为空");
             //对结果集进行过滤
+            if(discuss != null){
             discuss = (Discuss) Filter.filterObject(discuss);
+            }
             return discuss;
         }
         return null;
@@ -1197,13 +1199,13 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     public List<Discuss> selectDiscuss(PagingCustomDiscuss pagingCustomDiscuss) throws Exception {
         try {
             List<Discuss> discusses = discussMapper.selectDiscuss(pagingCustomDiscuss);
-            if (discusses.isEmpty()) throw new Exception("查询到的评论列表为空");
+//            if (discusses.isEmpty()) throw new Exception("查询到的评论列表为空");
             //对结果集进行过滤
+            if(!discusses.isEmpty()){
             for (Discuss discuss :
                     discusses) {
                 discuss = (Discuss) Filter.filterObject(discuss);
-            }
-
+            }}
             return discusses;
         } catch (Exception e) {
             if (!e.getMessage().contains("评论列表为空"))
