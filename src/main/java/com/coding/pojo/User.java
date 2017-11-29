@@ -45,6 +45,7 @@ public class User implements Serializable{
     private String faceOtherImage;
 
 
+
     public String getSalt() {
         return salt;
     }

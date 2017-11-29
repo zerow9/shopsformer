@@ -15,7 +15,7 @@
         user_age, user_sex, user_register_date_time,
         user_score, user_group, user_land_number,
         user_current_time, user_land_ip, user_address,
-        faceImage,faceOtherImage,
+        face_image,face_other_image,
         <!--user4,
         user5, user6, user7,
         user8, user9, user10, -->
@@ -82,7 +82,7 @@
                 face_image =#{faceImage,jdbcType=LONGVARCHAR},
             </if>
             <if test="faceOtherImage != null">
-                face_other_image = #{faceOtherImage}
+                face_other_image = #{faceOtherImage},
             </if>
         </set>
         <where>
@@ -217,8 +217,12 @@
             <if test="salt != null">
                 salt,
             </if>
-            <if test="faceImage">face_image</if>
-            <if test="faceOtherImage">face_other_image</if>
+            <if test="faceImage">
+                face_image,
+            </if>
+            <if test="faceOtherImage">
+                face_other_image,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="userUuid != null" >
@@ -275,8 +279,8 @@
             <if test="faceImage != null">
                 #{faceImage,jdbcType=VARCHAR},
             </if>
-            <if test="face_other_image != null">
-                #{face_other_image,jdbcType=VARCHAR},
+            <if test="faceOtherImage != null">
+                #{faceOtherImage,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -315,7 +319,7 @@
     <sql id="Base_Column_List">
         user_uuid, user_phone, user_nickname, user_password, user_email, user_name, user_age,
         user_sex, user_register_date_time, user_score, user_group, user_land_number, user_current_time,
-        user_land_ip, user_address,salt,face_image,face_other_image
+        user_land_ip, user_address,salt,face_image,face_other_image,
     </sql>
     <sql id="Blob_Column_List">
         user_healthy

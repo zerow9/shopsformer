@@ -106,7 +106,7 @@ $(document).ready(function () {
                     stringLength: {
                         min: 6,
                         max: 16,
-                        message: '邮箱地址长度应为6到16位'
+                        message: '密码长度应为6到16位'
                     }
                 }
             },
@@ -120,7 +120,7 @@ $(document).ready(function () {
                     stringLength: {
                         min: 6,
                         max: 16,
-                        message: '邮箱地址长度应为6到16位'
+                        message: '密码长度应为6到16位'
                     },
                     identical: {
                         field: 'password',

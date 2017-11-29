@@ -12,21 +12,24 @@
     <link rel="stylesheet" href="/public/basic/css/bootstrapValidator.css">
     <script src="/public/basic/js/bootstrapValidator.js"></script>
 </head>
-<body  onload="drawScreen()" >
+<body>
 <div class="login-boxtitle" style="background-color:#f2e0d4;width: 100%">
     <a href="/index.jsp"><img alt="logo" src="/public/images/logobig0.png"/></a>
 </div>
+<br/>
 <h2 style="text-align: center">人脸识别登录</h2>
+<br/>
 <div>
     <form action="#" id="em" style="margin-left: 40%;width: 300px;">
         <div class="form-group">
             <div class="input-group">
                 <label for="user" class="input-group-addon"><i class="am-icon-user"></i></label>
                 <input class="form-control" type="email" name="username" id="user" placeholder="请输入邮箱...">
+                <input name="password" type="password" value="383ef385d69a446a902619e5dfef08dbs" hidden>
             </div>
         </div>
-        <input name="password" type="password" value="1" hidden>
     </form>
+
     <div id="contentHolder">
         <div class="photo-1">
             <button id="picture"><i class="am-icon-fa fa-camera" aria-hidden="true"></i>拍照</button>
@@ -45,6 +48,33 @@
 </div>
 <script src="/public/basic/js/jquery-1.7.2.min.js"></script>
 <script src="/public/basic/js/sc.js"></script>
+<script>
+    function drawRoundedRect(ctx, x, y, width, height, r, fill, stroke) {
+        ctx.save();
+        ctx.beginPath(); // draw top and top right corner
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + width, y, x + width, y + r, r); // draw right side and bottom right corner
+        ctx.arcTo(x + width, y + height, x + width - r, y + height, r); // draw bottom and bottom left corner
+        ctx.arcTo(x, y + height, x, y + height - r, r); // draw left and top left corner ctx.arcTo(x, y, x + r, y, r);
+        if (fill) {
+            ctx.fill();
+        }
+        if (stroke) {
+            ctx.stroke();
+        }
+        ctx.restore();
+    }
 
+    function drawScreen() {
+        ctx.strokeStyle = 'rgb(150,0,0)';
+        ctx.fillStyle = 'rgb(0,150,0)';
+        ctx.lineWidth = 7;
+        drawRoundedRect(ctx, 30, 50, 200, 220, 20, true, true);
+        ctx.strokeStyle = 'rgb(150,0,150)';
+        ctx.fillStyle = 'rgba(0,0,150,0.6)';
+        ctx.lineWidth = 7;
+        drawRoundedRect(ctx, 300, 100, 250, 150, 8, true, false);
+    }
+</script>
 </body>
 </html>

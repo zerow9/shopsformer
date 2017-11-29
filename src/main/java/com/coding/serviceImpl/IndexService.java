@@ -55,7 +55,8 @@ public class IndexService implements IindexItemService {
                 item.setItemId(Integer.valueOf(doc.get("id")));
                 item.setItemName(doc.get("name"));
                 item.setItemImages(doc.get("images"));
-                item.setItemMarketPrice(Double.valueOf(doc.get("price")));
+                item.setItemMarketPrice(Double.valueOf(doc.get("marketPrice")));
+                item.setItemPrice(Double.valueOf(doc.get("price")));
                 item.setKeyWord(doc.get("keyword"));
                 item.setItemSaleNumber(Integer.valueOf(doc.get("saleNumber")));
                 items.add(item);
