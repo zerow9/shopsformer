@@ -54,7 +54,7 @@
                                     <input type="text" class="form-control" name="emailCode" id="code"
                                            placeholder="请输入验证码">
                                     <span class="input-group-addon" id="codeSpan">
-                                        <button class="btn btn-info" id="btnSendCode">获取验证码</button>
+                                        <input type="button" class="btn btn-info" id="btnSendCode" value="获取验证码"/>
                                     </span>
                                 </div>
                             </div>
@@ -111,7 +111,6 @@
         </div>
     </div>
 </div>
-
 
 
 <%--底部--%>
