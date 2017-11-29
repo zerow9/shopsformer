@@ -59,7 +59,7 @@
     <!--悬浮搜索框-->
     <div class="nav white">
         <div class="logoBig">
-            <li><img src="/public/images/logobig0.png"/></li>
+            <a href="/index.jsp"><img src="/public/images/logobig0.png"/></a>
         </div>
 
         <div class="search-bar pr">
@@ -82,6 +82,7 @@
                 <a href="/search/search?page=1&searchInput=大米&amp;from=hotword&amp;" style="color: #666;">大米&nbsp;&nbsp;</a>
                 <a href="/search/search?page=1&searchInput=山水画&amp;from=hotword&amp;" style="color: #666;">山水画&nbsp;&nbsp;</a>
             </div>
+
         </div>
     </div>
 
