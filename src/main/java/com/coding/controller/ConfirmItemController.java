@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/user/confirm")
-public class ConfirmItem {
+public class ConfirmItemController {
 
     @Autowired
     private IAdminService adminService;
@@ -22,5 +22,10 @@ public class ConfirmItem {
         orders.setTakeGoodsStatus(1);
         adminService.updateOrderByPrimaryKeySelective(orders);
         return "/user/order/order?attribute=5";
+    }
+
+    @RequestMapping("comment")
+    public String comment(){
+        return "persons/comment";
     }
 }

@@ -112,7 +112,7 @@
                                                             <ul class="item-list">
                                                                 <li class="td td-item">
                                                                     <div class="item-pic">
-                                                                        <a href="#" class="J_MakePoint">
+                                                                        <a href="/item/findItemMessage?itemId=${customVoItemsByOrderDetailIdsx.item.itemId}&page=1" class="J_MakePoint">
                                                                             <img src="${customVoItemsByOrderDetailIdsx.item.itemImages}"
                                                                                  class="itempic J_ItemImg">
                                                                         </a>
@@ -234,7 +234,7 @@
                                                             <ul class="item-list">
                                                                 <li class="td td-item">
                                                                     <div class="item-pic">
-                                                                        <a href="#" class="J_MakePoint">
+                                                                        <a href="/item/findItemMessage?itemId=${payCustomVoItem.item.itemId}&page=1" class="J_MakePoint">
                                                                             <img src="${payCustomVoItem.item.itemImages}"
                                                                                  class="itempic J_ItemImg">
                                                                         </a>
@@ -345,7 +345,7 @@
                                                             <ul class="item-list">
                                                                 <li class="td td-item">
                                                                     <div class="item-pic">
-                                                                        <a href="#" class="J_MakePoint">
+                                                                        <a href="/item/findItemMessage?itemId=${sendCustomVoItem.item.itemId}&page=1" class="J_MakePoint">
                                                                             <img src="${sendCustomVoItem.item.itemImages}"
                                                                                  class="itempic J_ItemImg">
                                                                         </a>
@@ -455,7 +455,7 @@
                                                             <ul class="item-list">
                                                                 <li class="td td-item">
                                                                     <div class="item-pic">
-                                                                        <a href="#" class="J_MakePoint">
+                                                                        <a href="/item/findItemMessage?itemId=${takeGoodsCustomVoItem.item.itemId}&page=1" class="J_MakePoint">
                                                                             <img src="${takeGoodsCustomVoItem.item.itemImages}"
                                                                                  class="itempic J_ItemImg">
                                                                         </a>
@@ -570,7 +570,7 @@
                                                             <ul class="item-list">
                                                                 <li class="td td-item">
                                                                     <div class="item-pic">
-                                                                        <a href="#" class="J_MakePoint">
+                                                                        <a href="/item/findItemMessage?itemId=${discussCustomVoItem.item.itemId}&page=1" class="J_MakePoint">
                                                                             <img src="${discussCustomVoItem.item.itemImages}"
                                                                                  class="itempic J_ItemImg">
                                                                         </a>
@@ -626,7 +626,7 @@
                                                             <li class="td td-change">
                                                                 <a href="commentlist.html">
                                                                     <div class="am-btn am-btn-danger anniu">
-                                                                        评价商品
+                                                                        <i onclick="comment(${discuss.orders.orderId})">评价商品</i>
                                                                     </div>
                                                                 </a>
                                                             </li>
@@ -682,7 +682,7 @@
                     title: "购买成功！",
                     type: "success",
                     timer: 2000,
-                    showConfirmButton: false,
+                    showConfirmButton: false
                 });
 
                 window.location.href="/user/pay/onekeyPay?orderId="+id+"&sum="+money;
@@ -701,6 +701,17 @@
             success: function (data) {
                 window.location.href=data;
             }
+        });
+    }
+
+
+    function comment(id) {
+        $.ajax({
+            url: "/user/confirm/comment"
+//            success: function (data) {
+//                alert(data)
+//                window.location.href=data;
+//            }
         });
     }
 </script>

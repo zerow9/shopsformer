@@ -101,6 +101,10 @@ public class PayController {
             return "forward:/user/address/address";
         uuidGetAddress(session, addresses);
         String uuid = (String) session.getAttribute("uuid");
+        Item item = new Item();
+        item.setItemId(cartId);
+        item.setRepertoryNumber(adminService.selectItemByPrimaryKey(cartId).getItemCollectNumber());
+        adminService.updateItemByPrimaryKey(item);
         double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
         session.setAttribute("cartIds", cartId);
         session.setAttribute("sumCart", sum);

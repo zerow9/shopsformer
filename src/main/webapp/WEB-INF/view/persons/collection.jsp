@@ -48,7 +48,7 @@
                                 <div class="s-item">
 
                                     <div class="s-pic">
-                                        <a href="/item/findItemMessage?itemId=${collectDetail.item.itemId}" class="s-pic-link">
+                                        <a href="/item/findItemMessage?itemId=${collectDetail.item.itemId}&page=1" class="s-pic-link">
                                             <img src="${collectDetail.item.itemImages}"
                                                  alt="${collectDetail.item.itemIntroduce}"
                                                  title="${collectDetail.itemName}" class="s-pic-img s-guess-item-img" width="80" />
