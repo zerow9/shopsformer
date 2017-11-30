@@ -283,12 +283,12 @@
                                                                                              onclick="deleteOrder(${pay.orders.orderId},'取消')">取消订单</a></p>
                                                                 </div>
                                                             </li>
-                                                            <li class="td td-change">
-                                                                <a href="/user/pay/onekeyPay?orderId=${pay.orders.orderId}&sum=${pay.orders.orderSumPrice+pay.orders.orderFreight}">
+                                                            <li class="td td-change" onclick="payButton(${pay.orders.orderId},${pay.orders.orderSumPrice+pay.orders.orderFreight})">
+
                                                                     <div class="am-btn am-btn-danger anniu">
                                                                         一键支付
                                                                     </div>
-                                                                </a>
+
                                                             </li>
                                                         </div>
                                                     </div>
@@ -656,4 +656,28 @@
 <script src="/public/amazeUI/assets/js/amazeui.js"></script>
 <script src="/public/basic/js/sweetalert.min.js" type="text/javascript"></script>
 <script src="/public/basic/js/orderOperation.js"></script>
+<script>
+    function payButton(id,money) {
+        swal({
+                title: "等待付款",
+                imageUrl: "/public/images/tyoui.png",
+                imageSize:"400x400",
+                cancelButtonText:"取消",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "支付完成！",
+                closeOnConfirm: false
+            },
+            function(){
+                swal({
+                    title: "购买成功！",
+                    type: "success",
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+
+                window.location.href="/user/pay/onekeyPay?orderId="+id+"&sum="+money;
+            });
+    }
+</script>
 </html>
