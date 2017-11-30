@@ -108,7 +108,7 @@
                                                    onclick="mm(${status.index })"
                                                    value="-"/>
                                             <input class="text_box" id="it" type="text" value="${cart.itemNumber}"
-                                                   style="width:30px;"/>
+                                                   style="width:30px;" readonly/>
                                             <input class="add am-btn" name="" type="button" value="+"
                                                    onclick="mm(${status.index })"/>
                                         </div>
