@@ -511,7 +511,7 @@
                                                             </li>
                                                             <li class="td td-change">
                                                                 <div class="am-btn am-btn-danger anniu">
-                                                                    确认收货
+                                                                    <i onclick="confirmItem(${takeGoods.orders.orderId})">确认收货</i>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -663,6 +663,21 @@
             type: "success",
             timer: 2000,
             showConfirmButton: false
+        });
+    }
+
+    function confirmItem(id) {
+        swal({
+            title: "确认收货成功！",
+            type: "success",
+            timer: 2000,
+            showConfirmButton: false
+        });
+        $.ajax({
+            url: "/user/confirm/confirmItem?orderId=" + id ,
+            success: function (data) {
+                window.location.href=data;
+            }
         });
     }
 </script>
