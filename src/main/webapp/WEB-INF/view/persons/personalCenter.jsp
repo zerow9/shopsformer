@@ -39,7 +39,7 @@
                         <div class="m-bg"></div>
 
                         <!-- 中间顶部个人信息横幅 -->
-                        <div class="m-userinfo" >
+                        <div class="m-userinfo">
 
                             <%--左部--%>
                             <div class="m-baseinfo">
@@ -48,7 +48,7 @@
                                     <img src="/public/images/getAvatar.do.jpg">
                                 </a>
                                 <%--昵称--%>
-                                <em  class="s-name">${user.userNickname}<span class="vip1"></span></em>
+                                <em class="s-name">${user.userNickname}<span class="vip1"></span></em>
                                 <div class="s-prestige am-btn am-round">
                                     <span>会员福利</span>
                                 </div>
@@ -57,7 +57,7 @@
                             <%--右部--%>
                             <div class="m-right">
                                 <%--消息--%>
-                                <div class="m-new" >
+                                <div class="m-new">
                                     <a href="news.jsp"><i class="am-icon-bell-o"></i>消息</a>
                                 </div>
                                 <%--收货地址--%>
@@ -81,7 +81,7 @@
                             <li><a href="/user/order/order?attribute=2"><i><img
                                     src="/public/images/pay.png"/></i><span>待付款
                                 <c:if test="${customVoOrdersCount.payOrderCount!=0}">
-                                <em class="m-num">${customVoOrdersCount.payOrderCount}</em>
+                                    <em class="m-num">${customVoOrdersCount.payOrderCount}</em>
                                 </c:if>
                                 </span></a>
 
