@@ -397,7 +397,7 @@
                                                             </li>
                                                             <li class="td td-change">
                                                                 <div class="am-btn am-btn-danger anniu">
-                                                                    提醒发货
+                                                                    <i onclick="remind()">提醒发货</i>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -657,6 +657,15 @@
 <script src="/public/basic/js/sweetalert.min.js" type="text/javascript"></script>
 <script src="/public/basic/js/orderOperation.js"></script>
 <script>
+    function remind() {
+        swal({
+            title: "提醒发货成功！",
+            type: "success",
+            timer: 2000,
+            showConfirmButton: false
+        });
+    }
+
     function payButton(id,money) {
         swal({
                 title: "等待付款",
