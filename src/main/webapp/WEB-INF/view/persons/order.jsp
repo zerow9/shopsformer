@@ -397,7 +397,7 @@
                                                             </li>
                                                             <li class="td td-change">
                                                                 <div class="am-btn am-btn-danger anniu">
-                                                                    提醒发货
+                                                                    <i onclick="remind()">提醒发货</i>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -656,4 +656,14 @@
 <script src="/public/amazeUI/assets/js/amazeui.js"></script>
 <script src="/public/basic/js/sweetalert.min.js" type="text/javascript"></script>
 <script src="/public/basic/js/orderOperation.js"></script>
+<script type="text/javascript">
+    function remind() {
+        swal({
+            title: "提醒发货成功！",
+            type: "success",
+            timer: 2000,
+            showConfirmButton: false
+        });
+    }
+</script>
 </html>
