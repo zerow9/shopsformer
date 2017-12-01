@@ -14,7 +14,7 @@
                             <li class="appliance js_toggle relative first">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img
-                                            src="/public/images/cake.png"/></i><a
+                                            src="/public/images/zxyp.png"/></i><a
                                             class="ml-22" title="点心">中西药品</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -145,7 +145,7 @@
                             </li>
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="/public/images/cookies.png"/></i><a
+                                    <h3 class="category-name b-category-name"><i><img src="/public/images/yy.png"/></i><a
                                             class="ml-22" title="营养">营养</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -264,7 +264,7 @@
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img
-                                            src="/public/images/meat.png"/></i><a
+                                            src="/public/images/bj.png"/></i><a
                                             class="ml-22" title="保健品">保健品</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -394,7 +394,7 @@
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img
-                                            src="/public/images/bamboo.png"/></i><a
+                                            src="/public/images/js.png"/></i><a
                                             class="ml-22" title="健身">健身</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -496,7 +496,7 @@
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img
-                                            src="/public/images/nut.png"/></i><a
+                                            src="/public/images/cloth.png"/></i><a
                                             class="ml-22" title="服装">服装</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
@@ -708,7 +708,7 @@
                             <li class="appliance js_toggle relative">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img
-                                            src="/public/images/candy.png"/></i><a
+                                            src="/public/images/ryp.png"/></i><a
                                             class="ml-22" title="日用品">日用品</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
