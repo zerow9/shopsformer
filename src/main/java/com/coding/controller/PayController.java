@@ -103,7 +103,7 @@ public class PayController {
         String uuid = (String) session.getAttribute("uuid");
         Item item = new Item();
         item.setItemId(cartId);
-        item.setRepertoryNumber(adminService.selectItemByPrimaryKey(cartId).getItemCollectNumber());
+        item.setRepertoryNumber(adminService.selectItemByPrimaryKey(cartId).getRepertoryNumber()-itemNumber);
         adminService.updateItemByPrimaryKey(item);
         double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
         session.setAttribute("cartIds", cartId);

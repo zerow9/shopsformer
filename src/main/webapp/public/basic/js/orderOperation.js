@@ -20,7 +20,7 @@ function deleteOrder(orderId,operation) {
                         showConfirmButton:false
                     },
                     function () {
-                        window.location.reload();
+                        window.location.href="/user/order/order";
                     });
             }
         })
