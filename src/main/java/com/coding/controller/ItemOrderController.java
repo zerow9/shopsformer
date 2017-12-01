@@ -19,6 +19,13 @@ public class ItemOrderController {
     @Autowired
     private IAdminService adminService;
 
+    private void deleteItemNum(Integer itemId, int number) throws Exception {
+        Item item = adminService.selectItemByPrimaryKey(itemId);
+        int num = item.getRepertoryNumber() - number;
+        item.setRepertoryNumber(num);
+        adminService.updateItemByPrimaryKey(item);
+    }
+
     private int saveOrderDetail(Integer itemId, User user, Integer itemNumber) throws Exception {
         Orders orders = new Orders();
         OrderDetail orderDetail = new OrderDetail();
@@ -28,6 +35,8 @@ public class ItemOrderController {
             item = adminService.selectItemByPrimaryKey(cart.getItemId());
             orders.setOrderSumPrice(item.getItemMarketPrice() * cart.getItemNumber());
             orderDetail.setItemNumber(cart.getItemNumber());
+            itemNumber=cart.getItemNumber();
+            deleteItemNum(itemId, itemNumber);
         } else {
             item = adminService.selectItemByPrimaryKey(itemId);
             orders.setOrderSumPrice(item.getItemMarketPrice() * itemNumber);

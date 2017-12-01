@@ -28,7 +28,6 @@ public class PayController {
         return addresses;
     }
 
-
     private void uuidGetAddress(HttpSession session, List<Address> addresses) throws Exception {
 
         Address add = null;
@@ -58,7 +57,7 @@ public class PayController {
             item = adminService.selectItemByPrimaryKey(itemId);
             cartDetail.setUserUuid(uuid);
             cartDetail.setItemNumber(sum);
-            money = item.getItemPrice() * sum ;
+            money = item.getItemPrice() * sum;
         }
         cartDetail.setItem(item);
         cartDetails.add(cartDetail);
@@ -103,7 +102,7 @@ public class PayController {
         String uuid = (String) session.getAttribute("uuid");
         Item item = new Item();
         item.setItemId(cartId);
-        item.setRepertoryNumber(adminService.selectItemByPrimaryKey(cartId).getRepertoryNumber()-itemNumber);
+        item.setRepertoryNumber(adminService.selectItemByPrimaryKey(cartId).getRepertoryNumber() - itemNumber);
         adminService.updateItemByPrimaryKey(item);
         double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
         session.setAttribute("cartIds", cartId);
@@ -118,7 +117,6 @@ public class PayController {
         List<Integer> ordersList = (List<Integer>) session.getAttribute("ordersList");
         Integer pop = (Integer) session.getAttribute("pop");
         Integer count = (Integer) session.getAttribute("collectCount");
-
         if (ordersList.size() == 1) {
             Orders orders = adminService.selectOrderByPrimaryKey(ordersList.get(0));
             orders.setPayStatus(1);
