@@ -52,6 +52,7 @@ public class LuceneContext {
 //        if (dicUrl == null || dicUrl.equals("")) throw new Exception("索引库路径为空.");
 //        directory =FSDirectory.open(new File(dicUrl));
         directory = FSDirectory.open(new File("D:\\index"));//开发环节路径
+//        directory = FSDirectory.open(new File("/var/www/shop/index"));//开发环节路径
         version = Version.LUCENE_35;
         analyzer = new StandardAnalyzer(version);
         searcherManager = new SearcherManager(directory, new SearcherWarmer() {
