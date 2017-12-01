@@ -137,7 +137,7 @@
                         <div class="am-form-group safety">
                             <label class="am-form-label">账号安全</label>
                             <div class="am-form-content safety">
-                                <a href="../../../public/person/safety.html">
+                                <a href="#">
                                     <span class="am-icon-angle-right"></span>
                                 </a>
                             </div>

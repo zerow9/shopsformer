@@ -208,7 +208,7 @@
                                                 </li>
                                             </div>
                                             <li class="td td-change td-changebutton">
-                                                <a href="record.html">
+                                                <a href="#">
                                                     <div class="am-btn am-btn-danger anniu">
                                                         钱款去向
                                                     </div>

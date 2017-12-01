@@ -58,13 +58,13 @@
                                     <div class="s-msg-content i-msg-downup-wrap">
                                         <div class="i-msg-downup-con">
                                             <a class="i-markRead" target="_blank"
-                                               href="../../../frontpage/person/blog.html">
+                                               href="#">
                                                 <img src="../../../frontpage/images/TB102.jpg">
                                                 <p class="s-main-content">
                                                     最特色的湖北年货都在这儿 ~快来囤年货啦！
                                                 </p>
                                                 <p class="s-row s-main-content">
-                                                    <a href="../../../frontpage/person/blog.html">
+                                                    <a href="#l">
                                                         阅读全文 <i class="am-icon-angle-right"></i>
                                                     </a>
                                                 </p>
@@ -82,7 +82,7 @@
                                 <h6 class="s-msg-bar"><span class="s-name">订单已签收</span></h6>
                                 <div class="s-msg-content i-msg-downup-wrap">
                                     <div class="i-msg-downup-con">
-                                        <a class="i-markRead" target="_blank" href="../JSPpage/logistics.html">
+                                        <a class="i-markRead" target="_blank" href="#">
                                             <div class="m-item">
                                                 <div class="item-pic">
                                                     <img src="../../../frontpage/images/kouhong.jpg_80x80.jpg"
@@ -112,7 +112,7 @@
                                 <div class="s-msg-content i-msg-downup-wrap">
                                     <div class="i-msg-downup-con">
                                         <a class="i-markRead" target="_blank"
-                                           href="../../../frontpage/person/record.html">
+                                           href="#">
                                             <div class="m-item">
                                                 <div class="item-pic">
                                                     <img src="../../../frontpage/images/kouhong.jpg_80x80.jpg"
@@ -126,7 +126,7 @@
                                             </div>
 
                                             <p class="s-row s-main-content">
-                                                <a href="../../../frontpage/person/record.html">钱款去向</a> <i
+                                                <a href="#">钱款去向</a> <i
                                                     class="am-icon-angle-right"></i>
                                             </p>
                                         </a>

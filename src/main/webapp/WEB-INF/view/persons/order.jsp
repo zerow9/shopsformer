@@ -165,7 +165,7 @@
                                                                     </p>
 
                                                                     <p class="order-info"><a
-                                                                            href="logistics.html">查看物流</a>
+                                                                            href="#">查看物流</a>
                                                                     </p>
                                                                 </div>
                                                             </li>
@@ -373,7 +373,7 @@
                                                                 </li>
                                                                 <li class="td td-operation">
                                                                     <div class="item-operation">
-                                                                        <a href="refund.html">退款</a>
+                                                                        <a href="#">退款</a>
                                                                     </div>
                                                                 </li>
                                                             </ul>
@@ -483,7 +483,7 @@
                                                                 </li>
                                                                 <li class="td td-operation">
                                                                     <div class="item-operation">
-                                                                        <a href="refund.html">退款/退货</a>
+                                                                        <a href="#">退款/退货</a>
                                                                     </div>
                                                                 </li>
                                                             </ul>
@@ -504,7 +504,7 @@
                                                                             href="/user/order/orderDetail?orderId=${takeGoods.orders.orderId}">订单详情</a>
                                                                     </p>
                                                                     <p class="order-info"><a
-                                                                            href="logistics.html">查看物流</a>
+                                                                            href="#">查看物流</a>
                                                                     </p>
                                                                     <p class="order-info"><a href="#">延长收货</a></p>
                                                                 </div>
@@ -598,7 +598,7 @@
                                                                 </li>
                                                                 <li class="td td-operation">
                                                                     <div class="item-operation">
-                                                                        <a href="refund.html">退款/退货</a>
+                                                                        <a href="#">退款/退货</a>
                                                                     </div>
                                                                 </li>
                                                             </ul>
@@ -619,12 +619,12 @@
                                                                             href="/user/order/orderDetail?orderId=${discuss.orders.orderId}">订单详情</a>
                                                                     </p>
                                                                     <p class="order-info"><a
-                                                                            href="logistics.html">查看物流</a>
+                                                                            href="#">查看物流</a>
                                                                     </p>
                                                                 </div>
                                                             </li>
                                                             <li class="td td-change">
-                                                                <a href="commentlist.html">
+                                                                <a href="#">
                                                                     <div class="am-btn am-btn-danger anniu">
                                                                         <i onclick="comment(${discuss.orders.orderId})">评价商品</i>
                                                                     </div>
