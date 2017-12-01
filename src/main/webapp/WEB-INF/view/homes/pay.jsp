@@ -11,7 +11,6 @@
     <link href="/public/amazeUI/assets/css/admin.css" rel="stylesheet">
     <link href="/public/basic/css/demo.css" rel="stylesheet"/>
     <link href="/public/basic/css/sustyle.css" rel="stylesheet"/>
-    <link rel="icon" href="/public/images/picture.ico"/>
     <link href="/public/amazeUI/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/cartstyle.css" rel="stylesheet" type="text/css"/>
     <link href="/public/basic/css/jsstyle.css" rel="stylesheet" type="text/css"/>
@@ -35,16 +34,15 @@
 <div class="concent">
     <!--地址 -->
     <div class="paycont">
-        <div class="address">
-            <h3>确认收货地址 </h3>
+        <div class="user-address">
+            <h3>选择确认收货地址 </h3>
             <div class="control">
             </div>
             <div class="clear"></div>
             <ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails" style="margin-left: 50px;">
                 <c:forEach items="${addresses}" var="address" >
-                    <c:if test="${address.isDefaultAddress==1}">
-                        <li class="user-addresslist defaultAddr">
-                            <span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
+                    <li class="user-addresslist <c:if test="${address.isDefaultAddress==1}">defaultAddr</c:if>" <c:if test="${address.isDefaultAddress!=1}"> onclick="updateDefaultAddress(${address.addressId})"</c:if>>
+                            <span class="new-option-r"><i class="am-icon-check-circle"></i>确认收货地址</span>
                             <p class="new-tit new-p-re">
                                 <span class="new-txt">${address.takeGoodsName}</span>
                                 <span class="new-txt-rd2">${fn:substring(address.addresseePhone, 0,3)}****${fn:substring(address.addresseePhone,7,11)}</span>
@@ -57,39 +55,17 @@
                                     <span class="dist">${address.takeGoodsCounty}</span>
                                     <span class="street">${address.address}</span></p>
                             </div>
-                            <div class="new-addr-btn">
-                                <a href="/user/address/selectAddress?addressId=${address.addressId}"><i
-                                        class="am-icon-edit"></i>编辑</a>
-                            </div>
-                        </li>
-                    </c:if>
-                    <c:if test="${address.isDefaultAddress==0}">
-                        <li class="user-addresslist">
-                                <span class="new-option-r"
-                                      onclick="updateDefaultAddress(${address.addressId})"><i
-                                        class="am-icon-check-circle" id="updateDefaultAddress"></i>默认地址</span>
-                            <p class="new-tit new-p-re">
-                                <span class="new-txt">${address.takeGoodsName}</span>
-                                <span class="new-txt-rd2">${fn:substring(address.addresseePhone, 0,3)}****${fn:substring(address.addresseePhone,7,11)}</span>
-                            </p>
-                            <div class="new-mu_l2a new-p-re">
-                                <p class="new-mu_l2cw">
-                                    <span class="title">地址：</span>
-                                    <span class="province">${address.takeGoodsProvince}</span>
-                                    <span class="city">${address.takeGoodsCity}</span>
-                                    <span class="dist">${address.takeGoodsCounty}</span>
-                                    <span class="street">${address.address}</span></p>
-                            </div>
-                            <div class="new-addr-btn">
+                            <div class="new-addr-btn" style="margin-bottom: -37px">
                                 <a href="/user/address/selectAddress?addressId=${address.addressId}"><i
                                         class="am-icon-edit" id="updateEdit"></i>编辑</a>
+                                <c:if test="${address.isDefaultAddress!=1}">
                                 <span class="new-addr-bar">|</span>
                                 <a href="javascript:void(0);"
                                    onclick="deleteAddress(${address.addressId})"><i
                                         class="am-icon-trash" id="deleteAddrss"></i>删除</a>
+                                </c:if>
                             </div>
                         </li>
-                    </c:if>
                 </c:forEach>
             </ul>
 
@@ -314,4 +290,5 @@
         });
     });
 </script>
+<script type="text/javascript" src="/public/basic/js/addressDefine.js"></script>
 </html>
