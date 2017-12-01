@@ -31,9 +31,11 @@ $(document).ready(function () {
                 waitTime--;
                 if (waitTime > 0) {
                     getEmailCodeBtn.attr("disabled", "true");
-                    getEmailCodeBtn.text('重新获取（' + waitTime + '秒）');
+                    // getEmailCodeBtn.text('重新获取（' + waitTime + '秒）');
+                    getEmailCodeBtn.attr("value", '重新获取（' + waitTime + '秒');
                 } else if (waitTime === 0) {
-                    getEmailCodeBtn.text('重新获取验证码');
+                    // getEmailCodeBtn.text('重新获取验证码');
+                    getEmailCodeBtn.attr("value", '重新获取验证码');
                     getEmailCodeBtn.removeAttr("disabled");
                 } else {
                     clearInterval(this);
