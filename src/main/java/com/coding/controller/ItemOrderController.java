@@ -34,11 +34,13 @@ public class ItemOrderController {
             Cart cart = adminService.selectCartByPrimaryKey(itemId);
             item = adminService.selectItemByPrimaryKey(cart.getItemId());
             orders.setOrderSumPrice(item.getItemPrice() * cart.getItemNumber()+item.getPostPrice());
+            orders.setOrderFreight(item.getPostPrice());
             orderDetail.setItemNumber(cart.getItemNumber());
             deleteItemNum(cart.getItemId(), cart.getItemNumber());
         } else {
             item = adminService.selectItemByPrimaryKey(itemId);
             orders.setOrderSumPrice(item.getItemPrice() * itemNumber+item.getPostPrice());
+            orders.setOrderFreight(item.getPostPrice());
             orderDetail.setItemNumber(itemNumber);
         }
         orders.setTakeGoodsName(item.getItemName());
