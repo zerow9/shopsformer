@@ -84,12 +84,12 @@ public class PayController {
             cart_id += cart.getCartId() + ",";
         }
         cart_id = cart_id.substring(0, cart_id.length() - 1);
-        if (!cart_id.contains(","))
-            session.setAttribute("pop", 1);
+        session.setAttribute("pop", 1);
         session.setAttribute("cartIds", cart_id);
         double frightPrice = (Double) session.getAttribute("frightPrice");
         DecimalFormat df = new DecimalFormat("#.00");
-        session.setAttribute("sumCart", df.format(sum+frightPrice));
+        session.setAttribute("sumCart", df.format(sum + frightPrice));
+        session.removeAttribute("frightPrice");
         request.setAttribute("carts", cartDetails);
         return "homes/pay";
     }
@@ -109,7 +109,10 @@ public class PayController {
         adminService.updateItemByPrimaryKey(item);
         double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
         session.setAttribute("cartIds", cartId);
-        session.setAttribute("sumCart", sum);
+        double frightPrice = (Double) session.getAttribute("frightPrice");
+        DecimalFormat df = new DecimalFormat("#.00");
+        session.setAttribute("sumCart", df.format(sum + frightPrice));
+        session.removeAttribute("frightPrice");
         request.setAttribute("carts", cartDetails);
         return "homes/pay";
     }
@@ -120,29 +123,16 @@ public class PayController {
         List<Integer> ordersList = (List<Integer>) session.getAttribute("ordersList");
         Integer pop = (Integer) session.getAttribute("pop");
         Integer count = (Integer) session.getAttribute("collectCount");
-        if (ordersList.size() == 1) {
-            Orders orders = adminService.selectOrderByPrimaryKey(ordersList.get(0));
-            orders.setPayStatus(1);
-            orders.setSendStatus(1);
-            orders.setOrderPayTime(new Date());
-            adminService.updateOrderByPrimaryKeySelective(orders);
-            if (pop != null && pop == 1) {
-                adminService.deleteCartByPrimaryKeyArray(cartId);
-                session.removeAttribute("collectCount");
-                session.setAttribute("collectCount", count - 1);
-            }
-        } else if (cartId.length != 0 && cartId != null) {
-            try {
-                for (Integer ordeId : ordersList) {
-                    Orders orders = adminService.selectOrderByPrimaryKey(ordeId);
-                    orders.setPayStatus(1);
-                    adminService.updateOrderByPrimaryKeySelective(orders);
-                }
-                session.removeAttribute("collectCount");
-                session.setAttribute("collectCount", count - cartId.length);
-                adminService.deleteCartByPrimaryKeyArray(cartId);
-            } catch (Exception e) {
-            }
+        Orders orders = adminService.selectOrderByPrimaryKey(ordersList.get(0));
+        orders.setPayStatus(1);
+        orders.setSendStatus(1);
+        orders.setOrderPayTime(new Date());
+        adminService.updateOrderByPrimaryKeySelective(orders);
+        if (pop != null && pop == 1) {
+            adminService.deleteCartByPrimaryKeyArray(cartId);
+            session.removeAttribute("collectCount");
+            session.setAttribute("collectCount", count - cartId.length);
+            session.removeAttribute("pop");
         }
         return "homes/success";
     }
