@@ -19,7 +19,7 @@
         <li class="person">
             <ul>
                 <li><a href="/user/order/order">订单管理</a></li>
-                <li><a href="/shopCart/getPersonShopCart">我的购物车</a></li>
+                <li><a href="/shopCart/getPersonShopCart">购物车</a></li>
             </ul>
         </li>
 
