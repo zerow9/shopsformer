@@ -909,9 +909,9 @@ p.cart_num {
 }
 
 .ibar_login_box .login_btnbox a {
-    width: 94px;
+ /*   width: 94px;
     height: 30px;
-    line-height: 30px;
+    line-height: 30px;*/
     text-align: center;
     border: 1px solid;
     color: #333;

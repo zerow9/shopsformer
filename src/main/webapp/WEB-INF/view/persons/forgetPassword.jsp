@@ -12,6 +12,7 @@
     <link href="/public/basic/css/stepstyle.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/public/basic/js/jquery-1.7.2.min.js"></script>
     <script src="/public/amazeUI/assets/js/amazeui.js"></script>
+    <link href="/public/basic/css/bootstrap.css" type="text/css">
 </head>
 <body>
 <!--头 -->
@@ -29,35 +30,34 @@
             <div class="m-progress">
 
             </div>
-            <form class="am-form am-form-horizontal" id="update" action="/user/updateUserEmail" method="post">
+            <form class="am-form am-form-horizontal" id="update" action="/updateForgetPassword" method="post">
                 <div class="am-form-group">
-                    <label for="userEmail" class="am-form-label">换绑邮箱:</label>
+                    <label for="email" class="am-form-label">原邮箱</label>
                     <div class="am-form-content">
-                        <input type="email" name="userEmail" id="userEmail" placeholder="新邮箱帐号"
-                               style="border-radius: 4px">
-                    </div>
-                </div>
-
-                <div class="am-form-group">
-                    <label for="email" class="am-form-label">原邮箱:</label>
-                    <div class="am-form-content">
-                        <input type="email" id="email" value="<%=SecurityUtils.getSubject().getPrincipal()%>" readonly
-                               style="border-radius: 4px">
+                        <input type="email" id="email" name="userEmail" style="border-radius: 4px;">
                     </div>
                 </div>
 
                 <%--邮箱验证码--%>
                 <div class="am-form-group">
-                    <label for="userEmail" class="am-form-label">验证码:</label>
+                    <label for="code" class="am-form-label">验证码</label>
                     <div class="am-form-content">
-                        <input  type="text" name="code" id="code" placeholder="点击右侧获取验证码"
-                               style="border-radius: 4px;width:85%;float: left"><input style="float: right;width: 70px;height:32px"
-                                type="button" class="btn btn-info" id="btnSendCode" value="获取"/>
+                        <input type="text" name="code" id="code" placeholder="点击右侧获取验证码"
+                               style="border-radius: 4px;width:85%;float: left"><input
+                                style="float: right;width: 70px;height:32px"
+                                 type="button" class="btn btn-info" id="btnSendCode" value="获取"/>
                     </div>
                 </div>
 
+                <div class="am-form-group">
+                    <label for="password" class="am-form-label">输入新密码</label>
+                    <div class="am-form-content">
+                        <input type="password" name="userPassword" id="password" placeholder="输入新密码"
+                               style="border-radius: 4px">
+                    </div>
+                </div>
                 <div class="info-btn">
-                    <button type="submit" class="am-btn am-btn-danger">保存修改</button>
+                    <button type="submit" class="am-btn am-btn-danger">提交</button>
                 </div>
             </form>
         </div>

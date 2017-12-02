@@ -10,7 +10,7 @@
                 </a>
                 <div class="ibar_login_box status_login">
                     <div class="avatar_box">
-                        <p class="avatar_imgbox"><img src="/public/images/mathera.jpg"/></p>
+                        <a hrf="/user/personalCenter"><p class="avatar_imgbox"><img src="/public/images/mathera.jpg"/></p</a>
                         <ul class="user_info">
                             <li>用户名：${user.userNickname}</li>
                             <li>级&nbsp;别：普通会员</li>
