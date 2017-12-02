@@ -52,12 +52,12 @@ public class PayController {
             cartDetail.setUserUuid(cart.getUserUuid());
             cartDetail.setCartId(cart.getCartId());
             cartDetail.setItemNumber(cart.getItemNumber());
-            money = item.getItemPrice() * cart.getItemNumber()+item.getPostPrice();
+            money = item.getItemPrice() * cart.getItemNumber();
         } else {
             item = adminService.selectItemByPrimaryKey(itemId);
             cartDetail.setUserUuid(uuid);
             cartDetail.setItemNumber(sum);
-            money = item.getItemPrice() * sum+item.getPostPrice();
+            money = item.getItemPrice() * sum;
         }
         cartDetail.setItem(item);
         cartDetails.add(cartDetail);
@@ -86,8 +86,10 @@ public class PayController {
         if (!cart_id.contains(","))
             session.setAttribute("pop", 1);
         session.setAttribute("cartIds", cart_id);
-        session.setAttribute("sumCart", sum);
+        double frightPrice = (double) session.getAttribute("frightPrice");
+        session.setAttribute("sumCart", sum+frightPrice);
         request.setAttribute("carts", cartDetails);
+        session.removeAttribute("frightPrice");
         return "homes/pay";
     }
 

@@ -26,30 +26,11 @@ public class ItemOrderController {
         adminService.updateItemByPrimaryKey(item);
     }
 
-    private int saveOrderDetail(Integer itemId, User user, Integer itemNumber) throws Exception {
+    private int saveOrderDetail(Integer itemIds[], User user, Integer itemNumber,HttpSession session) throws Exception {
         Orders orders = new Orders();
         OrderDetail orderDetail = new OrderDetail();
-        Item item = null;
-        if (itemNumber == null) {
-            Cart cart = adminService.selectCartByPrimaryKey(itemId);
-            item = adminService.selectItemByPrimaryKey(cart.getItemId());
-            orders.setOrderSumPrice(item.getItemPrice() * cart.getItemNumber()+item.getPostPrice());
-            orders.setOrderFreight(item.getPostPrice());
-            orderDetail.setItemNumber(cart.getItemNumber());
-            deleteItemNum(cart.getItemId(), cart.getItemNumber());
-        } else {
-            item = adminService.selectItemByPrimaryKey(itemId);
-            orders.setOrderSumPrice(item.getItemPrice() * itemNumber+item.getPostPrice());
-            orders.setOrderFreight(item.getPostPrice());
-            orderDetail.setItemNumber(itemNumber);
-        }
-        orders.setTakeGoodsName(item.getItemName());
-        double d = item.getItemPrice();
-        orders.setTakeGoodsPost((int) d);
-        double score = orders.getOrderSumPrice() / 10.0;
-        orders.setUseScore((int) score);
+
         orders.setAddressId(user.getUserAddress());
-        orders.setShopId(itemId);
         orders.setUserUuid(user.getUserUuid());
         orders.setOrderCreateTime(new Date());
         orders.setPayStatus(0);
@@ -57,15 +38,61 @@ public class ItemOrderController {
         orders.setDiscussStatus(0);
         orders.setTakeGoodsStatus(0);
         int ordersId = adminService.insertOrderSelectiveReturnId(orders);
-        orderDetail.setOrderId(ordersId);
-        orderDetail.setItemId(item.getItemId());
-        orderDetail.setItemPrice(item.getItemPrice());
-        orderDetail.setUserUuid(user.getUserUuid());
-        orderDetail.setUseScore(user.getUserScore());
-        double sum = orders.getOrderSumPrice();
-        orderDetail.setSendScore((int) sum);
-        orderDetail.setItemSumPrice(sum);
-        adminService.insertOrderDetailSelective(orderDetail);
+
+        Item item = null;
+        Double sumPrice = 0.0;
+        Double freightPrice = 0.0;
+        if (itemNumber == null) {
+            for (Integer itemId : itemIds) {
+                Cart cart = adminService.selectCartByPrimaryKey(itemId);
+                item = adminService.selectItemByPrimaryKey(cart.getItemId());
+                sumPrice += item.getItemPrice() * cart.getItemNumber();
+//                orders.setOrderSumPrice(item.getItemPrice() * cart.getItemNumber()+item.getPostPrice());
+                if (item.getPostPrice() > freightPrice)
+                    freightPrice = item.getPostPrice();
+//                orders.setOrderFreight(item.getPostPrice());
+                orderDetail.setItemNumber(cart.getItemNumber());
+                deleteItemNum(cart.getItemId(), cart.getItemNumber());
+
+//                orders.setTakeGoodsName(item.getItemName());
+//                double d = item.getItemPrice();
+//                orders.setTakeGoodsPost((int) d);
+
+                orderDetail.setOrderId(ordersId);
+                orderDetail.setItemId(item.getItemId());
+                orderDetail.setItemPrice(item.getItemPrice());
+                orderDetail.setUserUuid(user.getUserUuid());
+                orderDetail.setUseScore(user.getUserScore());
+                double sum = item.getItemPrice();
+                orderDetail.setSendScore((int)sum);
+                adminService.insertOrderDetailSelective(orderDetail);
+            }
+        } else {
+            for (Integer itemId : itemIds) {
+                item = adminService.selectItemByPrimaryKey(itemId);
+//                orders.setOrderSumPrice(item.getItemPrice() * itemNumber + item.getPostPrice());
+//                orders.setOrderFreight(item.getPostPrice());
+                sumPrice += item.getItemPrice() * itemNumber;
+                if (item.getPostPrice() > freightPrice)
+                    freightPrice = item.getPostPrice();
+                orderDetail.setItemNumber(itemNumber);
+                orderDetail.setOrderId(ordersId);
+                orderDetail.setItemId(item.getItemId());
+                orderDetail.setItemPrice(item.getItemPrice());
+                orderDetail.setUserUuid(user.getUserUuid());
+                orderDetail.setUseScore(user.getUserScore());
+                double sum = item.getItemPrice();
+                orderDetail.setSendScore((int) sum);
+                adminService.insertOrderDetailSelective(orderDetail);
+            }
+        }
+        double score = sumPrice / 10.0;
+        orders.setUseScore((int) score);
+        orders.setOrderSumPrice(sumPrice+freightPrice);
+        orders.setOrderId(ordersId);
+        orders.setOrderFreight(freightPrice);
+        adminService.updateOrderByPrimaryKeySelective(orders);
+        session.setAttribute("frightPrice",freightPrice);
         return ordersId;
     }
 
@@ -76,9 +103,9 @@ public class ItemOrderController {
         String cart_id = "";
         List<Integer> ordersList = new ArrayList<>();
         if (cartId.length != 0) {
+            int ordersId = saveOrderDetail(cartId, user, null,session);
+            ordersList.add(ordersId);
             for (Integer id : cartId) {
-                int ordersId = saveOrderDetail(id, user, null);
-                ordersList.add(ordersId);
                 cart_id += id + ",";
             }
             if (session.getAttribute("ordersList") != null)
@@ -93,10 +120,12 @@ public class ItemOrderController {
     @ResponseBody
     public boolean orderBuy(Integer itemId, Integer itemNumber, HttpSession session) throws Exception {
         List<Integer> ordersList = new ArrayList<>();
+        Integer []itemIds = new Integer[1];
+        itemIds[0] = itemId;
         try {
             String uuid = (String) session.getAttribute("uuid");
             User user = adminService.selectUserByPrimaryKey(uuid);
-            int ordersId = saveOrderDetail(itemId, user, itemNumber);
+            int ordersId = saveOrderDetail(itemIds, user, itemNumber,session);
             ordersList.add(ordersId);
             if (session.getAttribute("ordersList") != null)
                 session.removeAttribute("ordersList");
