@@ -32,7 +32,7 @@ public class SearchController {
         String searchKey = JavaGet.charsetGet(searchInput,request);
         SearchField searchField = new SearchField();
         searchField.setIndexNumber(page-1);
-        searchField.setPageNumber(12);
+        searchField.setPageNumber(15);
         searchField.setCondition(searchKey);
         customVoSearch.setSearchInput(searchKey);
         customVoSearch.setPage(page);
@@ -42,8 +42,8 @@ public class SearchController {
         if (count==0)
             customVoSearch.setSearchCount(-1);
         else
-            customVoSearch.setSearchCount((count-1)/4);
-        customVoSearch.setSumPage(count/12+1);
+            customVoSearch.setSearchCount((count-1)/5);
+        customVoSearch.setSumPage(count/15+1);
         List<Item> items = indexService.findByIndex(searchField);
         model.addAttribute("items",items);
         model.addAttribute("customVoSearch",customVoSearch);
