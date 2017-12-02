@@ -33,12 +33,12 @@ public class ItemOrderController {
         if (itemNumber == null) {
             Cart cart = adminService.selectCartByPrimaryKey(itemId);
             item = adminService.selectItemByPrimaryKey(cart.getItemId());
-            orders.setOrderSumPrice(item.getItemMarketPrice() * cart.getItemNumber());
+            orders.setOrderSumPrice(item.getItemPrice() * cart.getItemNumber());
             orderDetail.setItemNumber(cart.getItemNumber());
             deleteItemNum(cart.getItemId(), cart.getItemNumber());
         } else {
             item = adminService.selectItemByPrimaryKey(itemId);
-            orders.setOrderSumPrice(item.getItemMarketPrice() * itemNumber);
+            orders.setOrderSumPrice(item.getItemPrice() * itemNumber);
             orderDetail.setItemNumber(itemNumber);
         }
         orders.setTakeGoodsName(item.getItemName());
