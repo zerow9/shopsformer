@@ -35,8 +35,7 @@ public class ItemOrderController {
             item = adminService.selectItemByPrimaryKey(cart.getItemId());
             orders.setOrderSumPrice(item.getItemMarketPrice() * cart.getItemNumber());
             orderDetail.setItemNumber(cart.getItemNumber());
-            itemNumber=cart.getItemNumber();
-            deleteItemNum(itemId, itemNumber);
+            deleteItemNum(cart.getItemId(), cart.getItemNumber());
         } else {
             item = adminService.selectItemByPrimaryKey(itemId);
             orders.setOrderSumPrice(item.getItemMarketPrice() * itemNumber);
