@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/public/basic/css/movedown.css">
     <link rel="stylesheet" href="/public/basic/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/public/basic/css/bootstrapValidator.css">
-    <%--<script src="/public/basic/js/bootstrap.js"></script>--%>
     <script src="/public/basic/js/bootstrapValidator.js"></script>
 </head>
 

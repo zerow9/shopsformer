@@ -44,9 +44,12 @@ public class SafeController {
     public String updateUserPassword(User user, String oldPassword, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
         User use = adminService.selectUserByPrimaryKey(uuid);
+        String salt=oldPassword+use.getSalt();
+        oldPassword=userService.selectMD5(salt);
         if (use.getUserPassword().equals(oldPassword)) {
-            user.setUserUuid(uuid);
-            userService.updateUserByPrimaryKeySelective(user);
+            String str=user.getUserPassword()+use.getSalt();
+            use.setUserPassword(str);
+            userService.updateUserByPrimaryKeySelective(use);
             return "redirect:/user/safePage";
         }
         throw new Exception("修改密码不成功");
@@ -56,7 +59,7 @@ public class SafeController {
     public String updateUserEmail(String userEmail, String code, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
         String emailCode = "" + (Integer) session.getAttribute("emailCode");
-        if (session.getAttribute("emailCode").equals(code)) {
+        if (emailCode.equals(code)) {
             User user = new User();
             user.setUserUuid(uuid);
             user.setUserEmail(userEmail);

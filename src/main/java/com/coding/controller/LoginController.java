@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.InetAddress;
 import java.util.List;
 
 @Controller
@@ -40,6 +41,13 @@ public class LoginController {
         use.setUserEmail(photo);
         pagingCustomUser.setUser(use);
         User user = adminService.selectUser(pagingCustomUser).get(0);
+
+        User us=new User();
+        us.setUserUuid(user.getUserUuid());
+        us.setUserLandIp(InetAddress.getLocalHost().getHostAddress());
+        us.setUserLandNumber(user.getUserLandNumber()+1);
+        adminService.updateUserByPrimaryKeySelective(us);
+
         Cart cart = new Cart();
         cart.setUserUuid(user.getUserUuid());
         PagingCustomCart pagingCustomCollect = new PagingCustomCart();

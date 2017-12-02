@@ -12,6 +12,7 @@
     <link href="/public/basic/css/stepstyle.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/public/basic/js/jquery-1.7.2.min.js"></script>
     <script src="/public/amazeUI/assets/js/amazeui.js"></script>
+    <link href="/public/basic/css/bootstrap.css" type="text/css">
 </head>
 <body>
 <!--头 -->
@@ -29,15 +30,14 @@
             <div class="m-progress">
 
             </div>
-            <form class="am-form am-form-horizontal" id="update" action="/user/updateUserEmail" method="post">
+            <form class="am-form am-form-horizontal" id="update" action="/updateForgetPassword" method="post">
                 <div class="am-form-group">
                     <label for="email" class="am-form-label">原邮箱</label>
                     <div class="am-form-content">
-                        <input type="email" id="email" value="<%=SecurityUtils.getSubject().getPrincipal()%>" readonly>
+                        <input type="email" id="email" name="userEmail">
                     </div>
                 </div>
 
-                <%--邮箱验证码--%>
                 <div class="form-group">
                     <div class="input-group">
                         <label for="code" class="input-group-addon"><i
@@ -49,14 +49,15 @@
                                     </span>
                     </div>
                 </div>
+
                 <div class="am-form-group">
-                    <label for="userEmail" class="am-form-label">新邮箱</label>
+                    <label for="password" class="am-form-label">输入新密码</label>
                     <div class="am-form-content">
-                        <input type="email" name="userEmail" id="userEmail" placeholder="请输入新邮箱">
+                        <input type="password" name="userPassword" id="password" placeholder="输入新密码">
                     </div>
                 </div>
                 <div class="info-btn">
-                    <div class="am-btn am-btn-danger" onclick="sub()">保存修改</div>
+                    <button type="submit" class="btn btn-default">提交</button>
                 </div>
             </form>
         </div>
