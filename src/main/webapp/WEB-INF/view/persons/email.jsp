@@ -31,32 +31,33 @@
             </div>
             <form class="am-form am-form-horizontal" id="update" action="/user/updateUserEmail" method="post">
                 <div class="am-form-group">
-                    <label for="email" class="am-form-label">原邮箱</label>
+                    <label for="userEmail" class="am-form-label">换绑邮箱:</label>
                     <div class="am-form-content">
-                        <input type="email" id="email" value="<%=SecurityUtils.getSubject().getPrincipal()%>" readonly>
+                        <input type="email" name="userEmail" id="userEmail" placeholder="新邮箱帐号"
+                               style="border-radius: 4px">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="email" class="am-form-label">原邮箱:</label>
+                    <div class="am-form-content">
+                        <input type="email" id="email" value="<%=SecurityUtils.getSubject().getPrincipal()%>" readonly
+                               style="border-radius: 4px">
                     </div>
                 </div>
 
                 <%--邮箱验证码--%>
-                <div class="form-group">
-                    <div class="input-group">
-                        <label for="code" class="input-group-addon"><i
-                                class="am-icon-code-fork"></i></label>
-                        <input type="text" class="form-control" name="code" id="code"
-                               placeholder="请输入验证码">
-                        <span class="input-group-addon" id="codeSpan">
-                                        <input type="button" class="btn btn-info" id="btnSendCode" value="获取验证码"/>
-                                    </span>
-                    </div>
-                </div>
                 <div class="am-form-group">
-                    <label for="userEmail" class="am-form-label">新邮箱</label>
+                    <label for="userEmail" class="am-form-label">验证码:</label>
                     <div class="am-form-content">
-                        <input type="email" name="userEmail" id="userEmail" placeholder="请输入新邮箱">
+                        <input  type="text" name="code" id="code" placeholder="点击右侧获取验证码"
+                               style="border-radius: 4px;width:85%;float: left"><input style="float: right;width: 70px;height:32px"
+                                type="button" class="btn btn-info" id="btnSendCode" value="获取"/>
                     </div>
                 </div>
+
                 <div class="info-btn">
-                    <div class="am-btn am-btn-danger" onclick="sub()">保存修改</div>
+                    <button type="submit" class="am-btn am-btn-danger">保存修改</button>
                 </div>
             </form>
         </div>
