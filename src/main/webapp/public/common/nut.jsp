@@ -1,136 +1,53 @@
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!--坚果-->
 
-<div class="am-container">
+<!--甜点-->
+<div class="am-container ">
     <div class="shopTitle ">
-        <h4>坚果</h4>
-        <h3>酥酥脆脆，回味无穷</h3>
+        <h4>药品</h4>
+        <h3>每一类药都对应一种特殊症状</h3>
         <div class="today-brands ">
-            <a href="# ">腰果</a>
-            <a href="# ">松子</a>
-            <a href="# ">夏威夷果 </a>
-            <a href="# ">碧根果</a>
-            <a href="# ">开心果</a>
-            <a href="# ">核桃仁</a>
+            <a href="# ">止疼药</a>
+            <a href="# ">肠胃药</a>
+            <a href="# ">感冒咳嗽</a>
+            <a href="# ">腰腿疼痛</a>
+            <a href="# ">保健理疗</a>
+            <a href="# ">体检套餐</a>
         </div>
         <span class="more ">
-            <a href="# ">更多美味<i class="am-icon-angle-right " style="padding-left:10px ; "></i></a>
+            <a href="# ">更多特效药品<i class="am-icon-angle-right " style="padding-left:10px ; "></i></a>
         </span>
     </div>
 </div>
 
-<div class="am-g am-g-fixed floodThree ">
-
-    <div class="am-u-sm-4 text-four list ">
+<div class="am-g am-g-fixed floodFour ">
+    <div class="am-u-sm-5 am-u-md-4 text-one list ">
         <div class="word ">
-            <a class="outer " href="#"><span class="inner "><b class="text ">核桃</b></span></a>
-            <a class="outer " href="#"><span class="inner "><b class="text ">核桃</b></span></a>
-            <a class="outer " href="#"><span class="inner "><b class="text ">核桃</b></span></a>
-            <a class="outer " href="#"><span class="inner "><b class="text ">核桃</b></span></a>
-            <a class="outer " href="#"><span class="inner "><b class="text ">核桃</b></span></a>
-            <a class="outer " href="#"><span class="inner "><b class="text ">核桃</b></span></a>
+            <a class="outer " href="#"><span class="inner "><b class="text ">保健</b></span></a>
+            <a class="outer " href="#"><span class="inner "><b class="text ">营养</b></span></a>
+            <a class="outer " href="#"><span class="inner "><b class="text ">滋补</b></span></a>
+            <a href="# ">
+                <div class="outer-con ">
+                    <div class="title ">
+                        特惠好礼 活动开始啦！
+                    </div>
+                    <div class="sub-title ">
+                        体检套餐
+                    </div>
+                </div>
+                <img src="/public/images/act01.png "/>
+            </a>
         </div>
-        <a href="#">
-            <img src="/public/images/act1.png"/>
-            <div class="outer-con">
-                <div class="title">
-                    雪之恋和风大福
-                </div>
-            </div>
-        </a>
-        <div class="triangle-topright "></div>
     </div>
 
-    <div class="am-u-sm-4 text-four ">
-        <a href="#">
-            <img src="/public/images/6.jpg "/>
+    <C:forEach var="item" items="${listFinallyItem}">
+        <div class="am-u-sm-7 am-u-md-4 text-three">
             <div class="outer-con ">
-                <div class="title ">
-                    雪之恋和风大福
-                </div>
-                <div class="sub-title ">
-                    ¥13.8
-                </div>
-                <i class="am-icon-shopping-basket am-icon-md seprate "></i>
+                <div class="title ">${item.itemName}</div>
+                <div class="sub-title ">${item.itemPrice}</div>
+                <i  onclick="oncartItem(${item.itemId})" class="am-icon-shopping-basket am-icon-md seprate "></i>
             </div>
-        </a>
-    </div>
-
-    <div class="am-u-sm-4 text-four sug ">
-        <a href="#">
-            <img src="/public/images/7.jpg "/>
-            <div class="outer-con ">
-                <div class="title ">
-                    雪之恋和风大福
-                </div>
-                <div class="sub-title ">
-                    ¥13.8
-                </div>
-                <i class="am-icon-shopping-basket am-icon-md seprate "></i>
-            </div>
-        </a>
-    </div>
-
-    <div class="am-u-sm-6 am-u-md-3 text-five big ">
-        <a href="# ">
-            <img src="/public/images/10.jpg "/>
-            <div class="outer-con ">
-                <div class="title ">
-                    雪之恋和风大福
-                </div>
-                <div class="sub-title ">
-                    ¥13.8
-                </div>
-                <i class="am-icon-shopping-basket am-icon-md seprate "></i>
-            </div>
-        </a>
-    </div>
-
-    <div class="am-u-sm-6 am-u-md-3 text-five ">
-        <a href="# ">
-            <img src="/public/images/8.jpg "/>
-            <div class="outer-con ">
-                <div class="title ">
-                    雪之恋和风大福
-                </div>
-                <div class="sub-title ">
-                    ¥13.8
-                </div>
-                <i class="am-icon-shopping-basket am-icon-md seprate "></i>
-            </div>
-        </a>
-    </div>
-
-    <div class="am-u-sm-6 am-u-md-3 text-five sug ">
-        <a href="# ">
-            <img src="/public/images/9.jpg "/>
-            <div class="outer-con ">
-                <div class="title ">
-                    雪之恋和风大福
-                </div>
-                <div class="sub-title ">
-                    ¥13.8
-                </div>
-                <i class="am-icon-shopping-basket am-icon-md seprate "></i>
-            </div>
-        </a>
-    </div>
-
-    <div class="am-u-sm-6 am-u-md-3 text-five big ">
-        <a href="# ">
-            <img src="/public/images/10.jpg"/>
-            <div class="outer-con ">
-                <div class="title ">
-                    雪之恋和风大福
-                </div>
-                <div class="sub-title ">
-                    ¥13.8
-                </div>
-                <i class="am-icon-shopping-basket am-icon-md seprate "></i>
-            </div>
-        </a>
-    </div>
-
+            <a href="/item/findItemMessage?itemId=${item.itemId}&page=1"><img src="${item.itemImages} "/></a>
+        </div>
+    </C:forEach>
 </div>
-
-<div class="clear"></div>
