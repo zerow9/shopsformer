@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,7 +77,7 @@ public class PayController {
         uuidGetAddress(session, addresses);
         List<Cart> carts = adminService.selectCartByCartIdArray(pagingCustomCart);
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
-        double sum = 0;
+        double sum = 0.0;
         String cart_id = "";
         for (Cart cart : carts) {
             sum += cartGetCartDetail(null, cart, cartDetails, 0, uuid);
@@ -86,10 +87,10 @@ public class PayController {
         if (!cart_id.contains(","))
             session.setAttribute("pop", 1);
         session.setAttribute("cartIds", cart_id);
-        double frightPrice = (double) session.getAttribute("frightPrice");
-        session.setAttribute("sumCart", sum+frightPrice);
+        double frightPrice = (Double) session.getAttribute("frightPrice");
+        DecimalFormat df = new DecimalFormat("#.00");
+        session.setAttribute("sumCart", df.format(sum+frightPrice));
         request.setAttribute("carts", cartDetails);
-        session.removeAttribute("frightPrice");
         return "homes/pay";
     }
 

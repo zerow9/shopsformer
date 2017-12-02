@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -88,10 +89,13 @@ public class ItemOrderController {
         }
         double score = sumPrice / 10.0;
         orders.setUseScore((int) score);
-        orders.setOrderSumPrice(sumPrice+freightPrice);
+        DecimalFormat df = new DecimalFormat("#.00");
+        orders.setOrderSumPrice(Double.parseDouble(df.format(sumPrice+freightPrice)));
         orders.setOrderId(ordersId);
         orders.setOrderFreight(freightPrice);
         adminService.updateOrderByPrimaryKeySelective(orders);
+        if (session.getAttribute("frightPrice")!=null)
+            session.removeAttribute("frightPrice");
         session.setAttribute("frightPrice",freightPrice);
         return ordersId;
     }
