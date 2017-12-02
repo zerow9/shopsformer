@@ -14,7 +14,7 @@
 </head>
 <body>
 <C:if test="${empty listItem}">
-    <form action="/item/indexTenItem" id="sun" method="post"></form>
+    <form action="/item/indexEightItem" id="sun" method="post"></form>
 </C:if>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
 <jsp:include page="/public/common/banner.jsp" flush="true"/>
@@ -31,67 +31,19 @@
             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
         </div>
         <div id="f3">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+            <jsp:include page="/public/common/nut.jsp" flush="true"/>
         </div>
 
-
-        <%--&lt;%&ndash;  &lt;%&ndash;坚果&ndash;%&gt;--%>
-        <%--<div id="f2">--%>
-            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
-        <%--</div>--%>
-
-        <%--&lt;%&ndash;甜点&ndash;%&gt;--%>
-        <%--<div id="f3">--%>
-            <%--<jsp:include page="/public/common/dessert.jsp" flush="true"/>--%>
-        <%--</div>--%>
-
-        <%--&lt;%&ndash;坚果&ndash;%&gt;--%>
-        <%--<div id="f4">--%>
-            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
-        <%--</div>--%>
-
-        <%--&lt;%&ndash;甜点&ndash;%&gt;--%>
-        <%--<div id="f5">--%>
-            <%--<jsp:include page="/public/common/dessert.jsp" flush="true"/>--%>
-        <%--</div>--%>
-
-        <%--&lt;%&ndash;坚果&ndash;%&gt;--%>
-        <%--<div id="f6">--%>
-            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
-        <%--</div>--%>
-
-        <%--&lt;%&ndash;甜点&ndash;%&gt;--%>
-        <%--<div id="f7">--%>
-            <%--<jsp:include page="/public/common/dessert.jsp" flush="true"/>--%>
-        <%--</div>--%>
-
-        <%--&lt;%&ndash;坚果&ndash;%&gt;--%>
-        <%--<div id="f8">--%>
-            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
-        <%--</div>--%>
-
-        <%--&lt;%&ndash;甜点&ndash;%&gt;--%>
-        <%--<div id="f9">--%>
-            <%--<jsp:include page="/public/common/dessert.jsp" flush="true"/>--%>
-        <%--</div>--%>
-
-        <%--&lt;%&ndash;坚果&ndash;%&gt;--%>
-        <%--<div id="f10">--%>
-            <%--<jsp:include page="/public/common/nut.jsp" flush="true"/>--%>
-        <%--</div>--%>
-        <%--<jsp:include page="/public/common/footer.jsp" flush="true"/>--%>
-
     </div>
-
     <jsp:include page="/public/common/tip.jsp" flush="true"/>
     <jsp:include page="/public/common/footer.jsp"/>
-    <%--<jsp:include page="/public/common/customerServices.jsp" flush="true"/>--%>
 </div>
 </body>
 <script type="text/javascript">
+
     window.onload = function () {
         var obj = document.getElementById("sun");
-        obj.action = "/item/indexTenItem";
+        obj.action = "/item/indexEightItem";
         obj.submit();
     }
 </script>

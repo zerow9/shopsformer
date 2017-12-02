@@ -34,26 +34,31 @@ public class ScController {
         return "homes/sc";
     }
 
+
+    private byte[] BASE64Buffer(String imagePath) throws Exception {
+        BASE64Decoder decoder = new BASE64Decoder();
+        byte[] b = decoder.decodeBuffer(imagePath);
+        for (int i = 0; i < b.length; ++i) {
+            if (b[i] < 0) {
+                b[i] += 256;
+            }
+        }
+        return b;
+    }
+
     @RequestMapping("/sc")
     @ResponseBody
     public boolean sc(String sj, String email) throws Exception {
-        String imgFilePath = Constant.FaceOtherImage;
-        BASE64Decoder decoder = new BASE64Decoder();
         try {
-            byte[] b = decoder.decodeBuffer(sj);
-            for (int i = 0; i < b.length; ++i) {
-                if (b[i] < 0) {
-                    b[i] += 256;
-                }
-            }
-            OutputStream out = new FileOutputStream(imgFilePath);
+            byte[] b = BASE64Buffer(sj);
+            OutputStream out = new FileOutputStream(Constant.FaceOtherImage);
             out.write(b);
             out.flush();
             out.close();
             String oos = userService.selectUserFaceImage(email);
             FaceImage.downloadPicture(oos);
             Face face = new Face();
-            float f = face.start(Constant.FaceImage, imgFilePath);
+            float f = face.start(Constant.FaceImage, Constant.FaceOtherImage);
             if (f > 0.8)
                 return true;
         } catch (Exception e) {
@@ -64,18 +69,11 @@ public class ScController {
     @RequestMapping("/updateFace")
     @ResponseBody
     public boolean updateFace(String sj, HttpSession session) throws Exception {
-        BASE64Decoder decoder = new BASE64Decoder();
         try {
-            byte[] b = decoder.decodeBuffer(sj);
-            for (int i = 0; i < b.length; ++i) {
-                if (b[i] < 0) {
-                    b[i] += 256;
-                }
-            }
+            byte[] b = BASE64Buffer(sj);
             InputStream inputStream = new ByteArrayInputStream(b);
             String uuid = (String) session.getAttribute("uuid");
             String url = ossFileService.uploadFile(inputStream, uuid + ".jpg");
-            System.out.println(url + "############");
             User user = new User();
             user.setUserUuid(uuid);
             user.setFaceImage(url);
