@@ -47,7 +47,7 @@
                 <div class="sub-title ">${item.itemPrice}</div>
                 <i  onclick="oncartItem(${item.itemId})" class="am-icon-shopping-basket am-icon-md seprate "></i>
             </div>
-            <a href="/item/findItemMessage?itemId=${item.itemId}&page=1"><img src="${item.itemImages} "/></a>
+            <a href="/item/findItemMessage?itemId=${item.itemId}&page=1"><img src="${item.itemImages} " style="width: 160px;height: 150px"/></a>
         </div>
     </C:forEach>
 </div>
