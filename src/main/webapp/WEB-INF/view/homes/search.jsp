@@ -77,7 +77,7 @@
                                     <p class="price fl">
                                         <b>¥</b>
                                         <strong>${items.itemPrice}</strong>
-                                        <i  onclick="oncartItem(${items.itemId})" class="am-icon-shopping-basket am-icon-md seprate " style="float: right"></i>
+                                        <i <c:if test="${items.repertoryNumber!=0}"> onclick="oncartItem(${items.itemId})" </c:if> class="am-icon-shopping-basket am-icon-md seprate " style="float: right"></i>
                                     </p>
 
                                 </div>
