@@ -89,7 +89,6 @@ public class PayController {
         double frightPrice = (Double) session.getAttribute("frightPrice");
         DecimalFormat df = new DecimalFormat("#.00");
         session.setAttribute("sumCart", df.format(sum + frightPrice));
-        session.removeAttribute("frightPrice");
         request.setAttribute("carts", cartDetails);
         return "homes/pay";
     }
@@ -112,7 +111,6 @@ public class PayController {
         double frightPrice = (Double) session.getAttribute("frightPrice");
         DecimalFormat df = new DecimalFormat("#.00");
         session.setAttribute("sumCart", df.format(sum + frightPrice));
-        session.removeAttribute("frightPrice");
         request.setAttribute("carts", cartDetails);
         return "homes/pay";
     }
@@ -150,7 +148,10 @@ public class PayController {
         adminService.updateOrderByPrimaryKeySelective(orders);
         if (session.getAttribute("sumCart") != null)
             session.removeAttribute("sumCart");
-        session.setAttribute("sumCart", sum);
+        double frightPrice = (Double) session.getAttribute("frightPrice");
+        DecimalFormat df = new DecimalFormat("#.00");
+        String sump = df.format(sum + frightPrice);
+        session.setAttribute("sumCart",sump);
         return "homes/success";
     }
 }
