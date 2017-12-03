@@ -45,7 +45,7 @@
             <div class="outer-con ">
                 <div class="title ">${item.itemName}</div>
                 <div class="sub-title ">${item.itemPrice}</div>
-                <i <C:if test="${item.repertoryNumber!=0}"> onclick="oncartItem(${item.itemId})"</C:if> class="am-icon-shopping-basket am-icon-md seprate "></i>
+                <i onclick="oncartItem(${item.itemId})" class="am-icon-shopping-basket am-icon-md seprate "></i>
             </div>
             <a href="/item/findItemMessage?itemId=${item.itemId}&page=1"><img src="${item.itemImages} " style="width: 180px;height: 180px"/></a>
         </div>
