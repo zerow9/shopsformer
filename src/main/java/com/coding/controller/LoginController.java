@@ -33,6 +33,7 @@ public class LoginController {
         return "homes/register";
     }
 
+    //登陆成功之后要加载的数据
     @RequestMapping("first")
     public String first(HttpSession session) throws Exception {
         String photo = (String) SecurityUtils.getSubject().getPrincipal();
@@ -66,6 +67,7 @@ public class LoginController {
         return "homes/index";
     }
 
+    //登陆
     @RequestMapping("login")
     public String login(HttpServletRequest request) throws Exception {
         String exceptionClassName = (String) request.getAttribute("shiroLoginFailure");

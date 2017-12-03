@@ -32,6 +32,7 @@ public class UserInfoController {
         return "persons/information";
     }
 
+    //返回个人用户信息
     @RequestMapping("userInfo")
     public String first(HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
@@ -43,6 +44,7 @@ public class UserInfoController {
         return "persons/information";
     }
 
+    //更新用户信息
     @RequestMapping("updateUser")
     public String updateUser(User user) throws Exception {
         //user.setUserPassword(null);
@@ -53,6 +55,7 @@ public class UserInfoController {
         return "forward:userInfo";
     }
 
+    //注册用户
     @ResponseBody
     @RequestMapping("addUser")
     public Map<String, Object> addUser(String emailCode, String email, String password, HttpSession session) throws Exception {
@@ -89,6 +92,7 @@ public class UserInfoController {
         return result;
     }
 
+    //获取验证码
     @ResponseBody
     @RequestMapping("getEmailCode")
     public Map<String, Object> getEmailCode(String email, HttpSession session) {
@@ -113,6 +117,7 @@ public class UserInfoController {
         return result;
     }
 
+    //检查是否存在该用户
     @ResponseBody
     @RequestMapping("hasUser")
     public Map<String, Object> hasUser(String email) {
@@ -137,6 +142,7 @@ public class UserInfoController {
         return result;
     }
 
+    //添加到收藏表
     @RequestMapping("collect")
     @ResponseBody
     public boolean collect(Integer itemId, HttpSession session) throws Exception {
@@ -195,6 +201,7 @@ public class UserInfoController {
         return "success";
     }
 
+    //商品加载在购物车
     @RequestMapping("itemCart")
     @ResponseBody
     public boolean itemCart(Integer cartId, Integer number, HttpSession session) throws Exception {

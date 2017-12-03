@@ -101,6 +101,7 @@ public class ItemOrderController {
     }
 
 
+    //购物车提交订单
     @RequestMapping("orderItem")
     public String orderItem(Integer[] cartId, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
@@ -121,6 +122,7 @@ public class ItemOrderController {
             return "redirect:/shopCart/getPersonShopCart";
     }
 
+    //立刻购买生成订单
     @RequestMapping("orderBuy")
     @ResponseBody
     public boolean orderBuy(Integer itemId, Integer itemNumber, HttpSession session) throws Exception {

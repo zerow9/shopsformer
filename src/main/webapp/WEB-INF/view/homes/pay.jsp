@@ -126,7 +126,7 @@
                                 <ul class="item-content clearfix">
                                     <li class="td td-item">
                                         <div class="item-pic">
-                                            <a href="javascript:;" target="_blank" data-title="${cart.item.itemName}" class="J_MakePoint"
+                                            <a href="/item/findItemMessage?itemId=${cart.item.itemId}&page=1" target="_blank" data-title="${cart.item.itemName}" class="J_MakePoint"
                                                data-point="tbcart.8.12">
                                                 <img src="${cart.item.itemImages}" class="itempic J_ItemImg" width="80"></a>
                                         </div>

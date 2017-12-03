@@ -22,6 +22,7 @@
 
     <script src="/public/basic/js/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="/public/basic/js/script.js" type="text/javascript"></script>
+    <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -67,14 +68,18 @@
                                     <a href="/item/findItemMessage?itemId=${items.itemId}&page=${customVoSearch.page}">
                                         <img src="${items.itemImages}"/>
                                     </a>
-                                    <p class="title fl">${items.itemName}</p>
+                                    <p></p>
+                                    <span class="title fl">${items.itemName}</span>
+                                    <p class="number fl" style="margin-bottom: 25px">
+                                        销量<span>${items.itemSaleNumber}</span>
+                                    </p>
+
                                     <p class="price fl">
                                         <b>¥</b>
                                         <strong>${items.itemPrice}</strong>
+                                        <i <c:if test="${items.repertoryNumber!=0}"> onclick="oncartItem(${items.itemId})" </c:if> class="am-icon-shopping-basket am-icon-md seprate " style="float: right"></i>
                                     </p>
-                                    <p class="number fl">
-                                        销量<span>${items.itemSaleNumber}</span>
-                                    </p>
+
                                 </div>
                             </li>
                         </c:forEach>
@@ -149,4 +154,37 @@
 
 
 </body>
+<script type="text/javascript" src="/public/basic/js/sweetalert.min.js"></script>
+<script type="text/javascript">
+    function oncartItem(id) {
+        <c:if test="${empty user}">
+        swal({
+            title: "请先登录，才能加入购物车噢！",
+            type: "warning",
+            timer: 2000,
+            showConfirmButton: false
+        });
+        </c:if>
+        <c:if test="${!empty user}">
+        $.ajax({
+            url: "/user/itemCart?cartId=" + id + "&number=1",
+            success: function (data) {
+                if (data) {
+                    swal({
+                        title: "加入购物车成功！",
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false,
+                    });
+                } else swal({
+                    title: "加入购物车失败！",
+                    type: "error",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            }
+        });
+        </c:if>
+    }
+</script>
 </html>

@@ -1,4 +1,5 @@
 <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!--甜点-->
@@ -45,7 +46,7 @@
                 <div class="outer-con ">
                     <div class="title ">${item.itemName}</div>
                     <div class="sub-title ">${item.itemPrice}</div>
-                    <i  onclick="oncartItem(${item.itemId})" class="am-icon-shopping-basket am-icon-md seprate "></i>
+                    <i  <c:if test="${item.repertoryNumber!=0}"> onclick="oncartItem(${item.itemId})" </c:if> class="am-icon-shopping-basket am-icon-md seprate "></i>
                 </div>
                 <a href="/item/findItemMessage?itemId=${item.itemId}&page=1"><img src="${item.itemImages} "/></a>
             </div>
