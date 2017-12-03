@@ -39,7 +39,11 @@ public class ItemOrderController {
         orders.setSendStatus(0);
         orders.setDiscussStatus(0);
         orders.setTakeGoodsStatus(0);
-        orders.setAddressId(adminService.selectDefaultAddressByUserUuid(user.getUserUuid()));
+        Integer addressId = adminService.selectDefaultAddressByUserUuid(user.getUserUuid());
+        if (addressId==null)
+            orders.setAddressId(1);
+        else
+            orders.setAddressId(addressId);
         int ordersId = adminService.insertOrderSelectiveReturnId(orders);
         if (session.getAttribute("ordersId")!=null)
             session.removeAttribute("ordersId");

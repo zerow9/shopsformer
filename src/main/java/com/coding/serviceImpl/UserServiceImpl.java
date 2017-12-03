@@ -216,9 +216,11 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
     }
     public Integer selectDefaultAddressByUserUuid(String userUuid) throws Exception{
         Integer addressId = null;
-        if (userUuid!=null&&!userUuid.equals("")){
-            addressId = addressMapper.selectDefaultAddressByUuid(userUuid);
-            if(addressId==null) return 0;
+        try {
+            if (userUuid!=null&&!userUuid.equals("")){
+                addressId = addressMapper.selectDefaultAddressByUuid(userUuid);
+            }
+        }catch (Exception e){
         }
         return addressId;
     }
