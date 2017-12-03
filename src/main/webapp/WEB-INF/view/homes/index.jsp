@@ -10,10 +10,11 @@
     <link href="/public/basic/css/hmstyle.css" rel="stylesheet"/>
     <link href="/public/basic/css/skin.css" rel="stylesheet"/>
     <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css"/>
+
 </head>
 <body>
 <C:if test="${empty listItem}">
-    <form action="/item/indexTenItem" id="sun" method="post"></form>
+    <form action="/item/indexEightItem" id="sun" method="post"></form>
 </C:if>
 <jsp:include page="/public/common/top.jsp" flush="true"/>
 <jsp:include page="/public/common/banner.jsp" flush="true"/>
@@ -30,19 +31,19 @@
             <jsp:include page="/public/common/dessert.jsp" flush="true"/>
         </div>
         <div id="f3">
-            <jsp:include page="/public/common/dessert.jsp" flush="true"/>
+            <jsp:include page="/public/common/nut.jsp" flush="true"/>
         </div>
 
     </div>
-
     <jsp:include page="/public/common/tip.jsp" flush="true"/>
     <jsp:include page="/public/common/footer.jsp"/>
-    <%--<jsp:include page="/public/common/customerServices.jsp" flush="true"/>--%>
+</div>
 </body>
 <script type="text/javascript">
+
     window.onload = function () {
         var obj = document.getElementById("sun");
-        obj.action = "/item/indexTenItem";
+        obj.action = "/item/indexEightItem";
         obj.submit();
     }
 </script>
@@ -58,7 +59,7 @@
         </C:if>
         <C:if test="${!empty user}">
         $.ajax({
-            url: "/user/itemCart?cartId=" + id+"&number=1",
+            url: "/user/itemCart?cartId=" + id + "&number=1",
             success: function (data) {
                 if (data) {
                     swal({
@@ -67,7 +68,7 @@
                         timer: 2000,
                         showConfirmButton: false,
                     });
-                }else swal({
+                } else swal({
                     title: "加入购物车失败！",
                     type: "error",
                     timer: 2000,

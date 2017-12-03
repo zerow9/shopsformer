@@ -21,19 +21,14 @@ public class PersonalController {
     public String personalCenter(HttpSession session, Model model)throws Exception{
         String userUuid = (String) session.getAttribute("uuid");
         CustomVoOrdersCount customVoOrdersCount = new CustomVoOrdersCount();
-//        PagingCustomOrder allPagingCustomOrder = new PagingCustomOrder();
         PagingCustomOrder payPagingCustomOrder = new PagingCustomOrder();
         PagingCustomOrder sendPagingCustomOrder = new PagingCustomOrder();
         PagingCustomOrder takeGoodsPagingCustomOrder = new PagingCustomOrder();
         PagingCustomOrder discussPagingCustomOrder = new PagingCustomOrder();
-//        Orders allOrders = new Orders();
         Orders takeGoodsOrders = new Orders();//收货状态
         Orders payOrders = new Orders();//支付状态
         Orders sendOrders = new Orders();//发货状态
         Orders discussOrders = new Orders();//评论状态
-//        allOrders.setUserUuid(userUuid);
-//        allPagingCustomOrder.setOrder(allOrders);
-//        customVoOrdersCount.setAllOrderCount(userService.selectOredersCountByColumn(allPagingCustomOrder));
 
         payOrders.setPayStatus(0);
         payOrders.setUserUuid(userUuid);

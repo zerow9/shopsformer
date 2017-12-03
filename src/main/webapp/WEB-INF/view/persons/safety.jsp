@@ -94,7 +94,7 @@
                             </div>
                             <div class="fore3">
                                 <a href="/user/getFace">
-                                    <div class="am-btn am-btn-secondary">上传人脸</div>
+                                    <div class="am-btn am-btn-secondary">人脸图片</div>
                                 </a>
                             </div>
                         </li>

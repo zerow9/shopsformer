@@ -159,7 +159,7 @@
                                         <div class="amount-wrapper ">
                                             <div class="item-amount ">
                                                 <div class="sl">
-                                                    <em>${cart.itemNumber} 件</em>
+                                                    <em>x${cart.itemNumber}</em>
                                                 </div>
                                             </div>
                                         </div>

@@ -28,7 +28,6 @@ public class OrderController {
      */
     @RequestMapping("orderDetail")
     public String orderDetail(Integer orderId, Model model)throws Exception{
-//        String userUuid = (String) session.getAttribute("uuid");
         CustomVoAddressDetail customVoAddressDetail = userService.queryAddressDetail(orderId);
         System.out.println(customVoAddressDetail);
         if (customVoAddressDetail!=null)

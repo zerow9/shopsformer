@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,17 +77,18 @@ public class PayController {
         uuidGetAddress(session, addresses);
         List<Cart> carts = adminService.selectCartByCartIdArray(pagingCustomCart);
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
-        double sum = 0;
+        double sum = 0.0;
         String cart_id = "";
         for (Cart cart : carts) {
             sum += cartGetCartDetail(null, cart, cartDetails, 0, uuid);
             cart_id += cart.getCartId() + ",";
         }
         cart_id = cart_id.substring(0, cart_id.length() - 1);
-        if (!cart_id.contains(","))
-            session.setAttribute("pop", 1);
+        session.setAttribute("pop", 1);
         session.setAttribute("cartIds", cart_id);
-        session.setAttribute("sumCart", sum);
+        double frightPrice = (Double) session.getAttribute("frightPrice");
+        DecimalFormat df = new DecimalFormat("#.00");
+        session.setAttribute("sumCart", df.format(sum + frightPrice));
         request.setAttribute("carts", cartDetails);
         return "homes/pay";
     }
@@ -106,7 +108,9 @@ public class PayController {
         adminService.updateItemByPrimaryKey(item);
         double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
         session.setAttribute("cartIds", cartId);
-        session.setAttribute("sumCart", sum);
+        double frightPrice = (Double) session.getAttribute("frightPrice");
+        DecimalFormat df = new DecimalFormat("#.00");
+        session.setAttribute("sumCart", df.format(sum + frightPrice));
         request.setAttribute("carts", cartDetails);
         return "homes/pay";
     }
@@ -117,29 +121,16 @@ public class PayController {
         List<Integer> ordersList = (List<Integer>) session.getAttribute("ordersList");
         Integer pop = (Integer) session.getAttribute("pop");
         Integer count = (Integer) session.getAttribute("collectCount");
-        if (ordersList.size() == 1) {
-            Orders orders = adminService.selectOrderByPrimaryKey(ordersList.get(0));
-            orders.setPayStatus(1);
-            orders.setSendStatus(1);
-            orders.setOrderPayTime(new Date());
-            adminService.updateOrderByPrimaryKeySelective(orders);
-            if (pop != null && pop == 1) {
-                adminService.deleteCartByPrimaryKeyArray(cartId);
-                session.removeAttribute("collectCount");
-                session.setAttribute("collectCount", count - 1);
-            }
-        } else if (cartId.length != 0 && cartId != null) {
-            try {
-                for (Integer ordeId : ordersList) {
-                    Orders orders = adminService.selectOrderByPrimaryKey(ordeId);
-                    orders.setPayStatus(1);
-                    adminService.updateOrderByPrimaryKeySelective(orders);
-                }
-                session.removeAttribute("collectCount");
-                session.setAttribute("collectCount", count - cartId.length);
-                adminService.deleteCartByPrimaryKeyArray(cartId);
-            } catch (Exception e) {
-            }
+        Orders orders = adminService.selectOrderByPrimaryKey(ordersList.get(0));
+        orders.setPayStatus(1);
+        orders.setSendStatus(1);
+        orders.setOrderPayTime(new Date());
+        adminService.updateOrderByPrimaryKeySelective(orders);
+        if (pop != null && pop == 1) {
+            adminService.deleteCartByPrimaryKeyArray(cartId);
+            session.removeAttribute("collectCount");
+            session.setAttribute("collectCount", count - cartId.length);
+            session.removeAttribute("pop");
         }
         return "homes/success";
     }

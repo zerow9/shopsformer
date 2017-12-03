@@ -151,7 +151,7 @@
                                                         <li class="td td-amount">
                                                             <div class="item-amount">
                                                                 合计：${customVoItemsByOrderId.orders.orderSumPrice}
-                                                                <p>含运费：<span>${customVoItemsByOrderId.orders.orderSumPrice+customVoItemsByOrderId.orders.orderFreight}</span></p>
+                                                                <p>运费：<span>${customVoItemsByOrderId.orders.orderFreight}</span></p>
                                                             </div>
                                                         </li>
                                                         <div class="move-right">
@@ -272,7 +272,7 @@
                                                         <li class="td td-amount">
                                                             <div class="item-amount">
                                                                 合计：${pay.orders.orderSumPrice}
-                                                                <p>含运费：<span>${pay.orders.orderSumPrice+pay.orders.orderFreight}</span></p>
+                                                                <p>运费：<span>${pay.orders.orderFreight}</span></p>
                                                             </div>
                                                         </li>
                                                         <div class="move-right">
@@ -283,7 +283,7 @@
                                                                                              onclick="deleteOrder(${pay.orders.orderId},'取消')">取消订单</a></p>
                                                                 </div>
                                                             </li>
-                                                            <li class="td td-change" onclick="payButton(${pay.orders.orderId},${pay.orders.orderSumPrice+pay.orders.orderFreight})">
+                                                            <li class="td td-change" onclick="payButton(${pay.orders.orderId},${pay.orders.orderSumPrice})">
 
                                                                     <div class="am-btn am-btn-danger anniu">
                                                                         一键支付
@@ -383,7 +383,7 @@
                                                         <li class="td td-amount">
                                                             <div class="item-amount">
                                                                 合计：${send.orders.orderSumPrice}
-                                                                <p>含运费：<span>${send.orders.orderSumPrice+send.orders.orderFreight}</span></p>
+                                                                <p>运费：<span>${send.orders.orderFreight}</span></p>
                                                             </div>
                                                         </li>
                                                         <div class="move-right">
@@ -493,7 +493,7 @@
                                                         <li class="td td-amount">
                                                             <div class="item-amount">
                                                                 合计：${takeGoods.orders.orderSumPrice}
-                                                                <p>含运费：<span>${takeGoods.orders.orderSumPrice+takeGoods.orders.orderFreight}</span></p>
+                                                                <p>运费：<span>${takeGoods.orders.orderFreight}</span></p>
                                                             </div>
                                                         </li>
                                                         <div class="move-right">
@@ -608,7 +608,7 @@
                                                         <li class="td td-amount">
                                                             <div class="item-amount">
                                                                 合计：${discuss.orders.orderSumPrice}
-                                                                <p>含运费：<span>${discuss.orders.orderSumPrice+discuss.orders.orderFreight}</span></p>
+                                                                <p>运费：<span>${discuss.orders.orderFreight}</span></p>
                                                             </div>
                                                         </li>
                                                         <div class="move-right">
@@ -684,7 +684,6 @@
                     timer: 2000,
                     showConfirmButton: false
                 });
-
                 window.location.href="/user/pay/onekeyPay?orderId="+id+"&sum="+money;
             });
     }

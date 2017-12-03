@@ -45,6 +45,7 @@ public class UserInfoController {
 
     @RequestMapping("updateUser")
     public String updateUser(User user) throws Exception {
+        //user.setUserPassword(null);
         user.setUserGroup(2);
         user.setUserCurrentTime(new Date());
         user.setUserLandIp(InetAddress.getLocalHost().getHostAddress());
