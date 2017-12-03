@@ -17,6 +17,7 @@ public class PersonalController {
     @Autowired
     private IUserService userService;
 
+    //加载个人中心需要的信息
     @RequestMapping("personalCenter")
     public String personalCenter(HttpSession session, Model model)throws Exception{
         String userUuid = (String) session.getAttribute("uuid");
@@ -29,25 +30,21 @@ public class PersonalController {
         Orders payOrders = new Orders();//支付状态
         Orders sendOrders = new Orders();//发货状态
         Orders discussOrders = new Orders();//评论状态
-
         payOrders.setPayStatus(0);
         payOrders.setUserUuid(userUuid);
         payPagingCustomOrder.setOrder(payOrders);
         customVoOrdersCount.setPayOrderCount(userService.selectOrdersCountByColumn(payPagingCustomOrder));
-
         sendOrders.setUserUuid(userUuid);
         sendOrders.setPayStatus(1);
         sendOrders.setSendStatus(0);
         sendPagingCustomOrder.setOrder(sendOrders);
         customVoOrdersCount.setSendGoodsCount(userService.selectOrdersCountByColumn(sendPagingCustomOrder));
-
         takeGoodsOrders.setUserUuid(userUuid);
         takeGoodsOrders.setPayStatus(1);
         takeGoodsOrders.setSendStatus(1);
         takeGoodsOrders.setTakeGoodsStatus(0);
         takeGoodsPagingCustomOrder.setOrder(takeGoodsOrders);
         customVoOrdersCount.setTakeGoodsCount(userService.selectOrdersCountByColumn(takeGoodsPagingCustomOrder));
-
         discussOrders.setUserUuid(userUuid);
         discussOrders.setPayStatus(1);
         discussOrders.setSendStatus(1);
