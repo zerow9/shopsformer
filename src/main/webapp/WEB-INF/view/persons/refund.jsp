@@ -62,7 +62,7 @@
                 <div class="refund-aside">
                     <div class="item-pic">
                         <a href="#" class="J_MakePoint">
-                            <img src="../../../frontpage/images/comment.jpg_400x400.jpg" class="itempic">
+                            <img src="/public/common/images/comment.jpg_400x400.jpg" class="itempic">
                         </a>
                     </div>
 
