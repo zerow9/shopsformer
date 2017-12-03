@@ -75,4 +75,12 @@ public interface AddressMapper {
      */
     public Integer selectAddressCountByColumn(PagingCustomAddress pagingCustomAddress)throws Exception;
 
+    /**
+     * 查询用户默认地址
+     * @param userUuid 用户唯一ID
+     * @return 满足查询条件的Address对象
+     * @throws Exception
+     */
+    public Integer selectDefaultAddressByUuid(@Param("userUuid") String userUuid)throws Exception;
+
 }

@@ -115,4 +115,13 @@
       from information_schema.columns
       where table_name = 'address'
     </select>
+
+    <select id="selectDefaultAddressByUuid" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT
+        address_id
+        from address
+        WHERE
+        user_uuid = #{userUuid} and
+        is_default_Address = 1
+    </select>
 </mapper>
