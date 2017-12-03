@@ -231,13 +231,11 @@ input.add, input.min {
 }
 
 .footer {
-    width: 100%;
     text-align: center;
     border-top: 2px solid #F8F8F8;
     margin-top: 20px;
     padding-top: 5px;
-    margin-bottom: 100px;
-    position: relative;
+    margin-bottom: 60px;
 }
 
 .footer-hd {
@@ -391,15 +389,17 @@ input.add, input.min {
         text-align: left;
         display: block;
         position: relative;
-        margin-top: 20px;
+        margin: 0px auto;
         padding: 7px 0px 9px;
-        border-top: 2px solid #D2364C;
+        border-top: 2px solid #FF5400;
+        margin-top: 20px;
     }
+
     .footer .footer-bd p, .footer .footer-hd p {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         line-height: 27px;
         border-bottom: 1px solid #DDD;
-        text-align: center;
+        text-align: left;
     }
 
     .footer .footer-hd a {
@@ -624,12 +624,12 @@ input.add, input.min {
 
 @media only screen and (min-width: 1260px) {
     .am-container {
-        max-width: 1260px;
-        margin: 0px;
+        max-width: 1200px;
     }
 
     .footer {
-        max-width:100%;
+        max-width: 1200px;
+        margin: auto;
     }
 
     /*分类*/
@@ -783,13 +783,13 @@ input.add, input.min {
 }
 
 p.cart_num {
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 21px;
     display: block;
     border-radius: 50%;
     background: #ED145B none repeat scroll 0% 0%;
     text-align: center;
-    line-height: 20px;
+    line-height: 21px;
     cursor: pointer;
     color: #FFF;
     margin-bottom: 10px;
@@ -909,9 +909,9 @@ p.cart_num {
 }
 
 .ibar_login_box .login_btnbox a {
- /*   width: 94px;
+    width: 94px;
     height: 30px;
-    line-height: 30px;*/
+    line-height: 30px;
     text-align: center;
     border: 1px solid;
     color: #333;
@@ -944,7 +944,7 @@ p.cart_num {
     top: 15px;
     width: 5px;
     height: 9px;
-    background: url(/public/images/ibar_sprites.png) no-repeat;
+    background: url(public/images/ibar_sprites.png) no-repeat;
     background-position: 0 -253px;
 }
 
