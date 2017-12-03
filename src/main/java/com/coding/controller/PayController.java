@@ -148,10 +148,7 @@ public class PayController {
         adminService.updateOrderByPrimaryKeySelective(orders);
         if (session.getAttribute("sumCart") != null)
             session.removeAttribute("sumCart");
-        double frightPrice = (Double) session.getAttribute("frightPrice");
-        DecimalFormat df = new DecimalFormat("#.00");
-        String sump = df.format(sum + frightPrice);
-        session.setAttribute("sumCart",sump);
+        session.setAttribute("sumCart", sum);
         return "homes/success";
     }
 }

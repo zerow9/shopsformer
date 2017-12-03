@@ -283,7 +283,7 @@
                                                                                              onclick="deleteOrder(${pay.orders.orderId},'取消')">取消订单</a></p>
                                                                 </div>
                                                             </li>
-                                                            <li class="td td-change" onclick="payButton(${pay.orders.orderId},${pay.orders.orderSumPrice+pay.orders.orderFreight})">
+                                                            <li class="td td-change" onclick="payButton(${pay.orders.orderId},${pay.orders.orderSumPrice})">
 
                                                                     <div class="am-btn am-btn-danger anniu">
                                                                         一键支付
@@ -684,7 +684,6 @@
                     timer: 2000,
                     showConfirmButton: false
                 });
-
                 window.location.href="/user/pay/onekeyPay?orderId="+id+"&sum="+money;
             });
     }
