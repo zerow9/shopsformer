@@ -207,6 +207,8 @@ public class OssFileService implements FileService {
 
     /**
      * 删除文件
+     *
+     * @param fileUrl 文件的访问地址
      */
     public void deleteFile(String fileUrl) {
         OSSClient ossClient = getOSSClient();
