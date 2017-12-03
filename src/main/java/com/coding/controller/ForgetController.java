@@ -17,6 +17,12 @@ public class ForgetController {
     public String forgetPassword() {
         return "persons/forgetPassword";
     }
+
+    /**
+     * 这个是忘记密码的方法
+     * @param user 用户信息
+     * @param code 设置新密码
+     */
     @RequestMapping("updateForgetPassword")
     public String updateForgetPassword(User user, String code, HttpSession session) throws Exception {
         String emailCode = "" + (Integer) session.getAttribute("emailCode");
