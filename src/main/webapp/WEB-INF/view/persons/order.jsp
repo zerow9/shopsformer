@@ -684,8 +684,30 @@
                     timer: 2000,
                     showConfirmButton: false
                 });
-                window.location.href="/user/pay/onekeyPay?orderId="+id+"&sum="+money;
+                var parm={"orderId":id,"sum":money}
+                var url="/user/pay/onekeyPay"
+                httpPost(url,parm);
             });
+    }
+
+    //发送POST请求跳转到指定页面
+    function httpPost(URL, PARAMS) {
+        var temp = document.createElement("form");
+        temp.action = URL;
+        temp.method = "post";
+        temp.style.display = "none";
+
+        for (var x in PARAMS) {
+            var opt = document.createElement("textarea");
+            opt.name = x;
+            opt.value = PARAMS[x];
+            temp.appendChild(opt);
+        }
+
+        document.body.appendChild(temp);
+        temp.submit();
+
+        return temp;
     }
 
     function confirmItem(id) {
