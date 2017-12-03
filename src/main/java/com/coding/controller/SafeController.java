@@ -40,6 +40,7 @@ public class SafeController {
         return "persons/email";
     }
 
+    //更新用户密码
     @RequestMapping("updateUserPassword")
     public String updateUserPassword(User user, String oldPassword, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
@@ -55,6 +56,7 @@ public class SafeController {
         throw new Exception("修改密码不成功");
     }
 
+    //更新用户邮箱
     @RequestMapping("updateUserEmail")
     public String updateUserEmail(String userEmail, String code, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
