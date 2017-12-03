@@ -208,8 +208,9 @@ public class OssFileService implements FileService {
     /**
      * 删除文件
      */
-    public void deleteFile(String fileName) {
+    public void deleteFile(String fileUrl) {
         OSSClient ossClient = getOSSClient();
+        String fileName = getFileName(fileUrl);
         System.out.println("开始删除文件：" + fileName);
         ossClient.deleteObject(bucketName, fileName);
         System.out.println("文件" + fileName + "删除成功。");
