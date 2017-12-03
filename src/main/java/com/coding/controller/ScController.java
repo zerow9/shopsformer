@@ -35,6 +35,7 @@ public class ScController {
     }
 
 
+
     private byte[] BASE64Buffer(String imagePath) throws Exception {
         BASE64Decoder decoder = new BASE64Decoder();
         byte[] b = decoder.decodeBuffer(imagePath);
@@ -46,6 +47,7 @@ public class ScController {
         return b;
     }
 
+    //检查人脸识别
     @RequestMapping("/sc")
     @ResponseBody
     public boolean sc(String sj, String email) throws Exception {
@@ -66,6 +68,7 @@ public class ScController {
         return false;
     }
 
+    //更新人脸图片
     @RequestMapping("/updateFace")
     @ResponseBody
     public boolean updateFace(String sj, HttpSession session) throws Exception {

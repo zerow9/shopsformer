@@ -31,7 +31,7 @@ public class PayController {
 
     private void uuidGetAddress(HttpSession session, List<Address> addresses) throws Exception {
         Orders orders = new Orders();
-        Integer ordersId= (Integer) session.getAttribute("ordersId");
+        Integer ordersId = (Integer) session.getAttribute("ordersId");
         String userUuid = (String) session.getAttribute("uuid");
         orders.setOrderId(ordersId);
         Address add = null;
@@ -71,6 +71,7 @@ public class PayController {
     }
 
 
+    //订单支付
     @RequestMapping("itemPay")
     public String itemPay(Integer[] cartId, HttpSession session, HttpServletRequest request) throws Exception {
         PagingCustomCart pagingCustomCart = new PagingCustomCart();
@@ -99,6 +100,7 @@ public class PayController {
     }
 
 
+    //立即购买支付
     @RequestMapping("itemBuyPay")
     public String itemPay(Integer cartId, Integer itemNumber, HttpSession session, HttpServletRequest request) throws Exception {
         List<CartDetail> cartDetails = new ArrayList<CartDetail>();
@@ -120,7 +122,7 @@ public class PayController {
         return "homes/pay";
     }
 
-
+    //支付成功
     @RequestMapping("success")
     public String success(Integer[] cartId, HttpSession session) throws Exception {
         List<Integer> ordersList = (List<Integer>) session.getAttribute("ordersList");
@@ -140,6 +142,7 @@ public class PayController {
         return "homes/success";
     }
 
+    //一键购买支付
     @RequestMapping("onekeyPay")
     public String onekeyPay(Integer orderId, String sum, HttpSession session) throws Exception {
         List<Address> addresses = hasAddress(session);

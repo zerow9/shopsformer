@@ -25,6 +25,7 @@ public class ItemController {
     @Autowired
     private IAdminService adminService;
 
+    //返回前端加载8个数据
     @RequestMapping("indexEightItem")
     public String indexTenItem(HttpSession session) {
         PagingCustomItem pagingCustomItem = new PagingCustomItem();

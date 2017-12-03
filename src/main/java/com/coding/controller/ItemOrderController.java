@@ -21,6 +21,7 @@ public class ItemOrderController {
     @Autowired
     private IAdminService adminService;
 
+    //删除商品仓库数量
     private void deleteItemNum(Integer itemId, int number) throws Exception {
         Item item = adminService.selectItemByPrimaryKey(itemId);
         int num = item.getRepertoryNumber() - number;
@@ -28,10 +29,10 @@ public class ItemOrderController {
         adminService.updateItemByPrimaryKey(item);
     }
 
+    //保存订单
     private int saveOrderDetail(Integer itemIds[], User user, Integer itemNumber,HttpSession session) throws Exception {
         Orders orders = new Orders();
         OrderDetail orderDetail = new OrderDetail();
-
         orders.setAddressId(user.getUserAddress());
         orders.setUserUuid(user.getUserUuid());
         orders.setOrderCreateTime(new Date());
@@ -48,7 +49,6 @@ public class ItemOrderController {
         if (session.getAttribute("ordersId")!=null)
             session.removeAttribute("ordersId");
         session.setAttribute("ordersId",ordersId);
-
         Item item = null;
         Double sumPrice = 0.0;
         Double freightPrice = 0.0;
@@ -57,17 +57,10 @@ public class ItemOrderController {
                 Cart cart = adminService.selectCartByPrimaryKey(itemId);
                 item = adminService.selectItemByPrimaryKey(cart.getItemId());
                 sumPrice += item.getItemPrice() * cart.getItemNumber();
-//                orders.setOrderSumPrice(item.getItemPrice() * cart.getItemNumber()+item.getPostPrice());
                 if (item.getPostPrice() > freightPrice)
                     freightPrice = item.getPostPrice();
-//                orders.setOrderFreight(item.getPostPrice());
                 orderDetail.setItemNumber(cart.getItemNumber());
                 deleteItemNum(cart.getItemId(), cart.getItemNumber());
-
-//                orders.setTakeGoodsName(item.getItemName());
-//                double d = item.getItemPrice();
-//                orders.setTakeGoodsPost((int) d);
-
                 orderDetail.setOrderId(ordersId);
                 orderDetail.setItemId(item.getItemId());
                 orderDetail.setItemPrice(item.getItemPrice());
@@ -80,8 +73,6 @@ public class ItemOrderController {
         } else {
             for (Integer itemId : itemIds) {
                 item = adminService.selectItemByPrimaryKey(itemId);
-//                orders.setOrderSumPrice(item.getItemPrice() * itemNumber + item.getPostPrice());
-//                orders.setOrderFreight(item.getPostPrice());
                 sumPrice += item.getItemPrice() * itemNumber;
                 if (item.getPostPrice() > freightPrice)
                     freightPrice = item.getPostPrice();
@@ -109,6 +100,8 @@ public class ItemOrderController {
         return ordersId;
     }
 
+
+    //购物车提交订单
     @RequestMapping("orderItem")
     public String orderItem(Integer[] cartId, HttpSession session) throws Exception {
         String uuid = (String) session.getAttribute("uuid");
@@ -129,6 +122,7 @@ public class ItemOrderController {
             return "redirect:/shopCart/getPersonShopCart";
     }
 
+    //立刻购买生成订单
     @RequestMapping("orderBuy")
     @ResponseBody
     public boolean orderBuy(Integer itemId, Integer itemNumber, HttpSession session) throws Exception {
