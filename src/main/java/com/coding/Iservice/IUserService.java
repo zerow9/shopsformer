@@ -133,6 +133,8 @@ public interface IUserService {
      */
     public void updateAddressUserDefaultAddress(Address address)throws Exception;
 
+    public Integer selectDefaultAddressByUserUuid(String userUuid) throws Exception;
+
     /**
      * 返回地址表中一共有多少条数据(例如：根据uuid查询)
      * @return 地址数量

@@ -1,6 +1,7 @@
 package com.coding.controller;
 
 import com.coding.Iservice.IAdminService;
+import com.coding.paging.PagingCustomAddress;
 import com.coding.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,11 @@ public class ItemOrderController {
         orders.setSendStatus(0);
         orders.setDiscussStatus(0);
         orders.setTakeGoodsStatus(0);
+        orders.setAddressId(adminService.selectDefaultAddressByUserUuid(user.getUserUuid()));
         int ordersId = adminService.insertOrderSelectiveReturnId(orders);
+        if (session.getAttribute("ordersId")!=null)
+            session.removeAttribute("ordersId");
+        session.setAttribute("ordersId",ordersId);
 
         Item item = null;
         Double sumPrice = 0.0;

@@ -30,7 +30,10 @@ public class PayController {
     }
 
     private void uuidGetAddress(HttpSession session, List<Address> addresses) throws Exception {
-
+        Orders orders = new Orders();
+        Integer ordersId= (Integer) session.getAttribute("ordersId");
+        String userUuid = (String) session.getAttribute("uuid");
+        orders.setOrderId(ordersId);
         Address add = null;
         for (Address address : addresses) {
             if (address.getIsDefaultAddress() == 1) {
@@ -40,6 +43,8 @@ public class PayController {
                 add.setAddresseePhone(photo);
             }
         }
+        orders.setAddressId(adminService.selectDefaultAddressByUserUuid(userUuid));
+        adminService.updateOrderByPrimaryKeySelective(orders);
         session.setAttribute("addresses", addresses);
         session.setAttribute("add", add);
     }
