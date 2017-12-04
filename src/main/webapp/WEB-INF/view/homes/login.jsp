@@ -16,9 +16,9 @@
     <a href="/index.jsp"><img alt="logo" src="/public/images/logobig0.png"/></a>
 </div>
 
-<div class="login-banner">
+<div class="login-banner" style="background: #B0D643;">
     <div class="login-main">
-        <div class="login-banner-bg"><span></span><img src="/public/images/login.jpg"/></div>
+        <div class="login-banner-bg"><br><img src="/public/images/login.jpg"/></div>
         <div class="login-box">
 
             <h3 class="title">登录商城</h3>
