@@ -83,6 +83,14 @@
             <artifactId>lucene-queries</artifactId>
             <version>${lucene.version}</version>
         </dependency>
+
+        <!--支付宝SDK-->
+        <dependency>
+            <groupId>com.github.1991wangliang</groupId>
+            <artifactId>alipay-sdk</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-queryparser</artifactId>
