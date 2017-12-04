@@ -21,7 +21,7 @@
     <div class="res-main">
 
         <%--登录左侧图片--%>
-        <div class="login-banner-bg"><span></span><img src="/public/images/big.jpg"/></div>
+        <div class="login-banner-bg"><span></span><img src="/public/images/login.jpg"/></div>
 
         <div class="login-box">
 
