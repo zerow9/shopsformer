@@ -261,28 +261,39 @@
             <div class="match-comment">
                 <ul class="like_list">
                     <li>
+                    <div class="s_picBox">
+                        <a class="s_pic" href="#"><img src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/TB15DK.hyFTMKJjSZFAXXckJpXa_!!0-item_pic.jpg_430x430q90.jpg"></a>
+                    </div>
+                    <a class="txt" target="_blank" href="#">健胃消食片</a>
+                    <div class="info-box"><span class="info-box-price">¥ 500.0</span> <span
+                            class="info-original-price">￥ 599.90</span>
+                    </div>
+                </li>
+                    <li class="plus_icon"><i>+</i></li>
+                    <li>
                         <div class="s_picBox">
-                            <a class="s_pic" href="#"><img src="/public/images/cp.jpg"></a>
+                            <a class="s_pic" href="#"><img src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1FuJDFUlcXXbFebk4_051813.jpg_b.jpg"></a>
                         </div>
-                        <a class="txt" target="_blank" href="#">萨拉米 1+1小鸡腿</a>
-                        <div class="info-box"><span class="info-box-price">¥ 29.90</span> <span
-                                class="info-original-price">￥ 199.00</span>
+                        <a class="txt" target="_blank" href="#">肠炎宁片</a>
+                        <div class="info-box"><span class="info-box-price">¥ 29.80</span> <span
+                                class="info-original-price">￥ 59.9</span>
                         </div>
                     </li>
                     <li class="plus_icon"><i>+</i></li>
                     <li>
                         <div class="s_picBox">
-                            <a class="s_pic" href="#"><img src="/public/images/cp2.jpg"></a>
+                            <a class="s_pic" href="#"><img src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1.hTUFu4cXXa6.fk8_100357.jpg_b.jpg"></a>
                         </div>
-                        <a class="txt" target="_blank" href="#">ZEK 原味海苔</a>
-                        <div class="info-box"><span class="info-box-price">¥ 8.90</span> <span
-                                class="info-original-price">￥ 299.00</span>
+                        <a class="txt" target="_blank" href="#">温胃舒颗粒</a>
+                        <div class="info-box"><span class="info-box-price">¥ 55.0</span> <span
+                                class="info-original-price">￥ 109.00</span>
                         </div>
                     </li>
-                    <li class="plus_icon"><i>=</i></li>
+
+                    <%--<li class="plus_icon"><i>=</i></li>--%>
                     <li class="total_price">
-                        <p class="combo_price"><span class="c-title">套餐价:</span><span>￥35.00</span></p>
-                        <p class="save_all">共省:<span>￥463.00</span></p>
+                        <p class="combo_price"><span class="c-title">套餐价:</span><span>￥584.80</span></p>
+                        <p class="save_all">共省:<span>￥183.10</span></p>
                         <a href="#" class="buy_now">立即购买</a>
                     </li>
                     <li class="plus_icon"><i class="am-icon-angle-right"></i></li>
@@ -303,25 +314,47 @@
 
                         <li class="first">
                             <div class="p-img">
-                                <a href="#"> <img class="" src="/public/images/browse1.jpg"> </a>
+                                <a href="#"> <img class="" src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1ErRgFFxeXXcpw0oV_020158.jpg_b.jpg"> </a>
                             </div>
                             <div class="p-name">
                                 <a href="#">
-                                    【三只松鼠_开口松子】零食坚果特产炒货东北红松子原味
+                                    【天津天士力】荆花胃康胶丸
                                 </a>
                             </div>
-                            <div class="p-price"><strong>￥35.90</strong></div>
+                            <div class="p-price"><strong>￥150.0</strong></div>
                         </li>
                         <li>
                             <div class="p-img">
-                                <a href="#"> <img class="" src="/public/images/browse1.jpg"> </a>
+                                <a href="#"> <img class="" src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1.hTUFu4cXXa6.fk8_100357.jpg_b.jpg"> </a>
                             </div>
                             <div class="p-name">
                                 <a href="#">
-                                    【三只松鼠_开口松子218g】零食坚果特产炒货东北红松子原味
+                                    【天天乐健康制药】四味脾胃舒颗粒
                                 </a>
                             </div>
-                            <div class="p-price"><strong>￥35.90</strong></div>
+                            <div class="p-price"><strong>￥97.0</strong></div>
+                        </li>
+                        <li >
+                            <div class="p-img">
+                                <a href="#"> <img  src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/TB1YU6fJFXXXXaWXVXXBpA58VXX_033731.jpg_b.jpg"> </a>
+                            </div>
+                            <div class="p-name">
+                                <a href="#">
+                                    【三九胃泰】温胃舒颗粒
+                                </a>
+                            </div>
+                            <div class="p-price"><strong>￥55.0</strong></div>
+                        </li>
+                        <li>
+                            <div class="p-img">
+                                <a href="#"> <img src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/TB17rKvLpXXXXX2XXXXyAJg9VXX_045651.jpg_b.jpg"> </a>
+                            </div>
+                            <div class="p-name">
+                                <a href="#">
+                                    【外用贴剂】肠胃散
+                                </a>
+                            </div>
+                            <div class="p-price"><strong>￥40.0</strong></div>
                         </li>
                     </ul>
                 </div>

@@ -47,11 +47,10 @@ public class UserInfoController {
     //更新用户信息
     @RequestMapping("updateUser")
     public String updateUser(User user) throws Exception {
-        //user.setUserPassword(null);
         user.setUserGroup(2);
         user.setUserCurrentTime(new Date());
         user.setUserLandIp(InetAddress.getLocalHost().getHostAddress());
-        adminService.updateUserByPrimaryKey(user);
+        adminService.updateUserByPrimaryKeySelective(user);
         return "forward:userInfo";
     }
 

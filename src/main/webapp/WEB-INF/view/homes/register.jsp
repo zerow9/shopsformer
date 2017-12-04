@@ -17,11 +17,11 @@
     <a href="/index.jsp"><img alt="" src="/public/images/logobig0.png"/></a>
 </div>
 
-<div class="res-banner">
+<div class="res-banner" style="background: #B0D643;">
     <div class="res-main">
 
         <%--登录左侧图片--%>
-        <div class="login-banner-bg"><span></span><img src="/public/images/big.jpg"/></div>
+        <div class="login-banner-bg"><br><img src="/public/images/login.jpg"/></div>
 
         <div class="login-box">
 

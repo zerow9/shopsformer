@@ -11,7 +11,7 @@ public class SeetaFace {
      * @param vModelDir 模型文件目录
      * @return
      */
-    public native boolean initModelPath(String vModelDir);
+    public native boolean initModelPath(String vModelDir);//静态链接库.lib  动态链接库dll（钩子函数）
 
     /**
      * 人脸特征比对
