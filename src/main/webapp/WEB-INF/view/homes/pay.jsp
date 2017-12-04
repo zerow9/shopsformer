@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -18,11 +18,12 @@
     <link href="/public/basic/css/sweetalert.css" rel="stylesheet" type="text/css">
     <link href="/public/basic/css/addstyle.css" rel="stylesheet" type="text/css">
     <script type="text/javascript">
-        function  showImg(){
-            document.getElementById("wxImg").style.display='block';
+        function showImg() {
+            document.getElementById("wxImg").style.display = 'block';
         }
-        function hideImg(){
-            document.getElementById("wxImg").style.display='none';
+
+        function hideImg() {
+            document.getElementById("wxImg").style.display = 'none';
         }
     </script>
 </head>
@@ -40,32 +41,33 @@
             </div>
             <div class="clear"></div>
             <ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails" style="margin-left: 50px;">
-                <c:forEach items="${addresses}" var="address" >
-                    <li class="user-addresslist <c:if test="${address.isDefaultAddress==1}">defaultAddr</c:if>" <c:if test="${address.isDefaultAddress!=1}"> onclick="updateDefaultAddress(${address.addressId})"</c:if>>
-                            <span class="new-option-r"><i class="am-icon-check-circle"></i>确认收货地址</span>
-                            <p class="new-tit new-p-re">
-                                <span class="new-txt">${address.takeGoodsName}</span>
-                                <span class="new-txt-rd2">${fn:substring(address.addresseePhone, 0,3)}****${fn:substring(address.addresseePhone,7,11)}</span>
-                            </p>
-                            <div class="new-mu_l2a new-p-re">
-                                <p class="new-mu_l2cw">
-                                    <span class="title">地址：</span>
-                                    <span class="province">${address.takeGoodsProvince}</span>
-                                    <span class="city">${address.takeGoodsCity}</span>
-                                    <span class="dist">${address.takeGoodsCounty}</span>
-                                    <span class="street">${address.address}</span></p>
-                            </div>
-                            <div class="new-addr-btn" style="margin-bottom: -37px">
-                                <a href="/user/address/selectAddress?addressId=${address.addressId}"><i
-                                        class="am-icon-edit" id="updateEdit"></i>编辑</a>
-                                <c:if test="${address.isDefaultAddress!=1}">
+                <c:forEach items="${addresses}" var="address">
+                    <li class="user-addresslist <c:if test="${address.isDefaultAddress==1}">defaultAddr</c:if>" <c:if
+                            test="${address.isDefaultAddress!=1}"> onclick="updateDefaultAddress(${address.addressId})"</c:if>>
+                        <span class="new-option-r"><i class="am-icon-check-circle"></i>确认收货地址</span>
+                        <p class="new-tit new-p-re">
+                            <span class="new-txt">${address.takeGoodsName}</span>
+                            <span class="new-txt-rd2">${fn:substring(address.addresseePhone, 0,3)}****${fn:substring(address.addresseePhone,7,11)}</span>
+                        </p>
+                        <div class="new-mu_l2a new-p-re">
+                            <p class="new-mu_l2cw">
+                                <span class="title">地址：</span>
+                                <span class="province">${address.takeGoodsProvince}</span>
+                                <span class="city">${address.takeGoodsCity}</span>
+                                <span class="dist">${address.takeGoodsCounty}</span>
+                                <span class="street">${address.address}</span></p>
+                        </div>
+                        <div class="new-addr-btn" style="margin-bottom: -37px">
+                            <a href="/user/address/selectAddress?addressId=${address.addressId}"><i
+                                    class="am-icon-edit" id="updateEdit"></i>编辑</a>
+                            <c:if test="${address.isDefaultAddress!=1}">
                                 <span class="new-addr-bar">|</span>
                                 <a href="javascript:void(0);"
                                    onclick="deleteAddress(${address.addressId})"><i
                                         class="am-icon-trash" id="deleteAddrss"></i>删除</a>
-                                </c:if>
-                            </div>
-                        </li>
+                            </c:if>
+                        </div>
+                    </li>
                 </c:forEach>
             </ul>
 
@@ -76,8 +78,6 @@
         <div class="logistics">
             <h3>选择支付方式</h3>
             <ul class="pay-list">
-                <li class="pay card"><img src="/public/images/wangyin.jpg"/>银联<span></span></li>
-                <li class="pay qq"><img src="/public/images/weizhifu.jpg"/>微信<span></span></li>
                 <li class="pay taobao"><img src="/public/images/zhifubao.jpg"/>支付宝<span></span></li>
             </ul>
         </div>
@@ -122,11 +122,12 @@
                         </div>
                         <div class="clear"></div>
                         <div class="bundle-main">
-                            <c:forEach items="${carts}" var="cart" >
+                            <c:forEach items="${carts}" var="cart">
                                 <ul class="item-content clearfix">
                                     <li class="td td-item">
                                         <div class="item-pic">
-                                            <a href="/item/findItemMessage?itemId=${cart.item.itemId}&page=1" target="_blank" data-title="${cart.item.itemName}" class="J_MakePoint"
+                                            <a href="/item/findItemMessage?itemId=${cart.item.itemId}&page=1"
+                                               target="_blank" data-title="${cart.item.itemName}" class="J_MakePoint"
                                                data-point="tbcart.8.12">
                                                 <img src="${cart.item.itemImages}" class="itempic J_ItemImg" width="80"></a>
                                         </div>
@@ -150,7 +151,8 @@
                                                     <em class="price-original">${cart.item.itemMarketPrice}</em>
                                                 </div>
                                                 <div class="price-line">
-                                                    <em class="J_Price price-now" tabindex="0">${cart.item.itemPrice}</em>
+                                                    <em class="J_Price price-now"
+                                                        tabindex="0">${cart.item.itemPrice}</em>
                                                 </div>
                                             </div>
                                         </div>
@@ -159,7 +161,7 @@
                                         <div class="amount-wrapper ">
                                             <div class="item-amount ">
                                                 <div class="sl">
-                                                    <em>x${cart.itemNumber}</em>
+                                                    <em>${cart.itemNumber}</em>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,79 +175,84 @@
                                 </ul>
                             </c:forEach>
                         </div>
-                    <div class="clear"></div>
-                    <div class="pay-total">
-                        <!--留言-->
-                        <div class="order-extra">
-                            <div class="order-user-info">
-                                <div id="holyshit257" class="memo">
-                                    <label>买家留言：</label>
-                                    <input type="text" title="选填,对本次交易的说明（建议填写已经和卖家达成一致的说明）"
-                                           placeholder="选填,建议填写和卖家达成一致的说明"
-                                           class="memo-input J_MakePoint c2c-text-default memo-close">
-                                    <div class="msg hidden J-msg">
-                                        <p class="error">最多输入500个字符</p>
+                        <div class="clear"></div>
+                        <div class="pay-total">
+                            <!--留言-->
+                            <div class="order-extra">
+                                <div class="order-user-info">
+                                    <div id="holyshit257" class="memo">
+                                        <label>买家留言：</label>
+                                        <input type="text" title="选填,对本次交易的说明（建议填写已经和卖家达成一致的说明）"
+                                               placeholder="选填,建议填写和卖家达成一致的说明"
+                                               class="memo-input J_MakePoint c2c-text-default memo-close">
+                                        <div class="msg hidden J-msg">
+                                            <p class="error">最多输入500个字符</p>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
 
+                            <div class="clear"></div>
+                        </div>
+                        <!--含运费小计 -->
+                        <div class="buy-point-discharge ">
+                            <p class="price g_price ">
+                                合计（含运费） <span>¥</span><em class="pay-sum">${sumCart}</em>
+                            </p>
                         </div>
 
-                        <div class="clear"></div>
-                    </div>
-                    <!--含运费小计 -->
-                    <div class="buy-point-discharge ">
-                        <p class="price g_price ">
-                            合计（含运费） <span>¥</span><em class="pay-sum">${sumCart}</em>
-                        </p>
-                    </div>
-
-                    <!--信息 -->
-                    <div class="order-go clearfix">
-                        <div class="pay-confirm clearfix">
-                            <div class="box">
-                                <div tabindex="0" id="holyshit267" class="realPay"><em class="t">实付款：</em>
-                                    <span class="price g_price ">
+                        <!--信息 -->
+                        <div class="order-go clearfix">
+                            <div class="pay-confirm clearfix">
+                                <div class="box">
+                                    <div tabindex="0" id="holyshit267" class="realPay"><em class="t">实付款：</em>
+                                        <span class="price g_price ">
                                     <span>¥</span> <em class="style-large-bold-red " id="J_ActualFee">${sumCart}</em>
 											</span>
-                                </div>
+                                    </div>
 
-                                <div id="holyshit268" class="pay-address">
+                                    <div id="holyshit268" class="pay-address">
 
-                                    <p class="buy-footer-address">
-                                        <span class="buy-line-title buy-line-title-type">寄送至：</span>
-                                        <span class="buy--address-detail">
+                                        <p class="buy-footer-address">
+                                            <span class="buy-line-title buy-line-title-type">寄送至：</span>
+                                            <span class="buy--address-detail">
 								        <span class="province">${add.takeGoodsProvince}</span>省
 												<span class="city">${add.takeGoodsCity}</span>市
 												<span class="dist">${add.takeGoodsCounty}</span>区
 												<span class="street">${add.address}</span>
                                         </span>
-                                    </p>
-                                    <p class="buy-footer-address">
-                                        <span class="buy-line-title">收货人：</span>
-                                        <span class="buy-address-detail">
+                                        </p>
+                                        <p class="buy-footer-address">
+                                            <span class="buy-line-title">收货人：</span>
+                                            <span class="buy-address-detail">
                                          <span class="buy-user">${add.takeGoodsName}</span>
 												<span class="buy-phone">${add.addresseePhone}</span>
                                         </span>
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
+                                <form method="post" action="/public/common/alipay.jsp">
+                                    <input type="hidden" id="WIDout_trade_no" name="WIDout_trade_no" value="${cartIds}">
+                                    <input type="hidden" name="WIDsubject" value="孝和易购">
+                                    <input type="hidden" name="WIDtotal_amount" value="${sumCart}">
+                                    <input type="hidden" name="WIDbody" >
+                                    <div id="holyshit269" class="submitOrder">
+                                        <div class="go-btn-wrap">
+                                            <button type="submit" class="am-btn  am-btn-warning">提交订单</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="clear"></div>
                             </div>
-
-                            <div id="holyshit269" class="submitOrder">
-                                <div class="go-btn-wrap">
-                                    <a id="J_Go"  class="btn-go" tabindex="0"
-                                       title="点击此按钮，提交订单">提交订单</a>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
                         </div>
                     </div>
-            </div>
 
-            <div class="clear"></div>
+                    <div class="clear"></div>
+            </div>
         </div>
+        <jsp:include page="/public/common/tail.jsp" flush="true"/>
     </div>
-        <jsp:include page="/public/common/tail.jsp" flush="true"/></div>
 </div>
 <div class="theme-popover-mask"></div>
 </body>
@@ -265,29 +272,19 @@
 <script type="text/javascript" src="/public/basic/js/sweetalert.min.js"></script>
 <script type="text/javascript">
     $(function () {
+            var vNow = new Date();
+            var sNow = "";
+            sNow += String(vNow.getFullYear());
+            sNow += String(vNow.getMonth() + 1);
+            sNow += String(vNow.getDate());
+            sNow += String(vNow.getHours());
+            sNow += String(vNow.getMinutes());
+            sNow += String(vNow.getSeconds());
+            sNow += String(vNow.getMilliseconds());
 
-        $("#J_Go").on("click",function () {
-            swal({
-                    title: "等待付款",
-                    imageUrl: "/public/images/tyoui.png",
-                    imageSize:"400x400",
-                    cancelButtonText:"取消",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "支付完成！",
-                    closeOnConfirm: false
-                },
-                function(){
-                    swal({
-                        title: "购买成功！",
-                        type: "success",
-                        timer: 2000,
-                        showConfirmButton: false,
-                    });
+       // $("#WIDout_trade_no").val(sNow)
+        //window.location.href="/user/pay/success?cartId=${cartIds}"; //支付完成的返回页面
 
-                    window.location.href="/user/pay/success?cartId=${cartIds}";
-                });
-        });
     });
 </script>
 <script type="text/javascript" src="/public/basic/js/addressDefine.js"></script>
