@@ -116,8 +116,7 @@
                         <div class="am-form-group">
                             <label class="am-form-label">注册日期</label>
                             <div class="am-form-content">
-                                <input value="${user.userRegisterDateTimeToString}" name="userRegisterDateTime"
-                                       type="text" readonly>
+                                <input value="${user.userRegisterDateTimeToString}" type="text" readonly>
                             </div>
                         </div>
                         <div class="am-form-group" hidden="hidden">
