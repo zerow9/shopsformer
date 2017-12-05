@@ -10,5 +10,11 @@ public class Constant {
 
     public static final String PAY_LOGS = new File(".").getPath() + File.separator + "payLogs.log";
 
-    public static final String ADRRESS_POST="http://localhost:8085";
+    public static final String ADDRESS_POST="http://localhost:8085";
+
+    public static final Integer PAGE=10;
+
+    public static final Integer PAGE_NUMBER=15;
+
+    public static final Integer ERROR_NUMBER=-1;
 }
