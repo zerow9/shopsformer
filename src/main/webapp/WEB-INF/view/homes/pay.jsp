@@ -217,9 +217,9 @@
                                         <p class="buy-footer-address">
                                             <span class="buy-line-title buy-line-title-type">寄送至：</span>
                                             <span class="buy--address-detail">
-								        <span class="province">${add.takeGoodsProvince}</span>省
-												<span class="city">${add.takeGoodsCity}</span>市
-												<span class="dist">${add.takeGoodsCounty}</span>区
+								        <span class="province">${add.takeGoodsProvince}</span>
+												<span class="city">${add.takeGoodsCity}</span>
+												<span class="dist">${add.takeGoodsCounty}</span>
 												<span class="street">${add.address}</span>
                                         </span>
                                         </p>
