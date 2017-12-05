@@ -115,7 +115,7 @@
                             </c:choose>
                         </c:forEach>
                         <c:if test="${customVoSearch.sumPage!=countPage}">
-                            <li>......</li>
+                            <li id="pagePoint">...</li>
                         </c:if>
                         <c:choose>
                             <c:when test="${customVoSearch.page==customVoSearch.sumPage}">

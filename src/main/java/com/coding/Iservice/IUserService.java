@@ -271,6 +271,14 @@ public interface IUserService {
      */
     public Integer selectItemCount()throws Exception;
 
+    /**
+     * 根据用户唯一ID查询用户推荐商品信息，根据给定商品量，自动进行热销商品补全
+     * @param userUuid 用户唯一ID
+     * @return 满足查询条件的商品列表
+     * @throws Exception sql异常
+     */
+    public List<Item> selectRecommendItemByUserUuid(String userUuid,Integer number)throws Exception;
+
     /*------------------------------------------订单表------------------------------------------------------------------*/
     /**
      * 根据订单ID删除订单信息

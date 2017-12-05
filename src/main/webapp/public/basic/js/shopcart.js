@@ -68,20 +68,20 @@ var addCollection=function(id){
         success: function (data) {
             if (data === "success") {
                 swal({
-                    title: "添加购物车成功！",
+                    title: "添加收藏成功！",
                     type: "success",
                     timer: 2000,
                     showConfirmButton: false
                 });
             } else if (data === "fail") {
                 swal({
-                    title: "添加购物车失败！",
+                    title: "添加收藏车失败！",
                     type: "error",
                     timer: 2000,
                     showConfirmButton: false
                 });
             } else swal({
-                title: "购物车中已经存在，您可要去购物车进行购买！",
+                title: "收藏中已经存在！",
                 type: "warning",
                 timer: 1000,
                 showConfirmButton: false
