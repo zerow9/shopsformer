@@ -10,5 +10,5 @@ public class Constant {
 
     public static final String PAY_LOGS = new File(".").getPath() + File.separator + "payLogs.log";
 
-    public static final String ADRRESS_POST="http://localhsot:8085";
+    public static final String ADRRESS_POST="http://localhost:8085";
 }
