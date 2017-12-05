@@ -61,7 +61,7 @@ public class ScController {
             FaceImage.downloadPicture(oos);
             Face face = new Face();
             float f = face.start(Constant.FaceImage, Constant.FaceOtherImage);
-            if (f > 0.8)
+            if (f > 0.6)
                 return true;
         } catch (Exception e) {
         }
