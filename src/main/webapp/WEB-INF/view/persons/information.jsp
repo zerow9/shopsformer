@@ -54,7 +54,6 @@
                     <form class="am-form am-form-horizontal" action="updateUser" method="post">
                         <div hidden>
                             <input type="hidden" name="userUuid" value="${user.userUuid}">
-                            <input type="hidden" name="userPassword" value="${user.userPassword}">
                         </div>
                         <div class="am-form-group">
                             <label class="am-form-label">昵称</label>
