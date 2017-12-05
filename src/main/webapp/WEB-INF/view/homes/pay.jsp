@@ -234,7 +234,7 @@
                                 </div>
                                 <form method="post" action="/public/common/alipay.jsp">
                                     <input type="hidden" id="WIDout_trade_no" name="WIDout_trade_no" value="${cartIds}">
-                                    <input type="hidden" name="WIDsubject" value="孝和易购">
+                                    <input type="hidden" name="WIDsubject" value="XiaoHeShangCheng">
                                     <input type="hidden" name="WIDtotal_amount" value="${sumCart}">
                                     <input type="hidden" name="WIDbody" >
                                     <div id="holyshit269" class="submitOrder">
