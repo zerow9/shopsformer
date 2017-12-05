@@ -1,5 +1,7 @@
 package com.coding.comomInterface;
 
+import org.apache.ibatis.io.Resources;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -10,8 +12,9 @@ public class Constant {
     private static Properties properties = new Properties();
 
     static {
-        String path = "E:\\IDECode\\shopsformer\\src\\main\\resources\\constant\\constant.properties";
         try {
+            String path= Resources.getResourceAsFile("constant/constant.properties").getPath();
+            System.out.println(path);
             InputStream fileInputStream = new FileInputStream(path);
             properties.load(fileInputStream);
         } catch (Exception e) {
@@ -37,5 +40,7 @@ public class Constant {
     public static String setName(String name) {
         return properties.getProperty(name);
     }
-
+    public static void main(String[] args) throws Exception {
+        System.out.println(Constant.setName("ERROR_NUMBER"));
+    }
 }
