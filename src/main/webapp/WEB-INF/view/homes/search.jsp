@@ -101,19 +101,22 @@
                             </c:otherwise>
                         </c:choose>
 
-                        <c:forEach varStatus="i" begin="1" end="${customVoSearch.sumPage}" step="1">
+                        <c:forEach varStatus="i" begin="${customVoSearch.page}" end="${customVoSearch.sumPage}"
+                                   step="1">
                             <c:choose>
-                                <c:when test="${customVoSearch.page==i.count}">
-                                    <li class="disabled"><a href="javascript:;">${i.count}</a></li>
+                                <c:when test="${customVoSearch.page==i.index}">
+                                    <li class="disabled"><a href="javascript:;">${i.index}</a></li>
                                 </c:when>
                                 <c:otherwise>
                                     <li class="am-active"><a
-                                            href="?searchInput=${customVoSearch.searchInput}&page=${i.count}">${i.count}</a>
+                                            href="?searchInput=${customVoSearch.searchInput}&page=${i.index}">${i.index}</a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
-
+                        <c:if test="${customVoSearch.sumPage!=countPage}">
+                            <li>......</li>
+                        </c:if>
                         <c:choose>
                             <c:when test="${customVoSearch.page==customVoSearch.sumPage}">
                                 <li class="am-disabled">
