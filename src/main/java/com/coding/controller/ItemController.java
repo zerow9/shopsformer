@@ -55,7 +55,7 @@ public class ItemController {
      * @throws Exception
      */
     @RequestMapping("findItemMessage")
-    public String findItemMessage(Integer itemId, Integer page, Model model) throws Exception {
+    public String findItemMessage(Integer itemId, Integer page, Model model,HttpSession session) throws Exception {
 
         //查询商品的信息
         Item item = adminService.selectItemByPrimaryKey(itemId);
@@ -114,6 +114,15 @@ public class ItemController {
 
             model.addAttribute("sumPage", sumPage);//总页数
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String userUuid = (String) session.getAttribute("uuid");
+        List<Item> items = null;
+        try {
+            items = adminService.selectRecommendItemByUserUuid(userUuid,5);
+            model.addAttribute("recommendItems",items);
+            System.out.println(items);
+        }catch (Exception e){
             e.printStackTrace();
         }
 

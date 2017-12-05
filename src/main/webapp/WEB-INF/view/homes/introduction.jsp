@@ -50,6 +50,10 @@
 
 </head>
 <body>
+<%--<c:if test="${empty recommendItem}">--%>
+<%--<form action="/user/recommend/recommend" id="recommendItem" method="post"></form>--%>
+<%--</c:if>--%>
+
 <jsp:include page="/public/common/top.jsp" flush="true"/>
 <div class="clear"></div>
 <b class="line"></b>
@@ -230,50 +234,53 @@
         </div>
 
         <!--优惠套装-->
-        <div class="match">
-            <div class="match-title">推荐商品</div>
-            <div class="match-comment">
-                <ul class="like_list">
-                    <li>
-                    <div class="s_picBox">
-                        <a class="s_pic" href="#"><img src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/TB15DK.hyFTMKJjSZFAXXckJpXa_!!0-item_pic.jpg_430x430q90.jpg"></a>
-                    </div>
-                    <a class="txt" target="_blank" href="#">健胃消食片</a>
-                    <div class="info-box"><span class="info-box-price">¥ 500.0</span> <span
-                            class="info-original-price">￥ 599.90</span>
-                    </div>
-                </li>
-                    <li class="plus_icon"><i>+</i></li>
-                    <li>
-                        <div class="s_picBox">
-                            <a class="s_pic" href="#"><img src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1FuJDFUlcXXbFebk4_051813.jpg_b.jpg"></a>
-                        </div>
-                        <a class="txt" target="_blank" href="#">肠炎宁片</a>
-                        <div class="info-box"><span class="info-box-price">¥ 29.80</span> <span
-                                class="info-original-price">￥ 59.9</span>
-                        </div>
-                    </li>
-                    <li class="plus_icon"><i>+</i></li>
-                    <li>
-                        <div class="s_picBox">
-                            <a class="s_pic" href="#"><img src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1.hTUFu4cXXa6.fk8_100357.jpg_b.jpg"></a>
-                        </div>
-                        <a class="txt" target="_blank" href="#">温胃舒颗粒</a>
-                        <div class="info-box"><span class="info-box-price">¥ 55.0</span> <span
-                                class="info-original-price">￥ 109.00</span>
-                        </div>
-                    </li>
+        <%--<div class="match">--%>
+        <%--<div class="match-title">推荐商品</div>--%>
+        <%--<div class="match-comment">--%>
+        <%--<ul class="like_list">--%>
+        <%--<li>--%>
+        <%--<div class="s_picBox">--%>
+        <%--<a class="s_pic" href="#"><img--%>
+        <%--src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/TB15DK.hyFTMKJjSZFAXXckJpXa_!!0-item_pic.jpg_430x430q90.jpg"></a>--%>
+        <%--</div>--%>
+        <%--<a class="txt" target="_blank" href="#">健胃消食片</a>--%>
+        <%--<div class="info-box"><span class="info-box-price">¥ 500.0</span> <span--%>
+        <%--class="info-original-price">￥ 599.90</span>--%>
+        <%--</div>--%>
+        <%--</li>--%>
+        <%--<li class="plus_icon"><i>+</i></li>--%>
+        <%--<li>--%>
+        <%--<div class="s_picBox">--%>
+        <%--<a class="s_pic" href="#"><img--%>
+        <%--src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1FuJDFUlcXXbFebk4_051813.jpg_b.jpg"></a>--%>
+        <%--</div>--%>
+        <%--<a class="txt" target="_blank" href="#">肠炎宁片</a>--%>
+        <%--<div class="info-box"><span class="info-box-price">¥ 29.80</span> <span--%>
+        <%--class="info-original-price">￥ 59.9</span>--%>
+        <%--</div>--%>
+        <%--</li>--%>
+        <%--<li class="plus_icon"><i>+</i></li>--%>
+        <%--<li>--%>
+        <%--<div class="s_picBox">--%>
+        <%--<a class="s_pic" href="#"><img--%>
+        <%--src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1.hTUFu4cXXa6.fk8_100357.jpg_b.jpg"></a>--%>
+        <%--</div>--%>
+        <%--<a class="txt" target="_blank" href="#">温胃舒颗粒</a>--%>
+        <%--<div class="info-box"><span class="info-box-price">¥ 55.0</span> <span--%>
+        <%--class="info-original-price">￥ 109.00</span>--%>
+        <%--</div>--%>
+        <%--</li>--%>
 
-                    <%--<li class="plus_icon"><i>=</i></li>--%>
-                    <li class="total_price">
-                        <p class="combo_price"><span class="c-title">套餐价:</span><span>￥584.80</span></p>
-                        <p class="save_all">共省:<span>￥183.10</span></p>
-                        <a href="#" class="buy_now">立即购买</a>
-                    </li>
-                    <li class="plus_icon"><i class="am-icon-angle-right"></i></li>
-                </ul>
-            </div>
-        </div>
+        <%--&lt;%&ndash;<li class="plus_icon"><i>=</i></li>&ndash;%&gt;--%>
+        <%--<li class="total_price">--%>
+        <%--<p class="combo_price"><span class="c-title">套餐价:</span><span>￥584.80</span></p>--%>
+        <%--<p class="save_all">共省:<span>￥183.10</span></p>--%>
+        <%--<a href="#" class="buy_now">立即购买</a>--%>
+        <%--</li>--%>
+        <%--<li class="plus_icon"><i class="am-icon-angle-right"></i></li>--%>
+        <%--</ul>--%>
+        <%--</div>--%>
+        <%--</div>--%>
         <div class="clear"></div>
 
         <!-- introduce-->
@@ -285,51 +292,37 @@
                         <div class="mt">
                             <h2>看了又看</h2>
                         </div>
-
-                        <li class="first">
-                            <div class="p-img">
-                                <a href="#"> <img class="" src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1ErRgFFxeXXcpw0oV_020158.jpg_b.jpg"> </a>
-                            </div>
-                            <div class="p-name">
-                                <a href="#">
-                                    【天津天士力】荆花胃康胶丸
-                                </a>
-                            </div>
-                            <div class="p-price"><strong>￥150.0</strong></div>
-                        </li>
-                        <li>
-                            <div class="p-img">
-                                <a href="#"> <img class="" src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/T1.hTUFu4cXXa6.fk8_100357.jpg_b.jpg"> </a>
-                            </div>
-                            <div class="p-name">
-                                <a href="#">
-                                    【天天乐健康制药】四味脾胃舒颗粒
-                                </a>
-                            </div>
-                            <div class="p-price"><strong>￥97.0</strong></div>
-                        </li>
-                        <li >
-                            <div class="p-img">
-                                <a href="#"> <img  src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/TB1YU6fJFXXXXaWXVXXBpA58VXX_033731.jpg_b.jpg"> </a>
-                            </div>
-                            <div class="p-name">
-                                <a href="#">
-                                    【三九胃泰】温胃舒颗粒
-                                </a>
-                            </div>
-                            <div class="p-price"><strong>￥55.0</strong></div>
-                        </li>
-                        <li>
-                            <div class="p-img">
-                                <a href="#"> <img src="http://xcstudio-shop.oss-cn-shenzhen.aliyuncs.com/img/TB17rKvLpXXXXX2XXXXyAJg9VXX_045651.jpg_b.jpg"> </a>
-                            </div>
-                            <div class="p-name">
-                                <a href="#">
-                                    【外用贴剂】肠胃散
-                                </a>
-                            </div>
-                            <div class="p-price"><strong>￥40.0</strong></div>
-                        </li>
+                        <c:if test="${empty recommendItems}">
+                            <span>请登录查看</span>
+                        </c:if>
+                        <%int j = 0;%>
+                        <c:forEach items="${recommendItems}" var="recommendItem">
+                            <%if (j < 4) {%>
+                            <c:if test="${recommendItem.itemId != item.itemId}">
+                                <li>
+                                    <div class="p-img">
+                                        <a href="/item/findItemMessage?itemId=${recommendItem.itemId}&page=1"> <img
+                                                class=""
+                                                src="${recommendItem.itemImages}">
+                                        </a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="/item/findItemMessage?itemId=${recommendItem.itemId}&page=1">
+                                                ${recommendItem.itemName}
+                                        </a>
+                                    </div>
+                                    <div class="p-price"><strong>${recommendItem.itemPrice}</strong></div>
+                                </li>
+                            </c:if>
+                            <%
+                                    j++;
+                                }
+                            %>
+                            <c:if test="${recommendItem.itemId == item.itemId}">
+                                <%j = 0;%>
+                            </c:if>
+                        </c:forEach>
+                        <%j = 0;%>
                     </ul>
                 </div>
             </div>
@@ -486,28 +479,45 @@
                         <div class="am-tab-panel am-fade">
                             <div class="like">
                                 <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
-                                    <li>
-                                        <div class="i-pic limit">
-                                            <img src="/public/images/imgsearch1.jpg"/>
-                                            <p>【良品铺子_开口松子】零食坚果特产炒货
-                                                <span>东北红松子奶油味</span></p>
-                                            <p class="price fl">
-                                                <b>¥</b>
-                                                <strong>298.00</strong>
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="i-pic limit">
-                                            <img src="/public/images/imgsearch1.jpg"/>
-                                            <p>【良品铺子_开口松子】零食坚果特产炒货
-                                                <span>东北红松子奶油味</span></p>
-                                            <p class="price fl">
-                                                <b>¥</b>
-                                                <strong>298.00</strong>
-                                            </p>
-                                        </div>
-                                    </li>
+                                    <c:if test="${empty recommendItems}">
+
+                                        <li>
+                                            <div class="i-pic limit">
+                                                <br/>
+                                                <p class="price fl">
+                                                    <strong><span>请登录查看</span></strong>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </c:if>
+                                    <%int i = 0;%>
+                                    <c:forEach items="${recommendItems}" var="recommendItem">
+                                        <%
+                                            if (i < 4) {
+                                        %>
+                                        <c:if test="${recommendItem.itemId != item.itemId}">
+                                            <li>
+                                                <div class="i-pic limit">
+                                                    <a href="/item/findItemMessage?itemId=${recommendItem.itemId}&page=1">
+                                                        <img src="${recommendItem.itemImages}"/></a>
+                                                    <a href="/item/findItemMessage?itemId=${recommendItem.itemId}&page=1">
+                                                        <p>${recommendItem.itemName}</p></a>
+                                                    <p class="price fl">
+                                                        <b>¥</b>
+                                                        <strong>${item.itemPrice}</strong>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </c:if>
+                                        <%
+                                                i++;
+                                            }
+                                        %>
+                                        <c:if test="${recommendItem.itemId == item.itemId}">
+                                            <%i = 0;%>
+                                        </c:if>
+                                    </c:forEach>
+                                    <%i = 0;%>
                                 </ul>
                             </div>
 
@@ -528,7 +538,11 @@
 
 </body>
 <script type="text/javascript">
-
+    window.onload = function () {
+        var obj = document.getElementById("recommendItem");
+        obj.action = "/user/recommend/recommend";
+        obj.submit();
+    };
 
     function buy(id) {
         var t = $("#text_box");
