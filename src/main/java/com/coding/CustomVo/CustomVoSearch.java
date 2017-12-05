@@ -4,9 +4,7 @@ public class CustomVoSearch {
     private Integer limit;
     private Integer page;
     private String searchInput;
-
     private Integer sumPage;
-
     private Integer searchCount;
 
     public Integer getLimit() {

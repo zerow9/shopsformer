@@ -29,19 +29,19 @@
                 <div class="am-form-group">
                     <label for="user-old-password" class="am-form-label">原密码</label>
                     <div class="am-form-content">
-                        <input type="password" name="oldPassword" id="user-old-password" placeholder="请输入原登录密码">
+                        <input type="password" name="oldPassword" id="user-old-password" placeholder="请输入原登录密码" style="border-radius: 4px">
                     </div>
                 </div>
                 <div class="am-form-group">
                     <label for="user-new-password" class="am-form-label">新密码</label>
                     <div class="am-form-content">
-                        <input type="password" name="newPassword" id="user-new-password" placeholder="由数字、字母组合">
+                        <input type="password" name="newPassword" id="user-new-password" placeholder="由数字、字母组合" style="border-radius: 4px">
                     </div>
                 </div>
                 <div class="am-form-group">
                     <label for="user-confirm-password" class="am-form-label">确认密码</label>
                     <div class="am-form-content">
-                        <input type="password" name="userPassword" id="user-confirm-password" placeholder="请再次输入上面的密码">
+                        <input type="password" name="userPassword" id="user-confirm-password" placeholder="请再次输入上面的密码" style="border-radius: 4px">
                     </div>
                 </div>
                 <div class="info-btn">

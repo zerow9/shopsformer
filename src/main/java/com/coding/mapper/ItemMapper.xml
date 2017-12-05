@@ -568,4 +568,11 @@
         from information_schema.columns
         where table_name = 'item'
     </select>
+
+    <!--根据用户唯一ID查询用户推荐商品信息-->
+    <select id="selectRecommendItemByUserUuid" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs" >
+        SELECT i.* FROM item i join recommend r
+        where r.user_uuid = #{userUuid}
+              and i.item_id in (r.item_id1,r.item_id2,r.item_id3,r.item_id4)
+    </select>
 </mapper>

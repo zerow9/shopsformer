@@ -29,10 +29,10 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnYvRS0Osx9ZDGShH0ck0FlDCyxnwESENuKXvSke4VCXj0VzEDEfZawZZgTbizeePrRAosgpN4C0utuEye16dloF5HFJIF8Ig8WTj30hhx9J0IVqvDpJ3hkIZ6C0Qf41MzJZPOGFbSB3vvVbImUC7Lrjnpe/DryOIYAuDjh2trAeOIL0CAA+WSf7kGb/vDnHHr6EjgA0fGkKqqiteCoxb7c520lsIcZOpWnURee9X0XdqT98eUTu8thnpn/eYpaFE8Y+0+0/SHtXVFWYeeqap32ctKekiN+DEaeOQNB7mIJWCmpA9CVIVc2Qg35CPtsM+J9Ijo8+gogls5N/AmyYR4wIDAQAB";
 
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String notify_url =Constant.ADRRESS_POST+ "/public/common/notify_url.jsp";
+    public static String notify_url =Constant.ADDRESS_POST+ "/public/common/notify_url.jsp";
 
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String return_url = Constant.ADRRESS_POST+"/public/common/return_url.jsp";
+    public static String return_url = Constant.ADDRESS_POST+"/public/common/return_url.jsp";
 
     // 签名方式
     public static String sign_type = "RSA2";
