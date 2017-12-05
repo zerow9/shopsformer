@@ -487,6 +487,23 @@ public class UserServiceImpl extends ErrorExc implements IUserService {
         }
     }
 
+    public List<Item> selectRecommendItemByUserUuid(String userUuid,Integer number) throws Exception {
+        List<Item> items = null;
+        if (userUuid != null && !userUuid.equals("")) {
+            items = itemMapper.selectRecommendItemByUserUuid(userUuid);
+            if(items.size()<number){
+                PagingCustomItem pagingCustomItem = new PagingCustomItem();
+                pagingCustomItem.setIndexNumber(0);
+                pagingCustomItem.setPageNumber(number-items.size());
+                pagingCustomItem.setSortByColumn("item_sale_number");
+                pagingCustomItem.setSortRule("DESC");
+                List<Item> items1 = itemMapper.selectItem(pagingCustomItem);
+                items.addAll(items1);
+            }
+        }
+        return items;
+    }
+
     /*------------------------------------------订单表------------------------------------------------------------------*/
     @Transactional(rollbackFor = Exception.class)
     public void deleteOrderByPrimaryKey(Integer orderId) throws Exception {
