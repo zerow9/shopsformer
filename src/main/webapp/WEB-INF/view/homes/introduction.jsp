@@ -159,14 +159,7 @@
                                                         style="width:48px;height:28px;text-align: center">${item.itemFormat}</li>
                                                 </ul>
                                             </div>
-                                            <div class="theme-options">
-                                                <div class="cart-title">包装</div>
-                                                <ul>
-                                                    <li class="sku-line selected">手袋单人份<i></i></li>
-                                                    <li class="sku-line">礼盒双人份<i></i></li>
-                                                    <li class="sku-line">全家福礼包<i></i></li>
-                                                </ul>
-                                            </div>
+
                                             <div class="theme-options">
                                                 <div class="cart-title number">数量</div>
 
@@ -193,26 +186,7 @@
                         </dd>
                     </dl>
                     <div class="clear"></div>
-                    <!--活动	-->
-                    <div class="shopPromotion gold">
-                        <div class="hot">
-                            <dt class="tb-metatit">店铺优惠</dt>
-                            <div class="gold-list">
-                                <p>购物满2件打8折，满3件7折<span>点击领券<i class="am-icon-sort-down"></i></span></p>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="coupon">
-                            <dt class="tb-metatit">优惠券</dt>
-                            <div class="gold-list">
-                                <ul>
-                                    <li>125减5</li>
-                                    <li>198减10</li>
-                                    <li>298减20</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="pay">
                     <div class="pay-opt">
