@@ -109,4 +109,12 @@ public interface ItemMapper {
      * @throws Exception
      */
     public Integer insertItemSelectiveAndReturnItemId(Item item)throws Exception;
+
+    /**
+     * 根据用户唯一ID查询用户推荐商品信息
+     * @param userUuid 用户唯一ID
+     * @return 满足查询条件的商品列表
+     * @throws Exception
+     */
+    public List<Item> selectRecommendItemByUserUuid(@Param("userUuid") String userUuid)throws Exception;
 }
