@@ -293,7 +293,14 @@
                             <h2>看了又看</h2>
                         </div>
                         <c:if test="${empty recommendItems}">
-                            <span>请登录查看</span>
+                            <li>
+                                <div class="i-pic limit">
+                                    <p class="price fl">
+                                        <strong><span>请登录查看</span></strong>
+                                    </p>
+                                </div>
+                            </li>
+
                         </c:if>
                         <%int j = 0;%>
                         <c:forEach items="${recommendItems}" var="recommendItem">
@@ -480,10 +487,8 @@
                             <div class="like">
                                 <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
                                     <c:if test="${empty recommendItems}">
-
                                         <li>
                                             <div class="i-pic limit">
-                                                <br/>
                                                 <p class="price fl">
                                                     <strong><span>请登录查看</span></strong>
                                                 </p>
@@ -504,7 +509,7 @@
                                                         <p>${recommendItem.itemName}</p></a>
                                                     <p class="price fl">
                                                         <b>¥</b>
-                                                        <strong>${item.itemPrice}</strong>
+                                                        <strong>${recommendItem.itemPrice}</strong>
                                                     </p>
                                                 </div>
                                             </li>
