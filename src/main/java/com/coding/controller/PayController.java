@@ -112,6 +112,7 @@ public class PayController {
         Item item = new Item();
         item.setItemId(cartId);
         item.setRepertoryNumber(adminService.selectItemByPrimaryKey(cartId).getRepertoryNumber() - itemNumber);
+        item.setItemSaleNumber(item.getItemSaleNumber()+itemNumber);
         adminService.updateItemByPrimaryKey(item);
         double sum = cartGetCartDetail(cartId, null, cartDetails, itemNumber, uuid);
         session.setAttribute("cartIds", cartId);
